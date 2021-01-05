@@ -21,7 +21,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'LOCKSS Documentation Portal'
-copyright = '2000-2020, LOCKSS Program'
+copyright = '2000-2021, LOCKSS Program'
 author = 'LOCKSS Program'
 
 
@@ -66,4 +66,10 @@ html_static_path = ['_static']
 
 # See https://github.com/readthedocs/readthedocs.org/issues/2569
 master_doc = 'index'
+
+# See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
+html_theme_options = {
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-prev_next_buttons_location
+    'prev_next_buttons_location': 'none'
+}
 
