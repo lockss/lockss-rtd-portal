@@ -64,6 +64,11 @@ html_theme = 'sphinx_rtd_theme'
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
 
+# See https://docs.readthedocs.io/en/stable/guides/adding-custom-css.html
+html_css_files = [
+    'css/lockss.css',
+]
+
 # See https://github.com/readthedocs/readthedocs.org/issues/2569
 master_doc = 'index'
 
