@@ -8,6 +8,13 @@ This new LOCKSS Documentation Portal is slated to replace the LOCKSS Documentati
 
 .. toctree::
    :caption: LOCKSS Documentation Portal
+   :maxdepth: 4
+   :hidden:
+
+   security/index
+
+.. toctree::
+   :caption: LOCKSS Documentation Portal
    :maxdepth: 1
    :hidden:
 
