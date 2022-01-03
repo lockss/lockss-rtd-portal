@@ -7,10 +7,11 @@ LOCKSS Documentation Portal
 This new LOCKSS Documentation Portal is slated to replace the LOCKSS Documentation Portal currently found at `lockss.github.io <https://lockss.github.io>`_ in the near future.
 
 .. toctree::
-   :caption: Documentation Portal Sections
+   :caption: Sections
    :maxdepth: 4
    :hidden:
 
+   releases
    security/index
 
 .. toctree::
