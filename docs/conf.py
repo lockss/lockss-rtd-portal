@@ -21,7 +21,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'LOCKSS Documentation Portal'
-copyright = '2000-2021, LOCKSS Program'
+copyright = '2000-2022, LOCKSS Program'
 author = 'LOCKSS Program'
 
 
@@ -33,7 +33,9 @@ author = 'LOCKSS Program'
 extensions = [
     # See https://github.com/readthedocs/sphinx_rtd_theme
     'sphinx_rtd_theme',
-    'sphinx.ext.intersphinx'
+#    'sphinx.ext.autosectionlabel',
+    'sphinx.ext.intersphinx',
+    'sphinx_tabs.tabs',
 ]
 
 intersphinx_mapping = {
@@ -75,6 +77,17 @@ master_doc = 'index'
 # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
 html_theme_options = {
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-prev_next_buttons_location
-    'prev_next_buttons_location': 'none'
+    'prev_next_buttons_location': 'none',
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-collapse_navigation
+    'collapse_navigation': False,
 }
 
+# See https://sphinx-tabs.readthedocs.io/
+sphinx_tabs_disable_tab_closing = True
+
+# See https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#default-substitutions
+# and https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-today_fmt
+today_fmt = '%Y-%m-%d'
+
+# See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-smartquotes
+smartquotes = False
