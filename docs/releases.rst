@@ -6,7 +6,7 @@ Releases
 Stable Releases
 ---------------
 
-*  `LOCKSS Daemon 1.75.8 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-75-b8>`_ (2021-12-06)
+*  `LOCKSS Daemon 1.75.9 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-75-b9>`_ (2022-01-10)
 
 --------------------
 Development Releases
@@ -27,6 +27,8 @@ Archived Releases
 *  `LOCKSS 2.0-alpha1 </projects/manual/en/2.0-alpha1/>`_ (2019-05-13)
 
 *  `LOCKSS 2.0-alpha technology preview </projects/manual/en/2.0-alpha-preview/>`_ (2019-04-05)
+
+*  `LOCKSS Daemon 1.75.8 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-75-b8>`_ (2021-12-06)
 
 *  `LOCKSS Daemon 1.75.7 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-75-b7>`_ (2021-06-03)
 
