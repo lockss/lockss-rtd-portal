@@ -58,7 +58,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-# See https://github.com/readthedocs/sphinx_rtd_theme
+# See https://sphinx-rtd-theme.readthedocs.io/
 html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
@@ -80,6 +80,8 @@ html_theme_options = {
     'prev_next_buttons_location': 'none',
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-collapse_navigation
     'collapse_navigation': False,
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-style_external_links
+    'style_external_links': True,
 }
 
 # See https://sphinx-tabs.readthedocs.io/
