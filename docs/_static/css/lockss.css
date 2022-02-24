@@ -1,7 +1,13 @@
 /* See https://docs.readthedocs.io/en/stable/guides/remove-edit-buttons.html#remove-on-section-from-versions-menu */
-div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(3) {
+div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(1) { /* Versions */
     display: none;
 }
-div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(4) {
+div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(2) { /* Downloads */
+    display: block;
+}
+div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(3) { /* On Read the Docs */
+    display: none;
+}
+div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(4) { /* On GitHub */
     display: none;
 }
