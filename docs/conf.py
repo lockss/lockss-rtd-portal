@@ -33,7 +33,7 @@ author = 'LOCKSS Program'
 extensions = [
     # See https://github.com/readthedocs/sphinx_rtd_theme
     'sphinx_rtd_theme',
-#    'sphinx.ext.autosectionlabel',
+    'sphinx.ext.autosectionlabel',
     'sphinx.ext.intersphinx',
     'sphinx_tabs.tabs',
 ]
@@ -80,6 +80,8 @@ html_theme_options = {
     'prev_next_buttons_location': 'none',
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-collapse_navigation
     'collapse_navigation': False,
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-navigation_depth
+    'navigation_depth': -1,
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-style_external_links
     'style_external_links': True,
 }
