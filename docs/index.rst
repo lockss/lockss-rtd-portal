@@ -28,3 +28,11 @@ This new LOCKSS Documentation Portal is slated to replace the LOCKSS Documentati
    LOCKSS 1.x System Manual <https://lockss.github.io/administrators/classic-lockss/>
    LOCKSS 2.x System Manual <https://lockss.readthedocs.io/projects/manual/>
    plugin/index
+
+.. only:: html
+
+   .. toctree::
+      :caption: Navigation
+      :hidden:
+
+      « LOCKSS Web Site <https://www.lockss.org/>
