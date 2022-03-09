@@ -33,9 +33,16 @@ author = 'LOCKSS Program'
 extensions = [
     # See https://github.com/readthedocs/sphinx_rtd_theme
     'sphinx_rtd_theme',
+
+    # See https://www.sphinx-doc.org/en/master/usage/extensions/index.html
     'sphinx.ext.autosectionlabel',
     'sphinx.ext.intersphinx',
+
+    # See https://github.com/executablebooks/sphinx-tabs
     'sphinx_tabs.tabs',
+
+    # See https://github.com/sphinx-contrib/email
+    'sphinxcontrib.email',
 ]
 
 intersphinx_mapping = {
