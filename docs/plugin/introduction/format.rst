@@ -131,7 +131,7 @@ Long Integer
 ============
 
 XML Element
-   ``<int>``
+   ``<long>``
 
 Description
    A long integer value. Represented internally as a 64-bit integer.
