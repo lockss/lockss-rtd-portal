@@ -17,18 +17,18 @@ This new LOCKSS Documentation Portal is slated to replace the LOCKSS Documentati
    releases
    security/index
    license
-   developers/index
 
 .. raw:: latex
 
-   \part{LOCKSS Manuals}
+   \part{LOCKSS Guides}
 
 .. toctree::
-   :caption: LOCKSS Manuals
+   :caption: LOCKSS Guides
    :hidden:
 
    LOCKSS 1.x System Manual <https://lockss.github.io/administrators/classic-lockss/>
    LOCKSS 2.x System Manual <https://lockss.readthedocs.io/projects/manual/>
+   developers/index
    plugin/index
 
 .. only:: html

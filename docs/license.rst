@@ -1,6 +1,6 @@
-================
-Software License
-================
+=======
+License
+=======
 
 Unless otherwise noted, LOCKSS software is made available under the 3-Clause BSD License.
 

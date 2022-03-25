@@ -1,12 +1,12 @@
-==============================
-LOCKSS Plugin Developer Manual
-==============================
+=============================
+LOCKSS Plugin Developer Guide
+=============================
 
 .. note::
 
-   This manual is under construction.
+   This guide is under construction.
 
-**Welcome to the LOCKSS Plugin Developer Manual.**
+**Welcome to the LOCKSS Plugin Developer Guide.**
 
 .. only:: html
 

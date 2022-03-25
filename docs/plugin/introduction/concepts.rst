@@ -36,7 +36,7 @@ A LOCKSS plugin is expressed as a mapping from keys to values. Except for rare e
 Plugin Feature Categories
 -------------------------
 
-This manual groups plugin components into conceptual categories, which are introduced briefly in subsections below and have a dedicated section each in this manual:
+This guide groups plugin components into conceptual categories, which are introduced briefly in subsections below and have a dedicated section each in this guide:
 
 *  :ref:`Identification Features`: features related to the identification, versioning and parameterization of the plugin.
 
@@ -240,7 +240,7 @@ If the preserved content consists of non-static HTML Web pages, it will likely n
 
 *  Hash filters.
 
-Use of other aspects is situation-dependent, varying in need based on characteristics and behavior of the preservation target. This manual gives some guidance about when certain components are needed and to what purpose.
+Use of other aspects is situation-dependent, varying in need based on characteristics and behavior of the preservation target. This guide gives some guidance about when certain components are needed and to what purpose.
 
 ------------------------------------------------------
 Plugin Compatibility Between LOCKSS 1.x and LOCKSS 2.x
