@@ -17,6 +17,7 @@ This new LOCKSS Documentation Portal is slated to replace the LOCKSS Documentati
    releases
    security/index
    license
+   acknowledgments
 
 .. raw:: latex
 
