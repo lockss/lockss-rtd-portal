@@ -12,3 +12,4 @@ This part of the LOCKSS Documentation Portal contains information aimed at softw
    :hidden:
 
    license-templates
+   apis/index
