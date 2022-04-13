@@ -1,5 +1,20 @@
+# Sphinx itself
+# https://pypi.org/project/Sphinx/
+# https://www.sphinx-doc.org/
 sphinx
+
+# The Sphinx theme by Read The Docs
+# https://pypi.org/project/sphinx-rtd-theme/
+# https://sphinx-rtd-theme.readthedocs.io/
 sphinx-rtd-theme
+
+# The sphinx_tabs.tabs extension, to make tabbed panes
+# https://pypi.org/project/sphinx-tabs/
+# https://sphinx-tabs.readthedocs.io/
 sphinx-tabs
+
+# The sphinxcontrib.email extension, to obfuscate mailto links
+# https://pypi.org/project/sphinxcontrib-email/
+# https://github.com/sphinx-contrib/email
 sphinxcontrib-email
 
