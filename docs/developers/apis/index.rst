@@ -12,5 +12,6 @@ to produce clients and server stubs in a variety of languages and frameworks, an
 
    laaws-repository-service
    laaws-configuration-service
+   laaws-poller-service
    laaws-metadata-extraction-service
    laaws-metadata-service

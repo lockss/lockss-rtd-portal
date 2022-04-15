@@ -61,7 +61,9 @@ paths:
         - name: body
           in: body
           required: true
+          description: "description"
           schema:
+            description: "description"
             $ref: '#/definitions/PollDesc'
       responses:
         '202':
@@ -147,6 +149,7 @@ paths:
           description: Internal Server Error
     parameters:
       - name: psId
+        description: "description"
         in: path
         required: true
         type: string
@@ -175,6 +178,7 @@ paths:
       tags:
         - "poll-detail"
       summary: Page Tally
+      description: Return the vote tallies for a specific poll.
       operationId: getTallyUrls
       produces:
         - application/json
@@ -207,15 +211,19 @@ paths:
             $ref: '#/definitions/UrlPager'
           headers:
             X-Page-Count:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Number:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Size:
+              description: "description"
               type: integer
               x-example: 25
             X-Total-Count:
+              description: "description"
               type: integer
               x-example: 50
         '404':
@@ -233,6 +241,7 @@ paths:
       tags:
         - "poll-detail"
       summary: Poll Repairs
+      description: Return the repair status for a specific poll.
       operationId: getRepairQueueData
       produces:
         - application/json
@@ -263,15 +272,19 @@ paths:
             $ref: '#/definitions/RepairPager'
           headers:
             X-Page-Count:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Number:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Size:
+              description: "description"
               type: integer
               x-example: 25
             X-Total-Count:
+              description: "description"
               type: integer
               x-example: 50
         '404':
@@ -289,6 +302,7 @@ paths:
       tags:
         - "poll-detail"
       summary: Poll Peer Data
+      description: Return the list of urls of vote type for a given peer in a specific poll.
       operationId: getPollPeerVoteUrls
       produces:
         - application/json
@@ -320,15 +334,19 @@ paths:
             $ref: '#/definitions/UrlPager'
           headers:
             X-Page-Count:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Number:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Size:
+              description: "description"
               type: integer
               x-example: 25
             X-Total-Count:
+              description: "description"
               type: integer
               x-example: 50
         '404':
@@ -379,15 +397,19 @@ paths:
             $ref: '#/definitions/PollerPager'
           headers:
             X-Page-Count:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Number:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Size:
+              description: "description"
               type: integer
               x-example: 25
             X-Total-Count:
+              description: "description"
               type: integer
               x-example: 50
         '401':
@@ -399,7 +421,6 @@ paths:
       tags:
         - "poller-polls"
       summary: PollerDetails
-      
       operationId: getPollerPollDetails
       produces:
         - application/json
@@ -455,15 +476,19 @@ paths:
             $ref: '#/definitions/VoterPager'
           headers:
             X-Page-Count:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Number:
+              description: "description"
               type: integer
               x-example: 1
             X-Page-Size:
+              description: "description"
               type: integer
               x-example: 25
             X-Total-Count:
+              description: "description"
               type: integer
               x-example: 50
         '401':
@@ -719,6 +744,7 @@ paths:
           required: true
           schema:
             $ref: '#/definitions/hasherWsParams'
+          description: "description"
         - name: "isAsynchronous"
           in: "query"
           required: false
@@ -846,6 +872,7 @@ paths:
         '200':
           description: Information about the requested TDB AUs
           schema:
+            description: "description"
             type: array
             items:
               $ref: '#/definitions/repositorySpaceWsResult'
@@ -868,6 +895,7 @@ definitions:
       - status
     properties:
       pollDesc:
+        description: "description"
         $ref: '#/definitions/PollDesc'
       pollerId:
         type: string
@@ -933,8 +961,10 @@ definitions:
         items:
           type: string
       tally:
+        description: "description"
         $ref: '#/definitions/TallyData'
       repairQueue:
+        description: "description"
         $ref: '#/definitions/RepairQueue'
     description: The details of a poll being performed or queued by the Poller
   VoterDetail:
@@ -945,13 +975,14 @@ definitions:
       - status
     properties:
       pollDesc:
+        description: "description"
         $ref: '#/definitions/PollDesc'
       pollerId:
         type: string
         description: The id of the voter in the poll
       callerId:
-         type: string
-         description: The id of the poller who called the poll
+        type: string
+        description: The id of the poller who called the poll
       status:
         type: string
         description: The current status of the poll.
@@ -1041,22 +1072,30 @@ definitions:
       numAgree:
         type: integer
         format: int64
+        description: "description"
       agreeLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numDisagree:
         type: integer
         format: int64
+        description: "description"
       disagreeLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numPollerOnly:
         type: integer
         format: int64
+        description: "description"
       pollerOnlyLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numVoterOnly:
         type: integer
         format: int64
+        description: "description"
       voterOnlyLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       bytesHashed:
         type: integer
@@ -1108,30 +1147,35 @@ definitions:
         format: int32
         description: The number of urls with agreement.
       agreeLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numDisagree:
         type: integer
         format: int32
         description: The number of urls with disagreement.
       disagreeLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numTooClose:
         type: integer
         format: int32
         description: The number of urls too close.
       tooCloseLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numNoQuorum:
         type: integer
         format: int32
         description: The number of urls without enough voters.
       noQuorumLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numError:
         type: integer
         format: int32
         description: The number of urls without errors.
       errorLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       wtAgreed:
         type: number
@@ -1166,18 +1210,21 @@ definitions:
         format: int32
         description: The number of pending repairs
       pendingLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numActive:
         type: integer
         format: int32
         description: The number of active repairs
       activeLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
       numCompleted:
         type: integer
         format: int32
         description: The number of completed repairs
       completedLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
     description: Description of the RepairQueue.
   RepairData:
@@ -1211,6 +1258,7 @@ definitions:
       - pageDesc
     properties:
       pageDesc:
+        description: "description"
         $ref: '#/definitions/PageDesc'
       repairs:
         type: array
@@ -1224,6 +1272,7 @@ definitions:
       - pageDesc
     properties:
       pageDesc:
+        description: "description"
         $ref: '#/definitions/PageDesc'
       urls:
         type: array
@@ -1237,6 +1286,7 @@ definitions:
       - pageDesc
     properties:
       pageDesc:
+        description: "description"
         $ref: '#/definitions/PageDesc'
       polls:
         type: array
@@ -1299,6 +1349,7 @@ definitions:
         type: string
         description: Key generated by poll manager when poll was created.
       detailLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
     description: A summary of a poll in which we are the poller.
   VoterSummary:
@@ -1332,6 +1383,7 @@ definitions:
         type: string
         description: Key generated by poll manager when poll was created.
       detailLink:
+        description: "description"
         $ref: '#/definitions/LinkDesc'
     description: A summary of a poll in which we are acting just as a voter.
   VoterPager:
@@ -1340,6 +1392,7 @@ definitions:
       - pageDesc
     properties:
       pageDesc:
+        description: "description"
         $ref: '#/definitions/PageDesc'
       polls:
         type: array
@@ -1356,6 +1409,7 @@ definitions:
         type: string
         description: The id which defines the poll
       cuSetSpec:
+        description: "description"
         $ref: '#/definitions/CachedUriSetSpec'
       pollType:
         type: integer
@@ -1436,6 +1490,7 @@ definitions:
         type: string
         description: A description of this link
         example: pollerOnly
+    description: "description"
   pollWsResult:
     type: "object"
     required:
