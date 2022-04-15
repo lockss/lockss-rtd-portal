@@ -112,6 +112,9 @@ html_css_files = [
 # See https://github.com/readthedocs/readthedocs.org/issues/2569
 master_doc = 'index'
 
+# See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_logo
+html_logo = 'images/lockss-logo-v2-200w.png'
+
 # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html
 html_theme_options = {
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-prev_next_buttons_location
