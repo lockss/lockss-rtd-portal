@@ -73,7 +73,7 @@ Links
 
    Link text and URL together:
 
-      Click `here <https://www.example.com/>_ for details.
+      Click `here <https://www.example.com/>`_ for details.
 
    Link text inline and URL elsewhere:
 
@@ -150,7 +150,7 @@ The following directives can have arbitrary bodies (indented with 3 spaces).
 
 .. code-block:: rst
 
-   Creates a box with an icon, colored background, and the implied heading (e.g. `Warning` for `.. warning::`):
+   Creates a box with an icon, colored background, and the implied heading (e.g. ``Warning`` for ``.. warning::``):
 
    .. attention::
    .. caution::
