@@ -1,4 +1,4 @@
-You can check if Git is installed on your system by typing ``git --version`` at the command line and seeing if you get a valid response. If you need to install Git, select your operating system below and follow the instructions (as ``root``):
+You can check if Git is installed on your system by typing ``git --version`` at the command line and seeing if you get a valid response. If you need to install Git, select your operating system below and follow the instructions (as ``root``, unless otherwise noted):
 
 .. COMMENT OSTABS
 
@@ -51,6 +51,18 @@ You can check if Git is installed on your system by typing ``git --version`` at 
    .. group-tab:: Linux Mint
 
       .. include:: git-apt.rst
+
+   .. group-tab:: MacOS
+
+      .. tabs::
+
+         .. group-tab:: Homebrew
+
+            .. include:: git-brew.rst
+
+         .. group-tab:: MacPorts
+
+            .. include:: git-port.rst
 
    .. group-tab:: OpenSUSE
 
