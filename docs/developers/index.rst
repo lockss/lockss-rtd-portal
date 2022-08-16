@@ -10,6 +10,8 @@ This part of the LOCKSS Documentation Portal contains information aimed at softw
 
 .. toctree::
    :hidden:
+   :numbered:
 
+   classic
    license-templates
    apis/index
