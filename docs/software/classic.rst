@@ -43,6 +43,22 @@ Installing Apache Ant
 
 .. include:: ant.rst
 
+--------------------------
+Cloning the Git Repository
+--------------------------
+
+To clone the ``lockss-daemon`` repository from Git, use one of these commands:
+
+.. code-block:: shell
+
+   # GitHub account with SSH key
+   git clone git@github.com:lockss/lockss-daemon
+
+   # Anonymous access
+   git clone https://github.com/lockss/lockss-daemon
+
+This will create a :file:`lockss-daemon` directory.
+
 Additional Prerequisites
 ========================
 
