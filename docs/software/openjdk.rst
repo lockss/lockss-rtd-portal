@@ -1,6 +1,6 @@
 You can check if a Java Development Kit (JDK) is installed on your system by typing ``javac -version`` at the command line and seeing if you get a valid response. (The version numbers output by Java 8 software sometimes use the notation 1.8, for example ``1.8.0_332``.)
 
-If you need to install a JDK, we recommend OpenJDK; select your operating system below and follow the instructions (as ``root``, unless otherwise noted):
+If you need to install a JDK, we recommend OpenJDK; select your operating system below and follow the instructions (as ``root``, except for Homebrew on MacOS):
 
 .. COMMENT OSTABS
 

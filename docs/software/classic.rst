@@ -1,6 +1,6 @@
-===================================================
-Setting Up a Classic LOCKSS Development Environment
-===================================================
+==========================
+Classic LOCKSS Development
+==========================
 
 .. note::
 
@@ -12,13 +12,15 @@ The code base of the Classic LOCKSS system (version 1.x) is contained in a singl
 Prerequisites
 -------------
 
+To do development work with the Classic LOCKSS system (version 1.x), you will need:
+
 *  `Git <https://git-scm.com/>`_
 
-*  Java 8 (JDK 8)
+*  Java 8 Development Kit (JDK 8), for example `OpenJDK <https://openjdk.org/>`_ 8
 
 *  `Apache Ant <https://ant.apache.org/>`_
 
-*  Python 3
+*  `Python <https://www.python.org/>`_ 3
 
    .. note::
 
@@ -28,6 +30,8 @@ Installing Git
 ==============
 
 .. include:: git.rst
+
+.. _installing-openjdk:
 
 Installing the Java Development Kit
 ===================================
@@ -51,7 +55,3 @@ Additional Prerequisites
    .. tip::
 
       Most Linux systems have :program:`zip` and :program:`unzip` installed by default.
-
-.. note::
-
-   This page is under construction.

@@ -2,7 +2,11 @@
 LOCKSS Software Developer Guide
 ===============================
 
-This part of the LOCKSS Documentation Portal contains information aimed at software developers.
+.. note::
+
+   The LOCKSS Software Developer Guide is under construction.
+
+**Welcome to the LOCKSS Software Developer Guide.** This section of the LOCKSS Documentation Portal contains information aimed at software developers.
 
 .. only:: html
 

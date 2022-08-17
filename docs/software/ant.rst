@@ -1,4 +1,4 @@
-You can check if Ant is installed on your system by typing ``ant -version`` at the command line and seeing if you get a valid response. If you need to install Ant, select your operating system below and follow the instructions (as ``root``, unless otherwise noted):
+You can check if Ant is installed on your system by typing ``ant -version`` at the command line and seeing if you get a valid response. If you need to install Ant, select your operating system below and follow the instructions (as ``root``, except for Homebrew on MacOS):
 
 .. COMMENT OSTABS
 
