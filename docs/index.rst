@@ -8,10 +8,10 @@ This new LOCKSS Documentation Portal is slated to replace the LOCKSS Documentati
 
 .. raw:: latex
 
-   \part{General Documentation}
+   \part{General Information}
 
 .. toctree::
-   :caption: General Documentation
+   :caption: General Information
    :hidden:
 
    releases
