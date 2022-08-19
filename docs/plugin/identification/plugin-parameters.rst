@@ -44,9 +44,9 @@ Sample
         </entry>
 
 Description
-   A list of configuration parameter descriptors, defining the placeholders in use in the plugin's rules and code.
+   A list of **configuration parameter descriptors**, defining the placeholders in use in the plugin's rules and code.
 
-   A plugin's rules and code (start and permission URLs, crawl rules, substance patterns...) are made general by identifying placeholders for AU-specific values and substituting them later. These placeholders for variable values are called plugin configuration parameters.
+   A plugin's rules and code (start and permission URLs, crawl rules, substance patterns...) are made general by identifying placeholders for AU-specific values and substituting them later. These placeholders for variable values are called **plugin configuration parameters**.
 
    Defining the necessary configuration parameters for a given plugin comes mostly from studying the URL structure of the preservation target, finding patterns, and identifying the parts of those patterns that differ between Archival Units.
 
@@ -71,7 +71,7 @@ Structure
 
    *  ``<key>``: the **parameter key**, an identifier for the configuration parameter, standing in as a placeholder for the AU-specific value in rules and code. Example: ``base_url`` for a base URL (URL prefix common to all or most URLs in an AU).
 
-   *  ``<type>``: the **parameter type**, an integer describing the type of value the configuration parameter represents (string, integer, etc.). See the :ref:`Parameter Types` section below for details.
+   *  ``<type>``: the **parameter type**, an integer describing the type of value the configuration parameter represents (string, integer, etc.). See :ref:`Parameter Types` below for details.
 
    *  ``<definitional>``: whether the parameter is a **definitional parameter** or **non-definitional parameter**, expressed as the booleans ``true`` or ``false``. Most parameters are definitional (``true``), meaning the parameter is part of the set of parameters that together form the unique identity of the AU.
 
@@ -113,7 +113,7 @@ Parameter Type Code Parameter Type
 String
 ======
 
-Type Code
+Parameter Type Code
    ``1``
 
 Description
@@ -125,7 +125,7 @@ Built-In Examples
 URL
 ===
 
-Type Code
+Parameter Type Code
    ``3``
 
 Description
@@ -134,10 +134,13 @@ Description
 Built-In Examples
    :ref:`Base URL`, :ref:`Second Base URL`, :ref:`OAI Request URL`
 
+See Also
+   :ref:`Derivative URL Parameters`
+
 User Credentials
 ================
 
-Type Code
+Parameter Type Code
    ``10``
 
 Description
@@ -151,7 +154,7 @@ Built-In Examples
 Integer
 =======
 
-Type Code
+Parameter Type Code
    ``2``
 
 Description
@@ -160,7 +163,7 @@ Description
 Non-Negative Integer
 ====================
 
-Type Code
+Parameter Type Code
    ``6``
 
 Description
@@ -174,7 +177,7 @@ Built-In Examples
 Long Integer
 ============
 
-Type Code
+Parameter Type Code
    ``11``
 
 Description
@@ -185,7 +188,7 @@ Description
 Year
 ====
 
-Type Code
+Parameter Type Code
    ``4``
 
 Description
@@ -194,10 +197,13 @@ Description
 Built-In Examples
    :ref:`year-param`
 
+See Also
+   :ref:`Derivative Year Parameters`
+
 Time Interval
 =============
 
-Type Code
+Parameter Type Code
    ``12``
 
 Description
@@ -211,7 +217,7 @@ Built-In Examples
 String Range
 ============
 
-Type Code
+Parameter Type Code
    ``7``
 
 Description
@@ -225,7 +231,7 @@ Built-In Examples
 Numeric Range
 =============
 
-Type Code
+Parameter Type Code
    ``8``
 
 Description
@@ -237,7 +243,7 @@ Built-In Examples
 Set
 ===
 
-Type Code
+Parameter Type Code
    ``9``
 
 Description
@@ -251,7 +257,7 @@ Built-In Examples
 Boolean
 =======
 
-Type Code
+Parameter Type Code
    ``5``
 
 Description
@@ -816,3 +822,33 @@ Canonical Form
 
 Description
    This non-definitional parameter is used in special circumstances, for networks set up to perform abbreviated test crawls.
+
+---------------------
+Derivative Parameters
+---------------------
+
+For parameters of type :ref:`URL` and :ref:`year-type`, the system automatically brings into existence **derivative parameters** with special names, as if those parameters had also been defined by the plugin.
+
+.. tip::
+
+   Derivative parameters have fallen out of favor. The contemporary way to achieve the same effect is through **parameter functors**.
+
+Derivative URL Parameters
+=========================
+
+For any parameter of type :ref:`URL` with key :samp:`{urlkey}`, the following derivative parameters are automatically defined:
+
+*  :samp:`{urlkey}_host` of type :ref:`string-type`, whose value is just the host portion of the corresponding URL value. For example, if ``base_url`` has a value of ``https://www.publisher.com/jabc/``, ``base_url_host`` has a value of ``www.publisher.com``.
+
+*  :samp:`{urlkey}_path` of type :ref:`string-type`, whose value is just the path portion of the corresponding URL value. For example, if ``base_url`` has a value of ``https://www.publisher.com/jabc/``, ``base_url_path`` has a value of ``/jabc/``.
+
+Derivative Year Parameters
+==========================
+
+For any parameter of type :ref:`year-type` with key :samp:`{yearkey}`, the following derivative parameter is automatically defined:
+
+*  :samp:`au_short_{yearkey}` of type :ref:`integer-type`, whose value is the corresponding year value modulo 100. For example, if ``year`` has a value of ``1998``, ``au_short_year`` has a value of ``98``; if ``year`` has a value of ``2002``, ``au_short_year`` has a value of ``2`` (the integer ``2``, not the string ``02``.
+
+   .. tip::
+
+      In many cases, what is useful is the zero-padded, two-character string from the derivative short year, not the potentially single-digit integer; use ``%02d`` in the ``printf`` format string.

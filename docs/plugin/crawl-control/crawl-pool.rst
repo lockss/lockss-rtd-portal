@@ -21,4 +21,4 @@ Description
 
    *  :samp:`host:{urlparamkey}`: The pool name is the string ``host:`` followed by the value of the AU's parameter named :samp:`{urlparamkey}`. If there is no such parameter, or if the parameter is not of type :ref:`URL`, the default crawl pool scheme applies.
 
-   *  :samp:`title_attribute:{auattrkey}` and :samp:`title_attribute:{auattrkey}:{dflt}`: The pool name is the string ``attr:`` is the value of the AU's attribute named :samp:`{auattrkey}`. When the attribute is unset, if the longer form is used then use :samp:`{dflt}` as the value instead; otherwise the default crawl pool scheme applies.
+   *  :samp:`title_attribute:{auattrkey}` and :samp:`title_attribute:{auattrkey}:{dflt}`: The pool name is the string ``attr:`` followed by the value of the AU's attribute named :samp:`{auattrkey}`. When the attribute is unset, if the longer form is used then use :samp:`{dflt}` as the value instead; otherwise the default crawl pool scheme applies.

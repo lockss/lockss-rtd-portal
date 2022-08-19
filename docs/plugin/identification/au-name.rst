@@ -8,7 +8,8 @@ Plugin Key
 Plugin Value Type
    :ref:`string-value`
 
-   The value is a `printf` format string, which can use plugin configuration parameter keys (e.g. ``base_url``, ``journal_issn``, ``volume_name``) as values.
+Plugin Value Format
+   The value is a ``printf`` format string, that expands to a string. The `printf` format string can use plugin configuration parameter keys (e.g. ``base_url``, ``journal_issn``, ``volume_name``) as values.
 
 Sample
    .. code-block:: xml

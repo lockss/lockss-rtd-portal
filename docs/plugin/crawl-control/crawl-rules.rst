@@ -8,7 +8,14 @@ Plugin Key
 Plugin Value Type
    :ref:`List` of :ref:`string-value`
 
-   The strings consist of an integer crawl rule code, followed by a comma, followed by a ``printf`` format string accepting expressions made of plugin configuration parameter keys and a small language of functions modifying them (e.g. ``url_host(...)`` applied to a plugin configuration parameter of type :ref:`URL`, resulting in the host portion of the URL). The `printf` format string expands to a **regular expression**.
+Plugin Value Format
+   The strings consist of:
+
+   *  An integer crawl rule code,
+
+   *  A comma,
+
+   *  A ``printf`` format string that expands into a regular expression used to match against URLs. The ``printf`` format string accepts expressions made of plugin configuration parameter keys and a small language of functions modifying them (e.g. ``url_host(...)`` applied to a plugin configuration parameter of type :ref:`URL`, resulting in the host portion of the URL).
 
 Sample
    .. code-block:: xml

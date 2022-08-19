@@ -12,7 +12,8 @@ Plugin Value Type
 
    *  :ref:`List` of :ref:`string-value`
 
-   The strings are ``printf`` format strings, accepting expressions made of plugin configuration parameter keys and a small language of functions modifying them (e.g. ``url_host(...)`` applied to a plugin configuration parameter of type URL, resulting in the host portion of the URL).
+Plugin Value Format
+   The strings are ``printf`` format strings, that expand to URLs. The ``printf`` format strings accept expressions made of plugin configuration parameter keys and a small language of functions modifying them (e.g. ``url_host(...)`` applied to a plugin configuration parameter of type URL, resulting in the host portion of the URL).
 
 Sample
    .. code-block:: xml

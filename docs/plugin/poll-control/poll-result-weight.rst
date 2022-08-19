@@ -8,7 +8,12 @@ Plugin Key
 Plugin Value Type
    *  :ref:`List` of :ref:`string-value`
 
-   Each string in the list is a regular expression and a weight between 0.0 and 1.0, separated by a comma.
+Plugin Value Format
+   Each string in the list consists of:
+
+   *  A regular expression,
+   *  A comma,
+   *  A weight between 0.0 and 1.0.
 
 Sample
    .. code-block:: xml

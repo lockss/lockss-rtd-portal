@@ -22,7 +22,7 @@ Description
    This name is only displayed in a few places in the LOCKSS Web user interface, for instance in the Plugins table.
 
 Example
-   In the Global LOCKSS Netowrk (GLN), the plugin to process volumes of journals by Oxford University Press (OUP) hosted on the Silverchair platform has the name ``Oxford University Press Journals Plugin``.
+   In the Global LOCKSS Network (GLN), the plugin to process volumes of journals by Oxford University Press (OUP) hosted on the Silverchair platform has the name ``Oxford University Press Journals Plugin``.
 
    .. code-block:: xml
 

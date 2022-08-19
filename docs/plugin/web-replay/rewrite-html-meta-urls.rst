@@ -1,6 +1,6 @@
-=====================
-Rewrite Meta Tag URLs
-=====================
+======================
+Rewrite HTML Meta URLs
+======================
 
 .. note::
 
@@ -12,6 +12,7 @@ Plugin Key
 Plugin Value Type
    :ref:`List` of :ref:`string-value`
 
+Plugin Value Type
    Each string in the list is a value of the ``name`` attribute of HTML ``<meta>`` tags.
 
 Sample

@@ -8,8 +8,9 @@ Plugin Key
 Plugin Value Type
    :ref:`Map` from :ref:`string-value` to :ref:`string-value`
 
-   .. COMMENT FIXME what are the keys?
+.. COMMENT FIXME what are the keys?
 
+Plugin Value Type
    The values are the fully-qualified name of a Java class implementing the ``org.lockss.extractor.FileMetadataExtractorFactory`` interface.
 
 Sample

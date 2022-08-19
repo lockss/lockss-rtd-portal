@@ -8,7 +8,8 @@ Plugin Key
 Plugin Value Type
    :ref:`string-value`
 
-   The value is the :doc:`../identification/plugin-identifier` of this plugin's parent.
+Plugin Value Format
+   The value is the :ref:`Plugin Identifier` of this plugin's parent.
 
 Sample
    .. code-block:: xml

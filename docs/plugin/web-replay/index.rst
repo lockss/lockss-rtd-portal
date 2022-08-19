@@ -8,4 +8,4 @@ This section introduces plugin features related to supporting the replay of Web 
    :hidden:
 
    link-rewriter
-   rewrite-meta-tag-urls
+   rewrite-html-meta-urls

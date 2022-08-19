@@ -12,6 +12,7 @@ Plugin Key
 Plugin Value Type
    :ref:`string-value`
 
+Plugin Value Format
    The value is the fully-qualified name of a Java class that implements the ``org.lockss.plugin.UrlNormalizer`` interface.
 
 Sample

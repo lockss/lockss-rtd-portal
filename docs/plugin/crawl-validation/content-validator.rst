@@ -7,11 +7,12 @@ Content Validator
    This page is under construction.
 
 Plugin Key
-   :samp:`{mediatype}_content_validator_factory`, where :samp:`{mediatype}` is a media type like ``application/pdf``
+   :samp:`{mediatype}_content_validator_factory`, where :samp:`{mediatype}` is a media type like :mimetype:`application/pdf`
 
 Plugin Value Type
    :ref:`string-value`
 
+Plugin Value Format
    The value is the fully qualified name of a Java class implementing the ``org.lockss.plugin.ContentValidatorFactory`` interface, which is a factory for the ``org.lockss.plugin.ContentValidator`` interface.
 
 Sample

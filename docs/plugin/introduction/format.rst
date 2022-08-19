@@ -2,11 +2,11 @@
 LOCKSS Plugin Format
 ====================
 
-A LOCKSS plugin is expressed as a mapping from keys to values. Except for rare exceptions that are built into the LOCKSS software, LOCKSS plugins consist of an **XML file** containing these key-value pairs, accompanied by optional **Java class files** (compiled Java code), bundled together in a **JAR file** (a Zip file of Java class files and associated metadata).
+A LOCKSS plugin is expressed as a mapping from keys to values. Except for rare exceptions that are built into the LOCKSS software, LOCKSS plugins consist of an **XML file** containing these key-value pairs, accompanied by optional **Java class files** (compiled Java code), bundled together in a **JAR file** (a Java-specific Zip file).
 
-The XML format of the plugin is a single ``<map>`` element, containing any number of **map entries** expressed as ``<entry>`` elements. Each map entry is a key-value pair, namely a **plugin key** which must be the first child of the ``<entry>`` element and must be of type :ref:`string-value`, and a **plugin value** which must be the second child of the ``<entry>`` element. See the :numref:`Plugin Value Types` section for more about possible plugin values.
+The XML format of the plugin is a single ``<map>`` element, containing any number of **map entries** expressed as ``<entry>`` elements. Each map entry is a key-value pair, namely a **plugin key** which must be the first child of the ``<entry>`` element and must be of type :ref:`string-value`, and a **plugin value** which must be the second child of the ``<entry>`` element. See the :ref:`Plugin Value Types` for more about possible plugin values.
 
-The order of the key-value pairs does not matter, but the effect of specifying the same key in more than one map entry is undefined.
+The order of the key-value pairs does not matter. The effect of specifying multiple entries with the same key is undefined.
 
 Example:
 
@@ -189,7 +189,6 @@ Example
               <string>value3</string>
             </entry>
           </map>
-        </entry>
 
 ----
 

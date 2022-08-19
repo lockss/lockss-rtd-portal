@@ -7,11 +7,12 @@ Link Extractor
    This page is under construction.
 
 Plugin Key
-   :samp:`{mediatype}_link_extractor_factory`, where :samp:`{mediatype}` is a media type like ``text/html``
+   :samp:`{mediatype}_link_extractor_factory`, where :samp:`{mediatype}` is a media type like :mimetype:`text/html`
 
 Plugin Value Type
    :ref:`string-value`
 
+Plugin Value Format
    The value is the fully qualified name of a Java class implementing the ``org.lockss.plugin.LinkExtractorFactory`` interface.
 
 Sample

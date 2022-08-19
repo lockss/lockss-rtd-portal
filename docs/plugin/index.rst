@@ -6,14 +6,10 @@ LOCKSS Plugin Developer Guide
 
    The LOCKSS Plugin Developer Guide is under construction.
 
-**Welcome to the LOCKSS Plugin Developer Guide.** This section of the LOCKSS Documentation Portal contains information aimed at developers of LOCKSS plugins.
-
-.. only:: html
-
-   Use the menu to navigate to the section of your choice.
+**Welcome to the LOCKSS Plugin Developer Guide.** This section of the LOCKSS Documentation Portal contains information aimed at developers and maintainers of LOCKSS plugins.
 
 .. toctree::
-   :hidden:
+   :caption: Table of Contents
    :numbered:
 
    introduction/index

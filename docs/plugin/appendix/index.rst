@@ -2,10 +2,10 @@
 Appendix
 ========
 
-This appendix gives a brief overview of :doc:`printf-format-strings` and :doc:`regular-expressions`.
+This appendix gives a brief overview of :doc:`printf` and :doc:`regex`.
 
 .. toctree::
    :hidden:
 
-   printf-format-strings
-   regular-expressions
+   printf
+   regex

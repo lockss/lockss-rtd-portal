@@ -12,7 +12,8 @@ Plugin Key
 Plugin Value Type
    :ref:`string-value`
 
-   The strings are ``printf`` format strings, accepting expressions made of plugin configuration parameter keys.
+Plugin Value Type
+   The strings are ``printf`` format strings that expand to regular expressions used to match against URL. The ``printf`` format strings accepting expressions made of plugin configuration parameter keys.
 
 Sample
    .. code-block:: xml

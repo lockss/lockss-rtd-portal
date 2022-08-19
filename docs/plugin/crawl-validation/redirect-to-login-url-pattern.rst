@@ -1,5 +1,5 @@
 =============================
-Redirect to to Login Page URL
+Redirect to Login URL Pattern
 =============================
 
 Plugin Key
@@ -8,14 +8,15 @@ Plugin Key
 Plugin Value Type
    :ref:`string-value`
 
-   The string is a ``printf`` format string, accepting expressions made of plugin configuration parameter keys.
+Plugin Value Format
+   The string is a ``printf`` format string that expands to a regular expression used to match against URLs. The ``printf`` format string accepting expressions made of plugin configuration parameter keys.
 
 Sample
    .. code-block:: xml
 
         <entry>
-          <string>plugin_url_consumer_factory</string>
-          <string>edu.example.plugin.publisherx.PublisherXUrlConsumerFactory</string>
+          <string>au_redirect_to_login_url_pattern</string>
+          <string>"^%ssignup-login.*", base_url</string>
         </entry>
 
 Description

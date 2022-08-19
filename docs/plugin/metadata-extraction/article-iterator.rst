@@ -8,6 +8,7 @@ Plugin Key
 Plugin Value Type
    :ref:`string-value`
 
+Plugin Value Type
    The string is the fully-qualified name of a Java class implementing the `org.lockss.plugin.ArticleIteratorFactory` interface.
 
 Sample

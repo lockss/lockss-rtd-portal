@@ -8,7 +8,8 @@ Plugin Key
 Plugin Value Type
    :ref:`string-value`, *not* integer
 
-   The value is the :doc:`parent-plugin`'s :doc:`../identification/plugin-version`.
+Plugin Value Format
+   The value is the :ref:`Parent Plugin`'s :ref:`Plugin Version`.
 
 Sample
    .. code-block:: xml
