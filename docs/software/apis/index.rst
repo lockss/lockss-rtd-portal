@@ -10,8 +10,8 @@ to produce clients and server stubs in a variety of languages and frameworks, an
 
 .. toctree::
 
-   laaws-repository-service
-   laaws-configuration-service
-   laaws-poller-service
-   laaws-metadata-extraction-service
-   laaws-metadata-service
+   LOCKSS Repository Service REST API <laaws-repository-service.html#http://>
+   LOCKSS Configuration Service REST API <laaws-configuration-service#http://>
+   LOCKSS Poller Service REST API <laaws-poller-service#http://>
+   LOCKSS Metadata Extraction Service REST API <laaws-metadata-extraction-service#http://>
+   LOCKSS Metadata Service REST API <laaws-metadata-service#http://>

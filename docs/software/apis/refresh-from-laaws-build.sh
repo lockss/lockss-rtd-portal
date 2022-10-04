@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Copyright (c) 2000-2022, Board of Trustees of Leland Stanford Jr. University
 #
 # Redistribution and use in source and binary forms, with or without
@@ -26,22 +28,38 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-# Sphinx itself
-# https://pypi.org/project/Sphinx/
-# https://www.sphinx-doc.org/
-sphinx
+if [ -z "${BASEDIR}" ] ; then
+  echo "error: the environment variable BASEDIR is not set"
+  exit 1
+fi
+if [ ! -d "${BASEDIR}" ] ; then
+  echo "error: BASEDIR does not point to a valid directory"
+  exit 1
+fi
+if [ ! -f "${BASEDIR}/pom.xml" ] ; then
+  echo "error: ${BASEDIR}/pom.xml not found"
+  exit 1
+fi
 
-# The Sphinx theme by Read The Docs
-# https://pypi.org/project/sphinx-rtd-theme/
-# https://sphinx-rtd-theme.readthedocs.io/
-sphinx-rtd-theme
+( cd "${BASEDIR}" && \
+  mvn -pl `bin/bigproj` \
+      -P doRestApiDocs \
+      -Dbuild.java.spring.generateSwagger.groupId=io.swagger.codegen.v3 \
+      -Dversion.plugin.swagger-codegen-maven-plugin=3.0.35 )
 
-# The sphinx_tabs.tabs extension, to make tabbed panes
-# https://pypi.org/project/sphinx-tabs/
-# https://sphinx-tabs.readthedocs.io/
-sphinx-tabs
+# See:
+# https://stackoverflow.com/a/31820846/2850565
+# https://github.com/sphinx-doc/sphinx/issues/701#issuecomment-697116337
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_extra_path
+OUTDIR='EXTRA/software/apis'
 
-# The sphinxcontrib.email extension, to obfuscate mailto links
-# https://pypi.org/project/sphinxcontrib-email/
-# https://github.com/sphinx-contrib/email
-sphinxcontrib-email
+cp "${BASEDIR}/laaws-repository-service/target/generated-sources/swagger/html/index.html" \
+   "${OUTDIR}/laaws-repository-service.html"
+cp "${BASEDIR}/laaws-configservice/target/generated-sources/swagger/html/index.html" \
+   "${OUTDIR}/laaws-configuration-service.html"
+cp "${BASEDIR}/laaws-poller/target/generated-sources/swagger/html/index.html" \
+   "${OUTDIR}/laaws-poller-service.html"
+cp "${BASEDIR}/laaws-metadataextractor/target/generated-sources/swagger/html/index.html" \
+   "${OUTDIR}/laaws-metadata-extraction-service.html"
+cp "${BASEDIR}/laaws-metadataservice/target/generated-sources/swagger/html/index.html" \
+   "${OUTDIR}/laaws-metadata-service.html"

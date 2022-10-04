@@ -71,9 +71,6 @@ extensions = [
 
     # See https://github.com/sphinx-contrib/email
     'sphinxcontrib.email',
-    
-    # See https://sphinxcontrib-openapi.readthedocs.io/
-    'sphinxcontrib.openapi',
 ]
 
 intersphinx_mapping = {
@@ -103,6 +100,8 @@ html_theme = 'sphinx_rtd_theme'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+html_extra_path = ['software/apis/EXTRA']
 
 # See https://docs.readthedocs.io/en/stable/guides/adding-custom-css.html
 html_css_files = [
