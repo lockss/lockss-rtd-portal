@@ -76,6 +76,10 @@ LOCKSS 1.74
 
 *  `LOCKSS 1.74.7 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-74-b7>`_ (2019-02-06)
 
+*  `LOCKSS 1.74.3 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-74-b3>`_ (2018-11-06)
+
+*  `LOCKSS 1.74.2 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-74-b2>`_ (2018-07-23)
+
 Earlier Releases
 ================
 
