@@ -52,7 +52,13 @@ LOCKSS 2.0-alpha4
 LOCKSS 2.0-alpha3
 =================
 
-*  `LOCKSS 2.0-alpha3 </projects/manual/en/2.0-alpha3/>`_ (2020-10-29)
+*  `LOCKSS 2.0.34-alpha3 </projects/manual/en/2.0-alpha3/appendix/release-notes.html#lockss-2-0-34-alpha3>`_ (2021-06-04)
+
+*  `LOCKSS 2.0.33-alpha3 </projects/manual/en/2.0-alpha3/appendix/release-notes.html#lockss-2-0-33-alpha3>`_ (2021-01-29)
+
+*  `LOCKSS 2.0.32-alpha3 </projects/manual/en/2.0-alpha3/appendix/release-notes.html#lockss-2-0-32-alpha3>`_ (2020-11-09)
+
+*  `LOCKSS 2.0.31-alpha3 </projects/manual/en/2.0-alpha3/appendix/release-notes.html#lockss-2-0-31-alpha3>`_ (2020-10-29)
 
 LOCKSS 2.0-alpha2
 =================
