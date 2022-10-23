@@ -63,7 +63,17 @@ LOCKSS 2.0-alpha3
 LOCKSS 2.0-alpha2
 =================
 
-*  `LOCKSS 2.0-alpha2 </projects/manual/en/2.0-alpha2/>`_ (2020-02-06)
+*  `LOCKSS 2.0.26-alpha2 </projects/manual/en/2.0-alpha2/appendix/release-notes.html#lockss-2-0-26-alpha2>`_ (2020-02-26)
+
+*  `LOCKSS 2.0.25-alpha2 </projects/manual/en/2.0-alpha2/appendix/release-notes.html#lockss-2-0-25-alpha2>`_ (2020-02-25)
+
+*  `LOCKSS 2.0.24-alpha2 </projects/manual/en/2.0-alpha2/appendix/release-notes.html#lockss-2-0-24-alpha2>`_ (2020-02-25)
+
+*  `LOCKSS 2.0.23-alpha2 </projects/manual/en/2.0-alpha2/appendix/release-notes.html#lockss-2-0-23-alpha2>`_ (2020-02-16)
+
+*  `LOCKSS 2.0.22-alpha2 </projects/manual/en/2.0-alpha2/appendix/release-notes.html#lockss-2-0-22-alpha2>`_ (2020-02-10)
+
+*  `LOCKSS 2.0.21-alpha2 </projects/manual/en/2.0-alpha2/appendix/release-notes.html#lockss-2-0-21-alpha2>`_ (2020-02-06)
 
 LOCKSS 2.0-alpha1
 =================
