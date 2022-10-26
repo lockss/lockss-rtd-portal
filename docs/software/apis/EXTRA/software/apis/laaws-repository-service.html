@@ -193,27 +193,27 @@
 
   <h3>Table of Contents </h3>
   <div class="method-summary"></div>
-  <h4><a href="#Collections">Collections</a></h4>
+  <h4><a href="#Artifacts">Artifacts</a></h4>
   <ul>
-  <li><a href="#addArtifacts"><code><span class="http-method">post</span> /collections/{collectionid}/archives</code></a></li>
-  <li><a href="#createArtifact"><code><span class="http-method">post</span> /collections/{collectionid}/artifacts</code></a></li>
-  <li><a href="#deleteArtifact"><code><span class="http-method">delete</span> /collections/{collectionid}/artifacts/{artifactid}</code></a></li>
-  <li><a href="#getArtifact"><code><span class="http-method">get</span> /collections/{collectionid}/artifacts/{artifactid}</code></a></li>
-  <li><a href="#getArtifacts"><code><span class="http-method">get</span> /collections/{collectionid}/aus/{auid}/artifacts</code></a></li>
-  <li><a href="#getArtifactsFromAllAus"><code><span class="http-method">get</span> /collections/{collectionid}/artifacts</code></a></li>
-  <li><a href="#getArtifactsSize"><code><span class="http-method">get</span> /collections/{collectionid}/aus/{auid}/size</code></a></li>
-  <li><a href="#getAus"><code><span class="http-method">get</span> /collections/{collectionid}/aus</code></a></li>
-  <li><a href="#getCollections"><code><span class="http-method">get</span> /collections</code></a></li>
-  <li><a href="#handleBulkAuOp"><code><span class="http-method">post</span> /collections/{collectionid}/aus/{auid}/bulk</code></a></li>
-  <li><a href="#updateArtifact"><code><span class="http-method">put</span> /collections/{collectionid}/artifacts/{artifactid}</code></a></li>
+  <li><a href="#addArtifacts"><code><span class="http-method">post</span> /archives</code></a></li>
+  <li><a href="#createArtifact"><code><span class="http-method">post</span> /artifacts</code></a></li>
+  <li><a href="#deleteArtifact"><code><span class="http-method">delete</span> /artifacts/{artifactid}</code></a></li>
+  <li><a href="#getArtifact"><code><span class="http-method">get</span> /artifacts/{artifactid}</code></a></li>
+  <li><a href="#getArtifacts"><code><span class="http-method">get</span> /aus/{auid}/artifacts</code></a></li>
+  <li><a href="#getArtifactsFromAllAus"><code><span class="http-method">get</span> /artifacts</code></a></li>
+  <li><a href="#updateArtifact"><code><span class="http-method">put</span> /artifacts/{artifactid}</code></a></li>
   </ul>
-  <h4><a href="#Import">Import</a></h4>
+  <h4><a href="#Aus">Aus</a></h4>
   <ul>
-  <li><a href="#getSupportedChecksumAlgorithms"><code><span class="http-method">get</span> /checksumalgorithms</code></a></li>
+  <li><a href="#getArtifactsSize"><code><span class="http-method">get</span> /aus/{auid}/size</code></a></li>
+  <li><a href="#getAus"><code><span class="http-method">get</span> /aus</code></a></li>
+  <li><a href="#handleBulkAuOp"><code><span class="http-method">post</span> /aus/{auid}/bulk</code></a></li>
   </ul>
   <h4><a href="#Repo">Repo</a></h4>
   <ul>
+  <li><a href="#getNamespaces"><code><span class="http-method">get</span> /namespaces</code></a></li>
   <li><a href="#getRepositoryInformation"><code><span class="http-method">get</span> /repoinfo</code></a></li>
+  <li><a href="#getSupportedChecksumAlgorithms"><code><span class="http-method">get</span> /checksumalgorithms</code></a></li>
   </ul>
   <h4><a href="#Status">Status</a></h4>
   <ul>
@@ -221,24 +221,19 @@
   </ul>
   <h4><a href="#Wayback">Wayback</a></h4>
   <ul>
-  <li><a href="#getCdxOwb"><code><span class="http-method">get</span> /cdx/owb/{collectionid}</code></a></li>
-  <li><a href="#getCdxPywb"><code><span class="http-method">get</span> /cdx/pywb/{collectionid}</code></a></li>
-  <li><a href="#getWarcArchive"><code><span class="http-method">get</span> /warcs/{fileName}</code></a></li>
+  <li><a href="#getCdxOwb"><code><span class="http-method">get</span> /wayback/cdx/owb/</code></a></li>
+  <li><a href="#getCdxPywb"><code><span class="http-method">get</span> /wayback/cdx/pywb/</code></a></li>
+  <li><a href="#getWarcArchive"><code><span class="http-method">get</span> /wayback/warcs/{fileName}</code></a></li>
   </ul>
 
-  <h1><a name="Collections">Collections</a></h1>
+  <h1><a name="Artifacts">Artifacts</a></h1>
   <div class="method"><a name="addArtifacts"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /collections/{collectionid}/archives</code></pre></div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /archives</code></pre></div>
     <div class="method-summary">Imports artifacts from an archive (<span class="nickname">addArtifacts</span>)</div>
     <div class="method-notes"></div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection containing the artifact </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -248,6 +243,11 @@
 
 
 
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
@@ -297,15 +297,10 @@
   <div class="method"><a name="createArtifact"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /collections/{collectionid}/artifacts</code></pre></div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /artifacts</code></pre></div>
     <div class="method-summary">Create an artifact (<span class="nickname">createArtifact</span>)</div>
     <div class="method-notes"></div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection containing the artifact </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Consumes</h3>
     This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
@@ -315,6 +310,11 @@
 
 
 
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
@@ -341,9 +341,9 @@
     <pre class="example"><code>{
   "auid" : "auid",
   "committed" : true,
+  "namespace" : "namespace",
   "contentLength" : 6,
   "id" : "id",
-  "collection" : "collection",
   "uri" : "uri",
   "version" : 0,
   "storageUrl" : "storageUrl",
@@ -382,21 +382,24 @@
   <div class="method"><a name="deleteArtifact"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /collections/{collectionid}/artifacts/{artifactid}</code></pre></div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /artifacts/{artifactid}</code></pre></div>
     <div class="method-summary">Remove an artifact from the repository (<span class="nickname">deleteArtifact</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection containing the artifact </div>      <div class="param">artifactid (required)</div>
+      <div class="param">artifactid (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
 
 
 
 
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
 
 
 
@@ -418,22 +421,20 @@
     Artifact not found
         <a href="#"></a>
     <h4 class="field-label">409</h4>
-    Cannot delete committed artifact
+    Cannot delete artifact
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
   <div class="method"><a name="getArtifact"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /collections/{collectionid}/artifacts/{artifactid}</code></pre></div>
-    <div class="method-summary">Get artifact content and metadata (<span class="nickname">getArtifact</span>)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /artifacts/{artifactid}</code></pre></div>
+    <div class="method-summary">Get artifact and metadata (<span class="nickname">getArtifact</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection containing the artifact </div>      <div class="param">artifactid (required)</div>
+      <div class="param">artifactid (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
 
@@ -442,7 +443,9 @@
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">includeContent (optional)</div>
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">includeContent (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Controls whether to include the artifact content part in multipart response default: ALWAYS </div>    </div>  <!-- field-items -->
 
@@ -468,7 +471,7 @@
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Artifact created
+    Artifact found
         <a href="#byte[]">byte[]</a>
     <h4 class="field-label">401</h4>
     Unauthorized request
@@ -487,15 +490,13 @@
   <div class="method"><a name="getArtifacts"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /collections/{collectionid}/aus/{auid}/artifacts</code></pre></div>
-    <div class="method-summary">Get artifacts in a collection and Archival Unit (<span class="nickname">getArtifacts</span>)</div>
-    <div class="method-notes">Get a list of all artifacts in a collection and Archival Unit or a pageful of the list defined by the continuation token and size</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /aus/{auid}/artifacts</code></pre></div>
+    <div class="method-summary">Get artifacts in an Archival Unit (<span class="nickname">getArtifacts</span>)</div>
+    <div class="method-notes">Get a list of all artifacts in a namespace and Archival Unit or a pageful of the list defined by the continuation token and size</div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the collection containing the artifacts </div>      <div class="param">auid (required)</div>
+      <div class="param">auid (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the Archival Unit containing the artifacts </div>    </div>  <!-- field-items -->
 
@@ -504,7 +505,9 @@
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">url (optional)</div>
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">url (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The URL contained by the artifacts </div>      <div class="param">urlPrefix (optional)</div>
       
@@ -540,9 +543,9 @@
   "artifacts" : [ {
     "auid" : "auid",
     "committed" : true,
+    "namespace" : "namespace",
     "contentLength" : 6,
     "id" : "id",
-    "collection" : "collection",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -551,9 +554,9 @@
   }, {
     "auid" : "auid",
     "committed" : true,
+    "namespace" : "namespace",
     "contentLength" : 6,
     "id" : "id",
-    "collection" : "collection",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -580,7 +583,7 @@
     Client not authorized to retrieve data
         <a href="#"></a>
     <h4 class="field-label">404</h4>
-    Collection not found
+    AUID not found in namespace
         <a href="#"></a>
     <h4 class="field-label">502</h4>
     Could not read from external resource
@@ -590,22 +593,19 @@
   <div class="method"><a name="getArtifactsFromAllAus"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /collections/{collectionid}/artifacts</code></pre></div>
-    <div class="method-summary">This endpoint returns the committed artifacts of all versions of a given URL, from a specified collection. (<span class="nickname">getArtifactsFromAllAus</span>)</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /artifacts</code></pre></div>
+    <div class="method-summary">Returns all artifacts that match a given a URL or URL prefix and/or version. (<span class="nickname">getArtifactsFromAllAus</span>)</div>
     <div class="method-notes"></div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the collection containing the artifacts </div>    </div>  <!-- field-items -->
 
 
 
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">url (optional)</div>
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">url (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The URL contained by the artifacts </div>      <div class="param">urlPrefix (optional)</div>
       
@@ -639,9 +639,9 @@
   "artifacts" : [ {
     "auid" : "auid",
     "committed" : true,
+    "namespace" : "namespace",
     "contentLength" : 6,
     "id" : "id",
-    "collection" : "collection",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -650,9 +650,9 @@
   }, {
     "auid" : "auid",
     "committed" : true,
+    "namespace" : "namespace",
     "contentLength" : 6,
     "id" : "id",
-    "collection" : "collection",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -686,24 +686,109 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getArtifactsSize"></a>
+  <div class="method"><a name="updateArtifact"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /collections/{collectionid}/aus/{auid}/size</code></pre></div>
-    <div class="method-summary">Get the size of Archival Unit artifacts in a collection (<span class="nickname">getArtifactsSize</span>)</div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /artifacts/{artifactid}</code></pre></div>
+    <div class="method-summary">Update the property of an artifact (<span class="nickname">updateArtifact</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">collectionid (required)</div>
+      <div class="param">artifactid (required)</div>
       
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the collection containing the artifacts </div>      <div class="param">auid (required)</div>
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>multipart/form-data</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">committed (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#artifact">artifact</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "auid" : "auid",
+  "committed" : true,
+  "namespace" : "namespace",
+  "contentLength" : 6,
+  "id" : "id",
+  "uri" : "uri",
+  "version" : 0,
+  "storageUrl" : "storageUrl",
+  "collectionDate" : 1,
+  "contentDigest" : "contentDigest"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Artifact updated
+        <a href="#artifact">artifact</a>
+    <h4 class="field-label">400</h4>
+    Invalid input
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized request
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Client not authorized to update artifact
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Artifact not found
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Aus">Aus</a></h1>
+  <div class="method"><a name="getArtifactsSize"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /aus/{auid}/size</code></pre></div>
+    <div class="method-summary">Get the size of Archival Unit artifacts in a namespace (<span class="nickname">getArtifactsSize</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">auid (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the Archival Unit containing the artifacts </div>    </div>  <!-- field-items -->
 
 
 
 
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
 
 
     <h3 class="field-label">Return type</h3>
@@ -740,7 +825,7 @@
     Client not authorized to retrieve data
         <a href="#"></a>
     <h4 class="field-label">404</h4>
-    Collection not found
+    AUID not found in namespace
         <a href="#"></a>
     <h4 class="field-label">502</h4>
     Could not read from external resource
@@ -750,22 +835,19 @@
   <div class="method"><a name="getAus"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /collections/{collectionid}/aus</code></pre></div>
-    <div class="method-summary">Get Archival Unit IDs (AUIDs) in a collection (<span class="nickname">getAus</span>)</div>
-    <div class="method-notes">Get a list of all Archival Unit identifiers in a collection or a pageful of the list defined by the continuation token and size</div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /aus</code></pre></div>
+    <div class="method-summary">Get Archival Unit IDs (AUIDs) in a namespace (<span class="nickname">getAus</span>)</div>
+    <div class="method-notes">Get a list of all Archival Unit identifiers in a namespace or a pageful of the list defined by the continuation token and size</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the collection containing the Archival Units </div>    </div>  <!-- field-items -->
 
 
 
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">limit (optional)</div>
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">limit (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The requested maximum number of Archival Unit identifiers per response </div>      <div class="param">continuationToken (optional)</div>
       
@@ -811,18 +893,72 @@
     Client not authorized to retrieve data
         <a href="#"></a>
     <h4 class="field-label">404</h4>
-    Collection not found
+    No AUIDs in namespace
         <a href="#"></a>
     <h4 class="field-label">502</h4>
     Could not read from external resource
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getCollections"></a>
+  <div class="method"><a name="handleBulkAuOp"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /collections</code></pre></div>
-    <div class="method-summary">Get collection identifiers of the committed artifacts in the repository (<span class="nickname">getCollections</span>)</div>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /aus/{auid}/bulk</code></pre></div>
+    <div class="method-summary">Marks the AUID for bulk artifact transfer (<span class="nickname">handleBulkAuOp</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">auid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Archival Unit ID </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>multipart/form-data</code></li>
+    </ul>
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">op (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Bulk operation succeeded
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Client is forbidden from performing bulk operation
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    AUID not in bulk mode
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <h1><a name="Repo">Repo</a></h1>
+  <div class="method"><a name="getNamespaces"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /namespaces</code></pre></div>
+    <div class="method-summary">Get namespaces of the committed artifacts in the repository (<span class="nickname">getNamespaces</span>)</div>
     <div class="method-notes"></div>
 
 
@@ -856,183 +992,6 @@
         
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="handleBulkAuOp"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="post"><code class="huge"><span class="http-method">post</span> /collections/{collectionid}/aus/{auid}/bulk</code></pre></div>
-    <div class="method-summary">Marks the AUID for bulk artifact transfer (<span class="nickname">handleBulkAuOp</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection ID containing the AU </div>      <div class="param">auid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Archival Unit ID </div>    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>multipart/form-data</code></li>
-    </ul>
-
-
-
-
-    <h3 class="field-label">Form parameters</h3>
-    <div class="field-items">
-      <div class="param">op (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
-
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Bulk operation succeeded
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Client is forbidden from performing bulk operation
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Collection or AUID not found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <div class="method"><a name="updateArtifact"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /collections/{collectionid}/artifacts/{artifactid}</code></pre></div>
-    <div class="method-summary">Update the committed property of an artifact (<span class="nickname">updateArtifact</span>)</div>
-    <div class="method-notes"></div>
-
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Collection containing the artifact </div>      <div class="param">artifactid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Consumes</h3>
-    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
-    <ul>
-      <li><code>multipart/form-data</code></li>
-    </ul>
-
-
-
-
-    <h3 class="field-label">Form parameters</h3>
-    <div class="field-items">
-      <div class="param">committed (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      <a href="#artifact">artifact</a>
-      
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>{
-  "auid" : "auid",
-  "committed" : true,
-  "contentLength" : 6,
-  "id" : "id",
-  "collection" : "collection",
-  "uri" : "uri",
-  "version" : 0,
-  "storageUrl" : "storageUrl",
-  "collectionDate" : 1,
-  "contentDigest" : "contentDigest"
-}</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    Artifact updated
-        <a href="#artifact">artifact</a>
-    <h4 class="field-label">400</h4>
-    Invalid input
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized request
-        <a href="#"></a>
-    <h4 class="field-label">403</h4>
-    Client not authorized to update artifact
-        <a href="#"></a>
-    <h4 class="field-label">404</h4>
-    Artifact not found
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <h1><a name="Import">Import</a></h1>
-  <div class="method"><a name="getSupportedChecksumAlgorithms"></a>
-    <div class="method-path">
-    <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /checksumalgorithms</code></pre></div>
-    <div class="method-summary">Get the supported checksum algorithms (<span class="nickname">getSupportedChecksumAlgorithms</span>)</div>
-    <div class="method-notes">Get a list of the names of the supported checksum algorithms</div>
-
-
-
-
-
-
-
-    <h3 class="field-label">Return type</h3>
-    <div class="return-type">
-      
-      array[String]
-    </div>
-
-    <!--Todo: process Response Object and its headers, schema, examples -->
-
-    <h3 class="field-label">Example data</h3>
-    <div class="example-data-content-type">Content-Type: application/json</div>
-    <pre class="example"><code>[ "", "" ]</code></pre>
-
-    <h3 class="field-label">Produces</h3>
-    This API call produces the following media types according to the <span class="header">Accept</span> request header;
-    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
-    <ul>
-      <li><code>application/json</code></li>
-    </ul>
-
-    <h3 class="field-label">Responses</h3>
-    <h4 class="field-label">200</h4>
-    The names of the supported checksum algorithms
-        
-    <h4 class="field-label">400</h4>
-    Bad Request
-        <a href="#"></a>
-    <h4 class="field-label">401</h4>
-    Unauthorized
-        <a href="#"></a>
-    <h4 class="field-label">500</h4>
-    Internal Server Error
-        <a href="#"></a>
-  </div> <!-- method -->
-  <hr/>
-  <h1><a name="Repo">Repo</a></h1>
   <div class="method"><a name="getRepositoryInformation"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1079,6 +1038,53 @@
     <h4 class="field-label">200</h4>
     The repository information
         <a href="#repositoryInfo">repositoryInfo</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getSupportedChecksumAlgorithms"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /checksumalgorithms</code></pre></div>
+    <div class="method-summary">Get the supported checksum algorithms (<span class="nickname">getSupportedChecksumAlgorithms</span>)</div>
+    <div class="method-notes">Get a list of the names of the supported checksum algorithms</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      array[String]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>[ "", "" ]</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    The names of the supported checksum algorithms
+        
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#"></a>
     <h4 class="field-label">401</h4>
     Unauthorized
         <a href="#"></a>
@@ -1143,15 +1149,10 @@
   <div class="method"><a name="getCdxOwb"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /cdx/owb/{collectionid}</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /wayback/cdx/owb/</code></pre></div>
     <div class="method-summary">Get OpenWayback CDX records (<span class="nickname">getCdxOwb</span>)</div>
-    <div class="method-notes">Get the OpenWayback CDX records of a URL in a collection</div>
+    <div class="method-notes">Get the OpenWayback CDX records of a URL in a namespace</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the collection </div>    </div>  <!-- field-items -->
 
 
 
@@ -1161,7 +1162,9 @@
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">q (optional)</div>
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">q (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Query string. Supported fields are url, type\ \ (urlquery/prefixquery), offset and limit. </div>      <div class="param">count (optional)</div>
       
@@ -1191,7 +1194,7 @@
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    The OpenWayback CDX records of the URL in the collection
+    The OpenWayback CDX records of the URL in the namespace
         <a href="#String">String</a>
     <h4 class="field-label">401</h4>
     Unauthorized
@@ -1200,7 +1203,7 @@
     Forbidden
         <a href="#"></a>
     <h4 class="field-label">404</h4>
-    Collection/URL not found
+    Namespace/URL not found
         <a href="#"></a>
     <h4 class="field-label">500</h4>
     Internal Server Error
@@ -1210,15 +1213,10 @@
   <div class="method"><a name="getCdxPywb"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /cdx/pywb/{collectionid}</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /wayback/cdx/pywb/</code></pre></div>
     <div class="method-summary">Get PyWayback CDX records (<span class="nickname">getCdxPywb</span>)</div>
-    <div class="method-notes">Get the PyWayback CDX records of a URL in a collection</div>
+    <div class="method-notes">Get the PyWayback CDX records of a URL in a namespace</div>
 
-    <h3 class="field-label">Path parameters</h3>
-    <div class="field-items">
-      <div class="param">collectionid (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the collection </div>    </div>  <!-- field-items -->
 
 
 
@@ -1228,7 +1226,9 @@
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">url (optional)</div>
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">url (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The URL for which the CDX records are requested </div>      <div class="param">limit (optional)</div>
       
@@ -1266,7 +1266,7 @@
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    The PyWayback CDX records of the URL in the collection
+    The PyWayback CDX records of the URL in the namespace
         <a href="#String">String</a>
     <h4 class="field-label">401</h4>
     Unauthorized
@@ -1275,7 +1275,7 @@
     Forbidden
         <a href="#"></a>
     <h4 class="field-label">404</h4>
-    Collection/URL not found
+    Namespace/URL not found
         <a href="#"></a>
     <h4 class="field-label">500</h4>
     Internal Server Error
@@ -1285,7 +1285,7 @@
   <div class="method"><a name="getWarcArchive"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /warcs/{fileName}</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /wayback/warcs/{fileName}</code></pre></div>
     <div class="method-summary">Get a WARC archive (<span class="nickname">getWarcArchive</span>)</div>
     <div class="method-notes">Get the contents of a single WARC record as a WARC archive</div>
 
@@ -1344,14 +1344,14 @@
   <h3>Table of Contents</h3>
   <ol>
     <li><a href="#apiStatus"><code>apiStatus</code></a></li>
+    <li><a href="#archives_body"><code>archives_body</code></a></li>
     <li><a href="#artifact"><code>artifact</code></a></li>
     <li><a href="#artifactPageInfo"><code>artifactPageInfo</code></a></li>
     <li><a href="#artifacts_artifactid_body"><code>artifacts_artifactid_body</code></a></li>
+    <li><a href="#artifacts_body"><code>artifacts_body</code></a></li>
     <li><a href="#auSize"><code>auSize</code></a></li>
     <li><a href="#auidPageInfo"><code>auidPageInfo</code></a></li>
     <li><a href="#auid_bulk_body"><code>auid_bulk_body</code></a></li>
-    <li><a href="#collectionid_archives_body"><code>collectionid_archives_body</code></a></li>
-    <li><a href="#collectionid_artifacts_body"><code>collectionid_artifacts_body</code></a></li>
     <li><a href="#importStatus"><code>importStatus</code></a></li>
     <li><a href="#pageInfo"><code>pageInfo</code></a></li>
     <li><a href="#repositoryInfo"><code>repositoryInfo</code></a></li>
@@ -1372,11 +1372,19 @@
     </div>  <!-- field-items -->
   </div>
   <div class="model">
+    <h3><a name="archives_body"><code>archives_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">auid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Archival Unit ID (AUID) of new artifact </div>
+<div class="param">archive </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Archive data containing artifacts format: binary</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
     <h3><a name="artifact"><code>artifact</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
       <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">collection (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">namespace (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">auid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
@@ -1403,6 +1411,16 @@
     </div>  <!-- field-items -->
   </div>
   <div class="model">
+    <h3><a name="artifacts_body"><code>artifacts_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">auid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Archival Unit ID (AUID) of new artifact </div>
+<div class="param">uri </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI represented by this artifact </div>
+<div class="param">collectionDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Artifact collection/crawl date (milliseconds since epoch; UTC) format: int64</div>
+<div class="param">artifact </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Artifact data format: binary</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
     <h3><a name="auSize"><code>auSize</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
@@ -1426,24 +1444,6 @@
       <div class="param">op </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Bulk AU transfer operation </div>
         <div class="param-enum-header">Enum:</div>
         <div class="param-enum">start</div><div class="param-enum">finish</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="collectionid_archives_body"><code>collectionid_archives_body</code></a> <a class="up" href="#__Models">Up</a></h3>
-    
-    <div class="field-items">
-      <div class="param">auid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Archival Unit ID (AUID) of new artifact </div>
-<div class="param">archive </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Archive data containing artifacts format: binary</div>
-    </div>  <!-- field-items -->
-  </div>
-  <div class="model">
-    <h3><a name="collectionid_artifacts_body"><code>collectionid_artifacts_body</code></a> <a class="up" href="#__Models">Up</a></h3>
-    
-    <div class="field-items">
-      <div class="param">auid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Archival Unit ID (AUID) of new artifact </div>
-<div class="param">uri </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI represented by this artifact </div>
-<div class="param">collectionDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Artifact collection/crawl date (milliseconds since epoch; UTC) format: int64</div>
-<div class="param">artifact </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Artifact data format: binary</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

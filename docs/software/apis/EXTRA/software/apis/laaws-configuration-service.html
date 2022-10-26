@@ -198,6 +198,7 @@
   <div class="method-summary"></div>
   <h4><a href="#Aus">Aus</a></h4>
   <ul>
+  <li><a href="#calculateAuid"><code><span class="http-method">post</span> /auids</code></a></li>
   <li><a href="#deleteAuConfig"><code><span class="http-method">delete</span> /aus/{auid}</code></a></li>
   <li><a href="#deleteAusDelete"><code><span class="http-method">delete</span> /aus/delete</code></a></li>
   <li><a href="#getAllAuConfig"><code><span class="http-method">get</span> /aus</code></a></li>
@@ -246,6 +247,74 @@
   </ul>
 
   <h1><a name="Aus">Aus</a></h1>
+  <div class="method"><a name="calculateAuid"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="post"><code class="huge"><span class="http-method">post</span> /auids</code></pre></div>
+    <div class="method-summary">Calculate an AUID for a hypothetical AU (<span class="nickname">calculateAuid</span>)</div>
+    <div class="method-notes">Calculate an AUID for a hypothetical AU, given either a plugin ID and an auConfig map (for traditional AUs), or a handle and an optional plugin ID for NamedAUs</div>
+
+
+    <h3 class="field-label">Consumes</h3>
+    This API call consumes the following media types via the <span class="header">Content-Type</span> request header:
+    <ul>
+      <li><code>application/x-www-form-urlencoded</code></li>
+    </ul>
+
+
+
+
+    <h3 class="field-label">Form parameters</h3>
+    <div class="field-items">
+      <div class="param">pluginId (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">handle (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">auConfig (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>    </div>  <!-- field-items -->
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      String
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+      <li><code>text/plain</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Map containing the resulting AUID
+        <a href="#String">String</a>
+    <h4 class="field-label">400</h4>
+    Bad Request
+        <a href="#"></a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Forbidden
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Not Found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="deleteAuConfig"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -2299,6 +2368,7 @@
     <li><a href="#auConfiguration"><code>auConfiguration</code></a></li>
     <li><a href="#auStatus"><code>auStatus</code></a></li>
     <li><a href="#auWsResult"><code>auWsResult</code></a></li>
+    <li><a href="#auids_body"><code>auids_body</code></a></li>
     <li><a href="#checkSubstanceResult"><code>checkSubstanceResult</code></a></li>
     <li><a href="#contentConfigurationResult"><code>contentConfigurationResult</code></a></li>
     <li><a href="#file_sectionName_body"><code>file_sectionName_body</code></a></li>
@@ -2338,6 +2408,15 @@
     <div class='model-description'>The properties of an archival unit</div>
     <div class="field-items">
       <div class="param">auId </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The identifier of the archival unit </div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="auids_body"><code>auids_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">pluginId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> the plugin id </div>
+<div class="param">handle (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> the handle of a NamedArchivalUnit </div>
+<div class="param">auConfig (optional)</div><div class="param-desc"><span class="param-type"><a href="#"></a></span> The configuration information for this au (as a json map). </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
