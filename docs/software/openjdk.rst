@@ -4,112 +4,140 @@ If you need to install a JDK, we recommend OpenJDK; select your operating system
 
 .. COMMENT OSTABS
 
-.. tabs::
+.. tab-set::
+   :class: sd-bg-light
 
-   .. group-tab:: AlmaLinux
+   .. tab-item:: AlmaLinux
+      :sync: alma
 
       .. include:: openjdk-dnf.rst
 
-   .. group-tab:: Arch Linux
+   .. tab-item:: Arch Linux
+      :sync: arch
 
       .. include:: openjdk-pacman.rst
 
-   .. group-tab:: CentOS
+   .. tab-item:: CentOS
+      :sync: centos
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: CentOS 7
+         .. tab-item:: CentOS 7
+            :sync: centos7
 
             .. include:: openjdk-yum.rst
 
-         .. group-tab:: CentOS 8
+         .. tab-item:: CentOS 8
+            :sync: centos8
 
             .. include:: openjdk-dnf.rst
 
-         .. group-tab:: CentOS Stream 8-9
+         .. tab-item:: CentOS Stream 8-9
+            :sync: centosstream8
 
             .. include:: openjdk-dnf.rst
 
-   .. group-tab:: Debian
+   .. tab-item:: Debian
+      :sync: debian
 
       .. include:: openjdk-apt.rst
 
-   .. group-tab:: EuroLinux
+   .. tab-item:: EuroLinux
+      :sync: eurolinux
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: EuroLinux 7
+         .. tab-item:: EuroLinux 7
+            :sync: eurolinux7
 
             .. include:: openjdk-yum.rst
 
-         .. group-tab:: EuroLinux 8-9
+         .. tab-item:: EuroLinux 8-9
+            :sync: eurolinux8
 
             .. include:: openjdk-dnf.rst
 
-   .. group-tab:: Fedora
+   .. tab-item:: Fedora
+      :sync: fedora
 
       .. include:: openjdk-dnf.rst
 
-   .. group-tab:: Linux Mint
+   .. tab-item:: Linux Mint
+      :sync: mint
 
       .. include:: openjdk-apt.rst
 
-   .. group-tab:: MacOS
+   .. tab-item:: MacOS
+      :sync: macos
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: Homebrew
+         .. tab-item:: Homebrew
+            :sync: homebrew
 
             .. include:: openjdk-brew.rst
 
-         .. group-tab:: MacPorts
+         .. tab-item:: MacPorts
+            :sync: macports
 
             .. include:: openjdk-port.rst
 
-   .. group-tab:: OpenSUSE
+   .. tab-item:: OpenSUSE
+      :sync: opensuse
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: OpenSUSE Leap 15
-
-            .. include:: openjdk-zypper.rst
-
-         .. group-tab:: OpenSUSE Tumbleweed
+         .. tab-item:: OpenSUSE Leap 15
+            :sync: opensuse15
 
             .. include:: openjdk-zypper.rst
 
-   .. group-tab:: Oracle Linux
+         .. tab-item:: OpenSUSE Tumbleweed
+            :sync: opensusetumbleweed
 
-      .. tabs::
+            .. include:: openjdk-zypper.rst
 
-         .. group-tab:: Oracle Linux 7
+   .. tab-item:: Oracle Linux
+      :sync: oracle
 
-            .. include:: openjdk-yum.rst
+      .. tab-set::
 
-         .. group-tab:: Oracle Linux 8-9
-
-            .. include:: openjdk-dnf.rst
-
-   .. group-tab:: RHEL
-
-      .. tabs::
-
-         .. group-tab:: RHEL 7
+         .. tab-item:: Oracle Linux 7
+            :sync: oracle7
 
             .. include:: openjdk-yum.rst
 
-         .. group-tab:: RHEL 8-9
+         .. tab-item:: Oracle Linux 8-9
+            :sync: oracle8
 
             .. include:: openjdk-dnf.rst
 
-   .. group-tab:: Rocky Linux
+   .. tab-item:: RHEL
+      :sync: rhel
+
+      .. tab-set::
+
+         .. tab-item:: RHEL 7
+            :sync: rhel7
+
+            .. include:: openjdk-yum.rst
+
+         .. tab-item:: RHEL 8-9
+            :sync: rhel8
+
+            .. include:: openjdk-dnf.rst
+
+   .. tab-item:: Rocky Linux
+      :sync: rocky
 
       .. include:: openjdk-dnf.rst
 
-   .. group-tab:: Scientific Linux 7
+   .. tab-item:: Scientific Linux 7
+      :sync: scientific
 
       .. include:: openjdk-yum.rst
 
-   .. group-tab:: Ubuntu
+   .. tab-item:: Ubuntu
+      :sync: ubuntu
 
       .. include:: openjdk-apt.rst

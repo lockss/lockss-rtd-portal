@@ -36,12 +36,12 @@ sphinx
 # https://sphinx-rtd-theme.readthedocs.io/
 sphinx-rtd-theme
 
-# The sphinx_tabs.tabs extension, to make tabbed panes
-# https://pypi.org/project/sphinx-tabs/
-# https://sphinx-tabs.readthedocs.io/
-sphinx-tabs
-
 # The sphinxcontrib.email extension, to obfuscate mailto links
 # https://pypi.org/project/sphinxcontrib-email/
 # https://github.com/sphinx-contrib/email
 sphinxcontrib-email
+
+# The sphinx_design extension, to make grids, cards, dropdowns, tabs, badges, buttons, icons
+# https://pypi.org/project/sphinx_design
+# https://sphinx-design.readthedocs.io/
+sphinx_design

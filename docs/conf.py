@@ -66,11 +66,11 @@ extensions = [
     # See https://sphinx-rtd-theme.readthedocs.io/
     'sphinx_rtd_theme',
 
-    # See https://sphinx-tabs.readthedocs.io/
-    'sphinx_tabs.tabs',
-
     # See https://github.com/sphinx-contrib/email
     'sphinxcontrib.email',
+
+    # See https://sphinx-design.readthedocs.io/
+    'sphinx_design',
 ]
 
 intersphinx_mapping = {

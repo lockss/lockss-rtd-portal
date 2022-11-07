@@ -2,112 +2,140 @@ You can check if Git is installed on your system by typing ``git --version`` at 
 
 .. COMMENT OSTABS
 
-.. tabs::
+.. tab-set::
+   :class: sd-bg-light
 
-   .. group-tab:: AlmaLinux
+   .. tab-item:: AlmaLinux
+      :sync: alma
 
       .. include:: git-dnf.rst
 
-   .. group-tab:: Arch Linux
+   .. tab-item:: Arch Linux
+      :sync: arch
 
       .. include:: git-pacman.rst
 
-   .. group-tab:: CentOS
+   .. tab-item:: CentOS
+      :sync: centos
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: CentOS 7
+         .. tab-item:: CentOS 7
+            :sync: centos7
 
             .. include:: git-yum.rst
 
-         .. group-tab:: CentOS 8
+         .. tab-item:: CentOS 8
+            :sync: centos8
 
             .. include:: git-dnf.rst
 
-         .. group-tab:: CentOS Stream 8-9
+         .. tab-item:: CentOS Stream 8-9
+            :sync: centosstream8
 
             .. include:: git-dnf.rst
 
-   .. group-tab:: Debian
+   .. tab-item:: Debian
+      :sync: debian
 
       .. include:: git-apt.rst
 
-   .. group-tab:: EuroLinux
+   .. tab-item:: EuroLinux
+      :sync: eurolinux
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: EuroLinux 7
+         .. tab-item:: EuroLinux 7
+            :sync: eurolinux7
 
             .. include:: git-yum.rst
 
-         .. group-tab:: EuroLinux 8-9
+         .. tab-item:: EuroLinux 8-9
+            :sync: eurolinux8
 
             .. include:: git-dnf.rst
 
-   .. group-tab:: Fedora
+   .. tab-item:: Fedora
+      :sync: fedora
 
       .. include:: git-dnf.rst
 
-   .. group-tab:: Linux Mint
+   .. tab-item:: Linux Mint
+      :sync: mint
 
       .. include:: git-apt.rst
 
-   .. group-tab:: MacOS
+   .. tab-item:: MacOS
+      :sync: macos
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: Homebrew
+         .. tab-item:: Homebrew
+            :sync: homebrew
 
             .. include:: git-brew.rst
 
-         .. group-tab:: MacPorts
+         .. tab-item:: MacPorts
+            :sync: macports
 
             .. include:: git-port.rst
 
-   .. group-tab:: OpenSUSE
+   .. tab-item:: OpenSUSE
+      :sync: opensuse
 
-      .. tabs::
+      .. tab-set::
 
-         .. group-tab:: OpenSUSE Leap 15
-
-            .. include:: git-zypper.rst
-
-         .. group-tab:: OpenSUSE Tumbleweed
+         .. tab-item:: OpenSUSE Leap 15
+            :sync: opensuse15
 
             .. include:: git-zypper.rst
 
-   .. group-tab:: Oracle Linux
+         .. tab-item:: OpenSUSE Tumbleweed
+            :sync: opensusetumbleweed
 
-      .. tabs::
+            .. include:: git-zypper.rst
 
-         .. group-tab:: Oracle Linux 7
+   .. tab-item:: Oracle Linux
+      :sync: oracle
 
-            .. include:: git-yum.rst
+      .. tab-set::
 
-         .. group-tab:: Oracle Linux 8-9
-
-            .. include:: git-dnf.rst
-
-   .. group-tab:: RHEL
-
-      .. tabs::
-
-         .. group-tab:: RHEL 7
+         .. tab-item:: Oracle Linux 7
+            :sync: oracle7
 
             .. include:: git-yum.rst
 
-         .. group-tab:: RHEL 8-9
+         .. tab-item:: Oracle Linux 8-9
+            :sync: oracle8
 
             .. include:: git-dnf.rst
 
-   .. group-tab:: Rocky Linux
+   .. tab-item:: RHEL
+      :sync: rhel
+
+      .. tab-set::
+
+         .. tab-item:: RHEL 7
+            :sync: rhel7
+
+            .. include:: git-yum.rst
+
+         .. tab-item:: RHEL 8-9
+            :sync: rhel8
+
+            .. include:: git-dnf.rst
+
+   .. tab-item:: Rocky Linux
+      :sync: rocky
 
       .. include:: git-dnf.rst
 
-   .. group-tab:: Scientific Linux 7
+   .. tab-item:: Scientific Linux 7
+      :sync: scientific
 
       .. include:: git-yum.rst
 
-   .. group-tab:: Ubuntu
+   .. tab-item:: Ubuntu
+      :sync: ubuntu
 
       .. include:: git-apt.rst
