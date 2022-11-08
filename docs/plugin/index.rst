@@ -8,17 +8,19 @@ LOCKSS Plugin Developer Guide
 
 **Welcome to the LOCKSS Plugin Developer Guide.** This section of the LOCKSS Documentation Portal contains information aimed at developers and maintainers of LOCKSS plugins.
 
-.. toctree::
-   :caption: Table of Contents
-   :numbered:
+.. card:: Table of Contents
 
-   introduction/index
-   identification/index
-   crawl-control/index
-   crawl-validation/index
-   poll-control/index
-   hash-filtering/index
-   metadata-extraction/index
-   web-replay/index
-   inheritance/index
-   appendix/index
+   .. toctree::
+      :maxdepth: 1
+      :numbered:
+
+      introduction/index
+      identification/index
+      crawl-control/index
+      crawl-validation/index
+      poll-control/index
+      hash-filtering/index
+      metadata-extraction/index
+      web-replay/index
+      inheritance/index
+      appendix/index

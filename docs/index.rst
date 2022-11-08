@@ -2,9 +2,9 @@
 LOCKSS Documentation Portal
 ===========================
 
-**Welcome to the LOCKSS Documentation Portal.**
+.. only:: html
 
-This new LOCKSS Documentation Portal is slated to replace the LOCKSS Documentation Portal currently found at `lockss.github.io <https://lockss.github.io>`_ in the near future.
+   .. include:: front-page.rst
 
 .. raw:: latex
 

@@ -4,12 +4,14 @@ Identification
 
 This section introduces plugin features related to the identification, versioning and parameterization of the plugin.
 
-.. toctree::
-   :hidden:
+.. card:: Chapter Table of Contents
 
-   plugin-identifier
-   plugin-name
-   plugin-version
-   plugin-parameters
-   au-name
-   required-daemon-version
+   .. toctree::
+      :maxdepth: 1
+
+      plugin-identifier
+      plugin-name
+      plugin-version
+      plugin-parameters
+      au-name
+      required-daemon-version

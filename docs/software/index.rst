@@ -8,14 +8,12 @@ LOCKSS Software Developer Guide
 
 **Welcome to the LOCKSS Software Developer Guide.** This section of the LOCKSS Documentation Portal contains information aimed at software developers.
 
-.. only:: html
+.. card:: Table of Contents
 
-   Use the menu to navigate to the section of your choice.
+   .. toctree::
+      :maxdepth: 1
+      :numbered:
 
-.. toctree::
-   :hidden:
-   :numbered:
-
-   classic
-   license-templates
-   apis/index
+      classic
+      license-templates
+      apis/index

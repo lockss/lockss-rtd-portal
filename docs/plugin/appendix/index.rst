@@ -4,8 +4,10 @@ Appendix
 
 This appendix gives a brief overview of :doc:`printf` and :doc:`regex`.
 
-.. toctree::
-   :hidden:
+.. card:: Chapter Table of Contents
 
-   printf
-   regex
+   .. toctree::
+      :maxdepth: 1
+
+      printf
+      regex

@@ -4,10 +4,12 @@ Metadata Extraction
 
 This section introduces plugin features related to the extraction and interpretation of metadata from preserved content.
 
-.. toctree::
-   :hidden:
+.. card:: Chapter Table of Contents
 
-   introduction
-   article-iterator
-   file-metadata-extractor
-   article-metadata-extractor
+   .. toctree::
+      :maxdepth: 1
+
+      introduction
+      article-iterator
+      file-metadata-extractor
+      article-metadata-extractor

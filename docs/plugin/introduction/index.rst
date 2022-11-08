@@ -4,8 +4,10 @@ Introduction
 
 This section offers a conceptual tour of LOCKSS plugins and a brief XML format reference.
 
-.. toctree::
-   :hidden:
+.. card:: Chapter Table of Contents
 
-   concepts
-   format
+   .. toctree::
+      :maxdepth: 1
+
+      concepts
+      format
