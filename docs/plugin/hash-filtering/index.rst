@@ -4,11 +4,13 @@ Hash Filtering
 
 This section introduces plugin features related to content canonicalization for inter-node comparison purposes.
 
-.. card:: Chapter Table of Contents
+.. only:: html
 
-   .. toctree::
-      :maxdepth: 1
+   .. rubric:: Chapter Table of Contents
 
-      hash-filter
-      html-filters
-      pdf-filters
+.. toctree::
+   :maxdepth: 1
+
+   hash-filter
+   html-filters
+   pdf-filters

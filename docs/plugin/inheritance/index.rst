@@ -4,10 +4,12 @@ Inheritance
 
 This section introduces plugin features related to sharing similar behavior among a set of plugins.
 
-.. card:: Chapter Table of Contents
+.. only:: html
 
-   .. toctree::
-      :maxdepth: 1
+   .. rubric:: Chapter Table of Contents
 
-      parent-plugin
-      parent-plugin-version
+.. toctree::
+   :maxdepth: 1
+
+   parent-plugin
+   parent-plugin-version

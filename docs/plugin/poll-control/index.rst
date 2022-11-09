@@ -4,12 +4,14 @@ Poll Control
 
 This section introduces plugin features that influence the operation of the LOCKSS audit and repair protocol.
 
-.. card:: Chapter Table of Contents
+.. only:: html
 
-   .. toctree::
-      :maxdepth: 1
+    .. rubric:: Chapter Table of Contents
 
-      exclude-urls-from-polls
-      poll-result-weight
-      repair-from-publisher-when-too-close
-      repair-from-peer-if-missing
+.. toctree::
+   :maxdepth: 1
+
+   exclude-urls-from-polls
+   poll-result-weight
+   repair-from-publisher-when-too-close
+   repair-from-peer-if-missing
