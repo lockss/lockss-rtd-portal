@@ -60,7 +60,7 @@ LOCKSS 2.0-alpha2
 LOCKSS 2.0-alpha1
 =================
 
-*  `LOCKSS 2.0-alpha1 </projects/manual/en/2.0-alpha1/>`_ (2019-05-13)
+*  `LOCKSS 2.0.11-alpha1 </projects/manual/en/2.0-alpha1/appendix/release-notes.html#lockss-2-0-11-alpha1>`_ (2019-05-13)
 
 LOCKSS 2.0-alpha0
 =================
