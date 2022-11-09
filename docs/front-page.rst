@@ -3,6 +3,7 @@
    :padding: 0
 
    .. grid-item-card:: LOCKSS 1.x :bdg-success:`stable`
+      :class-title: sd-text-center
 
       .. include:: releases1.rst
 
@@ -15,6 +16,7 @@
          LOCKSS 1.x System Manual
 
    .. grid-item-card:: LOCKSS 2.x :bdg-warning-line:`development`
+      :class-title: sd-text-center
 
       .. include:: releases2.rst
 
@@ -27,6 +29,7 @@
          LOCKSS 2.x System Manual
 
 .. card:: LOCKSS Guides
+   :text-align: center
 
    .. grid:: 1 1 3 3
 
