@@ -318,13 +318,13 @@
 
     <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
-      <div class="param">auid (required)</div>
+      <div class="param">artifactProps (required)</div>
       
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">uri (required)</div>
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: byte</div>      <div class="param">httpStatus (required)</div>
       
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">collectionDate (required)</div>
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: byte</div>      <div class="param">httpHeaders (required)</div>
       
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: int64</div>      <div class="param">artifact (required)</div>
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: byte</div>      <div class="param">payload (required)</div>
       
             <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: binary</div>    </div>  <!-- field-items -->
 
@@ -343,7 +343,7 @@
   "committed" : true,
   "namespace" : "namespace",
   "contentLength" : 6,
-  "id" : "id",
+  "uuid" : "uuid",
   "uri" : "uri",
   "version" : 0,
   "storageUrl" : "storageUrl",
@@ -471,7 +471,7 @@
 
     <h3 class="field-label">Responses</h3>
     <h4 class="field-label">200</h4>
-    Artifact found
+    Multipart/form-data containing the following parts: The artifact properties, HTTP status and headers if present, and the artifact&#x27;s payload if requested. See POST /artifacts for more information.
         <a href="#byte[]">byte[]</a>
     <h4 class="field-label">401</h4>
     Unauthorized request
@@ -545,7 +545,7 @@
     "committed" : true,
     "namespace" : "namespace",
     "contentLength" : 6,
-    "id" : "id",
+    "uuid" : "uuid",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -556,7 +556,7 @@
     "committed" : true,
     "namespace" : "namespace",
     "contentLength" : 6,
-    "id" : "id",
+    "uuid" : "uuid",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -641,7 +641,7 @@
     "committed" : true,
     "namespace" : "namespace",
     "contentLength" : 6,
-    "id" : "id",
+    "uuid" : "uuid",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -652,7 +652,7 @@
     "committed" : true,
     "namespace" : "namespace",
     "contentLength" : 6,
-    "id" : "id",
+    "uuid" : "uuid",
     "uri" : "uri",
     "version" : 0,
     "storageUrl" : "storageUrl",
@@ -734,7 +734,7 @@
   "committed" : true,
   "namespace" : "namespace",
   "contentLength" : 6,
-  "id" : "id",
+  "uuid" : "uuid",
   "uri" : "uri",
   "version" : 0,
   "storageUrl" : "storageUrl",
@@ -1383,7 +1383,7 @@
     <h3><a name="artifact"><code>artifact</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">id (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">namespace (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">auid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
@@ -1414,10 +1414,10 @@
     <h3><a name="artifacts_body"><code>artifacts_body</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">auid </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Archival Unit ID (AUID) of new artifact </div>
-<div class="param">uri </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> URI represented by this artifact </div>
-<div class="param">collectionDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> Artifact collection/crawl date (milliseconds since epoch; UTC) format: int64</div>
-<div class="param">artifact </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Artifact data format: binary</div>
+      <div class="param">artifactProps </div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Artifact properties (JSON) format: byte</div>
+<div class="param">httpStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> HTTP status (optional) format: byte</div>
+<div class="param">httpHeaders (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> HTTP headers (optional) format: byte</div>
+<div class="param">payload </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Artifact payload data format: binary</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
