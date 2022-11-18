@@ -197,11 +197,11 @@
   <ul>
   <li><a href="#addArtifacts"><code><span class="http-method">post</span> /archives</code></a></li>
   <li><a href="#createArtifact"><code><span class="http-method">post</span> /artifacts</code></a></li>
-  <li><a href="#deleteArtifact"><code><span class="http-method">delete</span> /artifacts/{artifactid}</code></a></li>
-  <li><a href="#getArtifact"><code><span class="http-method">get</span> /artifacts/{artifactid}</code></a></li>
+  <li><a href="#deleteArtifact"><code><span class="http-method">delete</span> /artifacts/{uuid}</code></a></li>
+  <li><a href="#getArtifact"><code><span class="http-method">get</span> /artifacts/{uuid}</code></a></li>
   <li><a href="#getArtifacts"><code><span class="http-method">get</span> /aus/{auid}/artifacts</code></a></li>
   <li><a href="#getArtifactsFromAllAus"><code><span class="http-method">get</span> /artifacts</code></a></li>
-  <li><a href="#updateArtifact"><code><span class="http-method">put</span> /artifacts/{artifactid}</code></a></li>
+  <li><a href="#updateArtifact"><code><span class="http-method">put</span> /artifacts/{uuid}</code></a></li>
   </ul>
   <h4><a href="#Aus">Aus</a></h4>
   <ul>
@@ -221,8 +221,8 @@
   </ul>
   <h4><a href="#Wayback">Wayback</a></h4>
   <ul>
-  <li><a href="#getCdxOwb"><code><span class="http-method">get</span> /wayback/cdx/owb/</code></a></li>
-  <li><a href="#getCdxPywb"><code><span class="http-method">get</span> /wayback/cdx/pywb/</code></a></li>
+  <li><a href="#getCdxOwb"><code><span class="http-method">get</span> /wayback/cdx/owb/{namespace}</code></a></li>
+  <li><a href="#getCdxPywb"><code><span class="http-method">get</span> /wayback/cdx/pywb/{namespace}</code></a></li>
   <li><a href="#getWarcArchive"><code><span class="http-method">get</span> /wayback/warcs/{fileName}</code></a></li>
   </ul>
 
@@ -310,21 +310,16 @@
 
 
 
-    <h3 class="field-label">Query parameters</h3>
-    <div class="field-items">
-      <div class="param">namespace (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
       <div class="param">artifactProps (required)</div>
       
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: byte</div>      <div class="param">httpStatus (required)</div>
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">httpStatus (required)</div>
       
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: byte</div>      <div class="param">httpHeaders (required)</div>
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">httpHeaders (required)</div>
       
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: byte</div>      <div class="param">payload (required)</div>
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">payload (required)</div>
       
             <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  format: binary</div>    </div>  <!-- field-items -->
 
@@ -339,16 +334,8 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "auid" : "auid",
   "committed" : true,
-  "namespace" : "namespace",
-  "contentLength" : 6,
-  "uuid" : "uuid",
-  "uri" : "uri",
-  "version" : 0,
-  "storageUrl" : "storageUrl",
-  "collectionDate" : 1,
-  "contentDigest" : "contentDigest"
+  "storageUrl" : "storageUrl"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -382,13 +369,13 @@
   <div class="method"><a name="deleteArtifact"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /artifacts/{artifactid}</code></pre></div>
+    <pre class="delete"><code class="huge"><span class="http-method">delete</span> /artifacts/{uuid}</code></pre></div>
     <div class="method-summary">Remove an artifact from the repository (<span class="nickname">deleteArtifact</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">artifactid (required)</div>
+      <div class="param">uuid (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
 
@@ -428,13 +415,13 @@
   <div class="method"><a name="getArtifact"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /artifacts/{artifactid}</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /artifacts/{uuid}</code></pre></div>
     <div class="method-summary">Get artifact and metadata (<span class="nickname">getArtifact</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">artifactid (required)</div>
+      <div class="param">uuid (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
 
@@ -535,33 +522,17 @@
     <pre class="example"><code>{
   "pageInfo" : {
     "curLink" : "curLink",
-    "resultsPerPage" : 5,
-    "totalCount" : 5,
+    "resultsPerPage" : 6,
+    "totalCount" : 0,
     "continuationToken" : "continuationToken",
     "nextLink" : "nextLink"
   },
   "artifacts" : [ {
-    "auid" : "auid",
     "committed" : true,
-    "namespace" : "namespace",
-    "contentLength" : 6,
-    "uuid" : "uuid",
-    "uri" : "uri",
-    "version" : 0,
-    "storageUrl" : "storageUrl",
-    "collectionDate" : 1,
-    "contentDigest" : "contentDigest"
+    "storageUrl" : "storageUrl"
   }, {
-    "auid" : "auid",
     "committed" : true,
-    "namespace" : "namespace",
-    "contentLength" : 6,
-    "uuid" : "uuid",
-    "uri" : "uri",
-    "version" : 0,
-    "storageUrl" : "storageUrl",
-    "collectionDate" : 1,
-    "contentDigest" : "contentDigest"
+    "storageUrl" : "storageUrl"
   } ]
 }</code></pre>
 
@@ -631,33 +602,17 @@
     <pre class="example"><code>{
   "pageInfo" : {
     "curLink" : "curLink",
-    "resultsPerPage" : 5,
-    "totalCount" : 5,
+    "resultsPerPage" : 6,
+    "totalCount" : 0,
     "continuationToken" : "continuationToken",
     "nextLink" : "nextLink"
   },
   "artifacts" : [ {
-    "auid" : "auid",
     "committed" : true,
-    "namespace" : "namespace",
-    "contentLength" : 6,
-    "uuid" : "uuid",
-    "uri" : "uri",
-    "version" : 0,
-    "storageUrl" : "storageUrl",
-    "collectionDate" : 1,
-    "contentDigest" : "contentDigest"
+    "storageUrl" : "storageUrl"
   }, {
-    "auid" : "auid",
     "committed" : true,
-    "namespace" : "namespace",
-    "contentLength" : 6,
-    "uuid" : "uuid",
-    "uri" : "uri",
-    "version" : 0,
-    "storageUrl" : "storageUrl",
-    "collectionDate" : 1,
-    "contentDigest" : "contentDigest"
+    "storageUrl" : "storageUrl"
   } ]
 }</code></pre>
 
@@ -689,13 +644,13 @@
   <div class="method"><a name="updateArtifact"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="put"><code class="huge"><span class="http-method">put</span> /artifacts/{artifactid}</code></pre></div>
+    <pre class="put"><code class="huge"><span class="http-method">put</span> /artifacts/{uuid}</code></pre></div>
     <div class="method-summary">Update the property of an artifact (<span class="nickname">updateArtifact</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
     <div class="field-items">
-      <div class="param">artifactid (required)</div>
+      <div class="param">uuid (required)</div>
       
             <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
 
@@ -730,16 +685,8 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
-  "auid" : "auid",
   "committed" : true,
-  "namespace" : "namespace",
-  "contentLength" : 6,
-  "uuid" : "uuid",
-  "uri" : "uri",
-  "version" : 0,
-  "storageUrl" : "storageUrl",
-  "collectionDate" : 1,
-  "contentDigest" : "contentDigest"
+  "storageUrl" : "storageUrl"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -867,8 +814,8 @@
     <pre class="example"><code>{
   "pageInfo" : {
     "curLink" : "curLink",
-    "resultsPerPage" : 5,
-    "totalCount" : 5,
+    "resultsPerPage" : 6,
+    "totalCount" : 0,
     "continuationToken" : "continuationToken",
     "nextLink" : "nextLink"
   },
@@ -1149,10 +1096,15 @@
   <div class="method"><a name="getCdxOwb"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /wayback/cdx/owb/</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /wayback/cdx/owb/{namespace}</code></pre></div>
     <div class="method-summary">Get OpenWayback CDX records (<span class="nickname">getCdxOwb</span>)</div>
     <div class="method-notes">Get the OpenWayback CDX records of a URL in a namespace</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Namespace of the artifacts </div>    </div>  <!-- field-items -->
 
 
 
@@ -1162,9 +1114,7 @@
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">namespace (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">q (optional)</div>
+      <div class="param">q (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Query string. Supported fields are url, type\ \ (urlquery/prefixquery), offset and limit. </div>      <div class="param">count (optional)</div>
       
@@ -1213,10 +1163,15 @@
   <div class="method"><a name="getCdxPywb"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
-    <pre class="get"><code class="huge"><span class="http-method">get</span> /wayback/cdx/pywb/</code></pre></div>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /wayback/cdx/pywb/{namespace}</code></pre></div>
     <div class="method-summary">Get PyWayback CDX records (<span class="nickname">getCdxPywb</span>)</div>
     <div class="method-notes">Get the PyWayback CDX records of a URL in a namespace</div>
 
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Namespace of the artifacts </div>    </div>  <!-- field-items -->
 
 
 
@@ -1226,9 +1181,7 @@
 
     <h3 class="field-label">Query parameters</h3>
     <div class="field-items">
-      <div class="param">namespace (optional)</div>
-      
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">url (optional)</div>
+      <div class="param">url (optional)</div>
       
             <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; The URL for which the CDX records are requested </div>      <div class="param">limit (optional)</div>
       
@@ -1347,8 +1300,9 @@
     <li><a href="#archives_body"><code>archives_body</code></a></li>
     <li><a href="#artifact"><code>artifact</code></a></li>
     <li><a href="#artifactPageInfo"><code>artifactPageInfo</code></a></li>
-    <li><a href="#artifacts_artifactid_body"><code>artifacts_artifactid_body</code></a></li>
+    <li><a href="#artifactProperties"><code>artifactProperties</code></a></li>
     <li><a href="#artifacts_body"><code>artifacts_body</code></a></li>
+    <li><a href="#artifacts_uuid_body"><code>artifacts_uuid_body</code></a></li>
     <li><a href="#auSize"><code>auSize</code></a></li>
     <li><a href="#auidPageInfo"><code>auidPageInfo</code></a></li>
     <li><a href="#auid_bulk_body"><code>auid_bulk_body</code></a></li>
@@ -1383,16 +1337,17 @@
     <h3><a name="artifact"><code>artifact</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">namespace (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+      <div class="param">namespace (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">auid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
-<div class="param">committed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
-<div class="param">storageUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">contentLength (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
 <div class="param">contentDigest (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">collectionDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">committed (optional)</div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span>  </div>
+<div class="param">storageUrl (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -1404,20 +1359,35 @@
     </div>  <!-- field-items -->
   </div>
   <div class="model">
-    <h3><a name="artifacts_artifactid_body"><code>artifacts_artifactid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    <h3><a name="artifactProperties"><code>artifactProperties</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">committed </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> New commit status of artifact </div>
+      <div class="param">namespace (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">auid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">uri (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
+<div class="param">contentLength (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">contentDigest (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">collectionDate (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
+<div class="param">state (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
     <h3><a name="artifacts_body"><code>artifacts_body</code></a> <a class="up" href="#__Models">Up</a></h3>
     
     <div class="field-items">
-      <div class="param">artifactProps </div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> Artifact properties (JSON) format: byte</div>
-<div class="param">httpStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> HTTP status (optional) format: byte</div>
-<div class="param">httpHeaders (optional)</div><div class="param-desc"><span class="param-type"><a href="#ByteArray">byte[]</a></span> HTTP headers (optional) format: byte</div>
+      <div class="param">artifactProps </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Artifact properties (JSON) </div>
+<div class="param">httpStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP status (optional) </div>
+<div class="param">httpHeaders (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP headers (optional) </div>
 <div class="param">payload </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Artifact payload data format: binary</div>
+    </div>  <!-- field-items -->
+  </div>
+  <div class="model">
+    <h3><a name="artifacts_uuid_body"><code>artifacts_uuid_body</code></a> <a class="up" href="#__Models">Up</a></h3>
+    
+    <div class="field-items">
+      <div class="param">committed </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> New commit status of artifact </div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -1453,7 +1423,7 @@
       <div class="param">warcId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">offset (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span>  format: int64</div>
 <div class="param">url (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
-<div class="param">artifactId (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
+<div class="param">artifactUuid (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">digest (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
 <div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
 <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
