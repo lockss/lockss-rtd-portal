@@ -16,7 +16,6 @@ LOCKSS Documentation Portal
 
    releases
    security/index
-   license
    acknowledgments
 
 .. raw:: latex

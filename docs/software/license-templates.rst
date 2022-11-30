@@ -2,7 +2,7 @@
 License Templates
 =================
 
-Unless otherwise noted, LOCKSS software is made available under the **3-Clause BSD License** [#fnlicense]_. You can use the templates below to add the license to files of various kinds:
+Unless otherwise noted, software released by the LOCKSS Program is made available under the terms of the **3-Clause BSD License**, a permissive open-source license [#fnlicense]_. You can use the templates below to add the license to files of various kinds:
 
 *  Bash: see :ref:`Shell`
 *  Dockerfile: see :ref:`Shell`
@@ -226,4 +226,4 @@ The following template can be used for **XML** files.
 
 .. [#fnlicense]
 
-   See also: :doc:`/license`.
+   See also the `Software License <https://www.lockss.org/license>`_ page on the LOCKSS Web site.
