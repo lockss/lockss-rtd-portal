@@ -37,21 +37,21 @@
 
          .. button-ref:: /software/index
             :ref-type: doc
-            :color: primary
+            :color: secondary
             :expand:
 
       .. grid-item::
 
          .. button-ref:: /plugin/index
             :ref-type: doc
-            :color: primary
+            :color: secondary
             :expand:
 
       .. grid-item::
 
          .. button-ref:: /admin/index
             :ref-type: doc
-            :color: primary
+            :color: secondary
             :expand:
 
 ----
