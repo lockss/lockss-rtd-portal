@@ -1,4 +1,4 @@
-# Copyright (c) 2000-2022, Board of Trustees of Leland Stanford Jr. University
+# Copyright (c) 2000-2023, Board of Trustees of Leland Stanford Jr. University
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -49,7 +49,7 @@ import sphinx_rtd_theme
 # -- Project information -----------------------------------------------------
 
 project = 'LOCKSS Documentation Portal'
-copyright = '2000-2022, LOCKSS Program'
+copyright = '2000-2023, LOCKSS Program'
 author = 'LOCKSS Program'
 
 
