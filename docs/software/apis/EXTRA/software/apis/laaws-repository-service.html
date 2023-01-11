@@ -315,9 +315,7 @@
     <div class="field-items">
       <div class="param">artifactProps (required)</div>
       
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">httpStatus (required)</div>
-      
-            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">httpHeaders (required)</div>
+            <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">httpResponseHeader (required)</div>
       
             <div class="param-desc"><span class="param-type">Form Parameter</span> &mdash;  </div>      <div class="param">payload (required)</div>
       
@@ -454,6 +452,7 @@
     the media type will be conveyed by the <span class="header">Content-Type</span> response header.
     <ul>
       <li><code>multipart/form-data</code></li>
+      <li><code>application/json</code></li>
     </ul>
 
     <h3 class="field-label">Responses</h3>
@@ -468,6 +467,9 @@
         <a href="#"></a>
     <h4 class="field-label">404</h4>
     Artifact not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
         <a href="#"></a>
     <h4 class="field-label">502</h4>
     Could not read from external resource
@@ -1378,8 +1380,7 @@
     
     <div class="field-items">
       <div class="param">artifactProps </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Artifact properties (JSON) </div>
-<div class="param">httpStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP status (optional) </div>
-<div class="param">httpHeaders (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP headers (optional) </div>
+<div class="param">httpResponseHeader (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> HTTP response status and headers (optional) </div>
 <div class="param">payload </div><div class="param-desc"><span class="param-type"><a href="#binary">byte[]</a></span> Artifact payload data format: binary</div>
     </div>  <!-- field-items -->
   </div>

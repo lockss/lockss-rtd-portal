@@ -63,3 +63,5 @@ cp "${BASEDIR}/laaws-metadataextractor/target/generated-sources/swagger/html/ind
    "${OUTDIR}/laaws-metadata-extraction-service.html"
 cp "${BASEDIR}/laaws-metadataservice/target/generated-sources/swagger/html/index.html" \
    "${OUTDIR}/laaws-metadata-service.html"
+
+echo "Done."
