@@ -1463,8 +1463,15 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "startupStatus" : "NONE",
+  "reason" : "reason",
+  "readyTime" : 0,
+  "apiVersion" : "apiVersion",
   "ready" : true,
-  "version" : "version"
+  "componentName" : "componentName",
+  "componentVersion" : "componentVersion",
+  "serviceName" : "serviceName",
+  "lockssVersion" : "lockssVersion"
 }</code></pre>
 
     <h3 class="field-label">Produces</h3>
@@ -1987,8 +1994,17 @@
     <h3><a name="apiStatus"><code>apiStatus</code></a> <a class="up" href="#__Models">Up</a></h3>
     <div class='model-description'>The status information of the service</div>
     <div class="field-items">
-      <div class="param">version </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the service </div>
+      <div class="param">apiVersion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the API </div>
+<div class="param">componentName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the component </div>
+<div class="param">componentVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the component software </div>
+<div class="param">lockssVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the LOCKSS system </div>
 <div class="param">ready </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> The indication of whether the service is available </div>
+<div class="param">serviceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the service </div>
+<div class="param">readyTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The time the service last became ready. format: int64</div>
+<div class="param">reason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reason the service isn&#x27;t ready. </div>
+<div class="param">startupStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enum indicating progress of plugin/AU processing at startup. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NONE</div><div class="param-enum">PLUGINS_CRAWLING</div><div class="param-enum">PLUGINS_COLLECTED</div><div class="param-enum">PLUGINS_LOADING</div><div class="param-enum">PLUGINS_LOADED</div><div class="param-enum">AUS_STARTING</div><div class="param-enum">AUS_STARTED</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">

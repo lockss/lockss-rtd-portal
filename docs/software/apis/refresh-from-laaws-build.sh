@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2000-2022, Board of Trustees of Leland Stanford Jr. University
+# Copyright (c) 2000-2023, Board of Trustees of Leland Stanford Jr. University
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -45,7 +45,7 @@ fi
   mvn -pl `bin/bigproj` \
       -P doRestApiDocs \
       -Dbuild.java.spring.generateSwagger.groupId=io.swagger.codegen.v3 \
-      -Dversion.plugin.swagger-codegen-maven-plugin=3.0.35 )
+      -Dversion.plugin.swagger-codegen-maven-plugin=3.0.46 )
 
 # See:
 # https://stackoverflow.com/a/31820846/2850565
@@ -59,6 +59,8 @@ cp "${BASEDIR}/laaws-configservice/target/generated-sources/swagger/html/index.h
    "${OUTDIR}/laaws-configuration-service.html"
 cp "${BASEDIR}/laaws-poller/target/generated-sources/swagger/html/index.html" \
    "${OUTDIR}/laaws-poller-service.html"
+cp "${BASEDIR}/laaws-crawler-service/target/generated-sources/swagger/html/index.html" \
+   "${OUTDIR}/laaws-crawler-service.html"
 cp "${BASEDIR}/laaws-metadataextractor/target/generated-sources/swagger/html/index.html" \
    "${OUTDIR}/laaws-metadata-extraction-service.html"
 cp "${BASEDIR}/laaws-metadataservice/target/generated-sources/swagger/html/index.html" \

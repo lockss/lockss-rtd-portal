@@ -198,7 +198,9 @@
   <li><a href="#addArtifacts"><code><span class="http-method">post</span> /archives</code></a></li>
   <li><a href="#createArtifact"><code><span class="http-method">post</span> /artifacts</code></a></li>
   <li><a href="#deleteArtifact"><code><span class="http-method">delete</span> /artifacts/{uuid}</code></a></li>
-  <li><a href="#getArtifact"><code><span class="http-method">get</span> /artifacts/{uuid}</code></a></li>
+  <li><a href="#getArtifactDataByMultipart"><code><span class="http-method">get</span> /artifacts/{uuid}</code></a></li>
+  <li><a href="#getArtifactDataByPayload"><code><span class="http-method">get</span> /artifacts/{uuid}/payload</code></a></li>
+  <li><a href="#getArtifactDataByResponse"><code><span class="http-method">get</span> /artifacts/{uuid}/response</code></a></li>
   <li><a href="#getArtifacts"><code><span class="http-method">get</span> /aus/{auid}/artifacts</code></a></li>
   <li><a href="#getArtifactsFromAllAus"><code><span class="http-method">get</span> /artifacts</code></a></li>
   <li><a href="#updateArtifact"><code><span class="http-method">put</span> /artifacts/{uuid}</code></a></li>
@@ -213,6 +215,7 @@
   <ul>
   <li><a href="#getNamespaces"><code><span class="http-method">get</span> /namespaces</code></a></li>
   <li><a href="#getRepositoryInformation"><code><span class="http-method">get</span> /repoinfo</code></a></li>
+  <li><a href="#getStorageInfo"><code><span class="http-method">get</span> /repoinfo/storage</code></a></li>
   <li><a href="#getSupportedChecksumAlgorithms"><code><span class="http-method">get</span> /checksumalgorithms</code></a></li>
   </ul>
   <h4><a href="#Status">Status</a></h4>
@@ -247,7 +250,11 @@
     <div class="field-items">
       <div class="param">namespace (optional)</div>
       
-            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>    </div>  <!-- field-items -->
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">storeDuplicate (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If true, artifacts with duplicate content will be stored, otherwise suppressed default: false </div>      <div class="param">excludeStatusPattern (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; If supplied, WARC records whose HTTP response status code matches the regular expression will not be imported </div>    </div>  <!-- field-items -->
 
     <h3 class="field-label">Form parameters</h3>
     <div class="field-items">
@@ -410,11 +417,11 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
-  <div class="method"><a name="getArtifact"></a>
+  <div class="method"><a name="getArtifactDataByMultipart"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
     <pre class="get"><code class="huge"><span class="http-method">get</span> /artifacts/{uuid}</code></pre></div>
-    <div class="method-summary">Get artifact and metadata (<span class="nickname">getArtifact</span>)</div>
+    <div class="method-summary">Get artifact and metadata (<span class="nickname">getArtifactDataByMultipart</span>)</div>
     <div class="method-notes"></div>
 
     <h3 class="field-label">Path parameters</h3>
@@ -473,6 +480,136 @@
         <a href="#"></a>
     <h4 class="field-label">502</h4>
     Could not read from external resource
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getArtifactDataByPayload"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /artifacts/{uuid}/payload</code></pre></div>
+    <div class="method-summary">Get artifact payload (<span class="nickname">getArtifactDataByPayload</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">includeContent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Controls whether to include the artifact content part in multipart response default: ALWAYS </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      byte[]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/octet-stream</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Artifact&#x27;s payload
+        <a href="#byte[]">byte[]</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized request
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Client not authorized to retrieve artifact
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Artifact not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Could not read artifact
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
+  <div class="method"><a name="getArtifactDataByResponse"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /artifacts/{uuid}/response</code></pre></div>
+    <div class="method-summary">Get artifact data as HTTP response (<span class="nickname">getArtifactDataByResponse</span>)</div>
+    <div class="method-notes"></div>
+
+    <h3 class="field-label">Path parameters</h3>
+    <div class="field-items">
+      <div class="param">uuid (required)</div>
+      
+            <div class="param-desc"><span class="param-type">Path Parameter</span> &mdash; Identifier of the artifact </div>    </div>  <!-- field-items -->
+
+
+
+
+    <h3 class="field-label">Query parameters</h3>
+    <div class="field-items">
+      <div class="param">namespace (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Namespace of the artifacts default: lockss </div>      <div class="param">includeContent (optional)</div>
+      
+            <div class="param-desc"><span class="param-type">Query Parameter</span> &mdash; Controls whether to include the artifact content part in multipart response default: ALWAYS </div>    </div>  <!-- field-items -->
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      
+      byte[]
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>""</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/http;msgtype=response</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    Artifact&#x27;s payload
+        <a href="#byte[]">byte[]</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized request
+        <a href="#"></a>
+    <h4 class="field-label">403</h4>
+    Client not authorized to retrieve artifact
+        <a href="#"></a>
+    <h4 class="field-label">404</h4>
+    Artifact not found
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+    <h4 class="field-label">502</h4>
+    Could not read artifact
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
@@ -995,6 +1132,58 @@
         <a href="#"></a>
   </div> <!-- method -->
   <hr/>
+  <div class="method"><a name="getStorageInfo"></a>
+    <div class="method-path">
+    <a class="up" href="#__Methods">Up</a>
+    <pre class="get"><code class="huge"><span class="http-method">get</span> /repoinfo/storage</code></pre></div>
+    <div class="method-summary">Get repository storage information (<span class="nickname">getStorageInfo</span>)</div>
+    <div class="method-notes">Get properties of the repository storage</div>
+
+
+
+
+
+
+
+    <h3 class="field-label">Return type</h3>
+    <div class="return-type">
+      <a href="#storageInfo">storageInfo</a>
+      
+    </div>
+
+    <!--Todo: process Response Object and its headers, schema, examples -->
+
+    <h3 class="field-label">Example data</h3>
+    <div class="example-data-content-type">Content-Type: application/json</div>
+    <pre class="example"><code>{
+  "avail" : 1,
+  "percentUsedString" : "percentUsedString",
+  "size" : 0,
+  "name" : "name",
+  "percentUsed" : 5.962133916683182,
+  "used" : 6,
+  "type" : "type"
+}</code></pre>
+
+    <h3 class="field-label">Produces</h3>
+    This API call produces the following media types according to the <span class="header">Accept</span> request header;
+    the media type will be conveyed by the <span class="header">Content-Type</span> response header.
+    <ul>
+      <li><code>application/json</code></li>
+    </ul>
+
+    <h3 class="field-label">Responses</h3>
+    <h4 class="field-label">200</h4>
+    The repository storage information
+        <a href="#storageInfo">storageInfo</a>
+    <h4 class="field-label">401</h4>
+    Unauthorized
+        <a href="#"></a>
+    <h4 class="field-label">500</h4>
+    Internal Server Error
+        <a href="#"></a>
+  </div> <!-- method -->
+  <hr/>
   <div class="method"><a name="getSupportedChecksumAlgorithms"></a>
     <div class="method-path">
     <a class="up" href="#__Methods">Up</a>
@@ -1067,6 +1256,9 @@
     <h3 class="field-label">Example data</h3>
     <div class="example-data-content-type">Content-Type: application/json</div>
     <pre class="example"><code>{
+  "startupStatus" : "NONE",
+  "reason" : "reason",
+  "readyTime" : 0,
   "apiVersion" : "apiVersion",
   "ready" : true,
   "componentName" : "componentName",
@@ -1320,11 +1512,16 @@
     <div class='model-description'>The status information of the service</div>
     <div class="field-items">
       <div class="param">apiVersion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the API </div>
-<div class="param">componentName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the component </div>
-<div class="param">componentVersion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the component software </div>
-<div class="param">lockssVersion </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the LOCKSS system </div>
+<div class="param">componentName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the component </div>
+<div class="param">componentVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the component software </div>
+<div class="param">lockssVersion (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The version of the LOCKSS system </div>
 <div class="param">ready </div><div class="param-desc"><span class="param-type"><a href="#boolean">Boolean</a></span> The indication of whether the service is available </div>
-<div class="param">serviceName </div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the service </div>
+<div class="param">serviceName (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The name of the service </div>
+<div class="param">readyTime (optional)</div><div class="param-desc"><span class="param-type"><a href="#long">Long</a></span> The time the service last became ready. format: int64</div>
+<div class="param">reason (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> The reason the service isn&#x27;t ready. </div>
+<div class="param">startupStatus (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span> Enum indicating progress of plugin/AU processing at startup. </div>
+        <div class="param-enum-header">Enum:</div>
+        <div class="param-enum">NONE</div><div class="param-enum">PLUGINS_CRAWLING</div><div class="param-enum">PLUGINS_COLLECTED</div><div class="param-enum">PLUGINS_LOADING</div><div class="param-enum">PLUGINS_LOADED</div><div class="param-enum">AUS_STARTING</div><div class="param-enum">AUS_STARTED</div>
     </div>  <!-- field-items -->
   </div>
   <div class="model">
@@ -1429,7 +1626,7 @@
 <div class="param">version (optional)</div><div class="param-desc"><span class="param-type"><a href="#integer">Integer</a></span>  </div>
 <div class="param">status (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
         <div class="param-enum-header">Enum:</div>
-        <div class="param-enum">OK</div><div class="param-enum">ERROR</div>
+        <div class="param-enum">OK</div><div class="param-enum">ERROR</div><div class="param-enum">DUPLICATE</div><div class="param-enum">EXCLUDED</div>
 <div class="param">statusMessage (optional)</div><div class="param-desc"><span class="param-type"><a href="#string">String</a></span>  </div>
     </div>  <!-- field-items -->
   </div>

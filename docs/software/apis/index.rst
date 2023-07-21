@@ -9,5 +9,6 @@ The API of each LOCKSS REST service is described in a Swagger 2.0 specification,
    LOCKSS Repository Service REST API <laaws-repository-service.html#http://>
    LOCKSS Configuration Service REST API <laaws-configuration-service.html#http://>
    LOCKSS Poller Service REST API <laaws-poller-service.html#http://>
+   LOCKSS Crawler Service REST API <laaws-crawler-service.html#http://>
    LOCKSS Metadata Extraction Service REST API <laaws-metadata-extraction-service.html#http://>
    LOCKSS Metadata Service REST API <laaws-metadata-service.html#http://>
