@@ -8,10 +8,10 @@ LOCKSS Documentation Portal
 
 .. raw:: latex
 
-   \part{General Information}
+   \part{LOCKSS Software}
 
 .. toctree::
-   :caption: General Information
+   :caption: LOCKSS Software
    :hidden:
 
    releases
