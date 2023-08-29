@@ -3,7 +3,7 @@ Releases
 ========
 
 -----------------
-LOCKSS 2.0-alpha6
+LOCKSS 2.0-alpha7
 -----------------
 
 :bdg-warning-line:`development`
@@ -21,6 +21,11 @@ LOCKSS 1.77
 ---------------------
 Archived 2.x Releases
 ---------------------
+
+LOCKSS 2.0-alpha6
+=================
+
+*  `LOCKSS 2.0.61-alpha6 </projects/manual/en/2.0-alpha6/appendix/release-notes.html#lockss-2-0-61-alpha6>`_ (2023-01-23)
 
 LOCKSS 2.0-alpha5
 =================
