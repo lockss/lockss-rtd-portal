@@ -7,6 +7,8 @@ This section discusses security issues related to the LOCKSS system.
 ========== ================ =======
 Date       Reference        Summary
 ========== ================ =======
+2023-09-08 | CVE-2022-39135 | Does not affect LOCKSS 2.x to date
+                            | :doc:`Read more... <cve-2022-39135>`
 2022-01-02 | CVE-2021-45105 | Affects LOCKSS 2.x up to and including 2.0.51-alpha5
            | CVE-2021-44832 | Resolved in LOCKSS 2.0.52-alpha5
                             | :doc:`Read more... <cve-2021-45105>`
