@@ -5,7 +5,7 @@ You can check if Ant is installed on your system by typing ``ant -version`` at t
 .. tab-set::
    :class: sd-bg-light
 
-   .. tab-item:: AlmaLinux
+   .. tab-item:: AlmaLinux OS
       :sync: alma
 
       .. include:: ant-dnf.rst
@@ -20,20 +20,20 @@ You can check if Ant is installed on your system by typing ``ant -version`` at t
 
       .. tab-set::
 
-         .. tab-item:: CentOS 7
-            :sync: centos7
+         .. tab-item:: CentOS Stream 8-9
+            :sync: centosstream8
 
-            .. include:: ant-yum.rst
+            .. include:: ant-dnf.rst
 
          .. tab-item:: CentOS 8
             :sync: centos8
 
             .. include:: ant-dnf.rst
 
-         .. tab-item:: CentOS Stream 8-9
-            :sync: centosstream8
+         .. tab-item:: CentOS 7
+            :sync: centos7
 
-            .. include:: ant-dnf.rst
+            .. include:: ant-yum.rst
 
    .. tab-item:: Debian
       :sync: debian
@@ -45,17 +45,17 @@ You can check if Ant is installed on your system by typing ``ant -version`` at t
 
       .. tab-set::
 
-         .. tab-item:: EuroLinux 7
-            :sync: eurolinux7
-
-            .. include:: ant-yum.rst
-
          .. tab-item:: EuroLinux 8-9
             :sync: eurolinux8
 
             .. include:: ant-dnf.rst
 
-   .. tab-item:: Fedora
+         .. tab-item:: EuroLinux 7
+            :sync: eurolinux7
+
+            .. include:: ant-yum.rst
+
+   .. tab-item:: Fedora Linux
       :sync: fedora
 
       .. include:: ant-dnf.rst
@@ -100,37 +100,37 @@ You can check if Ant is installed on your system by typing ``ant -version`` at t
 
       .. tab-set::
 
-         .. tab-item:: Oracle Linux 7
-            :sync: oracle7
-
-            .. include:: ant-yum.rst
-
          .. tab-item:: Oracle Linux 8-9
             :sync: oracle8
 
             .. include:: ant-dnf.rst
+
+         .. tab-item:: Oracle Linux 7
+            :sync: oracle7
+
+            .. include:: ant-yum.rst
 
    .. tab-item:: RHEL
       :sync: rhel
 
       .. tab-set::
 
-         .. tab-item:: RHEL 7
-            :sync: rhel7
-
-            .. include:: ant-yum.rst
-
          .. tab-item:: RHEL 8-9
             :sync: rhel8
 
             .. include:: ant-dnf.rst
+
+         .. tab-item:: RHEL 7
+            :sync: rhel7
+
+            .. include:: ant-yum.rst
 
    .. tab-item:: Rocky Linux
       :sync: rocky
 
       .. include:: ant-dnf.rst
 
-   .. tab-item:: Scientific Linux 7
+   .. tab-item:: Scientific Linux
       :sync: scientific
 
       .. include:: ant-yum.rst

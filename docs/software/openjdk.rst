@@ -7,7 +7,7 @@ If you need to install a JDK, we recommend OpenJDK; select your operating system
 .. tab-set::
    :class: sd-bg-light
 
-   .. tab-item:: AlmaLinux
+   .. tab-item:: AlmaLinux OS
       :sync: alma
 
       .. include:: openjdk-dnf.rst
@@ -22,20 +22,20 @@ If you need to install a JDK, we recommend OpenJDK; select your operating system
 
       .. tab-set::
 
-         .. tab-item:: CentOS 7
-            :sync: centos7
+         .. tab-item:: CentOS Stream 8-9
+            :sync: centosstream8
 
-            .. include:: openjdk-yum.rst
+            .. include:: openjdk-dnf.rst
 
          .. tab-item:: CentOS 8
             :sync: centos8
 
             .. include:: openjdk-dnf.rst
 
-         .. tab-item:: CentOS Stream 8-9
-            :sync: centosstream8
+         .. tab-item:: CentOS 7
+            :sync: centos7
 
-            .. include:: openjdk-dnf.rst
+            .. include:: openjdk-yum.rst
 
    .. tab-item:: Debian
       :sync: debian
@@ -47,17 +47,17 @@ If you need to install a JDK, we recommend OpenJDK; select your operating system
 
       .. tab-set::
 
-         .. tab-item:: EuroLinux 7
-            :sync: eurolinux7
-
-            .. include:: openjdk-yum.rst
-
          .. tab-item:: EuroLinux 8-9
             :sync: eurolinux8
 
             .. include:: openjdk-dnf.rst
 
-   .. tab-item:: Fedora
+         .. tab-item:: EuroLinux 7
+            :sync: eurolinux7
+
+            .. include:: openjdk-yum.rst
+
+   .. tab-item:: Fedora Linux
       :sync: fedora
 
       .. include:: openjdk-dnf.rst
@@ -102,37 +102,37 @@ If you need to install a JDK, we recommend OpenJDK; select your operating system
 
       .. tab-set::
 
-         .. tab-item:: Oracle Linux 7
-            :sync: oracle7
-
-            .. include:: openjdk-yum.rst
-
          .. tab-item:: Oracle Linux 8-9
             :sync: oracle8
 
             .. include:: openjdk-dnf.rst
+
+         .. tab-item:: Oracle Linux 7
+            :sync: oracle7
+
+            .. include:: openjdk-yum.rst
 
    .. tab-item:: RHEL
       :sync: rhel
 
       .. tab-set::
 
-         .. tab-item:: RHEL 7
-            :sync: rhel7
-
-            .. include:: openjdk-yum.rst
-
          .. tab-item:: RHEL 8-9
             :sync: rhel8
 
             .. include:: openjdk-dnf.rst
+
+         .. tab-item:: RHEL 7
+            :sync: rhel7
+
+            .. include:: openjdk-yum.rst
 
    .. tab-item:: Rocky Linux
       :sync: rocky
 
       .. include:: openjdk-dnf.rst
 
-   .. tab-item:: Scientific Linux 7
+   .. tab-item:: Scientific Linux
       :sync: scientific
 
       .. include:: openjdk-yum.rst

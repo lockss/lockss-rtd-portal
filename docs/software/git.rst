@@ -5,7 +5,7 @@ You can check if Git is installed on your system by typing ``git --version`` at 
 .. tab-set::
    :class: sd-bg-light
 
-   .. tab-item:: AlmaLinux
+   .. tab-item:: AlmaLinux OS
       :sync: alma
 
       .. include:: git-dnf.rst
@@ -20,20 +20,20 @@ You can check if Git is installed on your system by typing ``git --version`` at 
 
       .. tab-set::
 
-         .. tab-item:: CentOS 7
-            :sync: centos7
+         .. tab-item:: CentOS Stream 8-9
+            :sync: centosstream8
 
-            .. include:: git-yum.rst
+            .. include:: git-dnf.rst
 
          .. tab-item:: CentOS 8
             :sync: centos8
 
             .. include:: git-dnf.rst
 
-         .. tab-item:: CentOS Stream 8-9
-            :sync: centosstream8
+         .. tab-item:: CentOS 7
+            :sync: centos7
 
-            .. include:: git-dnf.rst
+            .. include:: git-yum.rst
 
    .. tab-item:: Debian
       :sync: debian
@@ -45,17 +45,17 @@ You can check if Git is installed on your system by typing ``git --version`` at 
 
       .. tab-set::
 
-         .. tab-item:: EuroLinux 7
-            :sync: eurolinux7
-
-            .. include:: git-yum.rst
-
          .. tab-item:: EuroLinux 8-9
             :sync: eurolinux8
 
             .. include:: git-dnf.rst
 
-   .. tab-item:: Fedora
+         .. tab-item:: EuroLinux 7
+            :sync: eurolinux7
+
+            .. include:: git-yum.rst
+
+   .. tab-item:: Fedora Linux
       :sync: fedora
 
       .. include:: git-dnf.rst
@@ -100,15 +100,15 @@ You can check if Git is installed on your system by typing ``git --version`` at 
 
       .. tab-set::
 
-         .. tab-item:: Oracle Linux 7
-            :sync: oracle7
-
-            .. include:: git-yum.rst
-
          .. tab-item:: Oracle Linux 8-9
             :sync: oracle8
 
             .. include:: git-dnf.rst
+
+         .. tab-item:: Oracle Linux 7
+            :sync: oracle7
+
+            .. include:: git-yum.rst
 
    .. tab-item:: RHEL
       :sync: rhel
@@ -130,7 +130,7 @@ You can check if Git is installed on your system by typing ``git --version`` at 
 
       .. include:: git-dnf.rst
 
-   .. tab-item:: Scientific Linux 7
+   .. tab-item:: Scientific Linux
       :sync: scientific
 
       .. include:: git-yum.rst
