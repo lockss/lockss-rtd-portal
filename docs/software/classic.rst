@@ -38,7 +38,7 @@ Installing the Java Development Kit
 
 1. .. include:: openjdk.rst
 
-2. Set the :envvar:`JAVA_HOME` environment variable to the directory in which the JDK is installed, for example :file:`/usr/lib/jvm/java-8-openjdk`. It is expected that the file :file:`${JAVA_HOME}/lib/tools.jar` exists.
+2. Set the :envvar:`JAVA_HOME` environment variable to the directory in which the JDK is installed, for example :file:`/usr/lib/jvm/java-8-openjdk` or similar for Linux or :file:`/usr/local/opt/openjdk@8/libexec/openjdk.jdk/Home` for MacOS with Homebrew. It is expected that the file :file:`${JAVA_HOME}/lib/tools.jar` exists.
 
 Installing Apache Ant
 =====================
