@@ -50,7 +50,7 @@ Roles are arbitrary strings, but many typical role strings are defined as consta
 
 *  ``ArticleFiles.ROLE_SUPPLEMENTARY_MATERIALS``: a URL for a landing page of the work's supplementary materials.
 
-*  ``ArticleFiles.ROLE_CITATION``: a URL for a landing page or the work's citation files.
+*  ``ArticleFiles.ROLE_CITATION``: a URL for a landing page for the work's citation files.
 
 *  ``ArticleFiles.ROLE_CITATION_BIBTEX``: a URL for a BibTeX citation file for the work.
 
