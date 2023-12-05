@@ -8,14 +8,16 @@ LOCKSS Documentation Portal
 
 .. raw:: latex
 
-   \part{LOCKSS Software}
+   \part{LOCKSS System}
 
 .. toctree::
-   :caption: LOCKSS Software
+   :caption: LOCKSS System
    :hidden:
 
    releases
    security/index
+   LOCKSS 1.x System Manual <https://lockss.github.io/administrators/classic-lockss/>
+   LOCKSS 2.x System Manual <https://docs.lockss.org/projects/manual/>
    acknowledgments
 
 .. raw:: latex
@@ -26,8 +28,6 @@ LOCKSS Documentation Portal
    :caption: LOCKSS Guides
    :hidden:
 
-   LOCKSS 1.x System Manual <https://lockss.github.io/administrators/classic-lockss/>
-   LOCKSS 2.x System Manual <https://docs.lockss.org/projects/manual/>
    software/index
    plugin/index
    admin/index
