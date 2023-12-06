@@ -28,7 +28,7 @@ LOCKSS Documentation Portal
    :caption: LOCKSS Guides
    :hidden:
 
-   software/index
+   dev/index
    plugin/index
    admin/index
 

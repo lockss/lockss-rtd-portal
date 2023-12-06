@@ -51,7 +51,7 @@ fi
 # https://stackoverflow.com/a/31820846/2850565
 # https://github.com/sphinx-doc/sphinx/issues/701#issuecomment-697116337
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_extra_path
-OUTDIR='EXTRA/software/apis'
+OUTDIR='EXTRA/dev/apis'
 
 cp "${BASEDIR}/laaws-repository-service/target/generated-sources/swagger/html/index.html" \
    "${OUTDIR}/laaws-repository-service.html"
