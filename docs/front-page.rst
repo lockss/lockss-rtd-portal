@@ -35,7 +35,7 @@
 
       .. grid-item::
 
-         .. button-ref:: /software/index
+         .. button-ref:: /dev/index
             :ref-type: doc
             :color: secondary
             :expand:
