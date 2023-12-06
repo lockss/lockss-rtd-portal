@@ -1,3 +1,3 @@
 .. error::
 
-   This page has moved `here </dev/apis/laaws-poller-service.html>`_.
+   This page has moved `here </en/latest/dev/apis/laaws-poller-service.html>`_.
