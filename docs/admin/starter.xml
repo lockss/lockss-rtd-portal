@@ -16,7 +16,8 @@
     <!--
       org.lockss.titleDbs
       
-      One or more URLs of plugin registries used by this network.
+      One or more URLs of archival unit inventory files for this network. In
+      some applications using only "direct deposit" workflows, this is omitted.
     -->
     <property name="titleDbs">
       <list>
