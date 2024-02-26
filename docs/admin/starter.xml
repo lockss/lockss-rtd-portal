@@ -1,0 +1,51 @@
+<lockss-config>
+
+  <property name="org.lockss">
+
+    <!-- One or more URLs of plugin registries used by this network -->
+    <property name="plugin.registries">
+      <list>
+        <value>http://props.mynetwork.org/plugins/</value>
+      </list>
+    </property>
+
+    <!-- One or more URLs of AU inventory files for this network -->
+    <property name="titleDbs">
+      <list>
+        <value>http://props.mynetwork.org/titledb/titledb.xml</value>
+      </list>
+    </property>
+
+    <!-- The quorum for polling in this network; 3 is a good start -->
+    <property name="poll.v3">
+      <property name="quorum" value="3" />
+    </property>
+
+    <!-- The list of LCAPv3 identities of the nodes in the network -->
+    <property name="id.initialV3PeerList">
+      <list>
+        <value>TCP:[1.2.3.4]:9729</value>
+        <value>TCP:[5.6.7.8]:9729</value>
+        <value>TCP:[9.10.11.12]:9729</value>
+        <value>TCP:[13.14.15.16]:9729</value>
+      </list>
+    </property>
+
+    <!-- Optional: one or more IP subnets that should be able to see the Web UI
+         until each node sets their own access list. Useful only if there is a
+         meaningful network-wide value for this. This does not create a Web UI
+         user account, nor affect firewall traffic on each node or its
+         institution's network. -->
+    <property name="ui.access">
+      <property name="ip.include">
+        <list>
+          <!-- The subnet of the LOCKSS Program at Stanford Libraries -->
+          <value>171.66.236.0/24</value>
+        </list>
+      </property>
+    </property>
+
+  </property>
+
+</lockss-config>
+
