@@ -89,6 +89,55 @@
       </list>
     </property>
 
+    <!--
+      In LOCKSS 1.x version 1.78 and LOCKSS 2.x version 2.0-beta1, the default
+      values of many useful configuration parameters were changed to better
+      reflect typical LOCKSS networks, as opposed to very large LOCKSS networks
+      like the GLN or CLOCKSS. If your network includes some nodes running
+      LOCKSS 1.x version 1.77.6 or earlier and/or LOCKSS 2.x version 2.0-alpha7
+      or earlier, you will need to add this section. You can then remove it when
+      all nodes in the network are running LOCKSS 1.x version 1.78 or later
+      and/or LOCKSS 2.x version 2.0-beta1 or later.
+    -->
+    <if>
+      <or>
+        <test daemonVersionMax="1.77.99" /><!-- highest 1.77 version -->
+        <and>
+          <test daemonVersionMin="2.0.0" /><!-- earliest 2.0 version -->
+          <test daemonVersionMax="2.0.79" /><!-- highest 2.0-alpha7 version -->
+        </and>
+      <or>
+      <then>
+        <property name="baseau.defaultFetchRateLimiterSource" value="plugin" />
+        <property name="crawler.threadPool.max" value="5" />
+        <property name="export.enabled" value="true" />
+        <property name="hasher">
+          <property name="estimate.pad.constant" value="1m" />
+          <property name="estimate.pad.percent" value="20" />
+        </property>
+        <property name="HtmlTagFilter.throwIfNoEndTag" value="false"/>
+        <property name="plugin.registries.crawlInterval" value="12h" />
+        <property name="poll.discardSavedPolls" value="true" />
+        <property name="poll.expireRecent" value="2d" />
+        <property name="poll.v3">
+          <property name="enableDiscovery" value="false" />
+          <property name="minNominationSize" value="0" />
+          <property name="maxNominationSize" value="0" />
+          <property name="maxSimultaneousV3Pollers" value="5" />
+          <property name="repairFromCachePercent" value="25" />
+          <property name="enableSymmetricPolls" value="true" />
+          <property name="allSymmetricPolls" value="true" />
+        </property>
+        <property name="titleSet">
+          <property name="allaus.class" value="allaus" />
+          <property name="activeaus.class" value="activeaus" />
+          <property name="inactiveaus.class" value="inactiveaus" />
+        </property>
+        <property name="thread.hungThreadDump" value="true"/>
+        <property name="urlconn.maxTotalConnections" value="12" />
+      </then>
+    </if>
+
   </property>
 
 </lockss-config>

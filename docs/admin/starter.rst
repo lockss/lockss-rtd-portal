@@ -2,7 +2,11 @@
 Starter Network Configuration File
 ==================================
 
-:ref:`Below <starter-xml>` is a suitable starter network configuration file for many typical LOCKSS networks, where the set of nodes is closed, and all the nodes are running LOCKSS 1.x version 1.78 or later and/or LOCKSS 2.x version 2.0-beta1 or later.
+The following is a suitable starter network configuration file for many typical LOCKSS networks, where the set of nodes is closed, and all the nodes are running LOCKSS 1.x version 1.78 or later and/or LOCKSS 2.x version 2.0-beta1 or later:
+
+.. literalinclude:: starter.xml
+   :language: xml
+   :linenos:
 
 The key configuration properties are:
 
@@ -18,15 +22,17 @@ Optional settings to consider include:
 
 *  **Network logo** (``org.lockss.ui.logo.img``): *Optional.* The URL of an image file representing the network's logo. Recommended height: 80 pixels.
 
-*  **Network link** (``org.lockss.ui.logo.link``): *Optional.* The URL of the network's Web site, to make the network logo (see above) clickable.
+*  **Network Web site link** (``org.lockss.ui.logo.link``): *Optional.* The URL of the network's Web site, to make the network logo (see above) clickable.
 
 *  **Help link** (``org.lockss.ui.helpUrl``): *Optional.* The URL of a help Web page, to appear in the LOCKSS Web user interface in the top-right menu.
 
 *  **Initial access subnets** (``org.lockss.ui.access.ip.include``): *Optional.* One or more IP subnets that should be able to access the Web UI of a node in the network, until the node sets its own access list. Useful only if there is a meaningful network-wide value for this.
 
-.. literalinclude:: starter.xml
+The default values for a number of useful configuration properties were changed in LOCKSS 1.x version 1.78 and LOCKSS 2.x version 2.0-beta1 so they better reflect typical LOCKSS networks rather than very large networks like the GLN or CLOCKSS. If your network includes some nodes running LOCKSS 1.x version 1.77.6 or earlier and/or LOCKSS 2.x version 2.0-alpha7 or earlier, you will need to add the highlighted section below to your network configuration file:
+
+.. literalinclude:: starter-hybrid.xml
    :language: xml
    :linenos:
-   :name: starter-xml
+   :emphasize-lines: 92-139
 
-The default values for a number of useful configuration properties were changed in LOCKSS 1.x version 1.78 and LOCKSS 2.x version 2.0-beta1.
+You can then remove that section when all nodes in the network are running LOCKSS 1.x version 1.78 or later and/or LOCKSS 2.x version 2.0-beta1 or later.
