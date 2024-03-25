@@ -128,12 +128,12 @@
           <property name="enableSymmetricPolls" value="true" />
           <property name="allSymmetricPolls" value="true" />
         </property>
+        <property name="thread.hungThreadDump" value="true"/>
         <property name="titleSet">
           <property name="allaus.class" value="allaus" />
           <property name="activeaus.class" value="activeaus" />
           <property name="inactiveaus.class" value="inactiveaus" />
         </property>
-        <property name="thread.hungThreadDump" value="true"/>
         <property name="urlconn.maxTotalConnections" value="12" />
       </then>
     </if>
