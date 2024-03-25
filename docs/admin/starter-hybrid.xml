@@ -106,7 +106,7 @@
           <test daemonVersionMin="2.0.0" /><!-- earliest 2.0 version -->
           <test daemonVersionMax="2.0.79" /><!-- highest 2.0-alpha7 version -->
         </and>
-      <or>
+      </or>
       <then>
         <property name="baseau.defaultFetchRateLimiterSource" value="plugin" />
         <property name="crawler.threadPool.max" value="5" />
