@@ -2,7 +2,7 @@
 Starter Network Configuration File
 ==================================
 
-The following is a suitable starter network configuration file for many typical LOCKSS networks, where the set of nodes is closed, and all the nodes are running LOCKSS 1.x version 1.78 or later and/or LOCKSS 2.x version 2.0-beta1 or later:
+The following is a suitable starter network configuration file for a typical LOCKSS network, namely, a closed network where all the nodes are running LOCKSS 1.x version 1.78 or later and/or LOCKSS 2.x version 2.0-beta1 or later:
 
 .. literalinclude:: starter.xml
    :language: xml
