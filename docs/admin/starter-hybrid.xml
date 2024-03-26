@@ -10,7 +10,7 @@
     -->
     <property name="plugin.registries">
       <list>
-        <value>http://props.mynetwork.org/plugins/</value>
+        <value>https://props.mynetwork.org/plugins/</value>
       </list>
     </property>
 
@@ -23,7 +23,7 @@
     -->
     <property name="titleDbs">
       <list>
-        <value>http://props.mynetwork.org/titledb/titledb.xml</value>
+        <value>https://props.mynetwork.org/titledb/titledb.xml</value>
       </list>
     </property>
 
