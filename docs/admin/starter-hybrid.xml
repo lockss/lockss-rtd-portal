@@ -115,7 +115,7 @@
           <property name="estimate.pad.constant" value="1m" />
           <property name="estimate.pad.percent" value="20" />
         </property>
-        <property name="HtmlTagFilter.throwIfNoEndTag" value="false"/>
+        <property name="HtmlTagFilter.throwIfNoEndTag" value="false" />
         <property name="plugin.registries.crawlInterval" value="12h" />
         <property name="poll.discardSavedPolls" value="true" />
         <property name="poll.expireRecent" value="2d" />
@@ -128,7 +128,7 @@
           <property name="enableSymmetricPolls" value="true" />
           <property name="allSymmetricPolls" value="true" />
         </property>
-        <property name="thread.hungThreadDump" value="true"/>
+        <property name="thread.hungThreadDump" value="true" />
         <property name="titleSet">
           <property name="allaus.class" value="allaus" />
           <property name="activeaus.class" value="activeaus" />
