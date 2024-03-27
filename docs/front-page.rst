@@ -5,6 +5,11 @@
    .. grid-item-card:: LOCKSS 1.x :bdg-success:`stable`
       :class-title: sd-text-center
 
+      .. image:: /images/lockss-classic-80x80.gif
+         :align: center
+
+      ^^^
+
       .. include:: releases1.rst
 
       +++
@@ -17,6 +22,11 @@
 
    .. grid-item-card:: LOCKSS 2.x :bdg-warning-line:`development`
       :class-title: sd-text-center
+
+      .. image:: /images/lockss-80x80.png
+         :align: center
+
+      ^^^
 
       .. include:: releases2.rst
 
@@ -35,7 +45,7 @@
 
       .. grid-item::
 
-         .. button-ref:: /dev/index
+         .. button-ref:: /admin/index
             :ref-type: doc
             :color: secondary
             :expand:
@@ -49,7 +59,7 @@
 
       .. grid-item::
 
-         .. button-ref:: /admin/index
+         .. button-ref:: /dev/index
             :ref-type: doc
             :color: secondary
             :expand:
