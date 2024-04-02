@@ -28,4 +28,13 @@ div.rst-other-versions > dl:nth-child(5) { /* Read The Docs based search box */
 .nav-icon, .nav-icon:visited {
     color: #666;
 }
+span.guilabel {
+    font-size:80%;
+    font-weight:700;
+    border-radius:4px;
+    padding:2.4px 6px;
+    margin:auto 2px;
+    border:1px solid #7fbbe3;
+    background:#e7f2fa;
+}
 
