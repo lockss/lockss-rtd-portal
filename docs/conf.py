@@ -52,6 +52,8 @@ project = 'LOCKSS Documentation Portal'
 copyright = '2000-2024, LOCKSS Program'
 author = 'LOCKSS Program'
 
+# See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_title
+html_title = project
 
 # -- General configuration ---------------------------------------------------
 
@@ -71,6 +73,9 @@ extensions = [
 
     # See https://sphinx-design.readthedocs.io/
     'sphinx_design',
+
+    # See https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
+    'sphinxcontrib.globalsubs',
 ]
 
 intersphinx_mapping = {
@@ -93,15 +98,15 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # a list of builtin themes.
 #
 #html_theme = 'alabaster'
-# See https://sphinx-rtd-theme.readthedocs.io/
-html_theme = 'sphinx_rtd_theme'
+# See https://sphinx_rtd_theme.readthedocs.io/
+#html_theme = 'sphinx_rtd_theme'
+# See https://insipid-sphinx-theme.readthedocs.io/
+html_theme = 'insipid'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
-
-html_extra_path = ['dev/apis/EXTRA']
 
 # See https://docs.readthedocs.io/en/stable/guides/adding-custom-css.html
 html_css_files = [
@@ -119,15 +124,27 @@ html_theme_options = {
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-prev_next_buttons_location
     'prev_next_buttons_location': 'both',
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-collapse_navigation
-    'collapse_navigation': False,
+    #'collapse_navigation': False,
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-navigation_depth
-    'navigation_depth': -1,
+    #'navigation_depth': -1,
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-style_external_links
-    'style_external_links': True,
+    #'style_external_links': True,
+    # See https://insipid-sphinx-theme.readthedocs.io/en/latest/configuration.html#theme-option-breadcrumbs
+    'breadcrumbs': True,
+    # See https://insipid-sphinx-theme.readthedocs.io/en/latest/configuration.html#theme-option-strip_section_numbers
+    'strip_section_numbers': False,
 }
 
-# See https://sphinx-tabs.readthedocs.io/
-sphinx_tabs_disable_tab_closing = True
+# See https://insipid-sphinx-theme.readthedocs.io/en/0.4.2/configuration.html#theme-option-left_buttons
+html_context = {
+    'display_github': False,
+}
+
+# See https://insipid-sphinx-theme.readthedocs.io/en/0.4.2/configuration.html#confval-html_show_sourcelink
+html_show_sourcelink = False
+
+# See https://insipid-sphinx-theme.readthedocs.io/en/latest/configuration.html#configuration
+html_permalinks_icon = '#'
 
 # See https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#default-substitutions
 # and https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-today_fmt
@@ -135,3 +152,10 @@ today_fmt = '%Y-%m-%d'
 
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-smartquotes
 smartquotes = False
+
+# See https://insipid-sphinx-theme.readthedocs.io/en/0.4.2/configuration.html#example
+html_use_index = False
+html_domain_indices = False
+
+html_extra_path = ['dev/apis/EXTRA']
+

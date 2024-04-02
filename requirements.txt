@@ -1,4 +1,4 @@
-# Copyright (c) 2000-2022, Board of Trustees of Leland Stanford Jr. University
+# Copyright (c) 2000-2024, Board of Trustees of Leland Stanford Jr. University
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -29,19 +29,33 @@
 # Sphinx itself
 # https://pypi.org/project/Sphinx/
 # https://www.sphinx-doc.org/
-sphinx
+sphinx==7.2.6
+
+# Docutils
+# https://pypi.org/project/docutils/
+docutils==0.20.1
 
 # The Sphinx theme by Read The Docs
 # https://pypi.org/project/sphinx-rtd-theme/
 # https://sphinx-rtd-theme.readthedocs.io/
-sphinx-rtd-theme
+sphinx-rtd-theme==2.0.0
+
+# The Insipid Sphinx theme
+# https://pypi.org/project/insipid-sphinx-theme/
+# https://insipid-sphinx-theme.readthedocs.io/
+insipid-sphinx-theme==0.4.2
 
 # The sphinxcontrib.email extension, to obfuscate mailto links
 # https://pypi.org/project/sphinxcontrib-email/
 # https://github.com/sphinx-contrib/email
-sphinxcontrib-email
+sphinxcontrib-email==0.3.6
 
 # The sphinx_design extension, to make grids, cards, dropdowns, tabs, badges, buttons, icons
 # https://pypi.org/project/sphinx_design
 # https://sphinx-design.readthedocs.io/
-sphinx_design
+sphinx_design==0.5.0
+
+# The Sphinx Global Substitutions extension
+# https://pypi.org/project/sphinxcontrib-globalsubs/
+# https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
+sphinxcontrib-globalsubs==0.1.1

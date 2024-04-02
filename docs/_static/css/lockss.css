@@ -1,13 +1,31 @@
-/* See https://docs.readthedocs.io/en/stable/guides/remove-edit-buttons.html#remove-on-section-from-versions-menu */
-div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(1) { /* Versions */
+/* Adapted from https://docs.readthedocs.io/en/stable/guides/remove-edit-buttons.html#remove-on-section-from-versions-menu */
+div.rst-other-versions > dl:nth-child(3) { /* On Read the Docs */
     display: none;
 }
-div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(2) { /* Downloads */
-    display: block;
-}
-div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(3) { /* On Read the Docs */
+div.rst-other-versions > dl:nth-child(4) { /* On GitHub */
     display: none;
 }
-div.rst-versions > div.rst-other-versions > div.injected > dl:nth-child(4) { /* On GitHub */
+div.rst-other-versions > dl:nth-child(5) { /* Read The Docs based search box */
     display: none;
 }
+
+/* Add border around sphinx_design tab groups to make them more legible in the larger page flow */
+.sd-tab-set {
+    padding: 5px;
+    border: solid lightgray 1px;
+}
+.sd-tab-content {
+    box-shadow: none;
+}
+
+/* Insipid */
+.relbar, .relbar > a:hover .direction {
+    color: #666;
+}
+.relbar .icon, nav.crumbs, #topbar, #titlebar a, #titlebar a:visited {
+    color: #333;
+}
+.nav-icon, .nav-icon:visited {
+    color: #666;
+}
+
