@@ -28,9 +28,9 @@ You have the option to install LOCKSS 2.x on a brand-new physical or virtual mac
 
    *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systems. This will enable some LOCKSS users to move away from a physical machine to a virtual machine fitting their institution's IT infrastructure.
 
----------------------------------
-Overview of the Migration Process
----------------------------------
+-------------------------
+Overview of the Migration
+-------------------------
 
 The migration process has three major phases:
 
@@ -46,21 +46,30 @@ The migration process has three major phases:
 
 .. _migration-faq:
 
-------------------------------------------------------
-Frequently Asked Questions about the Migration Process
-------------------------------------------------------
+----------------------------------------------
+Frequently Asked Questions about the Migration
+----------------------------------------------
 
-#. **Q: How long will the migration take?**
+.. dropdown:: How long will the migration take?
+   :name: migration-faq-duration
+   :icon: question
+   :animate: fade-in-slide-down
 
-   A: The duration of the migration process is somewhat proportional to the amount of content preserved in the LOCKSS 1.x system. A LOCKSS 1.x system the size of a Global LOCKSS Network node is expected to take many weeks to migrate to LOCKSS 2.x.
+   The duration of the migration process is somewhat proportional to the amount of content preserved in the LOCKSS 1.x system. A LOCKSS 1.x system the size of a Global LOCKSS Network node is expected to take many weeks to migrate to LOCKSS 2.x.
 
-#. **Q: If I am installing LOCKSS 2.x on my LOCKSS 1.x machine, do I need to have at least as much free space as the LOCKSS 1.x system occupies?**
+.. dropdown:: If I am installing LOCKSS 2.x on my LOCKSS 1.x machine, do I need to have at least as much free space as the LOCKSS 1.x system occupies?
+   :name: migration-faq-reclaim
+   :icon: question
+   :animate: fade-in-slide-down
 
-   A: No, there is a documented mode for running the migration tool that progressively reclaims disk space as AUs are migrated from LOCKSS 1.x to LOCKSS 2.x. That being said, installing LOCKSS 2.x on a brand-new machine is recommended, and if you must install LOCKSS 2.x on the same machine as LOCKSS 1.x, having at least as much free space as the LOCKSS 1.x system occupies is recommended.
+   No, there is a documented mode for running the migration tool that progressively reclaims disk space as AUs are migrated from LOCKSS 1.x to LOCKSS 2.x. That being said, installing LOCKSS 2.x on a brand-new machine is recommended, and if you must install LOCKSS 2.x on the same machine as LOCKSS 1.x, having at least as much free space as the LOCKSS 1.x system occupies is preferred.
 
-#. **Q: Can I use the LOCKSS system while the migration is in progress?**
+.. dropdown:: Can I use the LOCKSS system while the migration is in progress?
+   :name: migration-faq-progress
+   :icon: question
+   :animate: fade-in-slide-down
 
-   A: Largely, yes.
+   Largely, yes.
 
    *  **Each previously existing archival unit becomes temporarily unavailable at some point during the migration.**
 
@@ -82,9 +91,12 @@ Frequently Asked Questions about the Migration Process
 
       After the migration process begins, you should add any new AUs to your LOCKSS 2.x system. These new AUs are then immediately operational in your LOCKSS 2.x system.
 
-#. **Q: What might not work properly during the migration process?**
+.. dropdown:: What might not work properly during the migration process?
+   :name: migration-faq-hiccups
+   :icon: question
+   :animate: fade-in-slide-down
 
-   A: FIXME
+   FIXME
 
 ----
 
