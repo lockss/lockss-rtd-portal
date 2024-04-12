@@ -24,13 +24,15 @@ You have the option to install LOCKSS 2.x on a brand-new physical or virtual mac
 
    Why is a new machine recommended?
 
-   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same machine during the migration period will make very significant demands on the CPU, memory, and storage I/O.
+   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same machine will significantly degrade performance and cause the migration process to take much longer.
 
-   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systems. This will enable some LOCKSS users to move away from a physical machine to a virtual machine fitting their institution's IT infrastructure.
+   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systemsa. This is an opportunity to move to a new machine better fitting your institution's IT infrastructure preferences.
+
+.. COMMENT upgrading to RHEL 9 compatible is a pain
 
 -------------------------
 Overview of the Migration
--------------------------
+a-------------------------
 
 The migration process has three major phases:
 
@@ -38,7 +40,7 @@ The migration process has three major phases:
 
    If you are installing LOCKSS 2.x on a new machine (recommended), you will need to commission a new Linux host.
 
-   If you are installing LOCKSS 2.x on a LOCKSS 1.x machine, you will need to perform preparatory actions, which may include (where applicable) upgrading the operating system, or moving LOCKSS 1.x data around between disk volumes.
+   If you are installing LOCKSS 2.x on a LOCKSS 1.x machine, you will need to ensure that the machine meets the requirements for LOCKSS 2.x, and if necessary to upgrade the operating system.
 
 2. **Installing and configuring LOCKSS 2.0-beta1.**
 
@@ -55,7 +57,7 @@ Frequently Asked Questions about the Migration
    :icon: question
    :animate: fade-in-slide-down
 
-   The duration of the migration process is somewhat proportional to the amount of content preserved in the LOCKSS 1.x system. A LOCKSS 1.x system the size of a Global LOCKSS Network node is expected to take many weeks to migrate to LOCKSS 2.x.
+   The duration of the migration process is proportional to the amount of content preserved in the LOCKSS 1.x system. A LOCKSS 1.x system the size of a Global LOCKSS Network node is expected to take many weeks to migrate to LOCKSS 2.x.
 
 .. dropdown:: If I am installing LOCKSS 2.x on my LOCKSS 1.x machine, do I need to have at least as much free space as the LOCKSS 1.x system occupies?
    :name: migration-faq-reclaim
@@ -97,6 +99,9 @@ Frequently Asked Questions about the Migration
    :animate: fade-in-slide-down
 
    FIXME
+
+   *  OpenURL
+   *  Subscription manager
 
 ----
 
