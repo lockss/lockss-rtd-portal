@@ -26,13 +26,13 @@ You have the option to install LOCKSS 2.x on a brand-new physical or virtual mac
 
    *  Running LOCKSS 1.x and LOCKSS 2.x together on the same machine will significantly degrade performance and cause the migration process to take much longer.
 
-   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systemsa. This is an opportunity to move to a new machine better fitting your institution's IT infrastructure preferences.
+   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systems. This is an opportunity to move to a new machine better fitting your institution's IT infrastructure preferences.
 
 .. COMMENT upgrading to RHEL 9 compatible is a pain
 
 -------------------------
 Overview of the Migration
-a-------------------------
+-------------------------
 
 The migration process has three major phases:
 
