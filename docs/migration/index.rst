@@ -16,13 +16,15 @@ LOCKSS 1.x to 2.x Migration Guide
 
 This document will guide you as you install LOCKSS 2.x and migrate the data you preserve in LOCKSS 1.x to LOCKSS 2.x.
 
-You have the option to install LOCKSS 2.x on a brand-new physical host or virtual machine (**recommended**), or to install it on the same host as LOCKSS 1.x.
+You have two options:
+
+*  **New-Host Migration (recommended):** Install LOCKSS 2.x on a brand-new physical host or virtual machine.
+
+*  **Same-Host Migration:** Install LOCKSS 2.x on the same host as LOCKSS 1.x.
 
 .. _new-machine-recommended:
 
-.. tip::
-
-   Why is a new host recommended?
+.. admonition:: Why is a new host recommended?
 
    *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will significantly degrade performance and cause the migration process to take much longer.
 
@@ -117,29 +119,57 @@ Frequently Asked Questions about the Migration
 Preparing Your LOCKSS 2.x Host
 ------------------------------
 
-   Select the scenario that fits your situation:
+Select the scenario that fits your situation:
 
-   .. tab-set::
+.. tab-set::
 
-      .. tab-item:: LOCKSS 2.x on a new machine
-         :sync: newmachine
+   .. tab-item:: New-Host Migration
+      :sync: newhost
 
-         You will need to commission a new Linux host. See the `LOCKSS 2.0-beta1 System Prerequisites <https://docs.lockss.org/projects/manual/en/unstable/introduction/prerequisites.html>`_ page.
+      If you are doing a new-host migration, you will need to commission the new host.
 
-      .. tab-item:: LOCKSS 2.x on a LOCKSS 1.x machine
-         :sync: samemachine
+      See the :doc:`lockss-manual:introduction/prerequisites` chapter of the LOCKSS 2.0-beta1 System Manual for guidance about :ref:`lockss-manual:CPU`, :ref:`lockss-manual:Memory` and :ref:`lockss-manual:Storage` requirements.
 
-         For historical reasons, many LOCKSS 1.x machines are currently running RHEL 7 compatible operating systems like CentOS 7, which have reached end of life. Before co-installing LOCKSS 2.x with LOCKSS 1.x, you must **upgrade your RHEL 7 compatible system like CentOS 7 to a RHEL 9 compatible operating system like Rocky Linux 9**.
+   .. tab-item:: Same-Host Migration
+      :sync: samehost
 
-         *  CentOS 7 to Rocky Linux 9 (**recommended**): See `Alma ELevate <https://github.com/lockss/community/wiki/Alma-ELevate>`_ in the `LOCKSS Community Wiki <https://github.com/lockss/community/wiki>`_. This upgrade path uses the Alma ELevate tool.
+      If you are doing a same-host migration, you may need to upgrade your operating system before you can co-install LOCKSS 2.x with LOCKSS 1.x.
 
-         *  CentOS 8.5 or CentOS Stream to Rocky Linux 9: See `How to migrate to Rocky Linux from CentOS Stream, CentOS, AlmaLinux, RHEL, or Oracle Linux <https://docs.rockylinux.org/guides/migrate2rocky/>`_ in the `Rocky Linux Documentation <Rocky Linux Documentation>`_. This upgrade path uses the ``migrate2rocky`` tool.
+      Many LOCKSS 1.x hosts are currently running RHEL 7 compatible operating systems (such as RHEL 7, CentOS 7, or Oracle Linux 7), or CentOS 8, or CentOS Stream 8, which have all reached end of life. If your host is running one of these operating systems, you must upgrade to a RHEL 9 compatible operating system. **We recommend Rocky Linux 9.**
 
-         *  CentOS 8.4 to AlmaLinux OS 9: See `AlmaLinux Migration Guide <https://wiki.almalinux.org/documentation/migration-guide.html>`_ in the `AlmaLinux Wiki <https://wiki.almalinux.org/>`_. This upgrade path uses the ``almalinux-deploy`` tool.
+      The following table shows upgrade paths for various operating systems:
 
-         *  RHEL 7 to RHEL 9: See `Upgrading from RHEL 7 to RHEL 8 <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index>`_ and `Upgrading from RHEL 8 to RHEL 9 <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index>`_ in the `Red Hat Customer Portal <https://access.redhat.com/>`_. This upgrade path uses the Leapp tool.
+      ======================== ======================= ===================== ================== ====================
+      From ...                 ... to AlmaLinux OS 9   ... to Oracle Linux 9 ... to RHEL 9      ... to Rocky Linux 9
+      ======================== ======================= ===================== ================== ====================
+      From CentOS 7 ...        n/a                     :ref:`centos2ol`      n/a                n/a
+      From CentOS 8 ...        :ref:`almalinux-deploy` :ref:`centos2ol`      n/a                n/a
+      From CentOS Stream 8 ... :ref:`almalinux-deploy` n/a                   n/a                n/a
+      From Oracle Linux 7 ...  n/a                     n/a                   n/a                n/a
+      From RHEL 7 ...          n/a                     n/a                   :ref:`leapp-rhel`  n/a
+      ======================== ======================= ===================== ================== ====================
 
-         *  CentOS 7 or CentOS 8 or CentOS Stream to Oracle Linux 9: See `Switch From CentOS Linux to Oracle Linux <https://docs.oracle.com/en/solutions/migrate-centos-ora-linux/switch-oracle-linux1.html>`_ in the `Oracle Help Center <https://docs.oracle.com/>`_. This upgrade path uses the ``centos2ol`` tool.
+      FIXME ignore the remainder
+
+      *  Some LOCKSS 1.x hosts are running CentOS 8 or CentOS Stream 8, which have also reached end of life. If your host is running CentOS 8 or CentOS Stream 8, you must upgrade to a RHEL 9 compatible operating system. **We recommend Rocky Linux 9.**
+
+         *  **Upgrade from CentOS 7 to Rocky Linux 9 (recommended)**: See `Alma ELevate <https://github.com/lockss/community/wiki/Alma-ELevate>`_ in the `LOCKSS Community Wiki <https://github.com/lockss/community/wiki>`_. This upgrade path uses the Alma ELevate tool.
+
+         *  **Upgrade from**
+
+FIXME ignore the remainder
+
+Before co-installing LOCKSS 2.x with LOCKSS 1.x, you must **upgrade your RHEL 7 compatible system like CentOS 7 to a RHEL 9 compatible operating system like Rocky Linux 9**.
+
+      *  CentOS 7 to Rocky Linux 9 (**recommended**): See `Alma ELevate <https://github.com/lockss/community/wiki/Alma-ELevate>`_ in the `LOCKSS Community Wiki <https://github.com/lockss/community/wiki>`_. This upgrade path uses the Alma ELevate tool.
+
+      *  CentOS 8.5 or CentOS Stream to Rocky Linux 9: See `How to migrate to Rocky Linux from CentOS Stream, CentOS, AlmaLinux, RHEL, or Oracle Linux <https://docs.rockylinux.org/guides/migrate2rocky/>`_ in the `Rocky Linux Documentation <Rocky Linux Documentation>`_. This upgrade path uses the ``migrate2rocky`` tool.
+
+      *  CentOS 8.4 to AlmaLinux OS 9: See `AlmaLinux Migration Guide <https://wiki.almalinux.org/documentation/migration-guide.html>`_ in the `AlmaLinux Wiki <https://wiki.almalinux.org/>`_. This upgrade path uses the ``almalinux-deploy`` tool.
+
+      *  RHEL 7 to RHEL 9: See `Upgrading from RHEL 7 to RHEL 8 <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index>`_ and `Upgrading from RHEL 8 to RHEL 9 <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index>`_ in the `Red Hat Customer Portal <https://access.redhat.com/>`_. This upgrade path uses the Leapp tool.
+
+      *  CentOS 7 or CentOS 8 or CentOS Stream to Oracle Linux 9: See `Switch From CentOS Linux to Oracle Linux <https://docs.oracle.com/en/solutions/migrate-centos-ora-linux/switch-oracle-linux1.html>`_ in the `Oracle Help Center <https://docs.oracle.com/>`_. This upgrade path uses the ``centos2ol`` tool.
 
 ---------------------------
 Installing LOCKSS 2.0-beta1
@@ -158,19 +188,41 @@ The third step in the migration process is to configure LOCKSS 2.0-beta1 specifi
 Importing the LOCKSS 1.x Configuration File
 ===========================================
 
-If you are doing a same-host migration, the LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file directly, so you do not need to do anything special.
+The first part of this step is to make the LOCKSS 1.x configuration file available to the LOCKSS 2.x configuration script:
 
-If you are doing a new-host migration, you need to copy the configuration file from your LOCKSS 1.x host to the LOCKSS 2.x host. The LOCKSS 1.x configuration file is :file:`/etc/lockss/config.dat` on the LOCKSS 1.x host. By default, the LOCKSS 2.x configuration script expects the LOCKSS 1.x configuration file to be :file:`/tmp/v1config.dat` (but it will prompt for the exact path).
+.. tab-set::
 
-.. tip::
+   .. tab-item:: New-Host Migration
+      :sync: newhost
 
-   If you are not able to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information.
+      If you are doing a new-host migration, you need to copy the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` from your LOCKSS 1.x host to somewhere on your LOCKSS 2.x host, for example using :program:`scp`. The LOCKSS 2.x configuration script will later prompt you for the path of this file on the LOCKSS 2.x host (by default, :file:`/tmp/v1config.dat`).
 
-FIXME
+      If you are not able to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information.
 
-You will follow a large portion of the instructions in the :doc:`lockss-manual:configuring` chapter of the LOCKSS 2.0-beta1 System Manual, **but with some notable exceptions**:
+   .. tab-item:: Same-Host Migration
+      :sync: samehost
 
-*  In :ref:`lockss-manual:before-invoking-configure-lockss` (:numref:`lockss-manual:before-invoking-configure-lockss`), you do not need the first three bullet points
+      If you are doing a same-host migration, the LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` directly, so you do not need to do anything here.
+
+Running :program:`configure-lockss --migrate`
+=============================================
+
+For the second part of this step, follow the instructions in the :doc:`lockss-manual:configuring` chapter of the LOCKSS 2.0-beta1 System Manual, **but with the following notable differences**:
+
+*  In the :ref:`lockss-manual:before-invoking-configure-lockss` section, you do not need to gather the information for the first three bullet points, as it will be imported from the LOCKSS 1.x configuration file.
+
+*  In the :ref:`lockss-manual:invoking-configure-lockss` section, you will run the command:
+
+   .. code-block:: shell
+
+      scripts/configure-lockss --migrate
+
+   instead of:
+
+   .. code-block:: shell
+
+      scripts/configure-lockss
+
 
 
 
