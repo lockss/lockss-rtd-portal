@@ -16,17 +16,19 @@ LOCKSS 1.x to 2.x Migration Guide
 
 This document will guide you as you install LOCKSS 2.x and migrate the data you preserve in LOCKSS 1.x to LOCKSS 2.x.
 
-You have the option to install LOCKSS 2.x on a brand-new physical or virtual machine (**recommended**), or to install it on the same machine as LOCKSS 1.x.
+You have the option to install LOCKSS 2.x on a brand-new physical host or virtual machine (**recommended**), or to install it on the same host as LOCKSS 1.x.
 
 .. _new-machine-recommended:
 
 .. tip::
 
-   Why is a new machine recommended?
+   Why is a new host recommended?
 
-   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same machine will significantly degrade performance and cause the migration process to take much longer.
+   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will significantly degrade performance and cause the migration process to take much longer.
 
-   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systems. This is an opportunity to move to a new machine better fitting your institution's IT infrastructure preferences.
+   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systems. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
+
+.. COMMENT commissioning a new host means not having to upgrade the existing host
 
 .. COMMENT upgrading to RHEL 9 compatible is a pain
 
@@ -36,15 +38,23 @@ Overview of the Migration
 
 The migration process has three major phases:
 
-1. **Preparing your LOCKSS 2.x machine.**
+1. **Preparing your LOCKSS 2.x host.**
 
-   If you are installing LOCKSS 2.x on a new machine (recommended), you will need to commission a new Linux host.
+   If you are installing LOCKSS 2.x on a new host (recommended), you will need to commission a new Linux host.
 
-   If you are installing LOCKSS 2.x on a LOCKSS 1.x machine, you will need to ensure that the machine meets the requirements for LOCKSS 2.x, and if necessary to upgrade the operating system.
+   If you are installing LOCKSS 2.x on a LOCKSS 1.x host, you will need to ensure that the host meets the requirements for LOCKSS 2.x, and to upgrade the operating system before starting if necessary.
 
-2. **Installing and configuring LOCKSS 2.0-beta1.**
+2. **Installing LOCKSS 2.0-beta1.**
 
-3. **Configuring and running the migration process in the LOCKSS 1.x Web user interface.**
+3. **Configuring LOCKSS 2.0-beta1 specifically for migration.**
+
+4. **Configuring LOCKSS 1.x for migration.**
+
+5. **Running the migration process in LOCKSS 1.x.**
+
+6. **Reconfiguring LOCKSS 2.0-beta1 for normal operation.**
+
+.. COMMENT explain the general flow of the migration, polling, content access etc. not in the FAQ
 
 .. _migration-faq:
 
@@ -103,11 +113,9 @@ Frequently Asked Questions about the Migration
    *  OpenURL
    *  Subscription manager
 
-----
-
-FIXME -- IGNORE ALL THIS BELOW:
-
-1. **Prepare your LOCKSS 2.x machine.**
+------------------------------
+Preparing Your LOCKSS 2.x Host
+------------------------------
 
    Select the scenario that fits your situation:
 
@@ -132,3 +140,46 @@ FIXME -- IGNORE ALL THIS BELOW:
          *  RHEL 7 to RHEL 9: See `Upgrading from RHEL 7 to RHEL 8 <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html-single/upgrading_from_rhel_7_to_rhel_8/index>`_ and `Upgrading from RHEL 8 to RHEL 9 <https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/9/html/upgrading_from_rhel_8_to_rhel_9/index>`_ in the `Red Hat Customer Portal <https://access.redhat.com/>`_. This upgrade path uses the Leapp tool.
 
          *  CentOS 7 or CentOS 8 or CentOS Stream to Oracle Linux 9: See `Switch From CentOS Linux to Oracle Linux <https://docs.oracle.com/en/solutions/migrate-centos-ora-linux/switch-oracle-linux1.html>`_ in the `Oracle Help Center <https://docs.oracle.com/>`_. This upgrade path uses the ``centos2ol`` tool.
+
+---------------------------
+Installing LOCKSS 2.0-beta1
+---------------------------
+
+The second step in the migration process is to install LOCKSS 2.0-beta1.
+
+To do so, follow the instructions in the :doc:`lockss-manual:installing/index` chapter of the LOCKSS 2.0-beta1 System Manual.
+
+----------------------------------------------------
+Configuring LOCKSS 2.0-beta1 Specially for Migration
+----------------------------------------------------
+
+The third step in the migration process is to configure LOCKSS 2.0-beta1 specifically for migration.
+
+Importing the LOCKSS 1.x Configuration File
+===========================================
+
+If you are doing a same-host migration, the LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file directly, so you do not need to do anything special.
+
+If you are doing a new-host migration, you need to copy the configuration file from your LOCKSS 1.x host to the LOCKSS 2.x host. The LOCKSS 1.x configuration file is :file:`/etc/lockss/config.dat` on the LOCKSS 1.x host. By default, the LOCKSS 2.x configuration script expects the LOCKSS 1.x configuration file to be :file:`/tmp/v1config.dat` (but it will prompt for the exact path).
+
+.. tip::
+
+   If you are not able to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information.
+
+FIXME
+
+You will follow a large portion of the instructions in the :doc:`lockss-manual:configuring` chapter of the LOCKSS 2.0-beta1 System Manual, **but with some notable exceptions**:
+
+*  In :ref:`lockss-manual:before-invoking-configure-lockss` (:numref:`lockss-manual:before-invoking-configure-lockss`), you do not need the first three bullet points
+
+
+
+
+
+
+
+
+
+
+
+
