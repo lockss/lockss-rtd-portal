@@ -16,11 +16,19 @@ LOCKSS 1.x to 2.x Migration Guide
 
 This document will guide you as you install LOCKSS 2.x and migrate the data you preserve in LOCKSS 1.x to LOCKSS 2.x.
 
-You have two options:
+There are two migration scenarios:
 
-*  **New-Host Migration (recommended):** Install LOCKSS 2.x on a brand-new physical host or virtual machine.
+.. tab-set::
 
-*  **Same-Host Migration:** Install LOCKSS 2.x on the same host as LOCKSS 1.x.
+   .. tab-item:: New-Host Migration (Recommended)
+      :sync: newhost
+
+      **In this migration scenario, you will install LOCKSS 2.x on a brand-new physical host or virtual machine.**
+
+   .. tab-item:: Same-Host Migration
+      :sync: samehost
+
+      **In this migration scenario, you will install LOCKSS 2.x on the same host as LOCKSS 1.x.**
 
 .. _new-machine-recommended:
 
@@ -38,7 +46,7 @@ You have two options:
 Overview of the Migration
 -------------------------
 
-The migration process has three major phases:
+The migration process has six phases:
 
 1. **Preparing your LOCKSS 2.x host.**
 
@@ -119,7 +127,7 @@ Frequently Asked Questions about the Migration
 Preparing Your LOCKSS 2.x Host
 ------------------------------
 
-Select the scenario that fits your situation:
+The first phase in the migration process is to prepare your LOCKSS 2.x host. The necessary work depends on your new-host vs. same-host migration scenario:
 
 .. tab-set::
 
@@ -175,20 +183,20 @@ Before co-installing LOCKSS 2.x with LOCKSS 1.x, you must **upgrade your RHEL 7 
 Installing LOCKSS 2.0-beta1
 ---------------------------
 
-The second step in the migration process is to install LOCKSS 2.0-beta1.
+The second phase in the migration process is to install LOCKSS 2.0-beta1.
 
-To do so, follow the instructions in the :doc:`lockss-manual:installing/index` chapter of the LOCKSS 2.0-beta1 System Manual.
+To do so, follow the instructions in chapter 3 (:doc:`lockss-manual:installing/index`) of the LOCKSS 2.0-beta1 System Manual.
 
 ----------------------------------------------------
 Configuring LOCKSS 2.0-beta1 Specially for Migration
 ----------------------------------------------------
 
-The third step in the migration process is to configure LOCKSS 2.0-beta1 specifically for migration.
+The third phase in the migration process is to configure LOCKSS 2.0-beta1 specifically for migration.
 
 Importing the LOCKSS 1.x Configuration File
 ===========================================
 
-The first part of this step is to make the LOCKSS 1.x configuration file available to the LOCKSS 2.x configuration script:
+The first part of this phase is to make the LOCKSS 1.x configuration file available to the LOCKSS 2.x configuration script. The steps depend on your new-host vs. same-host migration scenario:
 
 .. tab-set::
 
@@ -207,28 +215,28 @@ The first part of this step is to make the LOCKSS 1.x configuration file availab
 Running :program:`configure-lockss --migrate`
 =============================================
 
-The second part of this step is to run the :program:`configure-lockss` tool with the special ``--migrate`` option. This will proceed largely as described in the :doc:`lockss-manual:configuring` chapter of the LOCKSS 2.0-beta1 System Manual, **but with a number of notable differences** which are described here.
+The second part of this phase is to run the :program:`configure-lockss` tool with the special ``--migrate`` option. This will proceed largely as described in the :doc:`lockss-manual:configuring` chapter of the LOCKSS 2.0-beta1 System Manual, **but with a number of notable differences described here.** Follow these steps:
 
-1. Gather information about the LOCKSS 2.x host (which might be the same host as the LOCKSS 1.x host if doing a same-host migration), per section 4.1 (:ref:`lockss-manual:before-invoking-configure-lockss`).
+1. Per section 4.1 (:ref:`lockss-manual:before-invoking-configure-lockss`), gather information about the LOCKSS 2.x host (which might be the same host as the LOCKSS 1.x host if doing a same-host migration), .
 
-2. Run the following command as the ``lockss`` user from the LOCKSS 2.x installation directory:
+2. Run the following command as the ``lockss`` user in the LOCKSS 2.x installation directory:
 
    .. code-block:: shell
 
       scripts/configure-lockss --migrate
 
-   This is similar to section 4.2 (:ref:`lockss-manual:invoking-configure-lockss`), but with the additional ``--migrate`` option.
+   This is almost the ame as section 4.2 (:ref:`lockss-manual:invoking-configure-lockss`), but with the additional ``--migrate`` option.
 
-3. The first prompt, :guilabel:`Command to use to execute kubectl commands`, is the same as that from section 4.3 (:ref:`lockss-manual:Kubernetes Settings`). If you are using the K3s Kubernetes environment that ships with LOCKSS 2.x, the proposed value is already correct; hit :kbd:`Enter` to accept it. Otherwise, enter the command to invoke :program`kubectl` in your environment.
+3. The first prompt, :guilabel:`Command to use to execute kubectl commands`, is the same as that from section 4.3 (:ref:`lockss-manual:Kubernetes Settings`). If you are using the K3s Kubernetes environment that ships with LOCKSS 2.x, the proposed value is already correct; hit :kbd:`Enter` to accept it. (Otherwise, enter the command needed to invoke :program:`kubectl` in your environment.)
 
-4. This step depends on your new-host vs. same-host migration scenario.
+4. This step depends on your new-host vs. same-host migration scenario:
 
 .. tab-set::
 
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      If you are doing a new-host migration, follow these steps.
+      If you are doing a new-host migration, follow these steps:
 
       1. You will receive the following prompt:
 
@@ -271,7 +279,7 @@ The second part of this step is to run the :program:`configure-lockss` tool with
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      If you are doing a same-host migration, follow these steps.
+      If you are doing a same-host migration, follow these steps:
 
       1. Data will be imported from the LOCKSS 1.x configuration file, and you will be asked to confirm each configuration value. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. These confirmation prompts are as follows:
 
