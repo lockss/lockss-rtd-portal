@@ -1,2 +1,5 @@
 /.venv
 /.project
+
+# If using local Sphinx inventory files
+/docs/*.inv
