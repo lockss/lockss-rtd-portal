@@ -129,3 +129,31 @@ The second part of this phase is to run the :program:`configure-lockss` tool wit
          *  :guilabel:`Preservation group(s)`
 
          corresponding to sections 4.5 (:ref:`lockss-manual:Mail Settings`) and 4.6 (:ref:`lockss-manual:Preservation Network Settings`) of the LOCKSS 2.0-beta1 System Manual.
+
+5. Follow the instructions from sections 4.7 (:ref:`lockss-manual:Web User Interface Settings`) through 4.12 (:ref:`Final Steps`) of the LOCKSS 2.0-beta1 System Manual.
+
+------------------------
+Running LOCKSS 2.0-beta1
+------------------------
+
+Now start the LOCKSS 2.0-beta1 system. Follow these steps:
+
+1. Run the following command:
+
+   .. code-block:: shell
+
+      scripts/start-lockss -w
+
+   If the startup process goes well, you will see:
+
+   .. code-block:: text
+
+      LOCKSS services are ready; AUs may still be loading.
+
+   and control will be returned to the command line.
+
+   .. tip::
+
+      During this first startup, hundreds of megabytes of container images will be downloaded, which can take many minutes on a slow network.
+
+2. In a browser, go to the URL :samp:`http://{<lockss2.myuniversity.edu>}:24621/DaemonStatus`, where :samp:`{<lockss2.myuniversity.edu>}` represents the host name of your LOCKSS 2.x host. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone. At this point, your LOCKSS 2.x system is ready for the next step.

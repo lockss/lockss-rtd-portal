@@ -6,6 +6,8 @@ Migration Overview
 Overview of the Migration
 -------------------------
 
+*FIXME: this isn't up to date; this is what was at the beginning a day or two ago*
+
 The migration process has six phases:
 
 1. **Preparing your LOCKSS 2.x host.**
