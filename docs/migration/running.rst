@@ -45,4 +45,3 @@ Follow these steps:
 .. tip::
 
    The migrator writes debugging information to two LOCKSS 1.x log files, :file:`/var/log/lockss/v2migration.txt` and :file:`/var/log/lockss/v2migration.err`.
-
