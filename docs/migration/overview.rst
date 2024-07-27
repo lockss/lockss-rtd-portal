@@ -2,32 +2,6 @@
 Migration Overview
 ==================
 
--------------------------
-Overview of the Migration
--------------------------
-
-*FIXME: this isn't up to date; this is what was at the beginning a day or two ago*
-
-The migration process has six phases:
-
-1. **Preparing your LOCKSS 2.x host.**
-
-   If you are installing LOCKSS 2.x on a new host (recommended), you will need to commission a new Linux host.
-
-   If you are installing LOCKSS 2.x on a LOCKSS 1.x host, you will need to ensure that the host meets the requirements for LOCKSS 2.x, and to upgrade the operating system before starting if necessary.
-
-2. **Installing LOCKSS 2.0-beta1.**
-
-3. **Configuring LOCKSS 2.0-beta1 specifically for migration.**
-
-4. **Configuring LOCKSS 1.x for migration.**
-
-5. **Running the migration process in LOCKSS 1.x.**
-
-6. **Reconfiguring LOCKSS 2.0-beta1 for normal operation.**
-
-.. COMMENT explain the general flow of the migration, polling, content access etc. not in the FAQ
-
 ------------------
 Migration Scenario
 ------------------
@@ -46,69 +20,40 @@ There are two migration scenarios:
 
       **In this migration scenario, you will install LOCKSS 2.x on the same host as LOCKSS 1.x.**
 
-.. _new-machine-recommended:
+.. _new-host-recommended:
 
 .. admonition:: Why is a new host recommended?
 
-   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will significantly degrade performance and cause the migration process to take much longer.
+   *  LOCKSS 2.x has higher system requirements.
 
    *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systems. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
 
-.. COMMENT commissioning a new host means not having to upgrade the existing host
+   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will degrade performance and cause the migration process to take longer.
 
-.. COMMENT upgrading to RHEL 9 compatible is a pain
+   *  If your LOCKSS 1.x host is running an outdated operating system such as CentOS 7, you would have to upgrade the OS before proceeding with a same-host migration.
 
-----------------------------------------------
-Frequently Asked Questions about the Migration
-----------------------------------------------
+---------------------------------
+Overview of the Migration Process
+---------------------------------
 
-.. dropdown:: How long will the migration take?
-   :name: migration-faq-duration
-   :icon: question
-   :animate: fade-in-slide-down
+.. admonition:: TL;DR
 
-   The duration of the migration process is proportional to the amount of content preserved in the LOCKSS 1.x system. A LOCKSS 1.x system the size of a Global LOCKSS Network node is expected to take many weeks to migrate to LOCKSS 2.x.
+   *  During migration, continue to access content (ServeContent, proxy) using the 1.x host and port.
 
-.. dropdown:: If I am installing LOCKSS 2.x on my LOCKSS 1.x machine, do I need to have at least as much free space as the LOCKSS 1.x system occupies?
-   :name: migration-faq-reclaim
-   :icon: question
-   :animate: fade-in-slide-down
+   *  During migration, additional AUs to be preserved and subscriptions should be added using the 2.x Web UI.
 
-   No, there is a documented mode for running the migration tool that progressively reclaims disk space as AUs are migrated from LOCKSS 1.x to LOCKSS 2.x. That being said, installing LOCKSS 2.x on a brand-new machine is recommended, and if you must install LOCKSS 2.x on the same machine as LOCKSS 1.x, having at least as much free space as the LOCKSS 1.x system occupies is preferred.
+   *  During migration, changes to configuration, such as IP access lists and proxy settings, should be made to both the 1.x and 2.x systems.
 
-.. dropdown:: Can I use the LOCKSS system while the migration is in progress?
-   :name: migration-faq-progress
-   :icon: question
-   :animate: fade-in-slide-down
+The LOCKSS migration process provides a way to copy content and configuration from LOCKSS 1.x to LOCKSS 2.x. It requires that both the 1.x and the 2.x systems be running simultaneously, either on the same or on different hosts. The migrator is a 1.x component which talks to the 2.x REST services to store content, configuration, state information (such as agreement histories), and the metadata database (if applicable). It is operated from the LOCKSS 1.x Web UI.
 
-   Largely, yes.
+The set of archival units to copy is determined by selecting either all AUs or just those belonging to a single plugin. Migrating content takes significant time, and is highly dependent on content characteristics and environment (file size distribution, network vs. local storage, etc.). In some cases (e.g. GLN nodes), we expect it will take months to migrate all the content.
 
-   *  **Each previously existing archival unit becomes temporarily unavailable at some point during the migration.**
+The migrator facilitate running both the 1.x and the 2.x systems in tandem, so that content collection, polling, and access are not interrupted significantly while migration proceeds. If performing a same-host migration, content may be incrementally deleted as it is moved, if necessary to reclaim disk space.
 
-      The migration tool processes existing AUs in the LOCKSS 1.x system sequentially. Each AU in turn becomes unavailable in the LOCKSS 1.x system, then its contents are copied to the LOCKSS 2.x system, then the AU becomes available in the LOCKSS 2.x system.
+The migrator copies, and optionally verifies, content and state data for each AU. By default, the verification step does not compare copied content byte-for-byte, though this additional step can be switched on (but it will approximately double the time required to complete the migration).
 
-   *  **During the migration process, a previously existing archival unit is active in either the LOCKSS 1.x system or the LOCKSS 2.x system** (except during its content copy, where it is unavailable in both).
+The migrator migrates several AUs at a time. When an AU is being migrated, first it becomes "frozen" in 1.x so it will not crawl or poll; then its content is copied from 1.x to 2.x; then it is configured in 2.x; then it is deactivated (or deleted) from 1.x, at which point it again becomes eligible to crawl and poll in 2.x. During the migration process, the 1.x node continues to communicate with other nodes in the network; the 1.x nodes handles all the polling and voting traffic for AUs that have been migrated to 2.x, so as to give the impression of a single LOCKSS node to the rest of the network. Similarly, all content access (ServeContent, proxy) during the migration should be to the 1.x system, and requests corresponding to AUs that have been migrated to 2.x will be forwarded to 2.x as necessary, so as to give users the experience of a single LOCKSS node. (Note that this is experimental in LOCKSS 2.0-beta1.)
 
-      Between the time the migration process starts and the time a given AU becomes unavailable in the LOCKSS 1.x system, you can see the AU in the Web user interface of the LOCKSS 1.x system (port 8081), but you should limit your dealings to "read-only" interactions.
+If you wish to add additional AUs to preserve, they should be added in the 2.x system. Similarly, new subscription should be added to the subscription manager on 2.x, but they will not take effect until migration is complete. Configuration data such as IP access lists and proxy settings are copied at the beginning of the migration process; if you need to make changes to them in the 1.x system during the migration, the same changes should be made in the 2.x system.
 
-      Once a given AU's contents have been migrated to the LOCKSS 2.x system, the AU is fully operational; you can interact with it in any way you like in the LOCKSS 2.x system, including in the LOCKSS 2.x Web user interface (ports 24600-24699).
-
-   *  **During the migration process, the LOCKSS 1.x system forwards certain operations to the LOCKSS 2.x system.**
-
-      The LOCKSS 1.x system knows how to respond to certain operations related to AUs that have already been fully migrated to the LOCKSS 2.x system. Poll requests from other nodes in your LOCKSS network are forwaded by the LOCKSS 1.x system to the LOCKSS 2.x polling service, and the responses are relayed back to the poller, for applicable AUs. Likewise, proxy requests, ServeContent Web replay requests and OpenURL queries are forwarded by the LOCKSS 1.x system to the corresponding LOCKSS 2.x service for applicable AUs.
-
-      What this means is that other nodes in your LOCKSS network and clients of your LOCKSS node continue to interact with your existing LOCKSS 1.x node throughout the migration. Only at the end of the migration process will your LOCKSS 2.x system become your sole LOCKSS node while your LOCKSS 1.x system is taken out of the equation.
-
-   *  **While the migration process is underway, new archival units should be created in the LOCKSS 2.x system.**
-
-      After the migration process begins, you should add any new AUs to your LOCKSS 2.x system. These new AUs are then immediately operational in your LOCKSS 2.x system.
-
-.. dropdown:: What might not work properly during the migration process?
-   :name: migration-faq-hiccups
-   :icon: question
-   :animate: fade-in-slide-down
-
-   FIXME
-
-   *  OpenURL
-   *  Subscription manager
+If you have set any configuration parameters in the Expert Config screen, this file is also copied at the beginning of migration, but each line is commented out to allow you to review which custom settings you wish to be in effect in the 2.x system.
