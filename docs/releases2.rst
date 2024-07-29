@@ -1,3 +1,1 @@
-*  `LOCKSS 2.0.72-alpha7 </projects/manual/en/2.0-alpha7/appendix/release-notes.html#lockss-2-0-72-alpha7>`_ (2023-09-02) :bdg-info-line:`latest`
-
-*  `LOCKSS 2.0.71-alpha7 </projects/manual/en/2.0-alpha7/appendix/release-notes.html#lockss-2-0-71-alpha7>`_ (2023-08-29)
+*  `LOCKSS 2.0.81-beta1 </projects/manual/en/2.0-beta1/appendix/release-notes.html#lockss-2-0-81-beta1>`_ (2023-07-29) :bdg-info-line:`latest`

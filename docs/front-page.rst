@@ -20,7 +20,7 @@
 
          LOCKSS 1.x System Manual
 
-   .. grid-item-card:: LOCKSS 2.x :bdg-warning-line:`development`
+   .. grid-item-card:: LOCKSS 2.x :bdg-warning-line:`beta`
       :class-title: sd-text-center
 
       .. image:: /images/lockss-80x80.png
@@ -41,7 +41,7 @@
 .. card:: LOCKSS Guides
    :text-align: center
 
-   .. grid:: 1 1 3 3
+   .. grid:: 1 1 2 2
 
       .. grid-item::
 
@@ -57,6 +57,8 @@
             :color: secondary
             :expand:
 
+   .. grid:: 1 1 2 2
+
       .. grid-item::
 
          .. button-ref:: /dev/index
@@ -64,3 +66,9 @@
             :color: secondary
             :expand:
 
+      .. grid-item::
+
+         .. button-ref:: /migration/index
+            :ref-type: doc
+            :color: secondary
+            :expand:
