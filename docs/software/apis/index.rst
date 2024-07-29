@@ -1,3 +1,5 @@
-.. error::
+=========
+REST APIs
+=========
 
-   This page has moved `here </en/latest/dev/apis/index.html>`_.
+This page has moved here: :doc:`/dev/apis/index`.

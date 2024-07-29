@@ -166,5 +166,3 @@ smartquotes = False
 html_use_index = False
 html_domain_indices = False
 
-html_extra_path = ['dev/apis/EXTRA']
-
