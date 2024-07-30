@@ -41,7 +41,16 @@
 .. card:: LOCKSS Guides
    :text-align: center
 
-   .. grid:: 1 1 2 2
+   .. grid:: 1
+
+      .. grid-item::
+
+         .. button-ref:: /migration/index
+            :ref-type: doc
+            :color: secondary
+            :expand:
+
+   .. grid:: 1 1 3 3
 
       .. grid-item::
 
@@ -57,18 +66,9 @@
             :color: secondary
             :expand:
 
-   .. grid:: 1 1 2 2
-
       .. grid-item::
 
          .. button-ref:: /dev/index
-            :ref-type: doc
-            :color: secondary
-            :expand:
-
-      .. grid-item::
-
-         .. button-ref:: /migration/index
             :ref-type: doc
             :color: secondary
             :expand:
