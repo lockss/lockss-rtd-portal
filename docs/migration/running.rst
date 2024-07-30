@@ -2,6 +2,10 @@
 Running the Migrator
 ====================
 
+.. note::
+
+   Many Web browsers pop up dialogs offering to save passwords entered as part of this UI screen. But these various passwords are about the LOCKSS 2.x host. You should decline saving these passwords in your browser, as they would overwrite the password you may have saved for the LOCKSS 1.x host.
+
 The next task is to run the migrator, in the :guilabel:`Migration Control` screen of the LOCKSS 1.78 Web UI.
 
 Follow these steps:

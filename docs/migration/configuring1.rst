@@ -2,6 +2,10 @@
 Configuring LOCKSS 1.78 for Migration
 =====================================
 
+.. note::
+
+   Many Web browsers pop up dialogs offering to save passwords entered as part of this UI screen. But these various passwords are about the LOCKSS 2.x host. You should decline saving these passwords in your browser, as they would overwrite the password you may have saved for the LOCKSS 1.x host.
+
 The next task is to configure LOCKSS 1.78 for migration on your LOCKSS 1.x host.
 
 Your LOCKSS 2.0-beta1 system will need to be running, and you will need to know the LOCKSS 2.x hostname, Web UI username and password, and PostgreSQL database password, supplied when configuring the LOCKSS 2.x system.
