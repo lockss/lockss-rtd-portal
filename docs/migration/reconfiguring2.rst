@@ -37,39 +37,39 @@ Follow these steps:
 
          To allow your LOCKSS 2.x host to reclaim the host name and IP address of your LOCKSS 1.x host, follow these steps:
 
-         1. Power off your LOCKSS 1.x host.
+         a. Power off your LOCKSS 1.x host.
 
-         2. Reconfigure your LOCKSS 2.x host so it uses the host name and IP address previously associated with your LOCKSS 1.x host. Contact your systems administrator for specifics.
+         b. Reconfigure your LOCKSS 2.x host so it uses the host name and IP address previously associated with your LOCKSS 1.x host. Contact your systems administrator for specifics.
 
-         3. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
+         c. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
 
             .. code-block:: shell
 
                scripts/configure-lockss
 
-         4. The configuration process for LOCKSS 2.x will repeat; for most questions, you will simply hit :kbd:`Enter` to re-accept the previously entered value, except in the following cases:
+         d. The configuration process for LOCKSS 2.x will repeat; for most questions, you will simply hit :kbd:`Enter` to re-accept the previously entered value, except in the following cases:
 
-            1. For the prompt:
+            i. For the prompt:
 
                :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`
 
                enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-            2. For the prompt:
+            ii. For the prompt:
 
-               :guilabel:`Fully qualified hostname (FQDN) of this machine`
+                :guilabel:`Fully qualified hostname (FQDN) of this machine`
 
-               enter the host name previously associated with your LOCKSS 1.x host.
+                enter the host name previously associated with your LOCKSS 1.x host.
 
-            3. For the prompt:
+            iii. For the prompt:
 
-               :guilabel:`IP address of this machine`
+                 :guilabel:`IP address of this machine`
 
-               enter the IP address previously associated with your LOCKSS 1.x host.
+                 enter the IP address previously associated with your LOCKSS 1.x host.
 
-            4. *Optional.* There may be other configuration values you need to change at this stage, but in most cases, everything else will be the same.
+            iv. *Optional.* There may be other configuration values you need to change at this stage, but in most cases, everything else will be the same.
 
-            5. You will eventually receive the prompt:
+            v. You will eventually receive the prompt:
 
                :guilabel:`OK to store this configuration?`
 
@@ -80,19 +80,19 @@ Follow these steps:
 
          If you are doing a same-host migration, follow these steps:
 
-         1. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
+         a. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
 
             .. code-block:: shell
 
                scripts/configure-lockss --replay
 
-         2. You will receive the following prompt:
+         b. You will receive the following prompt:
 
             :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`
 
             Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-         3. You will then receive the following prompt:
+         c. You will then receive the following prompt:
 
             :guilabel:`OK to store this configuration?`
 

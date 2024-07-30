@@ -16,21 +16,21 @@ Follow these steps:
 
 2. Complete the first four fields in the :guilabel:`Migration Target` section of the form and enter the LOCKSS 2.x values gathered earlier:
 
-   1. :guilabel:`Target Hostname`
+   a. :guilabel:`Target Hostname`
 
       *  If you are doing a new-host migration, enter the hostname of your LOCKSS 2.x host, for instance ``lockss2.myuniversity.edu``.
 
       *  If you are doing a same-host migration, the default value ``localhost`` should remain unchanged.
 
-   2. :guilabel:`Target Configuration Service Port`
+   b. :guilabel:`Target Configuration Service Port`
 
       The default port ``24621`` should remain unchanged.
 
-   3. :guilabel:`Username`
+   c. :guilabel:`Username`
 
       Enter the Web UI username supplied to the LOCKSS 2.x system.
 
-   4. :guilabel:`Password`
+   d. :guilabel:`Password`
 
       Enter the Web UI password supplied to the LOCKSS 2.x system.
 
