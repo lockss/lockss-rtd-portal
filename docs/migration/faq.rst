@@ -2,16 +2,6 @@
 Frequently Asked Questions about the Migration
 ==============================================
 
-.. warning::
-
-   This page is under construction. LOCKSS 1.78 and LOCKSS 2.0-beta1 have not yet been released.
-
-   .. image:: https://openmoji.org/php/download_asset.php?type=emoji&emoji_hexcode=1F6A7&emoji_variant=color
-      :target: #
-      :align: center
-      :width: 256px
-      :alt: Image of a road construction sign
-
 .. rubric:: Is commissioning a new host required to install LOCKSS 2.x?
 
 No; see this :ref:`discussion of the pros and cons of commissioning a new host <new-host-recommended>`.

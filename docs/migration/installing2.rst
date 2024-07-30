@@ -2,20 +2,18 @@
 Installing LOCKSS 2.0-beta1
 ===========================
 
-.. warning::
+The next task in the migration process is to install LOCKSS 2.0-beta1 on your LOCKSS 2.x host.
 
-   This page is under construction. LOCKSS 1.78 and LOCKSS 2.0-beta1 have not yet been released.
+The process depends slightly on your :ref:`Migration Scenario`:
 
-   .. image:: https://openmoji.org/php/download_asset.php?type=emoji&emoji_hexcode=1F6A7&emoji_variant=color
-      :target: #
-      :align: center
-      :width: 256px
-      :alt: Image of a road construction sign
+.. tab-set::
 
-The next task is to install LOCKSS 2.0-beta1.
+   .. tab-item:: New-Host Migration
+      :sync: newhost
 
-To do so, follow the instructions in chapter 3 (:doc:`lockss-manual:installing/index`) of the LOCKSS 2.0-beta1 System Manual.
+      Follow all instructions in chapter 3 (:doc:`lockss-manual:installing/index`) of the LOCKSS 2.0-beta1 System Manual, spanning sections 3.1 (:doc:`lockss-manual:installing/user`) through 3.3 (:doc:`lockss-manual:installing/running`).
 
-.. note::
+   .. tab-item:: Same-Host Migration
+      :sync: samehost
 
-   If you are doing a **same-host migration**, you do not need to apply section 3.1 (:doc:`lockss-manual:installing/user`) of the LOCKSS 2.0-beta1 System Manual, as the ``lockss`` user already exists on the host in this scenario.
+      Follow the instructions in sections 3.2 (:doc:`lockss-manual:installing/downloading`) and 3.3 (:doc:`lockss-manual:installing/running`) of the LOCKSS 2.0-beta1 System Manual.
