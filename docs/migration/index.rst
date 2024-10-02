@@ -21,3 +21,4 @@ This document will guide you as you install LOCKSS 2.x and migrate the data you 
    running
    reconfiguring2
    faq
+   differences
