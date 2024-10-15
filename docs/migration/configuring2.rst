@@ -156,4 +156,20 @@ Now start the LOCKSS 2.0-beta1 system. Follow these steps:
 
       During this first startup, hundreds of megabytes of container images will be downloaded, which can take many minutes on a slow network.
 
-2. In a browser, go to the URL :samp:`http://{<lockss2.myuniversity.edu>}:24621/DaemonStatus`, where :samp:`{<lockss2.myuniversity.edu>}` represents the host name of your LOCKSS 2.x host. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone. At this point, your LOCKSS 2.x system is ready for the next step.
+2. This step depends on your :ref:`Migration Scenario`:
+
+   .. tab-set::
+
+      .. tab-item:: New-Host Migration
+         :sync: newhost
+
+         a. In a browser, go to the URL :samp:`http://{<lockss2.myuniversity.edu>}:24621/DaemonStatus`, where :samp:`{<lockss2.myuniversity.edu>}` represents the host name of your LOCKSS 2.x host. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in.
+
+         b. Click on :guilabel:`Admin Access Control` in the top-right menu.
+
+         c. If needed, allow the IP address of your existing LOCKSS 1.x host by entering it or its subnet in :guilabel:`Allow Access`, then click the :guilabel:`Update` button.
+
+      .. tab-item:: Same-Host Migration
+         :sync: samehost
+
+         In a browser, go to the URL :samp:`http://{<lockss2.myuniversity.edu>}:24621/DaemonStatus`, where :samp:`{<lockss2.myuniversity.edu>}` represents the host name of your LOCKSS 2.x host. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next step.
