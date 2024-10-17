@@ -29,16 +29,16 @@
 # Sphinx itself
 # https://pypi.org/project/Sphinx/
 # https://www.sphinx-doc.org/
-sphinx==7.2.6
+sphinx==8.1.3
 
 # Docutils
 # https://pypi.org/project/docutils/
-docutils==0.20.1
+docutils==0.21.2
 
 # The Sphinx theme by Read The Docs
 # https://pypi.org/project/sphinx-rtd-theme/
 # https://sphinx-rtd-theme.readthedocs.io/
-sphinx-rtd-theme==2.0.0
+sphinx-rtd-theme==3.0.1
 
 # The Insipid Sphinx theme
 # https://pypi.org/project/insipid-sphinx-theme/
@@ -53,7 +53,7 @@ sphinxcontrib-email==0.3.6
 # The sphinx_design extension, to make grids, cards, dropdowns, tabs, badges, buttons, icons
 # https://pypi.org/project/sphinx_design
 # https://sphinx-design.readthedocs.io/
-sphinx_design==0.5.0
+sphinx_design==0.6.1
 
 # The Sphinx Global Substitutions extension
 # https://pypi.org/project/sphinxcontrib-globalsubs/
