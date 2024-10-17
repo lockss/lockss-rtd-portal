@@ -21,35 +21,15 @@ Technical Aspects
    *  *  .. COMMENT Intentionally left blank
       *  LOCKSS 1.x
       *  LOCKSS 2.x
+   *  *  Modularity
+      *  **Monolithic.** LOCKSS 1.x is a standalone application, including all available functionality of the system regardless of need.
+      *  **Modular.** LOCKSS 2.x is a modular application, offering the user a configurable set of components to tailor different areas of available functionality to their need.
    *  *  Operating system
       *  **RHEL-compatible Linux flavors only.** The operating system to run LOCKSS 1.x can only be a RHEL-compatible flavor of Linux (RHEL, CentOS, Rocky Linux, Alma Linux OS, Oracle Linux...).
       *  **Most Linux flavors.** The operating system to run LOCKSS 2.x can be most flavors of Linux, including RHEL-compatible (RHEL, CentOS, Rocky Linux, Alma Linux OS, Oracle Linux...), Debian-compatible (Debian, Ubuntu, Linux Mint...), SUSE-compatible (SLES, OpenSUSE...), Fedora Linux, and more.
    *  *  Database
       *  **No embedded high-performance database.** LOCKSS 1.x can be configured to either run an embedded Apache Derby database, which is not high-performance, or use an external PostgreSQL database, which requires installing, configuring and administering PostgreSQL independently (on the same host as LOCKSS 1.x or elsewhere in your IT infrastructure).
       *  **Embedded high-performance database by default.** LOCKSS 2.x runs an embedded PostgreSQL database by default (or can alternatively be configured to use an external PostgreSQL database as in LOCKSS 1.x).
-
---------------
-Node Operation
---------------
-
-.. list-table::
-   :align: center
-   :header-rows: 1
-   :stub-columns: 1
-   :widths: 10 45 45
-
-   *  *  .. COMMENT Intentionally left blank
-      *  LOCKSS 1.x
-      *  LOCKSS 2.x
-   *  *  Installation
-      *  **OS-specific installation process.** LOCKSS 1.x installation consists of installing software packages from default and custom RPM repositories, which is OS-specific. Integration scripts may exist to partially facilitate the process on some compatible operating systems.
-      *  **Multi-OS installer.** LOCKSS 2.x comes with a single installer that can be downloaded and run on all compatible operating systems.
-   *  *  Configuration
-      *  **Configuration script.** LOCKSS 1.x is configured by answering questions from a script called :program:`hostconfig`.
-      *  **Configuration script.** LOCKSS 2.x is configured by answering questions from a script called :program:`configure-lockss`.
-   *  *  Modularity
-      *  **Monolithic.** LOCKSS 1.x is a standalone application, including all available functionality of the system regardless of need.
-      *  **Modular.** LOCKSS 2.x is a modular application, offering the user a configurable set of components to tailor different areas of available functionality to their need.
 
 --------
 Features
@@ -73,3 +53,26 @@ Features
    *  *  Web replay engines
       *  **LOCKSS ServeContent.** LOCKSS 1.x includes the built-in LOCKSS ServeContent Web replay engine.
       *  **LOCKSS ServeContent, Pywb, and OpenWayback.** LOCKSS 2.x includes the built-in LOCKSS ServeContent Web replay engine, the Pywb Web replay engine, and the OpenWayback Web replay engine.
+
+--------------
+Node Operation
+--------------
+
+.. list-table::
+   :align: center
+   :header-rows: 1
+   :stub-columns: 1
+   :widths: 10 45 45
+
+   *  *  .. COMMENT Intentionally left blank
+      *  LOCKSS 1.x
+      *  LOCKSS 2.x
+   *  *  Installation
+      *  **OS-specific installation process.** LOCKSS 1.x installation consists of installing software packages from default and custom RPM repositories, which is OS-specific. Integration scripts may exist to partially facilitate the process on some compatible operating systems.
+      *  **Multi-OS installer.** LOCKSS 2.x comes with a single installer that can be downloaded and run on all compatible operating systems.
+   *  *  Configuration
+      *  **Configuration script.** LOCKSS 1.x is configured by answering questions from a script called :program:`hostconfig`.
+      *  **Configuration script.** LOCKSS 2.x is configured by answering questions from a script called :program:`configure-lockss`.
+   *  *  Log files
+      *  **One log directory.** Logs files for LOCKSS 1.x are stored in the :file:`/var/log/lockss` directory.
+      *  **One directory of log directories.** Log files for LOCKSS 2.x are stored in a directory (supplied during configuration) called the Log Storage Area, which then contains one log directory per system component. For instance :file:`lockss-stack-repo-logs` is the directory in the Log Storage Area where log files for the LOCKSS Repository Service are stored.
