@@ -132,6 +132,8 @@ html_logo = 'images/lockss-docs-128x128.png'
 html_theme_options = {
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-prev_next_buttons_location
     'prev_next_buttons_location': 'both',
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-flyout_display
+    'flyout_display': 'attached',
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-collapse_navigation
     #'collapse_navigation': False,
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-navigation_depth
