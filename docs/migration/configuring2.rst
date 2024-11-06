@@ -55,15 +55,17 @@ The second part of this phase is to run the :program:`configure-lockss` tool wit
 
             :guilabel:`Did you copy a LOCKSS 1.x config.dat file to this host?`
 
-            Enter :kbd:`Y` for "yes" (unless you were not able to copy the LOCKSS 1.x configuration    file from the LOCKSS 1.x host, in which case you will need FIXME).
+            *  If you enter :kbd:`Y` for "yes", you will then receive the following prompt:
 
-         b. You will then receive the following prompt:
+               :guilabel:`Location of copied LOCKSS 1.x config.dat file`
 
-            :guilabel:`Location of copied LOCKSS 1.x config.dat file`
+               Enter the path of the copied LOCKSS 1.x configuration file, or hit :kbd:`Enter` to accept the default in square brackets if it matches the path you used.
 
-            Enter the path of the copied LOCKSS 1.x configuration file, or hit :kbd:`Enter` to accept the default in square brackets if it matches the path you used.
+            *  If you enter :kbd:`N` for "no", you will have to manually enter a number of values reflecting your LOCKSS 1.x configuration in the next step (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 
-         c. Data will be imported from the LOCKSS 1.x configuration file, and you will be asked to confirm each configuration value. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. These confirmation prompts are as follows:
+         b. You will be asked to confirm each configuration value. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. (If you answered :kbd:`N` in the previous step because you could not copy your LOCKSS 1.x configuration file to the LOCKSS 2.x host, there will be no imported values offered as defaults and you will have to manually enter the values reflecting your LOCKSS 1.x configuration.)
+
+            These confirmation prompts are as follows:
 
             *  :guilabel:`Fully qualified hostname (FQDN) of this machine`
 
