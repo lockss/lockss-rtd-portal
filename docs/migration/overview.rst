@@ -6,23 +6,53 @@ Migration Overview
 Migration Scenario
 ------------------
 
-There are two migration scenarios:
+There are two migration scenarios: a **new-host migration** (recommended), or a **same-host migration**.
 
 .. tab-set::
 
    .. tab-item:: New-Host Migration (Recommended)
       :sync: newhost
 
-      **In this migration scenario, you will install LOCKSS 2.x on a brand-new physical host or virtual machine.**
+      **In a new-host migration scenario, you will install LOCKSS 2.x on a brand-new physical host or virtual machine.**
 
-      In this scenario, your LOCKSS 1.x and your LOCKSS 2.x host are different, and eventually your LOCKSS 1.x host becomes decommissioned.
+      In this scenario, your LOCKSS 1.x and your LOCKSS 2.x host are different. Eventually, your LOCKSS 1.x host becomes decommissioned, and ideally your LOCKSS 2.x host assumes the IP address and host name historically used by your LOCKSS 1.x host.
+
+      Before a new-host migration:
+
+      .. image:: laaws-migration-new-host-before-960x480.png
+         :align: center
+
+      During a new-host migration:
+
+      .. image:: laaws-migration-new-host-during-960x480.png
+         :align: center
+
+      After a new-host migration:
+
+      .. image:: laaws-migration-new-host-after-960x480.png
+         :align: center
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      **In this migration scenario, you will install LOCKSS 2.x on the same host as LOCKSS 1.x.**
+      **In a same-host migration scenario, you will install LOCKSS 2.x on the same host as LOCKSS 1.x.**
 
       In this scenario, your LOCKSS 1.x and your LOCKSS 2.x host are actually one and the same.
+
+      Before a same-host migration:
+
+      .. image:: laaws-migration-same-host-before-960x480.png
+         :align: center
+
+      During a same-host migration:
+
+      .. image:: laaws-migration-same-host-during-960x480.png
+         :align: center
+
+      After a same-host migration:
+
+      .. image:: laaws-migration-same-host-after-960x480.png
+         :align: center
 
 .. _new-host-recommended:
 
