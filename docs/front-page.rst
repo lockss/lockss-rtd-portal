@@ -47,7 +47,7 @@
 
          .. button-ref:: /migration/index
             :ref-type: doc
-            :color: secondary
+            :color: success
             :expand:
 
    .. grid:: 1 1 3 3
