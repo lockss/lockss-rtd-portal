@@ -88,8 +88,8 @@ extensions = [
 ]
 
 intersphinx_mapping = {
-    'lockss': ('https://docs.lockss.org/en/latest/', ('lockss.inv', None)),
-    'lockss-manual': ('https://docs.lockss.org/projects/manual/en/latest/', ('lockss-manual.inv', None))
+    'lockss-portal': ('https://docs.lockss.org/en/latest/', None),
+    'lockss-manual': ('https://docs.lockss.org/projects/manual/en/latest/', None)
 }
 
 # Add any paths that contain templates here, relative to this directory.
@@ -108,9 +108,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 #
 #html_theme = 'alabaster'
 # See https://sphinx_rtd_theme.readthedocs.io/
-#html_theme = 'sphinx_rtd_theme'
-# See https://insipid-sphinx-theme.readthedocs.io/
-html_theme = 'insipid'
+html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -132,30 +130,15 @@ html_logo = 'images/lockss-docs-128x128.png'
 html_theme_options = {
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-prev_next_buttons_location
     'prev_next_buttons_location': 'both',
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-collapse_navigation
+    'collapse_navigation': False,
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-navigation_depth
+    'navigation_depth': -1,
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-style_external_links
+    'style_external_links': True,
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-flyout_display
     'flyout_display': 'attached',
-    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-collapse_navigation
-    #'collapse_navigation': False,
-    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-navigation_depth
-    #'navigation_depth': -1,
-    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-style_external_links
-    #'style_external_links': True,
-    # See https://insipid-sphinx-theme.readthedocs.io/en/latest/configuration.html#theme-option-breadcrumbs
-    'breadcrumbs': True,
-    # See https://insipid-sphinx-theme.readthedocs.io/en/latest/configuration.html#theme-option-strip_section_numbers
-    'strip_section_numbers': False,
 }
-
-# See https://insipid-sphinx-theme.readthedocs.io/en/0.4.2/configuration.html#theme-option-left_buttons
-html_context = {
-    'display_github': False,
-}
-
-# See https://insipid-sphinx-theme.readthedocs.io/en/0.4.2/configuration.html#confval-html_show_sourcelink
-html_show_sourcelink = False
-
-# See https://insipid-sphinx-theme.readthedocs.io/en/latest/configuration.html#configuration
-html_permalinks_icon = '#'
 
 # See https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#default-substitutions
 # and https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-today_fmt
@@ -164,7 +147,16 @@ today_fmt = '%Y-%m-%d'
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-smartquotes
 smartquotes = False
 
-# See https://insipid-sphinx-theme.readthedocs.io/en/0.4.2/configuration.html#example
-html_use_index = False
-html_domain_indices = False
-
+# See https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
+global_substitutions = {
+    'LATEST_MINOR': '2.0-beta1',
+    'LATEST_PATCH': '2.0.83-beta1',
+    'PREVIOUS_MINOR': '2.0-alpha7',
+    'PREVIOUS_PATCH': '2.0.72-alpha7',
+    'K8S_MINOR': '1.21',
+    'K8S_PATCH': '1.21.5',
+    'K3S_MINOR': '1.21',
+    'K3S_PATCH': '1.21.5+k3s1',
+    'CLASSIC_MINOR': '1.78',
+    'CLASSIC_PATCH': '1.78.3',
+}

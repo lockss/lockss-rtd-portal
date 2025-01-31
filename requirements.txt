@@ -1,4 +1,4 @@
-# Copyright (c) 2000-2024, Board of Trustees of Leland Stanford Jr. University
+# Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -38,12 +38,12 @@ docutils==0.21.2
 # The Sphinx theme by Read The Docs
 # https://pypi.org/project/sphinx-rtd-theme/
 # https://sphinx-rtd-theme.readthedocs.io/
-sphinx-rtd-theme==3.0.1
+sphinx-rtd-theme==3.0.2
 
 # The Insipid Sphinx theme
 # https://pypi.org/project/insipid-sphinx-theme/
 # https://insipid-sphinx-theme.readthedocs.io/
-insipid-sphinx-theme==0.4.2
+#insipid-sphinx-theme==0.4.2
 
 # The sphinxcontrib.email extension, to obfuscate mailto links
 # https://pypi.org/project/sphinxcontrib-email/
@@ -58,4 +58,4 @@ sphinx_design==0.6.1
 # The Sphinx Global Substitutions extension
 # https://pypi.org/project/sphinxcontrib-globalsubs/
 # https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
-sphinxcontrib-globalsubs==0.1.1
+sphinxcontrib-globalsubs==0.1.2
