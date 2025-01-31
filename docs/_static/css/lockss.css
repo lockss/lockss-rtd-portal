@@ -1,11 +1,7 @@
-/* Adapted from https://docs.readthedocs.io/en/stable/guides/remove-edit-buttons.html#remove-on-section-from-versions-menu */
-div.rst-other-versions > dl:nth-child(3) { /* On Read the Docs */
+div.rst-other-versions > div.injected > dl:nth-child(3) { /* On Read the Docs */
     display: none;
 }
-div.rst-other-versions > dl:nth-child(4) { /* On GitHub */
-    display: none;
-}
-div.rst-other-versions > dl:nth-child(5) { /* Read The Docs based search box */
+div.rst-other-versions > div.injected > dl:nth-child(4) { /* Read The Docs based search box */
     display: none;
 }
 
@@ -17,24 +13,3 @@ div.rst-other-versions > dl:nth-child(5) { /* Read The Docs based search box */
 .sd-tab-content {
     box-shadow: none;
 }
-
-/* Insipid */
-.relbar, .relbar > a:hover .direction {
-    color: #666;
-}
-.relbar .icon, nav.crumbs, #topbar, #titlebar a, #titlebar a:visited {
-    color: #333;
-}
-.nav-icon, .nav-icon:visited {
-    color: #666;
-}
-span.guilabel {
-    font-size:80%;
-    font-weight:700;
-    border-radius:4px;
-    padding:2.4px 6px;
-    margin:auto 2px;
-    border:1px solid #7fbbe3;
-    background:#e7f2fa;
-}
-
