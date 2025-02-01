@@ -11,6 +11,16 @@ div.rst-other-versions > div.injected > dl:nth-child(4) { /* Read The Docs based
     display: none;
 }
 
+/* Avoid ugly tables */
+.wy-table-responsive table.docutils td {
+    vertical-align: top; /* instead of middle */
+    white-space: normal; /* instead of nowrap */
+}
+.wy-table-responsive table.docutils th {
+    text-align: center; /* instead of left, sometimes */
+    white-space: normal; /* instead of nowrap */
+}
+
 /* Add border around sphinx_design tab groups to make them more legible in the larger page flow */
 .sd-tab-set {
     padding: 5px;
