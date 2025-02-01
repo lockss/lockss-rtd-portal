@@ -1,3 +1,9 @@
+div.rst-other-versions > div.injected > dl:nth-child(1) { /* Versions */
+    display: none;
+}
+div.rst-other-versions > div.injected > dl:nth-child(2) { /* Downloads */
+    display: inherit;
+}
 div.rst-other-versions > div.injected > dl:nth-child(3) { /* On Read the Docs */
     display: none;
 }
