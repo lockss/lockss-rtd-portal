@@ -30,7 +30,7 @@ Running :program:`configure-lockss --migrate`
 
 The second part of this phase is to run the :program:`configure-lockss` tool with the special ``--migrate`` option. This will proceed largely as described in chapter 4 (:doc:`lockss-manual:configuring`) of the LOCKSS 2.0-beta1 System Manual, **but with a number of notable differences described here.** Follow these steps:
 
-1. Per section 4.1 (:ref:`lockss-manual:before-invoking-configure-lockss`) of the LOCKSS 2.0-beta1 System Manual, gather information about your LOCKSS 2.x host (which is a new host if doing a new-host migration or your LOCKSS 1.x host if doing a same-host migration).
+1. Per section 4.1 (:ref:`lockss-manual:Configuration Prerequisites`) of the LOCKSS 2.0-beta1 System Manual, gather information about your LOCKSS 2.x host (which is a new host if doing a new-host migration or your LOCKSS 1.x host if doing a same-host migration).
 
 2. Run the following command as the ``lockss`` user in the LOCKSS 2.x installation directory:
 
