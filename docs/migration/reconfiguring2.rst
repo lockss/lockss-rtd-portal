@@ -39,7 +39,7 @@ Follow these steps:
 
          To allow your LOCKSS 2.x host to adopt the host name and IP address of your LOCKSS 1.x host, follow these steps:
 
-         a. On your LOCKSS 1.x host, stop the LOCKSS 1.x daemon (``systemctl stop lockss`` as ``root``), and shut down your LOCKSS 1.x host.
+         a. Shut down your LOCKSS 1.x host.
 
          b. Reconfigure your LOCKSS 2.x host so it uses the host name and IP address previously associated with your LOCKSS 1.x host. Contact your systems administrator for specifics.
 
@@ -86,6 +86,8 @@ Follow these steps:
                :guilabel:`OK to store this configuration?`
 
                Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+
+         g. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
       .. tab-item:: Same-Host Migration
          :sync: samehost

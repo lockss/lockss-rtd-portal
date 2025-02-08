@@ -22,3 +22,4 @@ This document will guide you as you install LOCKSS 2.x and migrate the data you 
    reconfiguring2
    faq
    differences
+   lcap-ssl

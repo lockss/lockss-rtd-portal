@@ -4,25 +4,35 @@ Configuring LOCKSS 2.0-beta1 for Migration
 
 The next task in the migration process is to configure LOCKSS 2.0-beta1 for migration on your LOCKSS 2.x host.
 
--------------------------------------------
-Importing the LOCKSS 1.x Configuration File
--------------------------------------------
+---------------------------------------
+Importing Configuration From LOCKSS 1.x
+---------------------------------------
 
-First, you will need to make the LOCKSS 1.x configuration file available to the LOCKSS 2.x configuration script. This depends on your :ref:`Migration Scenario`:
+First, you will need to make the configuration file, and if applicable the LCAP SSL keystores, from LOCKSS 1.x available to LOCKSS 2.x. This depends on your :ref:`Migration Scenario`:
 
 .. tab-set::
 
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      If you are doing a new-host migration, you need to copy the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` from your LOCKSS 1.x host to somewhere on your LOCKSS 2.x host, for example using :program:`scp`. The LOCKSS 2.x configuration script will later prompt you for the path of this file on the LOCKSS 2.x host (by default, :file:`/tmp/v1config.dat`).
+      Follow these steps:
 
-      If you are not able to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information.
+      1. Copy the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` from your LOCKSS 1.x host to somewhere on your LOCKSS 2.x host, for example using :program:`scp`. The LOCKSS 2.x configuration script will later prompt you for the path of this file on the LOCKSS 2.x host (by default, :file:`/tmp/v1config.dat`).
+
+         .. note::
+
+            If you are not able to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information.
+
+      2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      If you are doing a same-host migration, the LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` directly, so you do not need to do anything here.
+      Follow these steps:
+
+      1. The LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` directly, so you do not need to do anything in this step.
+
+      2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
 ---------------------------------------------
 Running :program:`configure-lockss --migrate`
@@ -170,6 +180,8 @@ Now start the LOCKSS 2.0-beta1 system. Follow these steps:
          b. Click on :guilabel:`Admin Access Control` in the top-right menu.
 
          c. If needed, allow the IP address of your existing LOCKSS 1.x host by entering it or its subnet in :guilabel:`Allow Access`, then click the :guilabel:`Update` button.
+
+         d. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
