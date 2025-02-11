@@ -9,25 +9,26 @@ Migration Scenario
 There are two migration scenarios: a **new-host migration** (recommended), or a **same-host migration**.
 
 .. tab-set::
+   :class: sd-bg-light
 
    .. tab-item:: New-Host Migration (Recommended)
       :sync: newhost
 
-      **In a new-host migration scenario, you will install LOCKSS 2.x on a brand-new physical host or virtual machine.**
+      In a new-host migration scenario, you will upgrade your existing LOCKSS 1.x host to LOCKSS |UPGRADE_FROM_PATCH| if needed, and install LOCKSS |UPGRADE_TO_PATCH| on a brand-new physical or virtual host.
 
-      In this scenario, your LOCKSS 1.x and your LOCKSS 2.x host are different. Eventually, your LOCKSS 1.x host becomes decommissioned, and ideally your LOCKSS 2.x host assumes the IP address and host name historically used by your LOCKSS 1.x host.
+      In this scenario, your LOCKSS 1.x host and LOCKSS 2.x host are different, and eventually, your LOCKSS 1.x host becomes decommissioned. Ideally, your LOCKSS 2.x host then adopts the IP address and host name used by your former LOCKSS 1.x host.
 
-      Before a new-host migration:
+      Before a new-host migration, the outside world interacts with your institution's LOCKSS node by the IP address and host name of your existing LOCKSS 1.x host, and you install an empty LOCKSS 2.x instance on a new host with a temporary IP address and host name:
 
       .. image:: laaws-migration-new-host-before-960x480.png
          :align: center
 
-      During a new-host migration:
+      During a new-host migration, data is progressively migrated from the LOCKSS 1.x host to the LOCKSS 2.x host; the outside world continues to interact with your LOCKSS 1.x node, but the latter brokers traffic to and from the LOCKSS 2.x node where appropriate:
 
       .. image:: laaws-migration-new-host-during-960x480.png
          :align: center
 
-      After a new-host migration:
+      After a new-host migration, your LOCKSS 1.x host is decommissioned, and your LOCKSS 2.x host is reconfigured to adopt the IP address and host name of your former LOCKSS 1.x host; the outside world then interacts with your LOCKSS node under its previously known IP address and host name:
 
       .. image:: laaws-migration-new-host-after-960x480.png
          :align: center
@@ -35,21 +36,21 @@ There are two migration scenarios: a **new-host migration** (recommended), or a 
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      **In a same-host migration scenario, you will install LOCKSS 2.x on the same host as LOCKSS 1.x.**
+      In a same-host migration scenario, you will upgrade your existing LOCKSS 1.x host to LOCKSS |UPGRADE_FROM_PATCH| if needed, and install LOCKSS |UPGRADE_TO_PATCH| on the same host.
 
-      In this scenario, your LOCKSS 1.x and your LOCKSS 2.x host are actually one and the same.
+      In this scenario, your LOCKSS 1.x and your LOCKSS 2.x host are actually one and the same. Throughout a same-host migration, the outside world interacts with your LOCKSS node at its existing IP address and host name by talking to the LOCKSS 1.x instance; only at the end is the LOCKSS 1.x instance decommissioned and the outside world begins talking to the LOCKSS 2.x instance instead.
 
-      Before a same-host migration:
+      Before a same-host migration, you will install an empty LOCKSS 2.x instance alongside your LOCKSS 1.x instance on your LOCKSS node:
 
       .. image:: laaws-migration-same-host-before-960x480.png
          :align: center
 
-      During a same-host migration:
+      During a same-host migration, data is progressively migrated from the LOCKSS 1.x instance to the LOCKSS 2.x instance; the outside world continues to interact with your LOCKSS 1.x instance, but the latter brokers traffic to and from the LOCKSS 2.x instance where appropriate:
 
       .. image:: laaws-migration-same-host-during-960x480.png
          :align: center
 
-      After a same-host migration:
+      After a same-host migration, your LOCKSS 1.x instance is decommissioned, and the outside world then interacts with your LOCKSS node by talking to the LOCKSS 2.x instance:
 
       .. image:: laaws-migration-same-host-after-960x480.png
          :align: center
@@ -70,7 +71,9 @@ There are two migration scenarios: a **new-host migration** (recommended), or a 
 Overview of the Migration Process
 ---------------------------------
 
-.. admonition:: TL;DR
+.. sidebar:: TL;DR
+
+   *  The LOCKSS 1.x to 2.x migration tool is operated from the LOCKSS 1.x Web UI.
 
    *  During migration, continue to access content (ServeContent, proxy) using the 1.x host and port.
 

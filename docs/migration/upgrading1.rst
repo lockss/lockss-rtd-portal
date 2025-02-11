@@ -1,18 +1,91 @@
-========================
-Upgrading to LOCKSS 1.78
-========================
+========================================
+Upgrading to LOCKSS |UPGRADE_FROM_PATCH|
+========================================
 
-The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS 1.78.
+The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, the latest version of LOCKSS |UPGRADE_TO_MINOR|.
 
-To do so, run the following command as ``root`` on your LOCKSS 1.x host, depending on your operating system:
+To do so, run the command appropriate for your operating system:
 
-.. code-block:: shell
+.. COMMENT OSTABS
 
-   # RHEL 7-compatible
-   # (CentOS 7, Oracle Linux 7, RHEL 7, etc.)
-   yum update lockss-daemon
+.. tab-set::
+   :class: sd-bg-light
 
-   # RHEL 8-compatible or RHEL 9-compatible
-   # (CentOS 8, CentOS Stream 8 or 9, Rocky Linux 8 or 9, AlmaLinux OS
-   # 8 or 9, Oracle Linux 8 or 9, RHEL 8 or 9, etc.)
-   dnf update lockss-daemon
+   .. tab-item:: AlmaLinux OS
+      :sync: alma
+
+      .. include:: upgrading1-dnf.rst
+
+   .. tab-item:: CentOS
+      :sync: centos
+
+      .. tab-set::
+         :class: sd-bg-light
+
+         .. tab-item:: CentOS Stream
+            :sync: centosstream
+
+            .. include:: upgrading1-dnf.rst
+
+         .. tab-item:: CentOS 7
+            :sync: centos7
+
+            .. include:: upgrading1-yum.rst
+
+   .. tab-item:: EuroLinux
+      :sync: eurolinux
+
+      .. tab-set::
+         :class: sd-bg-light
+
+         .. tab-item:: EuroLinux 8-9
+            :sync: eurolinux8
+
+            .. include:: upgrading1-dnf.rst
+
+         .. tab-item:: EuroLinux 7
+            :sync: eurolinux7
+
+            .. include:: upgrading1-yum.rst
+
+   .. tab-item:: Oracle Linux
+      :sync: oracle
+
+      .. tab-set::
+         :class: sd-bg-light
+
+         .. tab-item:: Oracle Linux 8-9
+            :sync: oracle8
+
+            .. include:: upgrading1-dnf.rst
+
+         .. tab-item:: Oracle Linux 7
+            :sync: oracle7
+
+            .. include:: upgrading1-yum.rst
+
+   .. tab-item:: RHEL
+      :sync: rhel
+
+      .. tab-set::
+         :class: sd-bg-light
+
+         .. tab-item:: RHEL 8-9
+            :sync: rhel8
+
+            .. include:: upgrading1-dnf.rst
+
+         .. tab-item:: RHEL 7
+            :sync: rhel7
+
+            .. include:: upgrading1-yum.rst
+
+   .. tab-item:: Rocky Linux
+      :sync: rocky
+
+      .. include:: upgrading1-dnf.rst
+
+   .. tab-item:: Scientific Linux
+      :sync: scientific
+
+      .. include:: upgrading1-yum.rst

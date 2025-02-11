@@ -4,7 +4,7 @@ LOCKSS 1.x to 2.x Migration Guide
 
 **Welcome, LOCKSS 1.x users!**
 
-This document will guide you as you install LOCKSS 2.x and migrate the data you preserve in LOCKSS 1.x to LOCKSS 2.x.
+This document will guide you as you upgrade from LOCKSS |UPGRADE_FROM_MINOR| to LOCKSS |UPGRADE_TO_MINOR| by performing a migration of the data you preserve from LOCKSS |UPGRADE_FROM_PATCH| to LOCKSS |UPGRADE_TO_PATCH|.
 
 .. rubric:: Table of Contents
 

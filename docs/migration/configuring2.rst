@@ -1,8 +1,8 @@
-==========================================
-Configuring LOCKSS 2.0-beta1 for Migration
-==========================================
+===================================================
+Configuring LOCKSS |UPGRADE_TO_MINOR| for Migration
+===================================================
 
-The next task in the migration process is to configure LOCKSS 2.0-beta1 for migration on your LOCKSS 2.x host.
+The next task in the migration process is to configure LOCKSS |UPGRADE_TO_MINOR| for migration on your LOCKSS 2.x host.
 
 ---------------------------------------
 Importing Configuration From LOCKSS 1.x
@@ -11,6 +11,7 @@ Importing Configuration From LOCKSS 1.x
 First, you will need to make the configuration file, and if applicable the LCAP SSL keystores, from LOCKSS 1.x available to LOCKSS 2.x. This depends on your :ref:`Migration Scenario`:
 
 .. tab-set::
+   :class: sd-bg-light
 
    .. tab-item:: New-Host Migration
       :sync: newhost
@@ -23,7 +24,7 @@ First, you will need to make the configuration file, and if applicable the LCAP 
 
             If you are not able to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information.
 
-      2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
+      2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
@@ -32,29 +33,30 @@ First, you will need to make the configuration file, and if applicable the LCAP 
 
       1. The LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` directly, so you do not need to do anything in this step.
 
-      2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
+      2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
 
 ---------------------------------------------
 Running :program:`configure-lockss --migrate`
 ---------------------------------------------
 
-The second part of this phase is to run the :program:`configure-lockss` tool with the special ``--migrate`` option. This will proceed largely as described in chapter 4 (:doc:`lockss-manual:configuring`) of the LOCKSS 2.0-beta1 System Manual, **but with a number of notable differences described here.** Follow these steps:
+The second part of this phase is to run the :program:`configure-lockss` tool with the special ``--migrate`` option. **With some notable exceptions described below**, this will proceed largely as described in chapter 4 (:doc:`lockss-manual:configuring`) of the :doc:`lockss-manual:index`:
 
-1. Per section 4.1 (:ref:`lockss-manual:Configuration Prerequisites`) of the LOCKSS 2.0-beta1 System Manual, gather information about your LOCKSS 2.x host (which is a new host if doing a new-host migration or your LOCKSS 1.x host if doing a same-host migration).
+1. Per section 4.1 (:ref:`lockss-manual:Configuration Prerequisites`) of the :doc:`lockss-manual:index`, gather information about your LOCKSS 2.x host (which is a new host if doing a new-host migration or your LOCKSS 1.x host if doing a same-host migration).
 
-2. Run the following command as the ``lockss`` user in the LOCKSS 2.x installation directory:
+2. Run the following command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
 
    .. code-block:: shell
 
       scripts/configure-lockss --migrate
 
-   This is almost the same as section 4.2 (:ref:`lockss-manual:invoking-configure-lockss`) of the LOCKSS 2.0-beta1 System Manual, but with the additional ``--migrate`` option.
+   This is almost the same as section 4.2 (:ref:`lockss-manual:invoking-configure-lockss`) of the :doc:`lockss-manual:index`, but with the additional ``--migrate`` option.
 
-3. The first prompt, :guilabel:`Command to use to execute kubectl commands`, is the same as that from section 4.3 (:ref:`lockss-manual:Kubernetes Settings`) of the LOCKSS 2.0-beta1 System Manual. If you are using the K3s Kubernetes environment that ships with LOCKSS 2.x, the proposed value is already correct; hit :kbd:`Enter` to accept it. (Otherwise, enter the command needed to invoke :program:`kubectl` in your environment.)
+3. The first prompt, :guilabel:`Command to use to execute kubectl commands`, is the same as that from section 4.3 (:ref:`lockss-manual:Kubernetes Settings`) of the :doc:`lockss-manual:index`. If you are using the K3s Kubernetes environment that ships with LOCKSS 2.x, the proposed value is already correct; hit :kbd:`Enter` to accept it. (Otherwise, enter the command needed to invoke :program:`kubectl` in your environment.)
 
 4. This step depends on your :ref:`Migration Scenario`:
 
    .. tab-set::
+      :class: sd-bg-light
 
       .. tab-item:: New-Host Migration
          :sync: newhost
@@ -99,7 +101,13 @@ The second part of this phase is to run the :program:`configure-lockss` tool wit
 
             *  :guilabel:`Preservation group(s)`
 
-            corresponding to sections 4.4 (:ref:`lockss-manual:Network Settings`) through 4.6 (:ref:`lockss-manual:Preservation Network Settings`) of the LOCKSS 2.0-beta1 System Manual.
+            corresponding to these sections of the :doc:`lockss-manual:index`:
+
+            *  Section 4.4 (:ref:`lockss-manual:Network Settings`)
+
+            *  Section 4.5 (:ref:`lockss-manual:Mail Settings`)
+
+            *  Section 4.6 (:ref:`lockss-manual:Preservation Network Settings`)
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
@@ -116,7 +124,7 @@ The second part of this phase is to run the :program:`configure-lockss` tool wit
 
             *  :guilabel:`LCAP protocol port`
 
-            corresponding to section 4.4 (:ref:`lockss-manual:Network Settings`) of the LOCKSS 2.0-beta1 System Manual.
+            corresponding to section 4.4 (:ref:`lockss-manual:Network Settings`) of the :doc:`lockss-manual:index`.
 
          b. You will receive the following prompt:
 
@@ -140,9 +148,25 @@ The second part of this phase is to run the :program:`configure-lockss` tool wit
 
             *  :guilabel:`Preservation group(s)`
 
-            corresponding to sections 4.5 (:ref:`lockss-manual:Mail Settings`) and 4.6 (:ref:`lockss-manual:Preservation Network Settings`) of the LOCKSS 2.0-beta1 System Manual.
+            corresponding to these sections from the :doc:`lockss-manual:index`:
 
-5. Follow the instructions from sections 4.7 (:ref:`lockss-manual:Web User Interface Settings`) through 4.12 (:ref:`Final Steps`) of the LOCKSS 2.0-beta1 System Manual.
+            *  Section 4.5 (:ref:`lockss-manual:Mail Settings`)
+
+            *  Section 4.6 (:ref:`lockss-manual:Preservation Network Settings`)
+
+5. Follow the instructions from the following sections of the :doc:`lockss-manual:index`:
+
+            *  Section 4.7 (:ref:`lockss-manual:Web User Interface Settings`)
+
+            *  Section 4.8 (:ref:`lockss-manual:Storage Areas`)
+
+            *  Section 4.9 (:ref:`lockss-manual:Database Settings`)
+
+            *  Section 4.10 (:ref:`lockss-manual:LOCKSS Services`)
+
+            *  Section 4.11 (:ref:`lockss-manual:Web Replay Settings`)
+
+            *  Section 4.12 (:ref:`lockss-manual:Final Steps`)
 
 ------------------------
 Running LOCKSS 2.0-beta1

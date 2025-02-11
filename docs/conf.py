@@ -159,4 +159,8 @@ global_substitutions = {
     'K3S_PATCH': '1.21.5+k3s1',
     'CLASSIC_MINOR': '1.78',
     'CLASSIC_PATCH': '1.78.3',
+    'UPGRADE_FROM_MINOR': '1.78',
+    'UPGRADE_FROM_PATCH': '1.78.5',
+    'UPGRADE_TO_MINOR': '2.0-beta1',
+    'UPGRADE_TO_PATCH': '2.0.84-beta1',
 }
