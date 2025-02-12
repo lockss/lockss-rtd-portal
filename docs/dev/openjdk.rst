@@ -5,7 +5,6 @@ If you need to install a JDK, we recommend OpenJDK; select your operating system
 .. COMMENT OSTABS
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: AlmaLinux OS
       :sync: alma

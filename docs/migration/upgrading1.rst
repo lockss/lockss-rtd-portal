@@ -9,7 +9,6 @@ To do so, run the command appropriate for your operating system:
 .. COMMENT OSTABS
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: AlmaLinux OS
       :sync: alma
@@ -20,7 +19,6 @@ To do so, run the command appropriate for your operating system:
       :sync: centos
 
       .. tab-set::
-         :class: sd-bg-light
 
          .. tab-item:: CentOS Stream
             :sync: centosstream
@@ -36,7 +34,6 @@ To do so, run the command appropriate for your operating system:
       :sync: eurolinux
 
       .. tab-set::
-         :class: sd-bg-light
 
          .. tab-item:: EuroLinux 8-9
             :sync: eurolinux8
@@ -52,7 +49,6 @@ To do so, run the command appropriate for your operating system:
       :sync: oracle
 
       .. tab-set::
-         :class: sd-bg-light
 
          .. tab-item:: Oracle Linux 8-9
             :sync: oracle8
@@ -68,7 +64,6 @@ To do so, run the command appropriate for your operating system:
       :sync: rhel
 
       .. tab-set::
-         :class: sd-bg-light
 
          .. tab-item:: RHEL 8-9
             :sync: rhel8

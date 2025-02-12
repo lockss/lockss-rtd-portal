@@ -5,7 +5,6 @@ Preparing Your LOCKSS 2.x Host
 The next task in the migration process is to prepare your LOCKSS 2.x host. The necessary work depends on your :ref:`Migration Scenario`:
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: New-Host Migration
       :sync: newhost

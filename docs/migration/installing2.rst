@@ -7,7 +7,6 @@ The next task in the migration process is to install LOCKSS |UPGRADE_TO_PATCH| o
 The process depends on your :ref:`Migration Scenario`:
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: New-Host Migration
       :sync: newhost

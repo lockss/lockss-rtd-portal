@@ -3,7 +3,6 @@ You can check if Ant is installed on your system by typing ``ant -version`` at t
 .. COMMENT OSTABS
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: AlmaLinux OS
       :sync: alma

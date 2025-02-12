@@ -1,3 +1,39 @@
+/*
+
+Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+
+1. Redistributions of source code must retain the above copyright notice,
+this list of conditions and the following disclaimer.
+
+2. Redistributions in binary form must reproduce the above copyright notice,
+this list of conditions and the following disclaimer in the documentation
+and/or other materials provided with the distribution.
+
+3. Neither the name of the copyright holder nor the names of its contributors
+may be used to endorse or promote products derived from this software without
+specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE
+LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+POSSIBILITY OF SUCH DAMAGE.
+
+*/
+
+/*
+ * Read The Docs pop-up menu
+ */
+
 div.rst-other-versions > div.injected > dl:nth-child(1) { /* Versions */
     display: none;
 }
@@ -11,7 +47,10 @@ div.rst-other-versions > div.injected > dl:nth-child(4) { /* Read The Docs based
     display: none;
 }
 
-/* Avoid ugly tables */
+/*
+ * Tables
+ */
+
 .wy-table-responsive table.docutils td {
     vertical-align: top; /* instead of middle */
     white-space: normal; /* instead of nowrap */
@@ -21,11 +60,24 @@ div.rst-other-versions > div.injected > dl:nth-child(4) { /* Read The Docs based
     white-space: normal; /* instead of nowrap */
 }
 
-/* Add border around sphinx_design tab groups to make them more legible in the larger page flow */
+/*
+ * Sphing_Design tab groups
+ */
+
 .sd-tab-set {
     padding: 5px;
-    border: solid lightgray 1px;
+    border: solid 1px lightgray;
 }
-.sd-tab-content {
-    box-shadow: none;
+
+.sd-tab-set {
+    background: #fcfcff; /* very very very light blue */
 }
+
+.sd-tab-set .sd-tab-set {
+    background: #f8f8ff; /* very very light blue */
+}
+
+.sd-tab-set .sd-tab-set .sd-tab-set {
+    background: #f4f4ff; /* very light blue */
+}
+

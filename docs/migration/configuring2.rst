@@ -11,7 +11,6 @@ Importing Configuration From LOCKSS 1.x
 First, you will need to make the configuration file, and if applicable the LCAP SSL keystores, from LOCKSS 1.x available to LOCKSS 2.x. This depends on your :ref:`Migration Scenario`:
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: New-Host Migration
       :sync: newhost
@@ -56,7 +55,6 @@ The second part of this phase is to run the :program:`configure-lockss` tool wit
 4. This step depends on your :ref:`Migration Scenario`:
 
    .. tab-set::
-      :class: sd-bg-light
 
       .. tab-item:: New-Host Migration
          :sync: newhost

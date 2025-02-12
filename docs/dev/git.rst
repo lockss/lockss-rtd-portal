@@ -3,7 +3,6 @@ You can check if Git is installed on your system by typing ``git --version`` at 
 .. COMMENT OSTABS
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: AlmaLinux OS
       :sync: alma

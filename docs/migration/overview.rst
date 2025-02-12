@@ -9,7 +9,6 @@ Migration Scenario
 There are two migration scenarios: a **new-host migration** (recommended), or a **same-host migration**.
 
 .. tab-set::
-   :class: sd-bg-light
 
    .. tab-item:: New-Host Migration (Recommended)
       :sync: newhost
