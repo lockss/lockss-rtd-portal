@@ -1,4 +1,4 @@
-This operating system uses :program:`dnf` for package management. Run the following command as ``root``:
+This operating system uses Dnf for package management. Run the following Dnf command:
 
 .. code-block:: shell
 

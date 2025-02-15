@@ -1,4 +1,4 @@
-This operating system uses :program:`yum` for package management. Run the following command as ``root``:
+This operating system uses Yum for package management. Run the following Yum command:
 
 .. code-block:: shell
 

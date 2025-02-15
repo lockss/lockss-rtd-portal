@@ -2,85 +2,109 @@
 Upgrading to LOCKSS |UPGRADE_FROM_PATCH|
 ========================================
 
-The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, the latest version of LOCKSS |UPGRADE_TO_MINOR|.
+The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, the latest version of LOCKSS |UPGRADE_FROM_MINOR|.
 
-To do so, run the command appropriate for your operating system:
+To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these steps as ``root`` on your LOCKSS 1.x host [#fnsamehost]_:
 
-.. COMMENT OSTABS
+1. Run this :program:`systemctl` command to stop the LOCKSS 1.x instance:
 
-.. tab-set::
+   .. code-block:: shell
 
-   .. tab-item:: AlmaLinux OS
-      :sync: alma
+      systemctl stop lockss
 
-      .. include:: upgrading1-dnf.rst
+2. Run this Dnf or Yum command to upgrade the ``lockss`` RPM package, depending on your operating system:
 
-   .. tab-item:: CentOS
-      :sync: centos
+   .. COMMENT OSTABS
 
-      .. tab-set::
+   .. tab-set::
 
-         .. tab-item:: CentOS Stream
-            :sync: centosstream
+      .. tab-item:: AlmaLinux OS
+         :sync: alma
 
-            .. include:: upgrading1-dnf.rst
+         .. include:: upgrading1-dnf.rst
 
-         .. tab-item:: CentOS 7
-            :sync: centos7
+      .. tab-item:: CentOS
+         :sync: centos
 
-            .. include:: upgrading1-yum.rst
+         .. tab-set::
 
-   .. tab-item:: EuroLinux
-      :sync: eurolinux
+            .. tab-item:: CentOS Stream
+               :sync: centosstream
 
-      .. tab-set::
+               .. include:: upgrading1-dnf.rst
 
-         .. tab-item:: EuroLinux 8-9
-            :sync: eurolinux8
+            .. tab-item:: CentOS 7
+               :sync: centos7
 
-            .. include:: upgrading1-dnf.rst
+               .. include:: upgrading1-yum.rst
 
-         .. tab-item:: EuroLinux 7
-            :sync: eurolinux7
+      .. tab-item:: EuroLinux
+         :sync: eurolinux
 
-            .. include:: upgrading1-yum.rst
+         .. tab-set::
 
-   .. tab-item:: Oracle Linux
-      :sync: oracle
+            .. tab-item:: EuroLinux 8-9
+               :sync: eurolinux9
 
-      .. tab-set::
+               .. include:: upgrading1-dnf.rst
 
-         .. tab-item:: Oracle Linux 8-9
-            :sync: oracle8
+            .. tab-item:: EuroLinux 7
+               :sync: eurolinux7
 
-            .. include:: upgrading1-dnf.rst
+               .. include:: upgrading1-yum.rst
 
-         .. tab-item:: Oracle Linux 7
-            :sync: oracle7
+      .. tab-item:: Oracle Linux
+         :sync: oracle
 
-            .. include:: upgrading1-yum.rst
+         .. tab-set::
 
-   .. tab-item:: RHEL
-      :sync: rhel
+            .. tab-item:: Oracle Linux 8-9
+               :sync: oracle9
 
-      .. tab-set::
+               .. include:: upgrading1-dnf.rst
 
-         .. tab-item:: RHEL 8-9
-            :sync: rhel8
+            .. tab-item:: Oracle Linux 7
+               :sync: oracle7
 
-            .. include:: upgrading1-dnf.rst
+               .. include:: upgrading1-yum.rst
 
-         .. tab-item:: RHEL 7
-            :sync: rhel7
+      .. tab-item:: RHEL
+         :sync: rhel
 
-            .. include:: upgrading1-yum.rst
+         .. tab-set::
 
-   .. tab-item:: Rocky Linux
-      :sync: rocky
+            .. tab-item:: RHEL 8-9
+               :sync: rhel9
 
-      .. include:: upgrading1-dnf.rst
+               .. include:: upgrading1-dnf.rst
 
-   .. tab-item:: Scientific Linux
-      :sync: scientific
+            .. tab-item:: RHEL 7
+               :sync: rhel7
 
-      .. include:: upgrading1-yum.rst
+               .. include:: upgrading1-yum.rst
+
+      .. tab-item:: Rocky Linux
+         :sync: rocky
+
+         .. include:: upgrading1-dnf.rst
+
+      .. tab-item:: Scientific Linux
+         :sync: scientific
+
+         .. include:: upgrading1-yum.rst
+
+3. Run this :program:`systemctl` command to start the LOCKSS 1.x instance:
+
+   .. code-block:: shell
+
+      systemctl start lockss
+
+----
+
+.. only:: html
+
+   .. rubric:: Footnotes
+
+.. [#fnsamehost]
+
+   If your :ref:`Migration Scenario` is a **same-host migration**, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.

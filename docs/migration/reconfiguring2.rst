@@ -1,26 +1,22 @@
-===================================================
-Reconfiguring LOCKSS 2.0-beta1 for Normal Operation
-===================================================
+=============================================
+Reconfiguring LOCKSS 2.x for Normal Operation
+=============================================
 
-The next task, once all the content has been migrated from LOCKSS 1.78 to LOCKSS 2.0-beta1, is to reconfigure LOCKSS 2.0-beta1 for normal operation.
+The next task, once all the content has been migrated from LOCKSS 1.x to LOCKSS 2.x, is to reconfigure LOCKSS 2.x for normal operation.
 
 Follow these steps:
 
-1. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
+1. Stop your LOCKSS 2.x system (currently configured for migration) by running this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory` on your LOCKSS 2.x host [#fnsamehost]_:
 
    .. code-block:: shell
 
       scripts/stop-lockss
 
-   This will stop the LOCKSS 2.0-beta1 system (currently configured for migration).
-
-2. On the LOCKSS 1.x host, run this command as ``root``:
+2. Stop your LOCKSS 1.x system by running this :program:`systemctl` command as ``root`` on your LOCKSS 1.x host [#fnsamehost]_:
 
    .. code-block:: shell
 
       systemctl stop lockss
-
-   This will stop the LOCKSS 1.78 system.
 
 3. This step depends on your :ref:`Migration Scenario`:
 
@@ -29,7 +25,7 @@ Follow these steps:
       .. tab-item:: New-Host Migration
          :sync: newhost
 
-         If you are doing a new-host migration, it is strongly recommended that you allow your LOCKSS 2.x host to adopt the host name and IP address previously associated with your LOCKSS 1.x host.
+         If you are doing a **new-host migration**, it is strongly recommended that you allow your LOCKSS 2.x host to adopt the host name and IP address previously associated with your LOCKSS 1.x host.
 
          .. note::
 
@@ -41,17 +37,15 @@ Follow these steps:
 
          a. Shut down your LOCKSS 1.x host.
 
-         b. Reconfigure your LOCKSS 2.x host so it uses the host name and IP address previously associated with your LOCKSS 1.x host. Contact your systems administrator for specifics.
+         b. Reconfigure your LOCKSS 2.x host so it uses the host name and IP address previously associated with your LOCKSS 1.x host. Contact your system administrator for specifics.
 
-         c. If applicable, firewall rules on the LOCKSS 2.x host and at your institution need to be updated, because LOCKSS 1.x and LOCKSS 2.x use different ports: firewall rules for ports 8081-8085 are no longer needed and need to be replaced with rules for ports 24600 through 24699 instead; firewall rules for ports 22, 8080, and 9729 remain the same.
+         c. If applicable, firewall rules on the LOCKSS 2.x host and elsewhere at your institution need to be updated, because LOCKSS 1.x and LOCKSS 2.x use different ports: **firewall rules to TCP ports 8081-8085 are no longer needed and need to be replaced with rules to TCP ports 24600-24699 instead**. Note that **firewall rules to TCP ports 22, 8080, and 9729 remain the same**.
 
          d. Restart K3s on the LOCKSS 2.x node by running these two commands as ``root``:
 
-            .. code-block:: shell
+            (i) First: ``/usr/local/bin/k3s-killall.sh``
 
-               /usr/local/bin/k3s-killall.sh
-
-               systemctl restart k3s
+            (ii) Then: ``systemctl restart k3s``
 
          e. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
 
@@ -59,63 +53,63 @@ Follow these steps:
 
                scripts/configure-lockss
 
-         f. The configuration process for LOCKSS 2.x will repeat; for most questions, you will simply hit :kbd:`Enter` to re-accept the previously entered value, except in the following cases:
+         f. The LOCKSS 2.x configuration process will repeat; for most questions, you will simply hit :kbd:`Enter` to re-accept the previously entered value, **except for the following prompts**:
 
-            (i) For the prompt:
+            (i) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-               :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`
+            (ii) :guilabel:`Fully qualified hostname (FQDN) of this machine`: Enter the host name previously associated with your LOCKSS 1.x host.
 
-               enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
-
-            (ii) For the prompt:
-
-                :guilabel:`Fully qualified hostname (FQDN) of this machine`
-
-                enter the host name previously associated with your LOCKSS 1.x host.
-
-            (iii) For the prompt:
-
-                 :guilabel:`IP address of this machine`
-
-                 enter the IP address previously associated with your LOCKSS 1.x host.
+            (iii) :guilabel:`IP address of this machine`: Enter the IP address previously associated with your LOCKSS 1.x host.
 
             (iv) *Optional.* There may be other configuration values you need to change at this stage, but in most cases, everything else will be the same.
 
-            (v) You will eventually receive the prompt:
-
-               :guilabel:`OK to store this configuration?`
-
-               Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+            (v) :guilabel:`OK to store this configuration?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
          g. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
 
-         If you are doing a same-host migration, follow these steps:
+         If you are doing a **same-host migration**, follow these steps:
 
-         a. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
+         a. On the LOCKSS 2.x host [#fnsamehost]_, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
+
+            .. code-block:: shell
+
+               scripts/configure-lockss -r
+
+            which is short for:
 
             .. code-block:: shell
 
                scripts/configure-lockss --replay
 
-         b. You will receive the following prompt:
+         b. The LOCKSS 2.x configuration process will auto-repeat, but you will receive a few prompts:
 
-            :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`
+            (i) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-            Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
-
-         c. You will then receive the following prompt:
-
-            :guilabel:`OK to store this configuration?`
-
-            Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+            (ii) :guilabel:`OK to store this configuration?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
 4. On the LOCKSS 2.x host, run this command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
+
+   .. code-block:: shell
+
+      scripts/start-lockss -w
+
+   which is short for:
 
    .. code-block:: shell
 
       scripts/start-lockss --wait
 
    to start the LOCKSS 2.0-beta1 system (now configured for normal operation).
+
+----
+
+.. only:: html
+
+   .. rubric:: Footnotes
+
+.. [#fnsamehost]
+
+   If your :ref:`Migration Scenario` is a **same-host migration**, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.

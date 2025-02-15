@@ -2,7 +2,7 @@
 Installing LOCKSS |UPGRADE_TO_PATCH|
 ====================================
 
-The next task in the migration process is to install LOCKSS |UPGRADE_TO_PATCH| on your LOCKSS 2.x host.
+The next task in the migration process is to install LOCKSS |UPGRADE_TO_PATCH| on your LOCKSS 2.x host [#fnsamehost]_.
 
 The process depends on your :ref:`Migration Scenario`:
 
@@ -11,7 +11,7 @@ The process depends on your :ref:`Migration Scenario`:
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      Follow all instructions in chapter 3 (:doc:`lockss-manual:installing/index`) of the :doc:`lockss-manual:index`:
+      If you are doing a new-host migration, follow all instructions in chapter 3 (:doc:`lockss-manual:installing/index`) of the :doc:`lockss-manual:index`:
 
       *  Section 3.1 (:doc:`lockss-manual:installing/user`)
 
@@ -27,3 +27,13 @@ The process depends on your :ref:`Migration Scenario`:
       *  Section 3.2 (:doc:`lockss-manual:installing/downloading`)
 
       *  Section 3.3 (:doc:`lockss-manual:installing/running`)
+
+----
+
+.. only:: html
+
+   .. rubric:: Footnotes
+
+.. [#fnsamehost]
+
+   If your :ref:`Migration Scenario` is a **same-host migration**, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
