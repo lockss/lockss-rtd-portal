@@ -41,9 +41,9 @@ First, you will need to make your LOCKSS 1.x configuration file, and if applicab
 
       2. Ensure that on the LOCKSS 2.x host, the LOCKSS 1.x configuration file is readable by all. You can do this as ``root`` with (for instance):
 
-      .. code-block:: shell
+         .. code-block:: shell
 
-         chmod +r /tmp/v1config.dat
+            chmod +r /tmp/v1config.dat
 
       3. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
 
