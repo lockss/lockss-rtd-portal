@@ -138,6 +138,10 @@ html_theme_options = {
     'style_external_links': True,
     # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-flyout_display
     'flyout_display': 'attached',
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-version_selector
+    'version_selector': False,
+    # See https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html#confval-language_selector
+    'language_selector': False,
 }
 
 # See https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#default-substitutions
