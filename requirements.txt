@@ -29,7 +29,7 @@
 # Sphinx itself
 # https://pypi.org/project/Sphinx/
 # https://www.sphinx-doc.org/
-sphinx==8.1.3
+sphinx==8.2.3
 
 # Docutils
 # https://pypi.org/project/docutils/

@@ -6,13 +6,13 @@ The first task in the migration process is to upgrade your LOCKSS 1.x instance t
 
 To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these steps as ``root`` on your LOCKSS 1.x host [#fnsamehost]_:
 
-1. Run this :program:`systemctl` command to stop the LOCKSS 1.x instance:
+1. Run this :program:`systemctl` command as ``root`` to stop the LOCKSS 1.x instance:
 
    .. code-block:: shell
 
       systemctl stop lockss
 
-2. Run this Dnf or Yum command to upgrade the ``lockss`` RPM package, depending on your operating system:
+2. Run this Dnf or Yum command as ``root`` to upgrade the ``lockss`` RPM package, depending on your operating system:
 
    .. COMMENT OSTABS
 
@@ -33,7 +33,12 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 
                .. include:: upgrading1-dnf.rst
 
-            .. tab-item:: CentOS 7
+            .. tab-item:: CentOS Linux 8
+               :sync: centos8
+
+               .. include:: upgrading1-dnf.rst
+
+            .. tab-item:: CentOS Linux 6-7
                :sync: centos7
 
                .. include:: upgrading1-yum.rst

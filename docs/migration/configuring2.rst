@@ -56,6 +56,8 @@ First, you will need to make your LOCKSS 1.x configuration file, and if applicab
 
       2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
 
+.. _running-configure-lockss-migrate:
+
 ---------------------------------------------
 Running :program:`configure-lockss --migrate`
 ---------------------------------------------
