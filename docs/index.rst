@@ -32,6 +32,7 @@ LOCKSS Documentation Portal
    admin/index
    plugin/index
    dev/index
+   software/index
 
 .. only:: html
 

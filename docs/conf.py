@@ -85,6 +85,9 @@ extensions = [
 
     # See https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
     'sphinxcontrib.globalsubs',
+
+    # See https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc
+    'sphinx.ext.autodoc',
 ]
 
 intersphinx_mapping = {
@@ -168,3 +171,12 @@ global_substitutions = {
     'UPGRADE_TO_MINOR': '2.0-beta1',
     'UPGRADE_TO_PATCH': '2.0.84-beta1',
 }
+
+# See https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_default_options
+autodoc_default_options = {
+    'members': True,
+    'undoc-members': True,
+}
+
+# See https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_typehints
+autodoc_typehints = 'description'
