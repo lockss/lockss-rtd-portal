@@ -11,8 +11,11 @@ Debugpanel
 |DEBUGPANEL| is a command line tool and Python library to interact with the LOCKSS 1.x DebugPanel servlet.
 
 :Latest release: |RELEASE| (|RELEASE_DATE|)
+:Documentation: https://docs.lockss.org/en/latest/software/debugpanel
 :Release notes: `CHANGELOG.rst <https://github.com/lockss/lockss-debugpanel/blob/main/CHANGELOG.rst>`_
 :License: `LICENSE <https://github.com/lockss/lockss-debugpanel/blob/main/LICENSE>`_
+:Repository: https://github.com/lockss/lockss-debugpanel
+:Issues: https://github.com/lockss/lockss-debugpanel/issues
 
 .. rubric:: Quick Start
 
