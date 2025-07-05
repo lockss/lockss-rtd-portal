@@ -11,7 +11,7 @@ LOCKSS Software Guides
    .. grid:: 1 1 2 2
 
       .. grid-item-card::
-         :link: debugpanel
+         :link: debugpanel/index
          :link-type: doc
 
          .. image:: https://assets.lockss.org/images/logos/debugpanel/debugpanel_128x128.png
@@ -23,4 +23,4 @@ LOCKSS Software Guides
 .. toctree::
    :hidden:
 
-   debugpanel
+   debugpanel/index

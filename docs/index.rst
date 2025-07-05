@@ -29,10 +29,10 @@ LOCKSS Documentation Portal
    :hidden:
 
    migration/index
+   software/index
    admin/index
    plugin/index
    dev/index
-   software/index
 
 .. only:: html
 
