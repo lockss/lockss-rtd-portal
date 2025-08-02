@@ -62,3 +62,4 @@ sphinxcontrib-globalsubs==0.1.2
 
 # Packages documented by Autodoc
 lockss-debugpanel==0.8.0
+lockss-turtles==0.6.0-dev18
