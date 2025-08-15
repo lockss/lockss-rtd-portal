@@ -24,6 +24,6 @@ Installing Debugpanel
 
       pip install lockss-debugpanel
 
-   or create a dependency on the ``lockss-debugpanel`` package.
+   or create a dependency on the ``lockss-debugpanel`` package, version |RELEASE|.
 
 The installation process adds a :command:`debugpanel` :ref:`command line tool <Using Debugpanel>` and a ``lockss.debugpanel`` :ref:`Python library <Using Debugpanel as a Library>`. You can check at the command line that the installation is functional by running ``debugpanel version`` or ``debugpanel --help``.
