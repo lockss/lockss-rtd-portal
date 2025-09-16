@@ -37,5 +37,6 @@ Turtles
 
    installing
    overview
+   configuring
    using
    api
