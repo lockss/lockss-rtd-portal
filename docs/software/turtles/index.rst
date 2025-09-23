@@ -39,4 +39,5 @@ Turtles
    overview
    configuring
    using
+   configuration
    api
