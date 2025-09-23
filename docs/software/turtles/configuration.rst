@@ -31,16 +31,14 @@ The object is defined as follows:
 ``id``
    :Type: string
    :Required: yes
-   :Example: ``our-plugin-set``
 
-   An identifier for the plugin set [#fn-turtles-identifier]_.
+   An identifier for the plugin set [#fn-turtles-identifier]_. Example: ``our-plugin-set``.
 
 ``name``
    :Type: string
    :Required: yes
-   :Example: ``Our Plugin Set``
 
-   A display name for the plugin set.
+   A display name for the plugin set. Example: ``Our Plugin Set``.
 
 ``builder``
    :Type: :ref:`plugin set builder specification` object
@@ -218,16 +216,14 @@ The object is defined as follows:
 ``id``
    :Type: string
    :Required: yes
-   :Example: ``our-plugin-registry``
 
-   An identifier for the plugin registry [#fn-turtles-identifier]_.
+   An identifier for the plugin registry [#fn-turtles-identifier]_. Example: ``our-plugin-registry``.
 
 ``name``
    :Type: string
    :Required: yes
-   :Example: ``Our Plugin Registry``
 
-   A display name for the plugin registry.
+   A display name for the plugin registry. Example: ``Our Plugin Registry``.
 
 ``layout``
    :Type: :ref:`Plugin Registry Layout Specification` object
@@ -398,23 +394,59 @@ The object is defined as follows:
 ``id``
    :Type: string
    :Required: yes
-   :Examples: ``production``
 
-   An identifier for the layer [#fn-turtles-identifier]_.
+   An identifier for the layer [#fn-turtles-identifier]_. Examples: ``production``, ``testing``.
 
 ``name``
    :Type: string
    :Required: yes
-   :Example: ``Our Project Plugin Registry (Production)``
 
-   A display name for the layer.
+   A display name for the layer. Example: ``Our Project Plugin Registry (Production)``.
 
 ``path``
    :Type: string
    :Required: yes
-   :Example: ``/var/www/props/props.ourproject.org/plugins/production``
 
-   The layer's directory path. If the specific path is relative, it is understood to be relative to the :term:`plugin registry definition` file that contains it.
+   The layer's directory path. If the path is relative, it is understood to be relative to the :term:`plugin registry definition` file that contains it. Example: ``/var/www/props/props.ourproject.org/plugins/production`` (absolute), ``production`` (relative).
+
+--------------------------------------------
+Plugin Registry Catalog Definition Reference
+--------------------------------------------
+
+
+
+-----------------------------------------------
+Plugin Signing Credentials Definition Reference
+-----------------------------------------------
+
+A :term:`plugin signing credentials definition` looks like the following:
+
+.. code-block:: yaml
+
+   ---
+   kind: PluginSigningCredentials
+   plugin-signing-keystore: <<plugin signing keystore path>>
+   plugin-signing-alias: <<plugin signing keystore alias>>
+
+The object is defined as follows:
+
+``kind``
+   :Type: string
+   :Required: yes
+
+   The constant ``PluginSigningCredentials``, indicating :term:`plugin signing credentials`.
+
+``plugin-signing-keystore``
+   :Type: string
+   :Required: yes
+
+   File path for a plugin signing keystore. If the path is relative, it is understood to be relative to the :term:`plugin signing credentials definition` file that contains it. Example: ``/home/user123/secrets/user123.keystore`` (absolute), ``secrets/user123.keystore`` (relative).
+
+``plugin-signing-alias``
+   :Type: string
+   :Required: yes
+
+   User alias within the plugin signing keystore. Example: ``user123``.
 
 ----
 
