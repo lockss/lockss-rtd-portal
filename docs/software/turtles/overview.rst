@@ -50,20 +50,20 @@ Turtles Concepts
    Plugin signing credentials definition
       A :term:`YAML configuration object` describing a user's :term:`plugin signing credentials`.
 
-   Building a plugin
-      Producing a JAR file out of the source code of a LOCKSS plugin from a :term:`plugin set`, and cryptographically signing it with given :term:`plugin signing credentials`.
+   Building plugins
+      Producing JAR files out of the source code of LOCKSS plugins from a :term:`plugin set`, and cryptographically signing them with given :term:`plugin signing credentials`.
 
-   Deploying a plugin
-      Putting the JAR file of a built plugin in one or more :term:`plugin registry layer`\s, making it available to LOCKSS nodes configured to use the corresponding :term:`plugin registries <plugin registry>`.
+   Deploying plugins
+      Putting the JAR files of built LOCKSS plugins in one or more :term:`plugin registry layer`\s, making them available to LOCKSS nodes configured to use the corresponding :term:`plugin registries <plugin registry>`.
 
-   Releasing a plugin
-      :term:`Building <building a plugin>` then :term:`deploying <deploying a plugin>` a plugin.
+   Releasing plugins
+      :term:`Building <building plugins>` then :term:`deploying <deploying plugins>` plugins.
 
-------------------
-Turtles Operations
-------------------
+----------------------------------
+Turtles Plugin Building Operations
+----------------------------------
 
-Turtles has three main operations:
+Turtles has two operations that are concerned with :term:`building plugins`:
 
 .. list-table::
    :header-rows: 1
@@ -74,10 +74,26 @@ Turtles has three main operations:
    *  *  Build plugins
       *  :ref:`turtles build-plugin`
       *  :py:meth:`lockss.turtles.app.TurtlesApp.build_plugin`
+   *  *  Release plugins [#fn-release-plugin]_
+      *  :ref:`turtles release-plugin`
+      *  :py:meth:`lockss.turtles.app.TurtlesApp.release_plugin`
+
+------------------------------------
+Turtles Plugin Deployment Operations
+------------------------------------
+
+Turtles has two operations that are concerned with :term:`building plugins`:
+
+.. list-table::
+   :header-rows: 1
+
+   *  *  Operation
+      *  Command Line
+      *  API
    *  *  Deploy plugins
       *  :ref:`turtles deploy-plugin`
       *  :py:meth:`lockss.turtles.app.TurtlesApp.deploy_plugin`
-   *  *  Release plugins
+   *  *  Release plugins [#fn-release-plugin]_
       *  :ref:`turtles release-plugin`
       *  :py:meth:`lockss.turtles.app.TurtlesApp.release_plugin`
 
@@ -102,3 +118,11 @@ Other operations include:
    *  *  Version number
       *  :ref:`turtles version`
       *  :py:const:`lockss.turtles.__version__`
+
+----
+
+.. rubric:: Footnotes
+
+.. [#fn-release-plugin]
+
+   Because :term:`releasing plugins` means :term:`building <building plugins>` then :term:`deploying <deploying plugins>` plugins, :ref:`turtles release-plugin` is listed among both :ref:`Turtles Plugin Building Operations` and :ref:`Turtles Plugin Deployment Operations`.

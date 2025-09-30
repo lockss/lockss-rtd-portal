@@ -6,13 +6,13 @@ Configuring Turtles
 
 |TURTLES| is configured via :term:`YAML` files containing :term:`YAML configuration object`\s. This chapter introduces each of these :term:`YAML configuration object`\s, and the chapter :doc:`configuration` offers a complete reference of their syntax.
 
-Operations that are :term:`building a plugin` (:ref:`turtles build-plugin` and :ref:`turtles release-plugin`) need to know about:
+*  :ref:`Turtles Plugin Building Operations` need to know about:
 
-*  One or more :term:`plugin set`\s, specified by :term:`plugin set definition`\s (see :ref:`Configuring a Plugin Set`) and/or :term:`plugin set catalog definition`\s (see  and :ref:`Configuring a Plugin Set Catalog`).
+   *  One or more :term:`plugin set`\s, specified by :term:`plugin set definition`\s (see :ref:`Configuring a Plugin Set`) and/or :term:`plugin set catalog definition`\s (see  and :ref:`Configuring a Plugin Set Catalog`).
 
-*  :term:`Plugin signing credentials`, specified by a :term:`plugin signing credentials definition` (see :ref:`Configuring Plugin Signing Credentials`).
+   *  :term:`Plugin signing credentials`, specified by a :term:`plugin signing credentials definition` (see :ref:`Configuring Plugin Signing Credentials`).
 
-Operations that are :term:`deploying a plugin` (:ref:`turtles deploy-plugin` and :ref:`turtles release-plugin`) need to know about one or more :term:`plugin registries <plugin registry>`, specified by a :term:`plugin registry definition`\s (see :ref:`Configuring a Plugin Registry`) and/or :term:`plugin registry catalog`\s (see :ref:`Configuring a Plugin Registry Catalog`).
+*  :ref:`Turtles Plugin Deployment Operations` need to know about one or more :term:`plugin registries <plugin registry>`, specified by a :term:`plugin registry definition`\s (see :ref:`Configuring a Plugin Registry`) and/or :term:`plugin registry catalog`\s (see :ref:`Configuring a Plugin Registry Catalog`).
 
 ------------------------
 Configuring a Plugin Set
@@ -91,7 +91,7 @@ Configuring a Plugin Set Catalog
 
    For detailed information about plugin set catalog definitions, see :ref:`Plugin Set Catalog Definition Reference`.
 
-If you are working with multiple :term:`plugin set`\s, and even if you are working with just one, it is convenient to list one or more plugin sets in a :term:`plugin set catalog`. A :ref:`plugin set catalog definition` looks like this:
+If you are working with multiple :term:`plugin set`\s, and even if you are working with just one, it is convenient to list one or more plugin sets in a :term:`plugin set catalog`. A :term:`plugin set catalog definition` looks like this:
 
 .. code-block:: yaml
 
@@ -102,7 +102,7 @@ If you are working with multiple :term:`plugin set`\s, and even if you are worki
      - /opt/plugins/secondary-plugin-project/turtles.yaml
      - ...
 
-Plugin set file paths that are not absolute are understood to be relative to the file containing the plugin set catalog definition.
+Plugin set file paths that are relative are understood to be relative to the :term:`plugin set catalog definition` file.
 
 .. FIXME where to store the definition
 
@@ -155,7 +155,7 @@ Plugin registries with two :term:`layers <plugin registry layer>` are also commo
      - org.ourproject.plugin.plugin2.Plugin2
      - ...
 
-Plugin registry layer directory paths that are not absolute are understood to be relative to the file containing the plugin registry definition. Using the two-layer example above, this means that another way to express the same plugin registry definition would be to store it in the file :file:`/var/www/props.ourproject.org/plugins/turtles.yaml` and write its ``layers`` section as:
+Relative plugin registry layer directory paths are understood to be relative to the :term:`plugin registry definition` file. Using the two-layer example above, this means that another way to express the same plugin registry definition would be to store it in the file :file:`/var/www/props.ourproject.org/plugins/turtles.yaml` and write its ``layers`` section as:
 
 .. code-block:: yaml
 
@@ -175,7 +175,7 @@ Configuring a Plugin Registry Catalog
 
    For detailed information about plugin registry catalog definitions, see :ref:`Plugin Registry Catalog Definition Reference`.
 
-If you are working with multiple :term:`plugin registries <plugin registry>`, and even if you are working with just one, it is convenient to list one or more plugin registries in a :term:`plugin registry catalog`. A :ref:`plugin registry catalog definition` looks like this:
+If you are working with multiple :term:`plugin registries <plugin registry>`, and even if you are working with just one, it is convenient to list one or more plugin registries in a :term:`plugin registry catalog`. A :term:`plugin registry catalog definition` looks like this:
 
 .. code-block:: yaml
 
@@ -186,7 +186,7 @@ If you are working with multiple :term:`plugin registries <plugin registry>`, an
      - /var/www/props.otherproject.net/plugins/turtles.yaml
      - ...
 
-Plugin registry file paths that are not absolute are understood to be relative to the file containing the plugin registry catalog definition.
+Relative plugin registry file paths are understood to be relative to the :term:`plugin registry catalog definition` file.
 
 .. FIXME where to store the definition
 
@@ -207,9 +207,7 @@ Each user who might sign plugins requires :term:`plugin signing credentials`. A 
    plugin-signing-keystore: /home/user123/secrets/user123.keystore
    plugin-signing-alias: user123
 
-This requires a path to a plugin signing keystore (``plugin-signing-keystore``) and the alias of the user within the keystore (``plugin-signing-alias``).
-
-Plugin signing keystore paths that are not absolute are understood to be relative to the file containing the plugin signing credentials definition.
+This requires a path to a plugin signing keystore (``plugin-signing-keystore``) and the alias of the user within the keystore (``plugin-signing-alias``). A relative plugin signing keystore path is understood to be relative to the :term:`plugin signing credentials definition` file.
 
 ----
 

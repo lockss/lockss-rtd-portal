@@ -93,14 +93,14 @@ The object is defined as follows:
    :Required: no
    :Default: ``src/main/java``
 
-   The path to the plugins' source code, relative to the root of the project (``src/main/java`` by default).
+   The path to the plugins' source code. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``src/main/java`` by default).
 
 ``test``
    :Type: string
    :Required: no
    :Default: ``src/test/java``
 
-   The path to the plugins' unit tests, relative to the root of the project (``src/test/java`` by default).
+   The path to the plugins' unit tests. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``src/test/java`` by default).
 
 Legacy Ant Plugin Set Builder Specification
 -------------------------------------------
@@ -138,14 +138,14 @@ The object is defined as follows:
    :Required: no
    :Default: ``plugins/src``
 
-   The path to the plugins' source code, relative to the root of the project (``plugins/src`` by default).
+   The path to the plugins' unit tests. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``src/main/java`` by default).
 
 ``test``
    :Type: string
    :Required: no
    :Default: ``plugins/test/src``
 
-   The path to the plugins' unit tests, relative to the root of the project (``plugins/test/src`` by default).
+   The path to the plugins' unit tests. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``plugins/test/src`` by default).
 
 ---------------------------------------
 Plugin Set Catalog Definition Reference
@@ -158,8 +158,8 @@ A :term:`plugin set catalog definition` looks like the following:
    ---
    kind: PluginSetCatalog
    plugin-set-files:
-     - <<plugin set file path 1>>
-     - <<plugin set file path 2>>
+     - <<plugin set definition file path 1>>
+     - <<plugin set definition file path 2>>
      - ...
 
 The object is defined as follows:
@@ -174,7 +174,7 @@ The object is defined as follows:
    :Type: list of strings
    :Required: yes
 
-   A non-empty list of :term:`plugin set definition` file paths.
+   A non-empty list of :term:`plugin set definition` file paths. Paths that are relative are understood to be relative to the :term:`plugin set catalog definition` file.
 
 ------------------------------------
 Plugin Registry Definition Reference
@@ -247,12 +247,12 @@ The object is defined as follows:
    :Type: list of strings
    :Required: no
 
-   A list of plugin identifiers that have been retired from this plugin registry. |TURTLES| does not currently do anything actionable with this information, but it can be useful for plugin registry maintainers to document.
+   An optional list of plugin identifiers that have been retired from this plugin registry. |TURTLES| does not currently do anything actionable with this information, but it can be useful for plugin registry maintainers to document. Optional.
 
 Plugin Registry Layout Specification
 ====================================
 
-|TURTLES| supports two kinds of plugin registry layouts, identified by their ``type`` property:
+|TURTLES| supports two kinds of plugin registry layouts, the **directory plugin registry layout** and the **RCS plugin registry layout**, identified by their ``type`` property:
 
 .. list-table::
    :header-rows: 1
@@ -281,7 +281,7 @@ In a **directory plugin registry layout**, the plugin JAR files of each :term:`l
        +-- org.ourproject.plugin.plugin2.Plugin2.jar
        +-- ...
 
-A directory plugin registry layout specification looks like this:
+A directory plugin registry layout specification looks like the following:
 
 .. code-block:: yaml
 
@@ -299,8 +299,9 @@ The object is defined as follows:
 ``file-naming-convention``
    :Type: string
    :Required: no
+   :Default: ``identifier``
 
-   A file naming convention for the JAR files. The three available file naming conventions and their effect on the example plugin identifier ``org.ourproject.plugin.plugin1.Plugin1`` are:
+   A file naming convention for the JAR files. Optional (``identifier`` by default). The three available file naming conventions and their effect on the plugin identifier ``org.ourproject.plugin.plugin1.Plugin1`` are:
 
    .. list-table::
       :header-rows: 1
@@ -360,28 +361,14 @@ The object is defined as follows:
 
    The constant ``rcs``, indicating an RCS plugin registry layout.
 
+
 ``file-naming-convention``
-   :Type: string
-   :Required: no
-
-   A file naming convention for the JAR files. The three available file naming conventions and their effect on the example plugin identifier ``org.ourproject.plugin.plugin1.Plugin1`` are:
-
-   .. list-table::
-      :header-rows: 1
-
-      *  *  ``file-naming-convention``
-         *  Effect
-      *  *  ``abbreviated``
-         *  ``Plugin1.jar``
-      *  *  ``identifier`` (default)
-         *  ``org.ourproject.plugin.plugin1.Plugin1.jar``
-      *  *  ``underscore``
-         *  ``org_ourproject_plugin_plugin1_Plugin1.jar``
+   .. include:: configuration-file-naming-convention.rst
 
 Plugin Registry Layer Specification
 ===================================
 
-A :term:`plugin registry layer` specification requires an identifier, display name, and directory path, and looks like this:
+A :term:`plugin registry layer` specification looks like the following:
 
 .. code-block:: yaml
 
@@ -407,13 +394,36 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   The layer's directory path. If the path is relative, it is understood to be relative to the :term:`plugin registry definition` file that contains it. Example: ``/var/www/props/props.ourproject.org/plugins/production`` (absolute), ``production`` (relative).
+   The layer's directory path. A relative path is understood to be relative to the :term:`plugin registry definition` file. Example: ``/var/www/props/props.ourproject.org/plugins/production`` (absolute), ``production`` (relative).
 
 --------------------------------------------
 Plugin Registry Catalog Definition Reference
 --------------------------------------------
 
+A :term:`plugin registry catalog definition` looks like the following:
 
+.. code-block:: yaml
+
+   ---
+   kind: PluginRegistryCatalog
+   plugin-registry-files:
+     - <<plugin registry definition file path 1>>
+     - <<plugin registry definition file path 2>>
+     - ...
+
+The object is defined as follows:
+
+``kind``
+   :Type: string
+   :Required: yes
+
+   The constant ``PluginRegistryCatalog``, indicating a :term:`plugin registry catalog`.
+
+``plugin-registry-files``
+   :Type: list of strings
+   :Required: yes
+
+   A non-empty list of :term:`plugin registry definition` file paths. Paths that are relative are understood to be relative to the :term:`plugin registry catalog definition` file.
 
 -----------------------------------------------
 Plugin Signing Credentials Definition Reference
@@ -440,7 +450,7 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   File path for a plugin signing keystore. If the path is relative, it is understood to be relative to the :term:`plugin signing credentials definition` file that contains it. Example: ``/home/user123/secrets/user123.keystore`` (absolute), ``secrets/user123.keystore`` (relative).
+   File path for a plugin signing keystore. A relative path is understood to be relative to the :term:`plugin signing credentials definition` file. Example: ``/home/user123/secrets/user123.keystore`` (absolute), ``secrets/user123.keystore`` (relative).
 
 ``plugin-signing-alias``
    :Type: string

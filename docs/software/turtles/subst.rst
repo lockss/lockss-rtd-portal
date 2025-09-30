@@ -2,13 +2,15 @@
    COMMENT Turtles substitutions
    .............................
 
-.. |RELEASE| replace:: 0.6.0-dev19
+.. |RELEASE| replace:: 0.6.0-dev19 NOT YET RELEASED
 .. |RELEASE_DATE| replace:: NOT YET RELEASED
 
 .. |TURTLES| replace:: :program:`Turtles`
 .. |PIPX| replace:: :program:`pipx`
 
 .. |HELP| replace:: ``--help/-h``
+.. |NON_INTERACTIVE| replace:: ``--non-interactive``
+.. |OUTPUT_FORMAT| replace:: ``--output-format``
 .. |PLUGIN_IDENTIFIER| replace:: ``--plugin-identifier/-i``
 .. |PLUGIN_IDENTIFIERS| replace:: ``--plugin-identifiers/-I``
 .. |PLUGIN_JAR| replace:: ``--plugin-jar/-j``
@@ -20,5 +22,6 @@
 .. |PLUGIN_SET| replace:: ``--plugin-set/-s``
 .. |PLUGIN_SET_CATALOG| replace:: ``--plugin-set-catalog/-S``
 .. |PLUGIN_SIGNING_CREDENTIALS| replace:: ``--plugin-signing-credentials/-c``
+.. |PLUGIN_SIGNING_PASSWORD| replace:: ``--plugin-signing-password``
 .. |PRODUCTION| replace:: ``--production/-p``
 .. |TESTING| replace:: ``--testing/-t``
