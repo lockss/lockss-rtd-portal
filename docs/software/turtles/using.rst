@@ -32,32 +32,32 @@ Turtles Commands
 
 |TURTLES| commands are in the subcommand style of programs like :command:`git`, :command:`dnf`/:command:`yum`, :command:`apt`/:command:`apt-get`, and the like.
 
-The available commands are:
+The available commands mirror the various :ref:`Turtles Operations`:
 
 .. list-table::
    :header-rows: 1
 
-   *  *  Command
+   *  *  Operation
+      *  Command
       *  Abbreviation
-      *  Purpose
-   *  *  :ref:`turtles build-plugin`
+   *  *  Build plugins
+      *  :ref:`turtles build-plugin`
       *  :ref:`turtles bp <turtles build-plugin>`
-      *  build plugins
-   *  *  :ref:`turtles copyright`
-      *  n/a
-      *  print the copyright and exit
-   *  *  :ref:`turtles deploy-plugins`
-      *  :ref:`turtles dp <turtles deploy-plugins>`
-      *  deploy plugins
-   *  *  :ref:`turtles license`
-      *  n/a
-      *  print the software license and exit
-   *  *  :ref:`turtles release-plugins`
-      *  :ref:`turtles rp <turtles release-plugins>`
-      *  release (build and deploy) plugins
-   *  *  :ref:`turtles version`
-      *  n/a
-      *  print the version number and exit
+   *  *  Copyright statement
+      *  :ref:`turtles copyright`
+      *  
+   *  *  Deploy plugins
+      *  :ref:`turtles deploy-plugin`
+      *  :ref:`turtles dp <turtles deploy-plugin>`
+   *  *  Software license
+      *  :ref:`turtles license`
+      *  
+   *  *  Release plugins
+      *  :ref:`turtles release-plugin`
+      *  :ref:`turtles rp <turtles release-plugin>`
+   *  *  Version number
+      *  :ref:`turtles version`
+      *  
 
 You can see the synopsis by invoking ``turtles --help``:
 
@@ -83,18 +83,7 @@ You can see the synopsis by invoking ``turtles --help``:
     Help:
       -h, --help            show this help message and exit
 
-.. _turtles command:
-
-``turtles`` Command
-===================
-
-The top-level executable alone does not perform any action or default to a given command:
-
-..  code-block:: text
-
-    Usage: turtles [-h]
-                   {bp,build-plugin,copyright,deploy-plugin,dp,license,release-plugin,rp,version} ...
-    turtles: error: the following arguments are required: {bp,build-plugin,copyright,deploy-plugin,dp,license,release-plugin,rp,version}
+The top-level ``turtles`` command, alone, does not perform any action or default to an implied subcommand.
 
 .. _turtles build-plugin:
 
@@ -103,7 +92,7 @@ The top-level executable alone does not perform any action or default to a given
 ``turtles build-plugin``
 ========================
 
-The ``turtles build-plugin`` (or alternatively ``turtles bp``) command is one of the :ref:`Turtles Plugin Building Operations`. It has its own |HELP| option:
+The ``turtles build-plugin`` (or alternatively ``turtles bp``) command is used for :term:`building plugins`, turning the source code found in |plugin sets| to signed JAR files ready to be deployed to |plugin registries|. It has its own |HELP| option:
 
 ..  code-block:: text
 
@@ -176,6 +165,42 @@ The command requires:
 *  Plugin signing credentials, from the :ref:`Turtles Plugin Signing Credentials Options` (|PLUGIN_SIGNING_CREDENTIALS|, |PLUGIN_SIGNING_PASSWORD|) or from a :ref:`Default Plugin Signing Credentials File`.
 
 It also accepts :ref:`Turtles Interactivity Options` (|NON_INTERACTIVE|) and :ref:`Turtles Output Format Options` (|OUTPUT_FORMAT|).
+
+.. _turtles copyright:
+
+``turtles copyright``
+=====================
+
+The ``turtles copyright`` command outputs the copyright for |TURTLES|.
+
+.. _turtles deploy-plugin:
+
+.. _turtles dp:
+
+``turtles deploy-plugin``
+=========================
+
+.. _turtles license:
+
+``turtles license``
+===================
+
+The ``turtles license`` command outputs the software license for |TURTLES|.
+
+.. _turtles release-plugin:
+
+.. _turtles rp:
+
+``turtles release-plugin``
+==========================
+
+.. _turtles version:
+
+
+``turtles version``
+===================
+
+The ``turtles version`` command outputs the |TURTLES| version number.
 
 ---------------
 Turtles Options

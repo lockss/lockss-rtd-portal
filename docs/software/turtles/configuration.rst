@@ -8,7 +8,7 @@ Turtles Configuration Reference
 Plugin Set Definition Reference
 -------------------------------
 
-A :term:`plugin set definition` looks like the following:
+A |plugin set definition| looks like the following:
 
 .. code-block:: yaml
 
@@ -26,7 +26,7 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   The constant ``PluginSet``, indicating a :term:`plugin set definition`.
+   The constant ``PluginSet``, indicating a |plugin set definition|.
 
 ``id``
    :Type: string
@@ -49,7 +49,7 @@ The object is defined as follows:
 Plugin Set Builder Specification
 ================================
 
-Because there are two types of :term:`plugin set builder`\s, the **Maven plugin set builder** and the deprecated **legacy Ant plugin set builder**, there are two types of plugin set builder specifications, identified by their ``type`` property:
+Because there are two types of |plugin set builders|, the **Maven plugin set builder** and the deprecated **legacy Ant plugin set builder**, there are two types of plugin set builder specifications, identified by their ``type`` property:
 
 .. list-table::
    :header-rows: 1
@@ -64,13 +64,10 @@ Because there are two types of :term:`plugin set builder`\s, the **Maven plugin 
 Maven Plugin Set Builder Specification
 --------------------------------------
 
-.. admonition:: Prerequisites
+.. tip::
 
-   This plugin set builder requires:
+   This |plugin set builder| requires `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 17 and `Apache Maven <https://maven.apache.org/>`_, and places signed JAR files in the |plugin set| code tree's :file:`target/pluginjars` directory.
 
-   *  `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 17
-
-   *  `Apache Maven <https://maven.apache.org/>`_
 
 A Maven plugin set builder specification looks like the following:
 
@@ -93,14 +90,14 @@ The object is defined as follows:
    :Required: no
    :Default: ``src/main/java``
 
-   The path to the plugins' source code. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``src/main/java`` by default).
+   The path to the plugins' source code. A relative path is understood to be relative to the |plugin set definition| file. Optional (``src/main/java`` by default).
 
 ``test``
    :Type: string
    :Required: no
    :Default: ``src/test/java``
 
-   The path to the plugins' unit tests. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``src/test/java`` by default).
+   The path to the plugins' unit tests. A relative path is understood to be relative to the |plugin set definition| file. Optional (``src/test/java`` by default).
 
 Legacy Ant Plugin Set Builder Specification
 -------------------------------------------
@@ -109,13 +106,9 @@ Legacy Ant Plugin Set Builder Specification
 
    This plugin set builder is deprecated.
 
-.. admonition:: Prerequisites
+.. tip::
 
-   This plugin set builder requires:
-
-   *  `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 8
-
-   *  `Apache Ant <https://ant.apache.org/>`_
+   This |plugin set builder| requires `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 8 and `Apache Ant <https://ant.apache.org/>`_, and places signed JAR files in the |plugin set| code tree's :file:`plugins/jars` directory.
 
 A legacy Ant plugin set builder specification looks like the following:
 
@@ -138,20 +131,20 @@ The object is defined as follows:
    :Required: no
    :Default: ``plugins/src``
 
-   The path to the plugins' unit tests. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``src/main/java`` by default).
+   The path to the plugins' unit tests. A relative path is understood to be relative to the |plugin set definition| file. Optional (``src/main/java`` by default).
 
 ``test``
    :Type: string
    :Required: no
    :Default: ``plugins/test/src``
 
-   The path to the plugins' unit tests. A relative path is understood to be relative to the :term:`plugin set definition` file. Optional (``plugins/test/src`` by default).
+   The path to the plugins' unit tests. A relative path is understood to be relative to the |plugin set definition| file. Optional (``plugins/test/src`` by default).
 
 ---------------------------------------
 Plugin Set Catalog Definition Reference
 ---------------------------------------
 
-A :term:`plugin set catalog definition` looks like the following:
+A |plugin set catalog definition| looks like the following:
 
 .. code-block:: yaml
 
@@ -168,19 +161,19 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   The constant ``PluginSetCatalog``, indicating a :term:`plugin set catalog definition`.
+   The constant ``PluginSetCatalog``, indicating a |plugin set catalog definition|.
 
 ``plugin-set-files``
    :Type: list of strings
    :Required: yes
 
-   A non-empty list of :term:`plugin set definition` file paths. Paths that are relative are understood to be relative to the :term:`plugin set catalog definition` file.
+   A non-empty list of |plugin set definition| file paths. Paths that are relative are understood to be relative to the |plugin set catalog definition| file.
 
 ------------------------------------
 Plugin Registry Definition Reference
 ------------------------------------
 
-A :term:`plugin registry definition` looks like the following:
+A |plugin registry definition| looks like the following:
 
 .. code-block:: yaml
 
@@ -211,7 +204,7 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   The constant ``PluginRegistry``, indicating a :term:`plugin registry definition`.
+   The constant ``PluginRegistry``, indicating a |plugin registry definition|.
 
 ``id``
    :Type: string
@@ -368,7 +361,7 @@ The object is defined as follows:
 Plugin Registry Layer Specification
 ===================================
 
-A :term:`plugin registry layer` specification looks like the following:
+A |plugin registry layer| specification looks like the following:
 
 .. code-block:: yaml
 
@@ -394,13 +387,13 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   The layer's directory path. A relative path is understood to be relative to the :term:`plugin registry definition` file. Example: ``/var/www/props/props.ourproject.org/plugins/production`` (absolute), ``production`` (relative).
+   The layer's directory path. A relative path is understood to be relative to the |plugin registry definition| file. Example: ``/var/www/props/props.ourproject.org/plugins/production`` (absolute), ``production`` (relative).
 
 --------------------------------------------
 Plugin Registry Catalog Definition Reference
 --------------------------------------------
 
-A :term:`plugin registry catalog definition` looks like the following:
+A |plugin registry catalog definition| looks like the following:
 
 .. code-block:: yaml
 
@@ -417,19 +410,19 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   The constant ``PluginRegistryCatalog``, indicating a :term:`plugin registry catalog`.
+   The constant ``PluginRegistryCatalog``, indicating a |plugin registry catalog|.
 
 ``plugin-registry-files``
    :Type: list of strings
    :Required: yes
 
-   A non-empty list of :term:`plugin registry definition` file paths. Paths that are relative are understood to be relative to the :term:`plugin registry catalog definition` file.
+   A non-empty list of |plugin registry definition| file paths. Paths that are relative are understood to be relative to the |plugin registry catalog definition| file.
 
 -----------------------------------------------
 Plugin Signing Credentials Definition Reference
 -----------------------------------------------
 
-A :term:`plugin signing credentials definition` looks like the following:
+A |plugin signing credentials definition| looks like the following:
 
 .. code-block:: yaml
 
@@ -444,13 +437,13 @@ The object is defined as follows:
    :Type: string
    :Required: yes
 
-   The constant ``PluginSigningCredentials``, indicating :term:`plugin signing credentials`.
+   The constant ``PluginSigningCredentials``, indicating |plugin signing credentials|.
 
 ``plugin-signing-keystore``
    :Type: string
    :Required: yes
 
-   File path for a plugin signing keystore. A relative path is understood to be relative to the :term:`plugin signing credentials definition` file. Example: ``/home/user123/secrets/user123.keystore`` (absolute), ``secrets/user123.keystore`` (relative).
+   File path for a plugin signing keystore. A relative path is understood to be relative to the |plugin signing credentials definition| file. Example: ``/home/user123/secrets/user123.keystore`` (absolute), ``secrets/user123.keystore`` (relative).
 
 ``plugin-signing-alias``
    :Type: string

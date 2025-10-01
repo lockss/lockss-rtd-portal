@@ -26,4 +26,4 @@ Installing Turtles
 
    or create a dependency on the ``lockss-turtles`` package.
 
-The installation process adds a :command:`turtles` :ref:`command line tool <Using Turtles>` and a ``lockss.turtles`` :ref:`Python library <Using Turtles as a Library>`. You can check at the command line that the installation is functional by running ``turtles version`` or ``turtles --help``.
+The installation process adds a :command:`turtles` :doc:`command line tool <using>` and a ``lockss.turtles`` :doc:`Python library <api>`. You can check at the command line that the installation is functional by running ``turtles version`` or ``turtles --help``.

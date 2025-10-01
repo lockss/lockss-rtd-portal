@@ -2,6 +2,8 @@
 Turtles Overview
 ================
 
+.. include:: subst.rst
+
 ----------------
 Turtles Concepts
 ----------------
@@ -9,10 +11,10 @@ Turtles Concepts
 .. glossary::
 
    YAML
-      A structured text format, like XML or JSON.
+      A structured data format, like XML or JSON.
 
    YAML configuration object
-      A :term:`YAML` object that describes the configuration of an entity, using a specified vocabulary. A YAML file contains one or more YAML configuration objects.
+      A :term:`YAML` object that describes the an entity and its configuration, using a specified vocabulary. A YAML file contains one or more YAML configuration objects.
 
    Plugin set
       A code repository containing the source code and unit tests of one or more LOCKSS plugins.
@@ -59,11 +61,22 @@ Turtles Concepts
    Releasing plugins
       :term:`Building <building plugins>` then :term:`deploying <deploying plugins>` plugins.
 
-----------------------------------
-Turtles Plugin Building Operations
-----------------------------------
+------------------
+Turtles Operations
+------------------
 
-Turtles has two operations that are concerned with :term:`building plugins`:
+|TURTLES| operations fall into three categories:
+
+*  :ref:`Turtles Plugin Building Operations`
+
+*  :ref:`Turtles Plugin Deployment Operations`
+
+*  :ref:`Other Turtles Operations`
+
+Turtles Plugin Building Operations
+==================================
+
+|TURTLES| has two operations that are concerned with :term:`building plugins`:
 
 .. list-table::
    :header-rows: 1
@@ -78,11 +91,10 @@ Turtles has two operations that are concerned with :term:`building plugins`:
       *  :ref:`turtles release-plugin`
       *  :py:meth:`lockss.turtles.app.TurtlesApp.release_plugin`
 
-------------------------------------
 Turtles Plugin Deployment Operations
-------------------------------------
+====================================
 
-Turtles has two operations that are concerned with :term:`building plugins`:
+|TURTLES| has two operations that are concerned with :term:`deploying plugins`:
 
 .. list-table::
    :header-rows: 1
@@ -97,11 +109,10 @@ Turtles has two operations that are concerned with :term:`building plugins`:
       *  :ref:`turtles release-plugin`
       *  :py:meth:`lockss.turtles.app.TurtlesApp.release_plugin`
 
-------------------------
 Other Turtles Operations
-------------------------
+========================
 
-Other operations include:
+Other |TURTLES| operations include:
 
 .. list-table::
    :header-rows: 1
