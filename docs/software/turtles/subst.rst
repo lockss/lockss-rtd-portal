@@ -57,6 +57,6 @@
 .. |plugin signing credentials| replace:: :term:`plugin signing credentials`
 .. |plugin signing credentials definition| replace:: :term:`plugin signing credentials definition`
 .. |plugin signing credentials definitions| replace:: :term:`plugin signing credentials definitions <plugin signing credentials definition>`
-.. |YAML| replace:: term:`YAML`
+.. |YAML| replace:: :term:`YAML`
 .. |YAML configuration object| replace:: :term:`YAML configuration object`
 .. |YAML configuration objects| replace:: :term:`YAML configuration objects <YAML configuration object>`

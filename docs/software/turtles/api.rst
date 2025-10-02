@@ -11,6 +11,7 @@ Turtles API Reference
 ---------------------
 
 .. automodule:: lockss.turtles
+   :special-members:
 
 .. _lockss.turtles.app:
 
