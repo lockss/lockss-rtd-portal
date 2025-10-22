@@ -8,7 +8,7 @@ Configuring Turtles
 
 *  :ref:`Turtles Plugin Building Operations` need to know about:
 
-   *  One or more |plugin sets|, specified by |plugin set definitions| (see :ref:`Configuring a Plugin Set`) and/or |plugin set catalog definitions| (see  and :ref:`Configuring a Plugin Set Catalog`), or, if neither are specified, by a :ref:`Default Plugin Set Catalog File`.
+   *  One or more |plugin sets|, specified by |plugin set definitions| (see :ref:`Configuring a Plugin Set`) and/or |plugin set catalog definitions| (see  :ref:`Configuring a Plugin Set Catalog`), or, if neither are specified, by a :ref:`Default Plugin Set Catalog File`.
 
    *  |plugin signing credentials|, specified by a |plugin signing credentials definition| (see :ref:`Configuring Plugin Signing Credentials`), or, if not specified, by a :ref:`Default Plugin Signing Credentials File`.
 
@@ -106,6 +106,17 @@ A |plugin set catalog definition| looks like this:
 
 Relative plugin set file paths are understood to be relative to the |plugin set catalog definition| file.
 
+Default Plugin Set Catalog File
+===============================
+
+If no plugin set nor plugin set catalog is specified with |PLUGIN_SET| or |PLUGIN_SET_CATALOG| options (respectively), |TURTLES| loads a **default plugin set catalog file**, trying each of the following until one is found:
+
+1. :file:`{$HOME}/.config/lockss-turtles/plugin-set-catalog.yaml`, which is typically :file:`/home/{$USER}/.config/lockss-turtles/plugin-set-catalog.yaml` for the given user on the machine
+
+2. :file:`/etc/lockss-turtles/plugin-set-catalog.yaml`
+
+3. :file:`/usr/local/share/lockss-turtles/plugin-set-catalog.yaml`
+
 -----------------------------
 Configuring a Plugin Registry
 -----------------------------
@@ -190,7 +201,16 @@ A |plugin registry catalog definition| looks like this:
 
 Relative plugin registry file paths are understood to be relative to the |plugin registry catalog definition| file.
 
-.. FIXME where to store the definition
+Default Plugin Registry Catalog File
+====================================
+
+If no plugin registry nor plugin registry catalog is specified with |PLUGIN_REGISTRY| or |PLUGIN_REGISTRY_CATALOG| options (respectively), |TURTLES| loads a **default plugin registry catalog file**, trying each of the following until one is found:
+
+1. :file:`{$HOME}/.config/lockss-turtles/plugin-registry-catalog.yaml`, which is typically :file:`/home/{$USER}/.config/lockss-turtles/plugin-registry-catalog.yaml` for the given user on the machine
+
+2. :file:`/etc/lockss-turtles/plugin-registry-catalog.yaml`
+
+3. :file:`/usr/local/share/lockss-turtles/plugin-registry-catalog.yaml`
 
 --------------------------------------
 Configuring Plugin Signing Credentials
@@ -210,6 +230,17 @@ Each user who might sign plugins requires |plugin signing credentials|. A |plugi
    plugin-signing-alias: user123
 
 This requires a path to a plugin signing keystore (``plugin-signing-keystore``) and the alias of the user within the keystore (``plugin-signing-alias``). A relative plugin signing keystore path is understood to be relative to the |plugin signing credentials definition| file.
+
+Default Plugin Signing Credentials File
+=======================================
+
+If no plugin signing credentials are specified with |PLUGIN_SIGNING_CREDENTIALS| option, |TURTLES| loads a **default plugin signing credentials file**, trying each of the following until one is found:
+
+1. :file:`{$HOME}/.config/lockss-turtles/plugin-signing-credentials.yaml`, which is typically :file:`/home/{$USER}/.config/lockss-turtles/plugin-signing-credentials.yaml` for the given user on the machine
+
+2. :file:`/etc/lockss-turtles/plugin-signing-credentials.yaml`
+
+3. :file:`/usr/local/share/lockss-turtles/plugin-signing-credentials.yaml`
 
 ----
 

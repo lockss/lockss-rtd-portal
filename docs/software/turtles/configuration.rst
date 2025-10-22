@@ -108,7 +108,7 @@ Legacy Ant Plugin Set Builder Specification
 
 .. tip::
 
-   This |plugin set builder| requires `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 8 and `Apache Ant <https://ant.apache.org/>`_, and places signed JAR files in the |plugin set| code tree's :file:`plugins/jars` directory.
+   This |plugin set builder| requires `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 8 and `Apache Ant <https://ant.apache.org/>`_, and places signed JAR files in the |plugin set| code tree's :file:`plugins/jars` directory. It also requires that the ``JAVA_HOME`` environment variable is set.
 
 A legacy Ant plugin set builder specification looks like the following:
 

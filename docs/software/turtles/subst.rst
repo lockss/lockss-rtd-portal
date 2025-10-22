@@ -2,7 +2,7 @@
    COMMENT Turtles substitutions
    .............................
 
-.. |RELEASE| replace:: 0.6.0-dev19 NOT YET RELEASED
+.. |RELEASE| replace:: 0.6.0-dev27 NOT YET RELEASED
 .. |RELEASE_DATE| replace:: NOT YET RELEASED
 
 .. |TURTLES| replace:: :program:`Turtles`
