@@ -64,10 +64,9 @@ Because there are two types of |plugin set builders|, the **Maven plugin set bui
 Maven Plugin Set Builder Specification
 --------------------------------------
 
-.. tip::
+.. note::
 
-   This |plugin set builder| requires `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 17 and `Apache Maven <https://maven.apache.org/>`_, and places signed JAR files in the |plugin set| code tree's :file:`target/pluginjars` directory.
-
+   This plugin set builder has additional prerequisites. See :ref:`Maven Plugin Set Builder Prerequisites`.
 
 A Maven plugin set builder specification looks like the following:
 
@@ -106,9 +105,9 @@ Legacy Ant Plugin Set Builder Specification
 
    This plugin set builder is deprecated.
 
-.. tip::
+.. note::
 
-   This |plugin set builder| requires `Java <https://www.oracle.com/java/>`_ Development Kit (JDK) 8 and `Apache Ant <https://ant.apache.org/>`_, and places signed JAR files in the |plugin set| code tree's :file:`plugins/jars` directory. It also requires that the ``JAVA_HOME`` environment variable is set.
+   This plugin set builder has additional prerequisites. See :ref:`Legacy Ant Plugin Set Builder Prerequisites <Other Turtles Prerequisites>`.
 
 A legacy Ant plugin set builder specification looks like the following:
 
@@ -290,32 +289,14 @@ The object is defined as follows:
    The constant ``directory``, indicating a directory plugin registry layout.
 
 ``file-naming-convention``
-   :Type: string
-   :Required: no
-   :Default: ``identifier``
-
-   A file naming convention for the JAR files. Optional (``identifier`` by default). The three available file naming conventions and their effect on the plugin identifier ``org.ourproject.plugin.plugin1.Plugin1`` are:
-
-   .. list-table::
-      :header-rows: 1
-
-      *  *  ``file-naming-convention``
-         *  Effect
-      *  *  ``abbreviated``
-         *  ``Plugin1.jar``
-      *  *  ``identifier`` (default)
-         *  ``org.ourproject.plugin.plugin1.Plugin1.jar``
-      *  *  ``underscore``
-         *  ``org_ourproject_plugin_plugin1_Plugin1.jar``
+   .. include:: configuration-file-naming-convention.rst
 
 RCS Plugin Registry Layout Specification
 ----------------------------------------
 
-.. admonition:: Prerequisites
+.. note::
 
-   This plugin registry layout requires:
-
-   *  `GNU RCS <https://www.gnu.org/software/rcs/>`_
+   This plugin registry layout has additional prerequisites. See :ref:`RCS Plugin Registry Layout Prerequisites <Other Turtles Prerequisites>`.
 
 In an RCS plugin registry layout specification, the plugin JAR files of each :term:`layer <plugin registry layer>` go together in a flat directory structure, just like in a :ref:`directory plugin registry layout <Directory Plugin Registry Layout Specification>`, but additionally, each layer has an :file:`RCS` subdirectory and `RCS <https://www.gnu.org/software/rcs/>`_ is used to save a record of successive plugin versions. The resulting file structure would look like the following:
 
