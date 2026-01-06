@@ -22,7 +22,7 @@ The following template can be used in **plain text** contexts, for example the :
 
 .. code-block:: text
 
-   Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+   Copyright (c) 2000-2026, Board of Trustees of Leland Stanford Jr. University
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are met:
@@ -60,7 +60,7 @@ The following template can be used for **Java** files.
 
    /*
 
-   Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+   Copyright (c) 2000-2026, Board of Trustees of Leland Stanford Jr. University
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are met:
@@ -99,7 +99,7 @@ The following template can be used for **Python** files.
 .. code-block:: python
 
    __copyright__ = '''\
-   Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+   Copyright (c) 2000-2026, Board of Trustees of Leland Stanford Jr. University
    '''
 
    __license__ = '''\
@@ -148,7 +148,7 @@ The following template can be used for **Shell** files.
 
 .. code-block:: shell
 
-   # Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+   # Copyright (c) 2000-2026, Board of Trustees of Leland Stanford Jr. University
    #
    # Redistribution and use in source and binary forms, with or without
    # modification, are permitted provided that the following conditions are met:
@@ -190,7 +190,7 @@ The following template can be used for **XML** files.
 
    <!--
 
-   Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+   Copyright (c) 2000-2026, Board of Trustees of Leland Stanford Jr. University
 
    Redistribution and use in source and binary forms, with or without
    modification, are permitted provided that the following conditions are met:
