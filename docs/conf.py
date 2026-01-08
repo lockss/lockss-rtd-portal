@@ -1,4 +1,4 @@
-# Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+# Copyright (c) 2000-2026, Board of Trustees of Leland Stanford Jr. University
 #
 # Redistribution and use in source and binary forms, with or without
 # modification, are permitted provided that the following conditions are met:
@@ -58,7 +58,7 @@ if os.environ.get("READTHEDOCS", "") == "True":
 # -- Project information -----------------------------------------------------
 
 project = 'LOCKSS Documentation Portal'
-copyright = '2000-2025, LOCKSS Program'
+copyright = '2000-2026, LOCKSS Program'
 author = 'LOCKSS Program'
 
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-html_title
