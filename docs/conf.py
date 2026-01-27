@@ -154,6 +154,10 @@ today_fmt = '%Y-%m-%d'
 # See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-smartquotes
 smartquotes = False
 
+# See https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-pygments_style
+# See https://pygments.org/styles/
+pygments_style = 'default'
+
 # See https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
 global_substitutions = {
     'LATEST_MINOR': '2.0-beta1',
@@ -180,3 +184,4 @@ autodoc_default_options = {
 
 # See https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_typehints
 autodoc_typehints = 'description'
+
