@@ -21,6 +21,9 @@ Debugpanel
 
 .. code-block:: shell
 
+   # Requires Python 3.9-3.13
+   python --version
+
    # Install with pipx
    pipx install lockss-debugpanel
 

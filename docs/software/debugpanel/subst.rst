@@ -2,8 +2,8 @@
    COMMENT Debugpanel substitutions
    ................................
 
-.. |RELEASE| replace:: 0.8.1
-.. |RELEASE_DATE| replace:: 2025-08-13
+.. |RELEASE| replace:: 0.8.2
+.. |RELEASE_DATE| replace:: 2026-02-03
 
 .. |DEBUGPANEL| replace:: :program:`Debugpanel`
 .. |PIPX| replace:: :program:`pipx`
