@@ -2,8 +2,8 @@
    COMMENT Turtles substitutions
    .............................
 
-.. |RELEASE| replace:: 0.6.0
-.. |RELEASE_DATE| replace:: 2025-10-23
+.. |RELEASE| replace:: 0.6.1
+.. |RELEASE_DATE| replace:: 2026-02-03
 
 .. |TURTLES| replace:: :program:`Turtles`
 .. |PIPX| replace:: :program:`pipx`
