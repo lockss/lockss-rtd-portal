@@ -22,14 +22,6 @@ Help messages and this document use ``debugpanel`` throughout, but the two invoc
 Debugpanel Commands
 -------------------
 
-.. note::
-
-   As of version 0.8.0, bare arguments are no longer allowed and treated as nodes; all nodes must be listed via the :ref:`Debugpanel Node Options` |NODE| and |NODES|.
-
-.. note::
-
-   As of version 0.8.0, the ``debugpanel usage`` command no longer exists.
-
 |DEBUGPANEL| commands are in the subcommand style of programs like :command:`git`, :command:`dnf`/:command:`yum`, :command:`apt`/:command:`apt-get`, and the like.
 
 The available commands are:
@@ -37,94 +29,71 @@ The available commands are:
 .. list-table::
    :header-rows: 1
 
-   *  *  Command
+   *  *  Operation
+      *  Command
       *  Abbreviation
-      *  Purpose
-   *  *  :ref:`debugpanel check-substance`
-      *  ``debugpanel cs``
-      *  cause nodes to check the substance of AUs
-   *  *  :ref:`debugpanel copyright`
-      *  n/a
-      *  print the copyright and exit
-   *  *  :ref:`debugpanel crawl`
-      *  ``debugpanel cr``
-      *  cause nodes to crawl AUs
-   *  *  :ref:`debugpanel crawl-plugins`
-      *  ``debugpanel cp``
-      *  cause nodes to crawl plugins
-   *  *  :ref:`debugpanel deep-crawl`
-      *  ``debugpanel dc``
-      *  cause nodes to deeply crawl AUs
-   *  *  :ref:`debugpanel disable-indexing`
-      *  ``debugpanel di``
-      *  cause nodes to disable metadata indexing for AUs
-   *  *  :ref:`debugpanel license`
-      *  n/a
-      *  print the software license and exit
-   *  *  :ref:`debugpanel poll`
-      *  ``debugpanel po``
-      *  cause nodes to poll AUs
-   *  *  :ref:`debugpanel reindex-metadata`
-      *  ``debugpanel ri``
-      *  cause nodes to reindex the metadata of AUs
-   *  *  :ref:`debugpanel reload-config`
-      *  ``debugpanel rc``
-      *  cause nodes to reload their configuration
-   *  *  :ref:`debugpanel validate-files`
-      *  ``debugpanel vf``
-      *  cause nodes to validate the files of AUs
-   *  *  :ref:`debugpanel version`
-      *  n/a
-      *  print the version number and exit
+   *  *  Cause nodes to check the substance of AUs
+      *  :ref:`debugpanel check-substance`
+      *  :ref:`debugpanel cs <debugpanel check-substance>`
+   *  *  Print the copyright and exit
+      *  :ref:`debugpanel copyright`
+      *  
+   *  *  Cause nodes to crawl AUs
+      *  :ref:`debugpanel crawl`
+      *  :ref:`debugpanel cr <debugpanel crawl>`
+   *  *  Cause nodes to crawl plugins
+      *  :ref:`debugpanel crawl-plugins`
+      *  :ref:`debugpanel cp <debugpanel crawl-plugins>`
+   *  *  Cause nodes to deeply crawl AUs
+      *  :ref:`debugpanel deep-crawl`
+      *  :ref:`debugpanel dc <debugpanel deep-crawl>`
+   *  *  Cause nodes to disable metadata indexing for AUs
+      *  :ref:`debugpanel disable-indexing`
+      *  :ref:`debugpanel di <debugpanel disable-indexing>`
+   *  *  Print the software license and exit
+      *  :ref:`debugpanel license`
+      *  
+   *  *  Cause nodes to poll AUs
+      *  :ref:`debugpanel poll`
+      *  :ref:`debugpanel po <debugpanel poll>`
+   *  *  Cause nodes to reindex the metadata of AUs
+      *  :ref:`debugpanel reindex-metadata`
+      *  :ref:`debugpanel ri <debugpanel reindex-metadata>`
+   *  *  cause nodes to reload their configuration
+      *  :ref:`debugpanel reload-config`
+      *  :ref:`debugpanel rc <debugpanel reload-config>`
+   *  *  Display the subcommand tree and exit
+      *  :ref:`debugpanel tree`
+      *  
+   *  *  cause nodes to validate the files of AUs
+      *  :ref:`debugpanel validate-files`
+      *  :ref:`debugpanel vf <debugpanel validate-files>`
+   *  *  Print the version number and exit
+      *  :ref:`debugpanel version`
+      *  
 
-You can see the this synopsis by invoking ``debugpanel --help``:
+You can see the synopsis by invoking ``debugpanel --help``:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel [-h]
-                      {check-substance,copyright,cp,cr,crawl,crawl-plugins,cs,dc,deep-crawl,di,disable-indexing,license,po,poll,rc,reindex-metadata,reload-config,ri,validate-files,version,vf} ...
-
-    Tool to interact with the LOCKSS 1.x DebugPanel servlet
-
-    Commands:
-      {check-substance,copyright,cp,cr,crawl,crawl-plugins,cs,dc,deep-crawl,di,disable-indexing,license,po,poll,rc,reindex-metadata,reload-config,ri,validate-files,version,vf}
-        check-substance     cause nodes to check the substance of AUs
-        copyright           print the copyright and exit
-        cp                  synonym for: crawl-plugins
-        cr                  synonym for: crawl
-        crawl               cause nodes to crawl AUs
-        crawl-plugins       cause nodes to crawl plugins
-        cs                  synonym for: check-substance
-        dc                  synonym for: deep-crawl
-        deep-crawl          cause nodes to deeply crawl AUs
-        di                  synonym for: disable-indexing
-        disable-indexing    cause nodes to disable metadata indexing for AUs
-        license             print the software license and exit
-        po                  synonym for: poll
-        poll                cause nodes to poll AUs
-        rc                  synonym for: reload-config
-        reindex-metadata    cause nodes to reindex the metadata of AUs
-        reload-config       cause nodes to reload their configuration
-        ri                  synonym for: reindex-metadata
-        validate-files      cause nodes to validate the files of AUs
-        version             print the version number and exit
-        vf                  synonym for: validate-files
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['--help'])
 
 .. _debugpanel command:
 
 ``debugpanel`` Command
 ======================
 
-The top-level executable alone does not perform any action or default to a given command:
+The top-level `debugpanel``command, alone, defaults to ``debugpanel --help``.
 
-..  code-block:: text
+.. note::
 
-    Usage: debugpanel [-h]
-                      {check-substance,copyright,cp,cr,crawl,crawl-plugins,cs,dc,deep-crawl,di,disable-indexing,license,po,poll,rc,reindex-metadata,reload-config,ri,validate-files,version,vf} ...
-    debugpanel: error: the following arguments are required: {check-substance,copyright,cp,cr,crawl,crawl-plugins,cs,dc,deep-crawl,di,disable-indexing,license,po,poll,rc,reindex-metadata,reload-config,ri,validate-files,version,vf}
+   The |COLOR| and |SHOW_PARAMS| options attach to the top-level ``debugpanel`` command only, not to a subcommand that may also be specified. For example, this is not valid:
+
+   .. click:run::
+
+      invoke(_debugpanel, args=['reload-config', '--help', '--no-color'])
+
+   Instead, you should invoke ``debugpanel --no-color reload-config --help``.
 
 .. _debugpanel check-substance:
 
@@ -133,52 +102,30 @@ The top-level executable alone does not perform any action or default to a given
 ``debugpanel check-substance``
 ==============================
 
-The ``check-substance`` (or alternatively ``cs``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to check the substance of AUs. It has its own |HELP| option:
+The ``debugpanel check-substance`` (or alternatively ``debugpanel cs``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to check the substance of AUs. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel check-substance [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME]
-                                      [-a AUID [AUID ...]] [-A AUIDS [AUIDS ...]] [--pool-size POOL_SIZE] [--process-pool]
-                                      [--thread-pool] [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      -a, --auid AUID [AUID ...]
-                            (AUIDs) add one or more AUIDs to the set of AUIDs to process (default: [])
-      -A, --auids AUIDS [AUIDS ...]
-                            (AUIDs) add the AUIDs listed in one or more files to the set of AUIDs to process (default: [])
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
+   invoke(_debugpanel, args=['check-substance', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID| options, |AUIDS| options).
+*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID|, |AUIDS|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel copyright:
 
 ``debugpanel copyright``
 ========================
 
-The ``copyright`` command displays the copyright notice for |DEBUGPANEL| and exits.
+The ``debugpanel copyright`` command displays the copyright notice for |DEBUGPANEL| and exits:
+
+.. click:run::
+
+   invoke(_debugpanel, args=['copyright'])
 
 .. _debugpanel crawl:
 
@@ -187,48 +134,19 @@ The ``copyright`` command displays the copyright notice for |DEBUGPANEL| and exi
 ``debugpanel crawl``
 ====================
 
-The ``crawl`` (or alternatively ``cr``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to crawl AUs. It has its own |HELP| option:
+The ``debugpanel crawl`` (or alternatively ``debugpanel cr``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to crawl AUs. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel crawl [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME] [-a AUID [AUID ...]]
-                            [-A AUIDS [AUIDS ...]] [--pool-size POOL_SIZE] [--process-pool] [--thread-pool]
-                            [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      -a, --auid AUID [AUID ...]
-                            (AUIDs) add one or more AUIDs to the set of AUIDs to process (default: [])
-      -A, --auids AUIDS [AUIDS ...]
-                            (AUIDs) add the AUIDs listed in one or more files to the set of AUIDs to process (default: [])
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['crawl', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID| options, |AUIDS| options).
+*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID|, |AUIDS|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel crawl-plugins:
 
@@ -237,41 +155,17 @@ It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job
 ``debugpanel crawl-plugins``
 ============================
 
-The ``crawl-plugins`` (or alternatively ``cp``) command is one of the :ref:`Debugpanel Node Operations`, used to cause nodes to crawl their plugins. It has its own |HELP| option:
+The ``debugpanel crawl-plugins`` (or alternatively ``debugpanel cp``) command is one of the :ref:`Debugpanel Node Operations`, used to cause nodes to crawl their plugins. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel crawl-plugins [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME]
-                                    [--pool-size POOL_SIZE] [--process-pool] [--thread-pool] [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['crawl-plugins', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel deep-crawl:
 
@@ -280,51 +174,21 @@ It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job
 ``debugpanel deep-crawl``
 =========================
 
-The ``deep-crawl`` (or alternatively ``dc``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to crawl AUs with depth. It has its own |HELP| option:
+The ``debugpanel deep-crawl`` (or alternatively ``debugpanel dc``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to crawl AUs with depth. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel deep-crawl [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME] [-a AUID [AUID ...]]
-                                 [-A AUIDS [AUIDS ...]] [-d DEPTH] [--pool-size POOL_SIZE] [--process-pool] [--thread-pool]
-                                 [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      -a, --auid AUID [AUID ...]
-                            (AUIDs) add one or more AUIDs to the set of AUIDs to process (default: [])
-      -A, --auids AUIDS [AUIDS ...]
-                            (AUIDs) add the AUIDs listed in one or more files to the set of AUIDs to process (default: [])
-      -d, --depth DEPTH     (deep crawl) set crawl depth (default: 123)
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['deep-crawl', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID| options, |AUIDS| options).
+*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID|, |AUIDS|).
 
 It has a unique option, ``--depth/-d``, which is an strictly positive integer specifying the desired crawl depth.
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel disable-indexing:
 
@@ -333,55 +197,30 @@ It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job
 ``debugpanel disable-indexing``
 ===============================
 
-The ``disable-indexing`` (or alternatively ``di``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to disable metadata indexing of AUs. It has its own |HELP| option:
+The ``debugpanel disable-indexing`` (or alternatively ``debugpanel di``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to disable metadata indexing of AUs. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel disable-indexing [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME]
-                                       [-a AUID [AUID ...]] [-A AUIDS [AUIDS ...]] [--pool-size POOL_SIZE] [--process-pool]
-                                       [--thread-pool] [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      -a, --auid AUID [AUID ...]
-                            (AUIDs) add one or more AUIDs to the set of AUIDs to process (default: [])
-      -A, --auids AUIDS [AUIDS ...]
-                            (AUIDs) add the AUIDs listed in one or more files to the set of AUIDs to process (default: [])
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['disable-indexing', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID| options, |AUIDS| options).
+*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID|, |AUIDS|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel license:
 
 ``debugpanel license``
 ======================
 
-The ``license`` command displays the license terms for |DEBUGPANEL| and exits.
+The ``debugpanel license`` command displays the license terms for |DEBUGPANEL| and exits:
+
+.. click:run::
+
+   invoke(_debugpanel, args=['license'])
 
 .. _debugpanel poll:
 
@@ -390,48 +229,19 @@ The ``license`` command displays the license terms for |DEBUGPANEL| and exits.
 ``debugpanel poll``
 ===================
 
-The ``poll`` (or alternatively ``po``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to poll AUs. It has its own |HELP| option:
+The ``debugpanel poll`` (or alternatively ``debugpanel po``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to poll AUs. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel poll [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME] [-a AUID [AUID ...]]
-                           [-A AUIDS [AUIDS ...]] [--pool-size POOL_SIZE] [--process-pool] [--thread-pool]
-                           [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      -a, --auid AUID [AUID ...]
-                            (AUIDs) add one or more AUIDs to the set of AUIDs to process (default: [])
-      -A, --auids AUIDS [AUIDS ...]
-                            (AUIDs) add the AUIDs listed in one or more files to the set of AUIDs to process (default: [])
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['poll', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID| options, |AUIDS| options).
+*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID|, |AUIDS|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel reindex-metadata:
 
@@ -440,48 +250,19 @@ It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job
 ``debugpanel reindex-metadata``
 ===============================
 
-The ``reindex-metadata`` command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to reindex the metadata of AUs. It has its own |HELP| option:
+The ``debugpanel reindex-metadata`` (or alternatively ``debugpanel ri``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to reindex the metadata of AUs. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel reindex-metadata [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME]
-                                       [-a AUID [AUID ...]] [-A AUIDS [AUIDS ...]] [--pool-size POOL_SIZE] [--process-pool]
-                                       [--thread-pool] [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      -a, --auid AUID [AUID ...]
-                            (AUIDs) add one or more AUIDs to the set of AUIDs to process (default: [])
-      -A, --auids AUIDS [AUIDS ...]
-                            (AUIDs) add the AUIDs listed in one or more files to the set of AUIDs to process (default: [])
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['reindex-metadata', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID| options, |AUIDS| options).
+*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID|, |AUIDS|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel reload-config:
 
@@ -490,41 +271,28 @@ It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job
 ``debugpanel reload-config``
 ============================
 
-The ``reload-config`` (or alternatively ``rc``) command is one of the :ref:`Debugpanel Node Operations`, used to cause nodes to reload their configuration. It has its own |HELP| option:
+The ``debugpanel reload-config`` (or alternatively ``debugpanel rc``) command is one of the :ref:`Debugpanel Node Operations`, used to cause nodes to reload their configuration. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel reload-config [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME]
-                                    [--pool-size POOL_SIZE] [--process-pool] [--thread-pool] [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['reload-config', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
+
+.. _debugpanel tree:
+
+``debugpanel tree``
+===================
+
+The ``debugpanel tree`` command displays the subcommand tree for |DEBUGPANEL|:
+
+.. click:run::
+
+   invoke(_debugpanel, args=['tree'])
 
 .. _debugpanel validate-files:
 
@@ -533,55 +301,30 @@ It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job
 ``debugpanel validate-files``
 =============================
 
-The ``validate-files`` (or alternatively ``vf``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to reindex the metadata of AUs. It has its own |HELP| option:
+The ``debugpanel validate-files`` (or alternatively ``debugpanel vf``) command is one of the :ref:`Debugpanel AU Operations`, used to cause nodes to reindex the metadata of AUs. It has its own |HELP| option:
 
-..  code-block:: text
+.. click:run::
 
-    Usage: debugpanel validate-files [-h] [-n NODE [NODE ...]] [-N NODES [NODES ...]] [-p PASSWORD] [-u USERNAME] [-a AUID [AUID ...]]
-                                     [-A AUIDS [AUIDS ...]] [--pool-size POOL_SIZE] [--process-pool] [--thread-pool]
-                                     [--output-format OUTPUT_FORMAT]
-
-    Optional Arguments:
-      -n, --node NODE [NODE ...]
-                            (nodes) add one or more nodes to the set of nodes to process (default: [])
-      -N, --nodes NODES [NODES ...]
-                            (nodes) add the nodes listed in one or more files to the set of nodes to process (default: [])
-      -p, --password PASSWORD
-                            (nodes) UI password; interactive prompt if not specified (default: None)
-      -u, --username USERNAME
-                            (nodes) UI username; interactive prompt if not unspecified (default: None)
-      -a, --auid AUID [AUID ...]
-                            (AUIDs) add one or more AUIDs to the set of AUIDs to process (default: [])
-      -A, --auids AUIDS [AUIDS ...]
-                            (AUIDs) add the AUIDs listed in one or more files to the set of AUIDs to process (default: [])
-      --pool-size POOL_SIZE
-                            (job pool) set the job pool size (default: None)
-      --process-pool        (job pool) use a process pool (default: False)
-      --thread-pool         (job pool) use a thread pool (default: False)
-      --output-format OUTPUT_FORMAT
-                            set the output format; choices: asciidoc, double_grid, double_outline, fancy_grid, fancy_outline, github,
-                            grid, heavy_grid, heavy_outline, html, jira, latex, latex_booktabs, latex_longtable, latex_raw, mediawiki,
-                            mixed_grid, mixed_outline, moinmoin, orgtbl, outline, pipe, plain, presto, pretty, psql, rounded_grid,
-                            rounded_outline, rst, simple, simple_grid, simple_outline, textile, tsv, unsafehtml, youtrack (default:
-                            simple)
-
-    Help:
-      -h, --help            show this help message and exit
+   invoke(_debugpanel, args=['validate-files', '--help'])
 
 The command requires:
 
-*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE| options, |NODES| options).
+*  One or more nodes, from the :ref:`Debugpanel Node Options` (|NODE|, |NODES|).
 
-*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID| options, |AUIDS| options).
+*  One or more AUIDs, from the :ref:`Debugpanel AUID Options` (|AUID|, |AUIDS|).
 
-It also accepts :ref:`Debugpanel Output Format Options` and :ref:`Debugpanel Job Pool Options`.
+It also accepts :ref:`Debugpanel Output Format Options` (|TABLE_FORMAT|, |HEADINGS|, |PROGRESS|) and :ref:`Debugpanel Job Pool Options` (|POOL_TYPE|, |POOL_SIZE|).
 
 .. _debugpanel version:
 
 ``debugpanel version``
 ======================
 
-The ``version`` command displays the version number of |DEBUGPANEL| and exits.
+The ``debugpanel version`` command displays the version number of |DEBUGPANEL| and exits:
+
+.. click:run::
+
+   invoke(_debugpanel, args=['version'])
 
 -----------------------
 Debugpanel Node Options
@@ -589,47 +332,35 @@ Debugpanel Node Options
 
 .. note::
 
-   As of version 0.8.0, bare arguments are no longer allowed and treated as nodes; all nodes must be listed via the :ref:`Debugpanel Node Options` |NODE| and |NODES|.
+   As of version 0.9.0, |NODE| and |NODES| options only accept one argument at a time each, rather than one or more each.
 
 Commands for :ref:`Debugpanel Node Operations` expect one or more node references in ``HOST:PORT`` format, for instance ``lockss.myuniversity.edu:8081``. The set of nodes to process is derived from:
 
-*  The nodes listed as |NODE| options. Each |NODE| option accepts one or more node references.
+*  The nodes listed as |NODE| options. Each |NODE| option accepts one node reference. The long option ``--node`` and its argument can optionally be joined by an equals sign.
 
-*  The nodes found in the files listed as |NODES| options. Each |NODES| option accepts one or more file paths.
+*  The node references found in the files listed as |NODES| options. Each |NODES| option accepts one file paths. The long option ``--nodes`` and its argument can optionally be joined by an equals sign.
 
 Examples:
 
 .. code-block:: shell
 
-   # Each --node with one argument
-   debugpanel reload-config --node node1:8081 --node node2:8081 --node node3:8081 ... --thread-pool ...
+   # --node without an equals sign
+   debugpanel reload-config --node node1:8081 --node node2:8081 --node node3:8081 ...
 
    # Same, with --node abbreviated to -n
-   debugpanel reload-config -n node1:8081 -n node2:8081 -n node3:8081 ... --thread-pool ...
+   debugpanel reload-config -n node1:8081 -n node2:8081 -n node3:8081 ...
 
-   # Each --node can have more than one argument
-   debugpanel reload-config --node node1:8081 node2:8081 node3:8081 ... --thread-pool ...
+   # --node with an equals sign
+   debugpanel reload-config --node=node1:8081 ...
 
-   # Same, with --node abbreviated to -n
-   debugpanel reload-config -n node1:8081 node2:8081 node3:8081 ... --thread-pool ...
-
-   # --node with a single argument can also use an equals sign
-   debugpanel reload-config --node=node1:8081 ... --thread-pool ...
-
-   # Each --nodes with one argument
-   debugpanel reload-config --nodes list1.txt --nodes list2.txt --nodes list3.txt ... --thread-pool ...
+   # --nodes without an equals sign
+   debugpanel reload-config --nodes list1.txt --nodes list2.txt --nodes list3.txt ...
 
    # Same, with --nodes abbreviated to -N
-   debugpanel reload-config -N list1.txt -N list2.txt -N list3.txt ... --thread-pool ...
+   debugpanel reload-config -N list1.txt -N list2.txt -N list3.txt ...
 
-   # Each --nodes can have more than one argument
-   debugpanel reload-config --nodes list1.txt list2.txt list3.txt ... --thread-pool ...
-
-   # Same, with --nodes abbreviated to -N
-   debugpanel reload-config -N list1.txt list2.txt list3.txt ... --thread-pool ...
-
-   # --nodes with a single argument can also use an equals sign
-   debugpanel reload-config --nodes=list1.txt... --thread-pool ...
+   # --nodes with an equals sign
+   debugpanel reload-config --nodes=list1.txt ...
 
 -----------------------
 Debugpanel AUID Options
@@ -637,64 +368,60 @@ Debugpanel AUID Options
 
 In addition to :ref:`Debugpanel Node Options`, commands for :ref:`Debugpanel AU Operations` expect one or more AUIDs. The set of AUIDs to process is derived from:
 
-*  The AUIDs listed as |AUID| options. Each |AUID| option accepts one or more AUID.
+*  The AUIDs listed as |AUID| options. Each |AUID| option accepts one. The long option ``--auid`` and its argument can optionally be joined by an equals sign.
 
-*  The AUIDs found in the files listed as |AUIDS| options. Each |AUIDS| option accepts one or more file paths.
+*  The AUIDs found in the files listed as |AUIDS| options. Each |AUIDS| option accepts one file path. The long option ``--auids`` and its argument can optionally be joined by an equals sign.
 
 Examples:
 
 .. code-block:: shell
 
-   # Each --auid with one argument
-   debugpanel poll ... --auid auid1 --auids auid2 --auid auid3 ... --thread-pool ...
+   # --auid without an equals sign
+   debugpanel poll ... --auid auid1 --auids auid2 --auid auid3 ...
 
    # Same, with --auid abbreviated to -a
-   debugpanel poll ... -a auid1 -a auid2 -a auid3 ... --thread-pool ...
+   debugpanel poll ... -a auid1 -a auid2 -a auid3 ...
 
-   # Each --auid can have more than one argument
-   debugpanel poll ... --auid auid1 auid2 auid3 ... --thread-pool ...
+   # --auid with an equals sign
+   debugpanel poll ... --auid=auid1 ...
 
-   # Same, with --auid abbreviated to -a
-   debugpanel poll ... -a auid1 auid2 auid3 ... --thread-pool ...
-
-   # --auid with a single argument can also use an equals sign
-   debugpanel poll ... --auid=auid1 ... --thread-pool ...
-
-   # Each --auids with one argument
-   debugpanel poll ... --auids list1.txt --auids list2.txt --auid list3.txt ... --thread-pool ...
+   # --auids without an equals sign
+   debugpanel poll ... --auids list1.txt --auids list2.txt --auid list3.txt ...
 
    # Same, with --auids abbreviated to -A
-   debugpanel poll ... -A list1.txt -A list2.txt -A list3.txt ... --thread-pool ...
+   debugpanel poll ... -A list1.txt -A list2.txt -A list3.txt ...
 
-   # Each --auids can have more than one argument
-   debugpanel poll ... --auids list1.txt list2.txt list3.txt ... --thread-pool ...
-
-   # Same, with --auids abbreviated to -A
-   debugpanel poll ... -A list1.txt list2.txt list3.txt ... --thread-pool ...
-
-   # --auids with a single argument can also use an equals sign
-   debugpanel poll ... --auids=list1.txt ... --thread-pool ...
+   # --auids with an equals sign
+   debugpanel poll ... --auids=list1.txt ...
 
 --------------------------------
 Debugpanel Output Format Options
 --------------------------------
 
-|DEBUGPANEL|'s tabular output is performed by the `tabulate <https://pypi.org/project/tabulate>`_ library through the ``--output-format`` option. See `its README file <https://github.com/astanin/python-tabulate#table-format>`_ or the |HELP| message of any |DEBUGPANEL| node or AU command for a list of the various output formats available. The **default** is ``simple``. The option accepts a single argument, with or without an equals sign:
+.. note::
+
+   As of version 0.9.0, ``--output-format`` has been renamed to |TABLE_FORMAT|.
+
+|DEBUGPANEL|'s tabular output is performed by the `Click Extra <https://kdeldycke.github.io/click-extra/index.html>`_ library, via the |TABLE_FORMAT| and |HEADINGS| options. See `its documentation <https://kdeldycke.github.io/click-extra/table.html#table-formats>`_ or the |HELP| message of any |DEBUGPANEL| node or AU command for a list of the various output formats available in the |TABLE_FORMAT| option. The default value is ``simple``. This option accepts a single argument, with or without an equals sign:
 
 .. code-block:: shell
 
-   # With an equals sign
-   debugpanel ... --output-format=outline
-
    # Without an equals sign
-   debugpanel ... --output-format outline
+   debugpanel ... --table-format outline
 
-.. tip::
+   # With an equals sign
+   debugpanel ... --table-format=outline
 
-   The output format ``tsv`` produces tab-separated output, which can be more easily processed by other command line tools or imported into a spreadsheet.
+The |HEADINGS| options control whether or not column headings are displayed, respectively. The default is ``--headings``.
+
+The |PROGRESS| options control whether or not a progress bar of individual tasks is displayed, respectively. The default is ``--progress``.
 
 ---------------------------
 Debugpanel Job Pool Options
 ---------------------------
 
-|DEBUGPANEL| performs multiple operations in parallel, contacting multiple nodes and/or working on multiple AU requests per node, using a thread pool (``--thread-pool``) or a process pool (``--process-pool``). If neither is specified, by default a thread pool is used. You can change the size of the job pool with the ``--pool-size`` option, which accepts a nonzero integer. Note that the underlying implementation may limit the number of threads or processes despite a larger number requested at the command line. The default value depends on the system's CPU characteristics (represented in this document as "N"). Using ``--thread-pool --pool-size=1`` approximates no parallel processing.
+.. note::
+
+   As of version 0.9.0, ``--process-pool`` and ``thread-pool`` are deprecated in favor of ``--pool-type=process-pool`` and ``--pool-type=thread-pool`` respectively.
+
+|DEBUGPANEL| performs multiple operations in parallel, contacting multiple nodes and/or working on multiple AU requests per node, using a thread pool (``--pool-type=thread-pool``) or a process pool (``--pool-type=process-pool``). If neither is specified, by default a thread pool is used. You can change the size of the job pool with the ``--pool-size`` option, which accepts a nonzero integer. Note that the underlying implementation may limit the number of threads or processes despite a larger number requested at the command line. The default value depends on the system's CPU characteristics (represented in this document as "N"). Using ``--pool-type=thread-pool --pool-size=1`` approximates no parallel processing.

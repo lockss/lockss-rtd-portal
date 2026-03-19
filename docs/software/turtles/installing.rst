@@ -8,7 +8,7 @@ Installing Turtles
 Turtles Prerequisites
 ---------------------
 
-|TURTLES| requires Python 3.9 or greater [#fn-python-version]_.
+|TURTLES| |RELEASE| requires Python 3.10 or greater [#fn-python-version]_.
 
 :ref:`Turtles Installation` is typically done with |PIPX|, which you may need to install [#fn-pipx-version]_:
 

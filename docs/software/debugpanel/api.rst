@@ -19,3 +19,4 @@ Debugpanel API Reference
 -------------------------
 
 .. automodule:: lockss.debugpanel.cli
+   :private-members:

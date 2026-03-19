@@ -60,6 +60,11 @@ sphinx_design==0.7.0
 # https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
 sphinxcontrib-globalsubs==1.0.0
 
+# click_extra[sphinx] to document Click CLI tools
+# https://pypi.org/project/click-extra/
+# https://kdeldycke.github.io/click-extra/
+click_extra[sphinx]==7.5.0
+
 # Packages documented by Autodoc
-lockss-debugpanel==0.8.0
-lockss-turtles==0.6.0
+lockss-debugpanel==0.9.0
+lockss-turtles==0.7.0

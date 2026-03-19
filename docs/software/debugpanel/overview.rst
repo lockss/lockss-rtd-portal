@@ -75,6 +75,9 @@ Other operations include:
    *  *  Software license
       *  :ref:`debugpanel license`
       *  :py:const:`lockss.debugpanel.__license__`
+   *  *  Subcommand tree
+      *  :ref:`debugpanel tree`
+      *  
    *  *  Version number
       *  :ref:`debugpanel version`
       *  :py:const:`lockss.debugpanel.__version__`

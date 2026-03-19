@@ -126,6 +126,9 @@ Other |TURTLES| operations include:
    *  *  Software license
       *  :ref:`turtles license`
       *  :py:const:`lockss.turtles.__license__`
+   *  *  Subcommand tree
+      *  :ref:`turtles tree`
+      *  n/a
    *  *  Version number
       *  :ref:`turtles version`
       *  :py:const:`lockss.turtles.__version__`

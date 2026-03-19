@@ -88,6 +88,9 @@ extensions = [
 
     # See https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#module-sphinx.ext.autodoc
     'sphinx.ext.autodoc',
+
+    # See https://kdeldycke.github.io/click-extra/sphinx.html
+    'click_extra.sphinx',
 ]
 
 intersphinx_mapping = {

@@ -28,6 +28,7 @@ Turtles API Reference
 ----------------------
 
 .. automodule:: lockss.turtles.cli
+   :private-members:
 
 .. _lockss.turtles.plugin:
 

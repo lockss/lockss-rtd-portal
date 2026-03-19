@@ -2,8 +2,8 @@
    COMMENT Turtles substitutions
    .............................
 
-.. |RELEASE| replace:: 0.6.1
-.. |RELEASE_DATE| replace:: 2026-02-03
+.. |RELEASE| replace:: 0.7.0
+.. |RELEASE_DATE| replace:: 2026-03-18
 
 .. |TURTLES| replace:: :program:`Turtles`
 .. |PIPX| replace:: :program:`pipx`
@@ -12,22 +12,25 @@
 .. COMMENT command line options
 ..
 
-.. |HELP| replace:: ``--help/-h``
-.. |NON_INTERACTIVE| replace:: ``--non-interactive``
-.. |OUTPUT_FORMAT| replace:: ``--output-format``
-.. |PLUGIN_IDENTIFIER| replace:: ``--plugin-identifier/-i``
-.. |PLUGIN_IDENTIFIERS| replace:: ``--plugin-identifiers/-I``
-.. |PLUGIN_JAR| replace:: ``--plugin-jar/-j``
-.. |PLUGIN_JARS| replace:: ``--plugin-jars/-J``
-.. |PLUGIN_REGISTRY_LAYER| replace:: ``--plugin-registry-layer/-l``
-.. |PLUGIN_REGISTRY_LAYERS| replace:: ``--plugin-registry-layers/-L``
+.. |COLOR| replace:: ``--color``/``--ansi``//``--no-color``/``--no-ansi``
+.. |HEADINGS| replace:: ``--headings``//``--no-headings``
+.. |HELP| replace:: ``--help``/``-h``
+.. |INTERACTIVE| replace:: ``--interactive``//``--non-interactive``
+.. |PLUGIN_IDENTIFIER| replace:: ``--plugin-identifier``/``-i``
+.. |PLUGIN_IDENTIFIERS| replace:: ``--plugin-identifiers``/``-I``
+.. |PLUGIN_JAR| replace:: ``--plugin-jar``/``-j``
+.. |PLUGIN_JARS| replace:: ``--plugin-jars``/``-J``
 .. |PLUGIN_REGISTRY| replace:: ``--plugin-registry/-r``
 .. |PLUGIN_REGISTRY_CATALOG| replace:: ``--plugin-registry-catalog/-R``
+.. |PLUGIN_REGISTRY_LAYER| replace:: ``--plugin-registry-layer/-l``
+.. |PLUGIN_REGISTRY_LAYERS| replace:: ``--plugin-registry-layers/-L``
 .. |PLUGIN_SET| replace:: ``--plugin-set/-s``
 .. |PLUGIN_SET_CATALOG| replace:: ``--plugin-set-catalog/-S``
 .. |PLUGIN_SIGNING_CREDENTIALS| replace:: ``--plugin-signing-credentials/-c``
 .. |PLUGIN_SIGNING_PASSWORD| replace:: ``--plugin-signing-password``
 .. |PRODUCTION| replace:: ``--production/-p``
+.. |SHOW_PARAMS| replace:: ``--show-params``
+.. |TABLE_FORMAT| replace:: ``--table-format``/``-T``
 .. |TESTING| replace:: ``--testing/-t``
 
 ..
@@ -60,3 +63,13 @@
 .. |YAML| replace:: :term:`YAML`
 .. |YAML configuration object| replace:: :term:`YAML configuration object`
 .. |YAML configuration objects| replace:: :term:`YAML configuration objects <YAML configuration object>`
+
+..
+.. COMMENT load _turtles for click:run directives
+..
+
+.. click:source::
+   :hide-source:
+
+   from lockss.turtles.cli import _turtles
+

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2000-2025, Board of Trustees of Leland Stanford Jr. University
+Copyright (c) 2000-2026, Board of Trustees of Leland Stanford Jr. University
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:
@@ -81,3 +81,9 @@ div.rst-other-versions > div.injected > dl:nth-child(4) { /* Read The Docs based
     background: #f4f4ff; /* very light blue */
 }
 
+/*
+ * click_extra.sphinx click:run directive has difficult colors for the background
+ */
+div[class^=highlight-ansi-shell-session] .highlight .-C-Cyan {
+    color: #19afaf; /* "tropical teal", originally #34e2e2 "neon ice" */
+}

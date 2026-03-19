@@ -8,7 +8,7 @@ Installing Debugpanel
 Debugpanel Prerequisites
 ------------------------
 
-|DEBUGPANEL| requires Python 3.9 or greater [#fn-python-version]_.
+|DEBUGPANEL| |RELEASE| requires Python 3.10 or greater [#fn-python-version]_.
 
 :ref:`Debugpanel Installation` is typically done with |PIPX|, which you may need to install [#fn-pipx-version]_:
 
