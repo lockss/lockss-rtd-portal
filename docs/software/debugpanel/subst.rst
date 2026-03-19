@@ -26,6 +26,6 @@
 ..
 
 .. click:source::
-   :hide-results:
+   :hide-source:
 
    from lockss.debugpanel.cli import _debugpanel
