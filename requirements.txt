@@ -58,7 +58,7 @@ sphinx_design==0.7.0
 # The Sphinx Global Substitutions extension
 # https://pypi.org/project/sphinxcontrib-globalsubs/
 # https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
-sphinxcontrib-globalsubs==1.0.0
+sphinxcontrib-globalsubs==1.1.0
 
 # click_extra[sphinx] to document Click CLI tools
 # https://pypi.org/project/click-extra/
