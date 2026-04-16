@@ -10,6 +10,8 @@
 
       ^^^
 
+      *  LOCKSS 1.79 :bdg-muted-line:`coming soon`
+
       .. include:: releases1.rst
 
       +++
@@ -27,6 +29,8 @@
          :align: center
 
       ^^^
+
+      *  LOCKSS 2.0-beta2 :bdg-muted-line:`coming soon`
 
       .. include:: releases2.rst
 
