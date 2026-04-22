@@ -3,7 +3,7 @@ Releases
 ========
 
 ----------------
-LOCKSS 2.0-beta1
+LOCKSS 2.0-beta2
 ----------------
 
 :bdg-warning-line:`beta`
@@ -11,7 +11,7 @@ LOCKSS 2.0-beta1
 .. include:: releases2.rst
 
 -----------
-LOCKSS 1.78
+LOCKSS 1.79
 -----------
 
 :bdg-success:`stable`
@@ -21,6 +21,17 @@ LOCKSS 1.78
 ---------------------
 Archived 2.x Releases
 ---------------------
+
+LOCKSS 2.0-beta1
+================
+
+*  `LOCKSS 2.0.84-beta1 </projects/manual/en/2.0-beta1/appendix/release-notes.html#lockss-2-0-84-beta1>`_ (2025-02-12)
+
+*  `LOCKSS 2.0.83-beta1 </projects/manual/en/2.0-beta1/appendix/release-notes.html#lockss-2-0-83-beta1>`_ (2024-09-25)
+
+*  `LOCKSS 2.0.82-beta1 </projects/manual/en/2.0-beta1/appendix/release-notes.html#lockss-2-0-82-beta1>`_ (2024-08-19)
+
+*  `LOCKSS 2.0.81-beta1 </projects/manual/en/2.0-beta1/appendix/release-notes.html#lockss-2-0-81-beta1>`_ (2024-07-29)
 
 LOCKSS 2.0-alpha7
 =================
@@ -96,6 +107,15 @@ LOCKSS 2.0-alpha0
 ---------------------
 Archived 1.x Releases
 ---------------------
+
+LOCKSS 1.78
+===========
+
+*  `LOCKSS 1.78.6 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-78-b6>`_ (2025-07-22)
+
+*  `LOCKSS 1.78.5 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-78-b5>`_ (2025-02-12)
+
+*  `LOCKSS 1.78.3 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-78-b3>`_ (2024-07-29)
 
 LOCKSS 1.77
 ===========
