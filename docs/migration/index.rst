@@ -2,15 +2,11 @@
 LOCKSS 1.x to 2.x Migration Guide
 =================================
 
-*Last updated: 2025-02-13*
+*Last updated: 2026-04-22*
 
 **Welcome, LOCKSS 1.x users!**
 
-This document will guide you as you upgrade from LOCKSS |UPGRADE_FROM_MINOR| to LOCKSS |UPGRADE_TO_MINOR| by performing a migration of the data you preserve from LOCKSS |UPGRADE_FROM_PATCH| to LOCKSS |UPGRADE_TO_PATCH|.
-
-.. important::
-
-   At this time, LOCKSS nodes in the Global LOCKSS Network (GLN) and CLOCKSS are advised to wait until LOCKSS 2.0-beta2 or later before migrating to LOCKSS 2.x, as development work for additional performance and scalability improvements is underway to support the migration of GLN-sized or CLOCKSS-sized nodes.
+This document will guide you as you upgrade from LOCKSS |UPGRADE_FROM_MINOR| to LOCKSS |UPGRADE_TO_MINOR|, by populating an initially empty LOCKSS |UPGRADE_TO_PATCH| instance with the data preserved in your LOCKSS |UPGRADE_FROM_PATCH| instance [#fn-first-time]_.
 
 .. rubric:: Table of Contents
 
@@ -29,3 +25,11 @@ This document will guide you as you upgrade from LOCKSS |UPGRADE_FROM_MINOR| to 
    faq
    differences
    lcap-ssl
+
+----
+
+.. rubric:: Footnotes
+
+.. [#fn-first-time]
+
+   If you are installing LOCKSS for the first time, you should refer to the :doc:`lockss-manual:index`.

@@ -163,20 +163,20 @@ pygments_style = 'default'
 
 # See https://github.com/missinglinkelectronics/sphinxcontrib-globalsubs
 global_substitutions = {
-    'LATEST_MINOR': '2.0-beta2',
-    'LATEST_PATCH': '2.0.91-beta2',
+    'LATEST_MINOR': '2.0-beta2 NOT YET RELEASED',
+    'LATEST_PATCH': '2.0.91-beta2 NOT YET RELEASED',
     'PREVIOUS_MINOR': '2.0-beta1',
     'PREVIOUS_PATCH': '2.0.84-beta1',
     'K8S_MINOR': '1.31',
     'K8S_PATCH': '1.31.5',
     'K3S_MINOR': '1.31',
     'K3S_PATCH': '1.31.5+k3s1',
-    'CLASSIC_MINOR': '1.79',
-    'CLASSIC_PATCH': '1.79.5',
-    'UPGRADE_FROM_MINOR': '1.79',
-    'UPGRADE_FROM_PATCH': '1.79.5',
-    'UPGRADE_TO_MINOR': '2.0-beta2',
-    'UPGRADE_TO_PATCH': '2.0.91-beta2',
+    'CLASSIC_MINOR': '1.79 NOT YET RELEASED',
+    'CLASSIC_PATCH': '1.79.5 NOT YET RELEASED',
+    'UPGRADE_FROM_MINOR': '1.79 NOT YET RELEASED',
+    'UPGRADE_FROM_PATCH': '1.79.5 NOT YET RELEASED',
+    'UPGRADE_TO_MINOR': '2.0-beta2 NOT YET RELEASED',
+    'UPGRADE_TO_PATCH': '2.0.91-beta2 NOT YET RELEASED',
 }
 
 # See https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_default_options
