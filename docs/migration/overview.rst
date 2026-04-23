@@ -2,11 +2,52 @@
 Migration Overview
 ==================
 
+The different :ref:`Migration Scenarios <Migration Scenario>` follow the same overall outline:
+
+1. A pre-existing LOCKSS |UPGRADE_FROM_MINOR| instance is preserving content in one or more content storage areas (key [#fn-key]_):
+
+   .. image:: laaws-migration-basic-before.png
+      :align: center
+
+2. An empty LOCKSS |UPGRADE_TO_MINOR| instance is configured with one or more content storage areas of its own (key [#fn-key]_):
+
+   .. image:: laaws-migration-basic-start.png
+      :align: center
+
+3. The LOCKSS Migrator sets up and executes the migration. Gradually, the LOCKSS |UPGRADE_TO_MINOR| instance is populated with the data from the LOCKSS |UPGRADE_FROM_MINOR| instance. The contents of each archival unit (AU) [#fn-au]_ are copied to the LOCKSS |UPGRADE_TO_MINOR| instance; the AU then becomes deactivated in the LOCKSS |UPGRADE_FROM_MINOR| instance and continues its life in the LOCKSS |UPGRADE_TO_MINOR| instance (key [#fn-key]_):
+
+   .. image:: laaws-migration-basic-middle.png
+      :align: center
+
+4. At the end of the migration process, the LOCKSS |UPGRADE_FROM_MINOR| instance is not handling any AUs and all AUs are handled by the LOCKSS |UPGRADE_TO_MINOR| instance (key [#fn-key]_):
+
+   .. image:: laaws-migration-basic-end.png
+      :align: center
+
+5. Finally, the LOCKSS |UPGRADE_FROM_MINOR| instance is decommissioned (key [#fn-key]_):
+
+   .. image:: laaws-migration-basic-after.png
+      :align: center
+
+The different :ref:`Migration Scenarios <Migration Scenario>` differ in the details of where the LOCKSS |UPGRADE_TO_MINOR| instance is compared to the LOCKSS |UPGRADE_FROM_MINOR| instance, and when the storage space occupied by deactivated AUs from the LOCKSS |UPGRADE_FROM_MINOR| instance is reclaimed.
+
 ------------------
 Migration Scenario
 ------------------
 
-There are two migration scenarios: a **new-host migration** (recommended), or a **same-host migration**.
+.. |NEWHOSTMIGRATION| replace:: In this migration scenario, a brand-new host (physical or virtual) is commissioned for the LOCKSS |UPGRADE_TO_MINOR| instance, and once the migration is complete, the LOCKSS |UPGRADE_FROM_MINOR| instance and its pre-existing host are both decommissioned.
+
+.. |SAMEHOSTMIGRATION| replace:: In this migration scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is run on the pre-existing host of the LOCKSS |UPGRADE_FROM_MINOR| instance, and once the migration is complete, the LOCKSS |UPGRADE_FROM_MINOR| instance is decommissioned.
+
+There are two migration scenarios:
+
+*  :ref:`New-Host Migration` (**recommended**). |NEWHOSTMIGRATION|
+
+*  :ref:`Same-Host Migration` (available if a new-host migration is not feasible). |SAMEHOSTMIGRATION| Preferably, there is enough storage space on the pre-existing host to hold a full LOCKSS |UPGRADE_FROM_MINOR| instance and a full LOCKSS |UPGRADE_TO_MINOR| instance simultaneously (:ref:`Same-Host Migration With Future Reclamation`), otherwise storage space must be reclaimed incrementally (:ref:`Same-Host Migration With Incremental Reclamation`).
+
+FIXME
+
+----
 
 .. tab-set::
 
@@ -93,3 +134,17 @@ The migrator migrates several AUs at a time. When an AU is being migrated, first
 If you wish to add additional AUs to preserve, they should be added in the 2.x system. Similarly, new subscription should be added to the subscription manager on 2.x, but they will not take effect until migration is complete. Configuration data such as IP access lists and proxy settings are copied at the beginning of the migration process; if you need to make changes to them in the 1.x system during the migration, the same changes should be made in the 2.x system.
 
 If you have set any configuration parameters in the Expert Config screen, this file is also copied at the beginning of migration, but each line is commented out to allow you to review which custom settings you wish to be in effect in the 2.x system.
+
+----
+
+.. rubric:: Footnotes
+
+.. [#fn-key]
+
+   Key for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`):
+
+   .. image:: laaws-migration-basic-key.png
+
+.. [#fn-au]
+
+   An **archival unit**, or **AU**, is a unit of preserved content in LOCKSS. Consisting of any number of versioned objects, an AU might be a volume of a journal, a single book and its assets, a given digitized collection, etc.

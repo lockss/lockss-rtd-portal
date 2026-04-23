@@ -61,7 +61,7 @@ div.rst-other-versions > div.injected > dl:nth-child(4) { /* Read The Docs based
 }
 
 /*
- * Sphing_Design tab groups
+ * Sphinx_Design tab groups
  */
 
 .sd-tab-set {
@@ -70,20 +70,36 @@ div.rst-other-versions > div.injected > dl:nth-child(4) { /* Read The Docs based
 }
 
 .sd-tab-set {
-    background: #fcfcff; /* very very very light blue */
+    background: #f3f6f6; /* "platinum" */
 }
 
 .sd-tab-set .sd-tab-set {
-    background: #f8f8ff; /* very very light blue */
+    background: #e1e4e5; /* "alabaster grey", lighter */
 }
 
 .sd-tab-set .sd-tab-set .sd-tab-set {
-    background: #f4f4ff; /* very light blue */
+    background: #dfe7e7; /* "alabaster grey", darker */
+}
+
+/*
+ * Help format complex footnotes better
+ */
+
+.footnote > ul, .footnote > ol, .footnote > div.highlight-text, .footnote > img {
+    grid-column-start: 4;
+}
+
+/*
+ * Defeat simplifications for deeply nested lists
+ */
+.rst-content section ol li ul li ol.loweralpha li {
+    list-style: lower-alpha; /* defeats .rst-content section ol li ul li { list-style: disk; } */
 }
 
 /*
  * click_extra.sphinx click:run directive has difficult colors for the background
  */
+
 div[class^=highlight-ansi-shell-session] .highlight .-C-Cyan {
     color: #19afaf; /* "tropical teal", originally #34e2e2 "neon ice" */
 }
