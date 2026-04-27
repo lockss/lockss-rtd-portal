@@ -2,100 +2,92 @@
 Migration Overview
 ==================
 
-The different :ref:`Migration Scenarios <Migration Scenario>` follow the same overall outline:
+------------------------
+Basic Migration Overview
+------------------------
+
+Conceptually, migration from LOCKSS |UPGRADE_FROM_MINOR| to LOCKSS |UPGRADE_TO_MINOR| follows this outline:
 
 1. A pre-existing LOCKSS |UPGRADE_FROM_MINOR| instance is preserving content in one or more content storage areas (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-before.png
       :align: center
+      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_FROM_MINOR| instance.
 
 2. An empty LOCKSS |UPGRADE_TO_MINOR| instance is configured with one or more content storage areas of its own (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-start.png
       :align: center
+      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Nothing appears on the red disks. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_FROM_MINOR| instance and that the LOCKSS |UPGRADE_TO_MINOR| instance is empty.
 
-3. The LOCKSS Migrator sets up and executes the migration. Gradually, the LOCKSS |UPGRADE_TO_MINOR| instance is populated with the data from the LOCKSS |UPGRADE_FROM_MINOR| instance. The contents of each archival unit (AU) [#fn-au]_ are copied to the LOCKSS |UPGRADE_TO_MINOR| instance; the AU then becomes deactivated in the LOCKSS |UPGRADE_FROM_MINOR| instance and continues its life in the LOCKSS |UPGRADE_TO_MINOR| instance (key [#fn-key]_):
+3. The LOCKSS migrator sets up and executes the migration, and the LOCKSS |UPGRADE_TO_MINOR| instance is gradually populated with the data from the LOCKSS |UPGRADE_FROM_MINOR| instance. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS |UPGRADE_FROM_MINOR| instance; then its contents are copied to the LOCKSS |UPGRADE_TO_MINOR| instance; finally the AU is reactivated in the LOCKSS |UPGRADE_TO_MINOR| instance (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-middle.png
       :align: center
+      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. A box with a non-bold label "AU #1" appears on the first blue disk, and a corresponding box with a bold label "AU #1" appears on the first red disk. A box with a non-bold label "AU #2" appears on the first blue disk, and a corresponding box with a bold label "AU #2" appears on the second red disk. A box with a non-bold label "AU #3" appears on the first blue disk, and a corresponding box with a bold label "AU #3" appears on the first red disk. A box with a non-bold label "AU #4" appears on the second blue disk, and another corresponding box with a non-bold label "AU #4" appears on the second red disk; additionally, an arrow with the text "AU #4 migration in progress" goes from the LOCKSS |UPGRADE_FROM_MINOR| box to the LOCKSS |UPGRADE_TO_MINOR| box. Boxes with bold labels "AU #5" and "AU #6" appear on the second blue disk, with no corresponding boxes appearing on the red disks. AU #1, AU #2 and AU #3 illustrate AUs that have been migrated; they are no longer handled by the LOCKSS |UPGRADE_FROM_MINOR| instance but still occupy disk space, and they are handled by the the LOCKSS |UPGRADE_TO_MINOR| instance. AU #4 illustrates a migration in progress; it is not handled by either instance. AU #5 and AU #6 illustrate AUs that have not yet been migrated; they are handled by the LOCKSS |UPGRADE_FROM_MINOR| instance, and do not yet occupy any disk space associated with the LOCKSS |UPGRADE_TO_MINOR| instance. The diagram also illustrates that corresponding AUs may not be distributed the same way on the blue disks and the red disks.
 
-4. At the end of the migration process, the LOCKSS |UPGRADE_FROM_MINOR| instance is not handling any AUs and all AUs are handled by the LOCKSS |UPGRADE_TO_MINOR| instance (key [#fn-key]_):
+4. At the end of the migration process, the LOCKSS |UPGRADE_TO_MINOR| instance is handling all AUs, and the LOCKSS |UPGRADE_FROM_MINOR| instance is no longer handling any AUs (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-end.png
       :align: center
+      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. Boxes with non-bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with non-bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_TO_MINOR| instance and that the LOCKSS |UPGRADE_TO_MINOR| instance is no longer handling any AUs, although the disk space used by the AUs formerly is still occupied.
 
 5. Finally, the LOCKSS |UPGRADE_FROM_MINOR| instance is decommissioned (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-after.png
       :align: center
+      :alt: Diagram showing a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_TO_MINOR| instance.
 
-The different :ref:`Migration Scenarios <Migration Scenario>` differ in the details of where the LOCKSS |UPGRADE_TO_MINOR| instance is compared to the LOCKSS |UPGRADE_FROM_MINOR| instance, and when the storage space occupied by deactivated AUs from the LOCKSS |UPGRADE_FROM_MINOR| instance is reclaimed.
+The different :ref:`Migration Scenarios <Migration Scenario>` differ only in two key ways: where the LOCKSS |UPGRADE_TO_MINOR| instance is located compared to the LOCKSS |UPGRADE_FROM_MINOR| instance, and when the storage space occupied by deactivated AUs from the LOCKSS |UPGRADE_FROM_MINOR| instance is reclaimed.
 
 ------------------
 Migration Scenario
 ------------------
 
-.. |NEWHOSTMIGRATION| replace:: In this migration scenario, a brand-new host (physical or virtual) is commissioned for the LOCKSS |UPGRADE_TO_MINOR| instance, and once the migration is complete, the LOCKSS |UPGRADE_FROM_MINOR| instance and its pre-existing host are both decommissioned.
+.. |NEWHOSTMIGRATION| replace:: In this migration scenario, a newly-commissioned host with its own storage is used for the LOCKSS |UPGRADE_TO_MINOR| instance. After migration, the LOCKSS |UPGRADE_FROM_MINOR| instance, its storage, and its host are decommissioned.
 
-.. |SAMEHOSTMIGRATION| replace:: In this migration scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is run on the pre-existing host of the LOCKSS |UPGRADE_FROM_MINOR| instance, and once the migration is complete, the LOCKSS |UPGRADE_FROM_MINOR| instance is decommissioned.
+.. |SAMEHOSTMIGRATION| replace:: In this migration scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is run on the pre-existing host of the LOCKSS |UPGRADE_FROM_MINOR| instance. After migration, the LOCKSS |UPGRADE_FROM_MINOR| instance is decommissioned.
 
-There are two migration scenarios:
+.. |SAMEHOSTMIGRATIONFUTURE| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is configured to use different storage areas than the LOCKSS |UPGRADE_FROM_MINOR| instance. After migration, the LOCKSS |UPGRADE_FROM_MINOR| instance's storage areas are reclaimed all at once, and can then be devoted to the LOCKSS |UPGRADE_TO_MINOR| instance.
+
+.. |SAMEHOSTMIGRATIONINCREMENTAL| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is configured to use the same storage areas as the LOCKSS |UPGRADE_FROM_MINOR| instance. The LOCKSS Migrator is operated in a special mode in which the storage used by each AU in the LOCKSS |UPGRADE_FROM_MINOR| instance is reclaimed after the AU is done migrating to the LOCKSS |UPGRADE_TO_MINOR| instance.
 
 *  :ref:`New-Host Migration` (**recommended**). |NEWHOSTMIGRATION|
 
-*  :ref:`Same-Host Migration` (available if a new-host migration is not feasible). |SAMEHOSTMIGRATION| Preferably, there is enough storage space on the pre-existing host to hold a full LOCKSS |UPGRADE_FROM_MINOR| instance and a full LOCKSS |UPGRADE_TO_MINOR| instance simultaneously (:ref:`Same-Host Migration With Future Reclamation`), otherwise storage space must be reclaimed incrementally (:ref:`Same-Host Migration With Incremental Reclamation`).
+*  :ref:`Same-Host Migration` (*if a new-host migration is not feasible*). |SAMEHOSTMIGRATION| This scenario has two subtypes:
+
+   *  :ref:`Same-Host Migration With Future Reclamation` (*preferable if a same-host migration is needed*). |SAMEHOSTMIGRATIONFUTURE|
+
+   *  :ref:`Same-Host Migration With Incremental Reclamation` (*if a same-host migration is needed but a same-host migration with future reclamation is not feasible*). |SAMEHOSTMIGRATIONINCREMENTAL|
+
+New-Host Migration
+==================
 
 FIXME
 
-----
+.. image:: laaws-migration-new-host-overview.png
+   :align: center
 
-.. tab-set::
+Same-Host Migration
+===================
 
-   .. tab-item:: New-Host Migration (Recommended)
-      :sync: newhost
+FIXME
 
-      In a **new-host migration** scenario, you will upgrade your existing LOCKSS 1.x host to LOCKSS |UPGRADE_FROM_PATCH|, and install LOCKSS |UPGRADE_TO_PATCH| **on a brand-new physical or virtual host**.
+Same-Host Migration With Future Reclamation
+-------------------------------------------
 
-      In this scenario, your LOCKSS 1.x host and LOCKSS 2.x host are different, and eventually, your LOCKSS 1.x host becomes decommissioned. Ideally, your LOCKSS 2.x host then adopts the IP address and host name used by your former LOCKSS 1.x host.
+FIXME
 
-      Before a **new-host migration**, the outside world interacts with your institution's LOCKSS node by the IP address and host name of your existing LOCKSS 1.x host, and you install an empty LOCKSS 2.x instance on a new host with a temporary IP address and host name:
+.. image:: laaws-migration-same-host-future-overview.png
+   :align: center
 
-      .. image:: laaws-migration-new-host-before-960x480.png
-         :align: center
+Same-Host Migration With Incremental Reclamation
+------------------------------------------------
 
-      During a **new-host migration**, data is progressively migrated from the LOCKSS 1.x host to the LOCKSS 2.x host; the outside world continues to interact with your LOCKSS 1.x node, but the latter brokers traffic to and from the LOCKSS 2.x node where appropriate:
+FIXME
 
-      .. image:: laaws-migration-new-host-during-960x480.png
-         :align: center
-
-      After a **new-host migration**, your LOCKSS 1.x host is decommissioned, and your LOCKSS 2.x host is reconfigured to adopt the IP address and host name of your former LOCKSS 1.x host; the outside world then interacts with your LOCKSS node under its previously known IP address and host name:
-
-      .. image:: laaws-migration-new-host-after-960x480.png
-         :align: center
-
-   .. tab-item:: Same-Host Migration
-      :sync: samehost
-
-      In a **same-host migration** scenario, you will upgrade your existing LOCKSS 1.x host to LOCKSS |UPGRADE_FROM_PATCH|, and install LOCKSS |UPGRADE_TO_PATCH| **on the same host**.
-
-      In this scenario, your LOCKSS 1.x and your LOCKSS 2.x host are actually one and the same. Throughout a **same-host migration**, the outside world interacts with your LOCKSS node at its existing IP address and host name by talking to the LOCKSS 1.x instance; only at the end is the LOCKSS 1.x instance decommissioned and the outside world begins talking to the LOCKSS 2.x instance instead.
-
-      Before a **same-host migration**, you will install an empty LOCKSS 2.x instance alongside your LOCKSS 1.x instance on your LOCKSS node:
-
-      .. image:: laaws-migration-same-host-before-960x480.png
-         :align: center
-
-      During a **same-host migration**, data is progressively migrated from the LOCKSS 1.x instance to the LOCKSS 2.x instance; the outside world continues to interact with your LOCKSS 1.x instance, but the latter brokers traffic to and from the LOCKSS 2.x instance where appropriate:
-
-      .. image:: laaws-migration-same-host-during-960x480.png
-         :align: center
-
-      After a **same-host migration**, your LOCKSS 1.x instance is decommissioned, and the outside world then interacts with your LOCKSS node by talking to the LOCKSS 2.x instance:
-
-      .. image:: laaws-migration-same-host-after-960x480.png
-         :align: center
-
-.. _new-host-recommended:
+.. image:: laaws-migration-same-host-incremental-overview.png
+   :align: center
 
 .. admonition:: Why is a new host recommended?
 
@@ -107,9 +99,9 @@ FIXME
 
    *  If your LOCKSS 1.x host is running an outdated operating system such as CentOS 7, you would have to upgrade the OS before proceeding with a same-host migration.
 
----------------------------------
-Overview of the Migration Process
----------------------------------
+---------------------------
+Detailed Migration Overview
+---------------------------
 
 .. sidebar:: TL;DR
 
@@ -141,7 +133,7 @@ If you have set any configuration parameters in the Expert Config screen, this f
 
 .. [#fn-key]
 
-   Key for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`):
+   Key for the diagrams in :numref:`Basic Migration Overview` (:ref:`Basic Migration Overview`):
 
    .. image:: laaws-migration-basic-key.png
 
