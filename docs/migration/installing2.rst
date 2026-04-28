@@ -1,3 +1,5 @@
+.. include:: subst.rst
+
 =====================
 Installing LOCKSS 2.x
 =====================
@@ -10,14 +12,12 @@ The next task in the migration process is to install LOCKSS |UPGRADE_TO_PATCH|, 
 
 The process depends on your :ref:`Migration Scenario`:
 
-.. |INSTALL_CHAPTER| replace:: 2
-
 .. tab-set::
 
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      If you are doing a :ref:`New-Host Migration`, follow all instructions in Chapter |INSTALL_CHAPTER| (:external+lockss-manual:doc:`installing/index`) of the :external+lockss-manual:doc:`index` on your LOCKSS 2.x host:
+      If you are doing a :ref:`New-Host Migration`, follow all instructions in Chapter |INSTALL_CHAPTER| (:external+lockss-manual:doc:`installing/index`) of the |MANUAL| on your LOCKSS 2.x host:
 
       *  Section |INSTALL_CHAPTER|.1 (:external+lockss-manual:doc:`installing/user`)
 
@@ -28,7 +28,7 @@ The process depends on your :ref:`Migration Scenario`:
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      If you are doing a :ref:`Same-Host Migration`, follow the instructions in the following sections of the :external+lockss-manual:doc:`index` on your LOCKSS 1.x host [#fn-same-host]_:
+      If you are doing a :ref:`Same-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS 1.x host [#fn-same-host]_:
 
       *  Section |INSTALL_CHAPTER|.1.1 (:external+lockss-manual:ref:`Establishing a root Session`)
 

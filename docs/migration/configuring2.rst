@@ -1,3 +1,5 @@
+.. include:: subst.rst
+
 ====================================
 Configuring LOCKSS 2.x for Migration
 ====================================
@@ -25,13 +27,13 @@ Follow these steps:
 
          If you are doing a :ref:`New-Host Migration`:
 
-         a. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented as :samp:`{</path/to/lockss1_config_file.dat>}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat` for :samp:`{</path/to/lockss1_config_file.dat>}`.
+         a. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented as :samp:`{/path/to/lockss1_config_file.dat}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat`.
 
             .. compound::
 
                For example, you might use :program:`scp` on your LOCKSS 1.x host:
 
-                  :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{</path/to/lockss1_config_file.dat>}`
+                  :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{/path/to/lockss1_config_file.dat}`
 
                or something similar.
 
@@ -39,9 +41,9 @@ Follow these steps:
 
          b. .. compound::
 
-               Ensure that the LOCKSS 1.x configuration file :samp:`{</path/to/lockss1_config_file.dat>}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
+               Ensure that the LOCKSS 1.x configuration file :samp:`{/path/to/lockss1_config_file.dat}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
 
-               :samp:`chmod +r {</path/to/lockss1_config_file.dat>}`
+               :samp:`chmod +r {/path/to/lockss1_config_file.dat}`
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
@@ -56,29 +58,59 @@ Follow these steps:
 Running :program:`configure-lockss --migrate`
 ---------------------------------------------
 
-.. |INSTALL_CHAPTER| replace:: 2
-
-.. |CONFIGURE_CHAPTER| replace:: 4
-
 The second part of this task is to run the :program:`configure-lockss` tool with the special ``--migrate`` option on your LOCKSS 2.x host [#fn-same-host]_.
 
-This will proceed largely as described in Chapter |CONFIGURE_CHAPTER| (:external+lockss-manual:doc:`configuring`) of the :external+lockss-manual:doc:`index`, **but with some notable exceptions described below**:
+This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:external+lockss-manual:doc:`configuring`) of the |MANUAL|, **but with some notable exceptions described below**:
 
-1. Per section |CONFIGURE_CHAPTER|.1 (:external+lockss-manual:ref:`Gathering Configuration Information`) of the :external+lockss-manual:doc:`index`, gather information about your LOCKSS 2.x host [#fn-same-host]_.
+1. Perform |TAB| Section |CONFIGURE_CHAPTER|.1 (:external+lockss-manual:ref:`Gathering Configuration Information`) of the |MANUAL| normally, by gathering information about your LOCKSS 2.x host [#fn-same-host]_.
 
-2. :bdg-success:`new-host migration only`
+2. Perform a **modified** version of |TAB| Section |CONFIGURE_CHAPTER|.2 (:external+lockss-manual:ref:`Invoking configure-lockss`) of the |MANUAL|:
 
-   .. compound::
+   a. :bdg-success:`new-host migration only`
 
-      If you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 2.x host, for example by typing:
+      .. compound::
+
+         First, if you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 2.x host, for example by typing:
+
+         .. code-block:: shell
+
+            hostname
+
+         and verifying that the output is the expected name of your LOCKSS 2.x host.
+
+   b. .. compound::
+
+         Next, double-check that you are in a shell console acting as the ``lockss`` user by typing:
+
+         .. code-block:: shell
+
+            whoami
+
+         and verifying that the output is ``lockss``.
+
+   c. .. compound::
+
+         Navigate to the |LOCKSS_INSTALLER_DIRECTORY|, symbolically:
+
+         :samp:`cd {<LOCKSS_INSTALLER_DIR>}`
+
+   d. .. compound::
+
+         Run this command:
+
+         .. code-block:: shell
+
+            scripts/configure-lockss --migrate
+
+3. .. compound::
+
+      Double-check that you are acting as ``root`` in the shell console for your LOCKSS 2.x host [#fn-same-host]_ by typing:
 
       .. code-block:: shell
 
-         hostname
+         whoami
 
-      and verifying that the output is the expected name of your LOCKSS 2.x host.
-
-3. FIXME Previously, in :numref:`Installing LOCKSS 2.x` of this guide (:ref:`Installing LOCKSS 2.x`), you were mirroring the instructions from Section |INSTALL_CHAPTER|.1.1 of the :external+lockss-manual:ref:`Establishing a root Session`
+      and verifying that the output is ``root``.
 
 2. Run the following command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
 
@@ -270,4 +302,4 @@ Now start the LOCKSS 2.x system. Follow these steps:
 
 .. [#fn-same-host]
 
-   If your :ref:`Migration Scenario` is a **same-host migration**, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
+   |FN_SAME_HOST|

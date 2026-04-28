@@ -1,3 +1,5 @@
+.. include:: subst.rst
+
 ====================
 Upgrading LOCKSS 1.x
 ====================
@@ -135,10 +137,8 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 
 ----
 
-.. only:: html
-
-   .. rubric:: Footnotes
+.. rubric:: Footnotes
 
 .. [#fn-same-host]
 
-   If your :ref:`Migration Scenario` is a :ref:`Same-Host Migration`, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
+   |FN_SAME_HOST|

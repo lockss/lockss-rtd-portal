@@ -1,3 +1,5 @@
+.. include:: subst.rst
+
 ==============================
 Preparing Your LOCKSS 2.x Host
 ==============================
@@ -17,9 +19,9 @@ The necessary work depends on your :ref:`Migration Scenario`:
 
       If you are doing a :ref:`New-Host Migration`, you will need to **commission a new host for your LOCKSS 2.x instance**, for example setting up a new physical machine and installing Linux, or spinning up a new Linux virtual machine.
 
-      See the :external+lockss-manual:ref:`System Prerequisites` section of the :external+lockss-manual:doc:`index` for guidance about :external+lockss-manual:ref:`Host Prerequisites` (CPU, memory, operating system, etc.), :external+lockss-manual:ref:`Storage Prerequisites` (system storage, operating storage, content storage), and more.
+      See the :external+lockss-manual:doc:`introduction/prerequisites` section of the |MANUAL| for guidance about :external+lockss-manual:ref:`Host Prerequisites` (CPU, memory, operating system, etc.), :external+lockss-manual:ref:`Storage Prerequisites` (system storage, operating storage, content storage), and more.
 
-      LOCKSS 1.x was compatible with Linux operating systems in the RHEL family only, but LOCKSS 2.x is compatible with many Linux operating systems; see the :external+lockss-manual:ref:`Operating Systems` appendix of the :external+lockss-manual:doc:`index` for details.
+      LOCKSS 1.x was compatible with Linux operating systems in the RHEL family only, but LOCKSS 2.x is compatible with many Linux operating systems; see the :external+lockss-manual:ref:`Operating Systems` appendix of the |MANUAL| for details.
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
