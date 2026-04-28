@@ -2,69 +2,83 @@
 Configuring LOCKSS 2.x for Migration
 ====================================
 
-The next task in the migration process is to configure LOCKSS 2.x for migration on your LOCKSS 2.x host [#fnsamehost]_.
+.. image:: laaws-migration-steps-configuring2.png
+   :align: center
+   :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first three boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host" and "Installing LOCKSS 2.x", are colored in light blue, indicating completed steps. The fourth box labeled "Configuring LOCKSS 2.x for Migration" is highlighted in yellow, indicating the step in progress. The last three boxes, successively labeled "Configuring LOCKSS 1.x for Migration", "Running the Migrator" and "Reconfiguring LOCKSS 2.x for Normal Operation", are not colored, indicating future steps.
+
+The next task in the migration process is to configure LOCKSS 2.x for migration on your LOCKSS 2.x host [#fn-same-host]_.
 
 ---------------------------------------
 Importing Configuration From LOCKSS 1.x
 ---------------------------------------
 
-First, you will need to make your LOCKSS 1.x configuration file, and if applicable the LCAP SSL keystores of your LOCKSS 1.x instance,  available to LOCKSS 2.x. This depends on your :ref:`Migration Scenario`:
+The first part of this task is to make your LOCKSS 1.x configuration file (and if applicable, the LCAP SSL keystores of your LOCKSS 1.x instance) available to your LOCKSS 2.x instance.
 
-.. tab-set::
+Follow these steps:
 
-   .. tab-item:: New-Host Migration
-      :sync: newhost
+1. This step depends on your :ref:`Migration Scenario`:
 
-      If you are doing a **new-host migration**, follow these steps:
+   .. tab-set::
 
-      1. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to :file:`/tmp/v1config.dat` on your LOCKSS 2.x host. For example you might use :program:`scp` on your LOCKSS 1.x host:
+      .. tab-item:: New-Host Migration
+         :sync: newhost
 
-         .. code-block:: shell
+         If you are doing a :ref:`New-Host Migration`:
 
-            scp /etc/lockss/config.dat <username>@lockss2.myuniversity.edu:/tmp/v1config.dat
+         a. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented as :samp:`{</path/to/lockss1_config_file.dat>}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat` for :samp:`{</path/to/lockss1_config_file.dat>}`.
 
-         .. tip::
+            .. compound::
 
-            .. dropdown:: Custom file path on the LOCKSS 2.x host
-               :name: configuring2-custom-file
-               :icon: light-bulb
-               :animate: fade-in-slide-down
+               For example, you might use :program:`scp` on your LOCKSS 1.x host:
 
-               The destination file name on your LOCKSS 2.x host can be something other than :file:`/tmp/v1config.dat`. The LOCKSS 2.x configuration script will later prompt you for the path of this file on the LOCKSS 2.x host, so you can enter your custom file path then.
+                  :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{</path/to/lockss1_config_file.dat>}`
 
-            .. dropdown:: Unable to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host
-               :name: configuring2-without-file
-               :icon: light-bulb
-               :animate: fade-in-slide-down
+               or something similar.
 
-               If you are unable to copy the LOCKSS 1.x configuration file to the LOCKSS 2.x host, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information, which you will have to enter accurately from the corresponding LOCKSS 1.x values.
+            If you are unable to copy the LOCKSS 1.x configuration file to your LOCKSS 2.x, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information, which you will have to enter accurately from the corresponding LOCKSS 1.x values.
 
-      2. Ensure that on the LOCKSS 2.x host, the LOCKSS 1.x configuration file is readable by all. You can do this as ``root`` with (for instance):
+         b. .. compound::
 
-         .. code-block:: shell
+               Ensure that the LOCKSS 1.x configuration file :samp:`{</path/to/lockss1_config_file.dat>}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
 
-            chmod +r /tmp/v1config.dat
+               :samp:`chmod +r {</path/to/lockss1_config_file.dat>}`
 
-      3. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
+      .. tab-item:: Same-Host Migration
+         :sync: samehost
 
-   .. tab-item:: Same-Host Migration
-      :sync: samehost
+         If you are doing a :ref:`Same-Host Migration`, the LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file directly at :file:`/etc/lockss/config.dat`, so you do not need to do anything in this step.
 
-      If you are doing a **same-host migration**, follow these steps:
+2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
 
-      1. The LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` directly, so you do not need to do anything in this step.
-
-      2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
-
-.. _running-configure-lockss-migrate:
+.. _Running configure-lockss --migrate:
 
 ---------------------------------------------
 Running :program:`configure-lockss --migrate`
 ---------------------------------------------
 
-The second part of this phase is to run the :program:`configure-lockss` tool with the special ``--migrate`` option on your LOCKSS 2.x host [#fnsamehost]_. **With some notable exceptions described below**, this will proceed largely as described in chapter 4 (:doc:`lockss-manual:configuring`) of the :doc:`lockss-manual:index`:
+.. |INSTALL_CHAPTER| replace:: 2
 
-1. Per section 4.1 (:ref:`lockss-manual:Configuration Prerequisites`) of the :doc:`lockss-manual:index`, gather information about your LOCKSS 2.x host [#fnsamehost]_.
+.. |CONFIGURE_CHAPTER| replace:: 4
+
+The second part of this task is to run the :program:`configure-lockss` tool with the special ``--migrate`` option on your LOCKSS 2.x host [#fn-same-host]_.
+
+This will proceed largely as described in Chapter |CONFIGURE_CHAPTER| (:external+lockss-manual:doc:`configuring`) of the :external+lockss-manual:doc:`index`, **but with some notable exceptions described below**:
+
+1. Per section |CONFIGURE_CHAPTER|.1 (:external+lockss-manual:ref:`Gathering Configuration Information`) of the :external+lockss-manual:doc:`index`, gather information about your LOCKSS 2.x host [#fn-same-host]_.
+
+2. :bdg-success:`new-host migration only`
+
+   .. compound::
+
+      If you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 2.x host, for example by typing:
+
+      .. code-block:: shell
+
+         hostname
+
+      and verifying that the output is the expected name of your LOCKSS 2.x host.
+
+3. FIXME Previously, in :numref:`Installing LOCKSS 2.x` of this guide (:ref:`Installing LOCKSS 2.x`), you were mirroring the instructions from Section |INSTALL_CHAPTER|.1.1 of the :external+lockss-manual:ref:`Establishing a root Session`
 
 2. Run the following command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
 
@@ -246,7 +260,7 @@ Now start the LOCKSS 2.x system. Follow these steps:
       .. tab-item:: Same-Host Migration
          :sync: samehost
 
-         If you are doing a **same-host migration**, go to the URL :samp:`http://{<lockss.myuniversity.edu>}:24621/DaemonStatus` in a browser, where :samp:`{<lockss.myuniversity.edu>}` represents the host name of your LOCKSS host [#fnsamehost]_. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next phase.
+         If you are doing a **same-host migration**, go to the URL :samp:`http://{<lockss.myuniversity.edu>}:24621/DaemonStatus` in a browser, where :samp:`{<lockss.myuniversity.edu>}` represents the host name of your LOCKSS host [#fn-same-host]_. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next phase.
 
 ----
 
@@ -254,6 +268,6 @@ Now start the LOCKSS 2.x system. Follow these steps:
 
    .. rubric:: Footnotes
 
-.. [#fnsamehost]
+.. [#fn-same-host]
 
    If your :ref:`Migration Scenario` is a **same-host migration**, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
