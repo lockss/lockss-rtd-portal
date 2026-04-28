@@ -102,15 +102,9 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             scripts/configure-lockss --migrate
 
-3. .. compound::
+.. note::
 
-      Double-check that you are acting as ``root`` in the shell console for your LOCKSS 2.x host [#fn-same-host]_ by typing:
-
-      .. code-block:: shell
-
-         whoami
-
-      and verifying that the output is ``root``.
+   This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
 
 2. Run the following command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
 
