@@ -29,21 +29,17 @@ Follow these steps:
 
          a. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented as :samp:`{/path/to/lockss1_config_file.dat}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat`.
 
-            .. compound::
+            For example, you might use :program:`scp` on your LOCKSS 1.x host:
 
-               For example, you might use :program:`scp` on your LOCKSS 1.x host:
+            :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{/path/to/lockss1_config_file.dat}`
 
-               :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{/path/to/lockss1_config_file.dat}`
-
-               or something similar.
+            or something similar.
 
             If you are unable to copy the LOCKSS 1.x configuration file to your LOCKSS 2.x, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information, which you will have to enter accurately from the corresponding LOCKSS 1.x values.
 
-         b. .. compound::
+         b. Ensure that the LOCKSS 1.x configuration file :samp:`{/path/to/lockss1_config_file.dat}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
 
-               Ensure that the LOCKSS 1.x configuration file :samp:`{/path/to/lockss1_config_file.dat}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
-
-               :samp:`chmod +r {/path/to/lockss1_config_file.dat}`
+            :samp:`chmod +r {/path/to/lockss1_config_file.dat}`
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
@@ -68,39 +64,31 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
    a. :bdg-success:`new-host migration only`
 
-      .. compound::
+      First, if you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 2.x host, for example by typing:
 
-         First, if you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 2.x host, for example by typing:
+      .. code-block:: shell
 
-         .. code-block:: shell
+         hostname
 
-            hostname
+      and verifying that the output is the expected name of your LOCKSS 2.x host.
 
-         and verifying that the output is the expected name of your LOCKSS 2.x host.
+   b. Next, double-check that you are in a shell console acting as the ``lockss`` user by typing:
 
-   b. .. compound::
+      .. code-block:: shell
 
-         Next, double-check that you are in a shell console acting as the ``lockss`` user by typing:
+         whoami
 
-         .. code-block:: shell
+      and verifying that the output is ``lockss``.
 
-            whoami
+   c. Navigate to the |LOCKSS_INSTALLER_DIRECTORY|, symbolically:
 
-         and verifying that the output is ``lockss``.
+      :samp:`cd {<LOCKSS_INSTALLER_DIR>}`
 
-   c. .. compound::
+   d. Run this command:
 
-         Navigate to the |LOCKSS_INSTALLER_DIRECTORY|, symbolically:
+      .. code-block:: shell
 
-         :samp:`cd {<LOCKSS_INSTALLER_DIR>}`
-
-   d. .. compound::
-
-         Run this command:
-
-         .. code-block:: shell
-
-            scripts/configure-lockss --migrate
+         scripts/configure-lockss --migrate
 
       .. tip::
 
@@ -117,21 +105,17 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
          If you are doing a :ref:`New-Host Migration`, follow these steps:
 
-         a. .. compound::
+         a. You will receive the following prompt:
 
-               You will receive the following prompt:
+            :guilabel:`Did you copy a LOCKSS 1.x config.dat file to this host?`
 
-               :guilabel:`Did you copy a LOCKSS 1.x config.dat file to this host?`
+            Enter :kbd:`Y` for "yes" or :kbd:`N` for "no", or hit :kbd:`Enter` to accept the default in square brackets.
 
-               Enter :kbd:`Y` for "yes" or :kbd:`N` for "no", or hit :kbd:`Enter` to accept the default in square brackets.
+            *  If you enter :kbd:`Y` for "yes", you will then receive the following prompt:
 
-            *  .. compound::
+               :guilabel:`Location of copied LOCKSS 1.x config.dat file`
 
-                  If you enter :kbd:`Y` for "yes", you will then receive the following prompt:
-
-                  :guilabel:`Location of copied LOCKSS 1.x config.dat file`
-
-                  Enter the path of the copied LOCKSS 1.x configuration file, symbolically represented as :samp:`{/path/to/config.dat}` above, or hit :kbd:`Enter` to accept the default in square brackets (:file:`/tmp/v1config.dat`).
+               Enter the path of the copied LOCKSS 1.x configuration file, symbolically represented as :samp:`{/path/to/config.dat}` above, or hit :kbd:`Enter` to accept the default in square brackets (:file:`/tmp/v1config.dat`).
 
             *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 
@@ -141,14 +125,12 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.2 (:external+lockss-manual:ref:`IP Address`)
 
-         c. .. compound::
+         c. You will then receive the following message:
 
-               You will then receive the following message:
+            .. code-block:: text
 
-               .. code-block:: text
-
-                  The following values were imported from your LOCKSS 1.0 configuration.
-                    In normal circumstances they should be accepted as is.
+               The following values were imported from your LOCKSS 1.0 configuration.
+                 In normal circumstances they should be accepted as is.
 
             Follow the instructions from the following section in the |MANUAL|:
 
@@ -163,22 +145,18 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
          If you are doing a :ref:`Same-Host Migration`, follow these steps:
 
-         a. .. compound::
+         a. You will receive this message:
 
-               You will receive this message:
+            ``Found /etc/lockss/config.dat``
 
-               ``Found /etc/lockss/config.dat``
+            confirming that the LOCKSS 1.x configuration file was detected.
 
-               confirming that the LOCKSS 1.x configuration file was detected.
+         b. You will then receive the following message:
 
-         b. .. compound::
+            .. code-block:: text
 
-               You will then receive the following message:
-
-               .. code-block:: text
-
-                  The following values were imported from your LOCKSS 1.0 configuration.
-                    In normal circumstances they should be accepted as is.
+               The following values were imported from your LOCKSS 1.0 configuration.
+                 In normal circumstances they should be accepted as is.
 
             Follow the instructions in the following sections of the |MANUAL|:
 
@@ -190,13 +168,11 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.4 (:external+lockss-manual:ref:`LCAP Port`)
 
-         c. .. compound::
+         c. After the :guilabel:`LCAP protocol port` prompt, you will receive the following prompt:
 
-               After the :guilabel:`LCAP protocol port` prompt, you will receive the following prompt:
+            :guilabel:`Temporary LOCKSS 2.x LCAP port`
 
-               :guilabel:`Temporary LOCKSS 2.x LCAP port`
-
-               Enter an LCAP port different from the one used by LOCKSS 1.x, for use during migration, or hit :kbd:`Enter` to accept the suggested value in square brackets.
+            Enter an LCAP port different from the one used by LOCKSS 1.x, for use during migration, or hit :kbd:`Enter` to accept the suggested value in square brackets.
 
          d. Follow the instructions in |TAB| Section |CONFIGURE_CHAPTER|.4.5 (:external+lockss-manual:ref:`Network Address Translation`) of the |MANUAL|.
 
@@ -224,21 +200,19 @@ Running LOCKSS 2.x
 
 Now start the LOCKSS 2.x system. Follow these steps:
 
-1. .. compound::
+1. Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the :external+lockss-manual:ref:`LOCKSS Installer Directory`):
 
-      Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the :external+lockss-manual:ref:`LOCKSS Installer Directory`):
+   .. code-block:: shell
 
-      .. code-block:: shell
+      scripts/start-lockss --wait
 
-         scripts/start-lockss --wait
+   If the startup process goes well, you will see:
 
-      If the startup process goes well, you will see:
+   .. code-block:: text
 
-      .. code-block:: text
+      LOCKSS services are ready; AUs may still be loading.
 
-         LOCKSS services are ready; AUs may still be loading.
-
-      and control will be returned to the command line.
+   and control will be returned to the command line.
 
    .. tip::
 

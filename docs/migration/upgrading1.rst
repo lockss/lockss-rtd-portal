@@ -14,35 +14,29 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 
 1. :bdg-success:`new-host migration only`
 
-   .. compound::
+   If you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 1.x host, for example by typing:
 
-      If you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 1.x host, for example by typing:
+   .. code-block:: shell
 
-      .. code-block:: shell
+      hostname
 
-         hostname
+   and verifying that the output is the expected name of your LOCKSS 1.x host.
 
-      and verifying that the output is the expected name of your LOCKSS 1.x host.
+2. Double-check that you are acting as ``root`` in the shell console for your LOCKSS 1.x host [#fn-same-host]_ by typing:
 
-2. .. compound::
+   .. code-block:: shell
 
-      Double-check that you are acting as ``root`` in the shell console for your LOCKSS 1.x host [#fn-same-host]_ by typing:
+      whoami
 
-      .. code-block:: shell
+   and verifying that the output is ``root``.
 
-         whoami
+3. Run this :program:`systemctl` command (as ``root``):
 
-      and verifying that the output is ``root``.
+   .. code-block:: shell
 
-3. .. compound::
+      systemctl stop lockss
 
-      Run this :program:`systemctl` command (as ``root``):
-
-      .. code-block:: shell
-
-         systemctl stop lockss
-
-      This will stop the LOCKSS 1.x instance.
+   This will stop the LOCKSS 1.x instance.
 
 4. Upgrade the ``lockss-daemon`` RPM package with a Dnf or Yum command, depending on your operating system:
 
@@ -125,15 +119,13 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 
          .. include:: upgrading1-yum.rst
 
-5. .. compound::
+5. Run this :program:`systemctl` command:
 
-      Run this :program:`systemctl` command:
+   .. code-block:: shell
 
-      .. code-block:: shell
+      systemctl start lockss
 
-         systemctl start lockss
-
-      This will start the LOCKSS 1.x instance.
+   This will start the LOCKSS 1.x instance.
 
 ----
 
