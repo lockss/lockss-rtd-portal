@@ -17,24 +17,24 @@ The process depends on your :ref:`Migration Scenario`:
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      If you are doing a :ref:`New-Host Migration`, follow all instructions in Chapter |INSTALL_CHAPTER| (:external+lockss-manual:doc:`installing/index`) of the |MANUAL| on your LOCKSS 2.x host:
+      If you are doing a :ref:`New-Host Migration`, follow all instructions in |TAB| Chapter |INSTALL_CHAPTER| (:external+lockss-manual:doc:`installing/index`) of the |MANUAL| on your LOCKSS 2.x host, namely:
 
-      *  Section |INSTALL_CHAPTER|.1 (:external+lockss-manual:doc:`installing/user`)
+      *  |TAB| Section |INSTALL_CHAPTER|.1 (:external+lockss-manual:doc:`installing/user`)
 
-      *  Section |INSTALL_CHAPTER|.2 (:external+lockss-manual:doc:`installing/downloading`)
+      *  |TAB| Section |INSTALL_CHAPTER|.2 (:external+lockss-manual:doc:`installing/downloading`)
 
-      *  Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:doc:`installing/running`)
+      *  |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:doc:`installing/running`)
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      If you are doing a :ref:`Same-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS 1.x host [#fn-same-host]_:
+      If you are doing a :ref:`Same-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS 2.x host [#fn-same-host]_:
 
-      *  Section |INSTALL_CHAPTER|.1.1 (:external+lockss-manual:ref:`Establishing a root Session`)
+      *  |TAB| Section |INSTALL_CHAPTER|.1.1 (:external+lockss-manual:ref:`Establishing a root Session`)
 
-      *  Section |INSTALL_CHAPTER|.2 (:external+lockss-manual:doc:`installing/downloading`)
+      *  |TAB| Section |INSTALL_CHAPTER|.2 (:external+lockss-manual:doc:`installing/downloading`)
 
-      *  Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:doc:`installing/running`)
+      *  |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:doc:`installing/running`)
 
       Note that Section |INSTALL_CHAPTER|.1.2 is not performed in this scenario.
 

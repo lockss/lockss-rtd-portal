@@ -102,25 +102,15 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             scripts/configure-lockss --migrate
 
+      .. tip::
+
+         Some of the questions asked by :program:`configure-lockss` will have a suggested or default value, displayed in square brackets; either type the desired value and then hit :kbd:`Enter`, or just hit :kbd:`Enter` to accept the value in square brackets.
+
+3. Perform |TAB| Section |CONFIGURE_CHAPTER|.3 (:external+lockss-manual:ref:`Kubernetes Settings`) of the |MANUAL| normally, by entering the fully-qualified command to invoke :program:`kubectl` in your environment.
+
 .. note::
 
    This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
-
-2. Run the following command as the ``lockss`` user in the :ref:`lockss-manual:LOCKSS Installer Directory`:
-
-   .. code-block:: shell
-
-      scripts/configure-lockss -m
-
-   which is short for:
-
-   .. code-block:: shell
-
-      scripts/configure-lockss --migrate
-
-   This is almost the same as section 4.2 (:ref:`lockss-manual:invoking-configure-lockss`) of the :doc:`lockss-manual:index`, but with the additional ``--migrate`` option.
-
-3. The first prompt, :guilabel:`Command to use to execute kubectl commands`, is the same as that from section 4.3 (:ref:`lockss-manual:Kubernetes Settings`) of the :doc:`lockss-manual:index`. If you are using the K3s Kubernetes environment that ships with LOCKSS 2.x, the proposed value is already correct; hit :kbd:`Enter` to accept it. Otherwise, enter the command needed to invoke :program:`kubectl` in your environment.
 
 4. This step depends on your :ref:`Migration Scenario`:
 
@@ -129,78 +119,78 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
       .. tab-item:: New-Host Migration
          :sync: newhost
 
-         If you are doing a **new-host migration**, follow these steps:
+         If you are doing a :ref:`New-Host Migration`, follow these steps:
 
-         a. You will receive the following prompt:
+         a. .. compound::
 
-            :guilabel:`Did you copy a LOCKSS 1.x config.dat file to this host?`
+               You will receive the following prompt:
 
-            *  If you enter :kbd:`Y` for "yes", you will then receive the following prompt:
+               :guilabel:`Did you copy a LOCKSS 1.x config.dat file to this host?`
 
-               :guilabel:`Location of copied LOCKSS 1.x config.dat file`
+               Enter :kbd:`Y` for "yes" or :kbd:`N` for "no", or hit :kbd:`Enter` to accept the default in square brackets.
 
-               Enter the path of the copied LOCKSS 1.x configuration file, or hit :kbd:`Enter` to accept the default in square brackets (:file:`/tmp/v1config.dat`) if it matches the path you used.
+            *  .. compound::
 
-            *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration in the next step (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
+                  If you enter :kbd:`Y` for "yes", you will then receive the following prompt:
 
-         b. You will be asked to confirm each configuration value. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. (If you answered :kbd:`N` in the previous step because you could not copy your LOCKSS 1.x configuration file to the LOCKSS 2.x host, there will be no imported values offered as defaults and you will have to manually enter the values reflecting your LOCKSS 1.x configuration.)
+                  :guilabel:`Location of copied LOCKSS 1.x config.dat file`
 
-            These confirmation prompts are as follows:
+                  Enter the path of the copied LOCKSS 1.x configuration file, symbolically represented as :samp:`{/path/to/config.dat}` above, or hit :kbd:`Enter` to accept the default in square brackets (:file:`/tmp/v1config.dat`).
+
+            *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
+
+         b. Confirm or enter each configuration value from the prompts in |TAB| Section |CONFIGURE_CHAPTER|.4 of the |MANUAL|, namely:
 
             *  :guilabel:`Fully qualified hostname (FQDN) of this machine`
 
             *  :guilabel:`IP address of this machine`
 
-            *  :guilabel:`Initial subnet(s) for admin UI access`
+            *  :guilabel:`Initial subnet(s) for admin UI access, separated by ';'`
 
             *  :guilabel:`LCAP protocol port`
 
             *  :guilabel:`Is this machine behind NAT?`
 
-            *  :guilabel:`Mail relay for this machine`
-
-            *  :guilabel:`Does the mail relay <mailhost> need a username and password?`
-
-            *  :guilabel:`E-mail address for administrator`
-
-            *  :guilabel:`Configuration URL`
-
-            *  :guilabel:`Configuration proxy (host:port)`
-
-            *  :guilabel:`Preservation group(s)`
-
-            corresponding to these sections of the :doc:`lockss-manual:index`:
-
-            *  Section 4.4 (:ref:`lockss-manual:Network Settings`)
-
-            *  Section 4.5 (:ref:`lockss-manual:Mail Settings`)
-
-            *  Section 4.6 (:ref:`lockss-manual:Preservation Network Settings`)
+               *  :guilabel:`External IP address for NAT`
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
 
-         If you are doing a **same-host migration**, follow these steps:
+         If you are doing a :ref:`Same-Host Migration`, follow these steps:
 
-         a. Data will be imported from the LOCKSS 1.x configuration file :file:`/etc/lockss/config.dat` directly, and you will be asked to confirm each configuration value. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. These confirmation prompts are as follows:
+         a. .. compound::
 
-            *  :guilabel:`Fully qualified hostname (FQDN) of this machine`
+               You will receive this message:
 
-            *  :guilabel:`IP address of this machine`
+               ``Found /etc/lockss/config.dat``
 
-            *  :guilabel:`Initial subnet(s) for admin UI access`
+               confirming that the LOCKSS 1.x configuration file was detected.
 
-            *  :guilabel:`LCAP protocol port`
+         b. Confirm or enter each configuration value from the prompts in the following sections of the |MANUAL|:
 
-            corresponding to section 4.4 (:ref:`lockss-manual:Network Settings`) of the :doc:`lockss-manual:index`.
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
-         b. You will receive the following prompt:
+               *  :guilabel:`Fully qualified hostname (FQDN) of this machine`
+
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.2 (:external+lockss-manual:ref:`IP Address`)
+
+               *  :guilabel:`IP address of this machine`
+
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.3 (:external+lockss-manual:ref:`Initial UI Subnet`)
+
+               *  :guilabel:`Initial subnet(s) for admin UI access, separated by ';'`
+
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.4 (:external+lockss-manual:ref:`LCAP Port`)
+
+                *  :guilabel:`LCAP protocol port`
+
+         c. You will receive the following prompt:
 
             :guilabel:`Temporary LOCKSS 2.x LCAP port`
 
             Enter an LCAP port different from the one used by LOCKSS 1.x, for use during migration, or hit :kbd:`Enter` to accept the suggested value in square brackets.
 
-         c. You will be asked to confirm more configuration values. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. These confirmation prompts are as follows:
+         d. You will be asked to confirm more configuration values. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. These confirmation prompts are as follows:
 
             *  :guilabel:`Is this machine behind NAT?`
 
