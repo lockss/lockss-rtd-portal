@@ -28,9 +28,9 @@ The necessary work depends on your :ref:`Migration Scenario`:
 
       If you are doing a :ref:`Same-Host Migration` on a **discontinued** operating system in the RHEL family:
 
-      *  CentOS Linux (not to be confused with `CentOS Stream <https://centos.org/>`_)
+      *  `CentOS Linux <https://www.centos.org/centos-linux/>`_ (not to be confused with `CentOS Stream <https://centos.org/>`_)
 
-      *  `CentOS Stream <https://centos.org/>`_ 8 (not to be confused with CentOS Linux)
+      *  `CentOS Stream <https://www.centos.org/centos-stream/>`_ 8 (not to be confused with CentOS Linux)
 
       *  `EuroLinux <https://euro-linux.com/>`_
 
@@ -40,11 +40,11 @@ The necessary work depends on your :ref:`Migration Scenario`:
 
       *  `Scientific Linux <https://scientificlinux.org/>`_
 
-      then you must **upgrade your LOCKSS 1.x host to a supported operating system in the RHEL family version 8 or later** [#fn-same-host]_ [#fn-rhel-8-later]_:
+      then you must **upgrade your LOCKSS 1.x host** to a **supported** operating system in the RHEL family [#fn-same-host]_:
 
       *  `AlmaLinux OS <https://almalinux.org/>`_ 8 or later
 
-      *  `CentOS Stream <https://centos.org/>`_ 8 or later
+      *  `CentOS Stream <https://www.centos.org/centos-stream/>`_ 9 or later
 
       *  `Red Hat Enterprise Linux <https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux>`_ (RHEL) 8 or later
 
@@ -65,7 +65,3 @@ The necessary work depends on your :ref:`Migration Scenario`:
 .. [#fn-same-host]
 
    If your :ref:`Migration Scenario` is a :ref:`Same-Host Migration`, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
-
-.. [#fn-rhel-8-later]
-
-   Preferably later; as of this writing, version 10 is current.

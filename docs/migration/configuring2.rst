@@ -33,7 +33,7 @@ Follow these steps:
 
                For example, you might use :program:`scp` on your LOCKSS 1.x host:
 
-                  :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{/path/to/lockss1_config_file.dat}`
+               :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{/path/to/lockss1_config_file.dat}`
 
                or something similar.
 
@@ -62,9 +62,9 @@ The second part of this task is to run the :program:`configure-lockss` tool with
 
 This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:external+lockss-manual:doc:`configuring`) of the |MANUAL|, **but with some notable exceptions described below**:
 
-1. Perform |TAB| Section |CONFIGURE_CHAPTER|.1 (:external+lockss-manual:ref:`Gathering Configuration Information`) of the |MANUAL| normally, by gathering information about your LOCKSS 2.x host [#fn-same-host]_.
+1. Follow the instructions in |TAB| Section |CONFIGURE_CHAPTER|.1 (:external+lockss-manual:ref:`Gathering Configuration Information`) of the |MANUAL|.
 
-2. Perform a **modified** version of |TAB| Section |CONFIGURE_CHAPTER|.2 (:external+lockss-manual:ref:`Invoking configure-lockss`) of the |MANUAL|:
+2. Follow these steps (**modified** from Section |CONFIGURE_CHAPTER|.2 of the |MANUAL|):
 
    a. :bdg-success:`new-host migration only`
 
@@ -106,11 +106,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
          Some of the questions asked by :program:`configure-lockss` will have a suggested or default value, displayed in square brackets; either type the desired value and then hit :kbd:`Enter`, or just hit :kbd:`Enter` to accept the value in square brackets.
 
-3. Perform |TAB| Section |CONFIGURE_CHAPTER|.3 (:external+lockss-manual:ref:`Kubernetes Settings`) of the |MANUAL| normally, by entering the fully-qualified command to invoke :program:`kubectl` in your environment.
-
-.. note::
-
-   This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
+3. Follow the instructions in |TAB| Section |CONFIGURE_CHAPTER|.3 (:external+lockss-manual:ref:`Kubernetes Settings`) of the |MANUAL|.
 
 4. This step depends on your :ref:`Migration Scenario`:
 
@@ -139,19 +135,17 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 
-         b. Confirm or enter each configuration value from the prompts in |TAB| Section |CONFIGURE_CHAPTER|.4 of the |MANUAL|, namely:
+         b. Follow all instructions in |TAB| Section |CONFIGURE_CHAPTER|.4 (:external+lockss-manual:ref:`Network Settings`) of the |MANUAL|, namely:
 
-            *  :guilabel:`Fully qualified hostname (FQDN) of this machine`
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
-            *  :guilabel:`IP address of this machine`
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.2 (:external+lockss-manual:ref:`IP Address`)
 
-            *  :guilabel:`Initial subnet(s) for admin UI access, separated by ';'`
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.3 (:external+lockss-manual:ref:`Initial UI Subnet`)
 
-            *  :guilabel:`LCAP protocol port`
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.4 (:external+lockss-manual:ref:`LCAP Port`)
 
-            *  :guilabel:`Is this machine behind NAT?`
-
-               *  :guilabel:`External IP address for NAT`
+            *  |TAB| Section |CONFIGURE_CHAPTER|.4.5 (:external+lockss-manual:ref:`Network Address Translation`)
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
@@ -166,65 +160,43 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
                confirming that the LOCKSS 1.x configuration file was detected.
 
-         b. Confirm or enter each configuration value from the prompts in the following sections of the |MANUAL|:
+         b. Follow the instructions in the following sections of the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
-               *  :guilabel:`Fully qualified hostname (FQDN) of this machine`
-
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.2 (:external+lockss-manual:ref:`IP Address`)
-
-               *  :guilabel:`IP address of this machine`
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.3 (:external+lockss-manual:ref:`Initial UI Subnet`)
 
-               *  :guilabel:`Initial subnet(s) for admin UI access, separated by ';'`
-
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.4 (:external+lockss-manual:ref:`LCAP Port`)
 
-                *  :guilabel:`LCAP protocol port`
+         c. .. compound::
 
-         c. You will receive the following prompt:
+               After the :guilabel:`LCAP protocol port` prompt, you will receive the following prompt:
 
-            :guilabel:`Temporary LOCKSS 2.x LCAP port`
+               :guilabel:`Temporary LOCKSS 2.x LCAP port`
 
-            Enter an LCAP port different from the one used by LOCKSS 1.x, for use during migration, or hit :kbd:`Enter` to accept the suggested value in square brackets.
+               Enter an LCAP port different from the one used by LOCKSS 1.x, for use during migration, or hit :kbd:`Enter` to accept the suggested value in square brackets.
 
-         d. You will be asked to confirm more configuration values. You can do so by simply hitting :kbd:`Enter` for each, to accept the imported value in square brackets. These confirmation prompts are as follows:
+         d. Follow the instructions in |TAB| Section |CONFIGURE_CHAPTER|.4.5 (:external+lockss-manual:ref:`Network Address Translation`) of the |MANUAL|.
 
-            *  :guilabel:`Is this machine behind NAT?`
+5. Follow all instructions from the following sections of the |MANUAL|:
 
-            *  :guilabel:`Mail relay for this machine`
+            *  |TAB| Section 4.5 (:external+lockss-manual:ref:`Mail Settings`)
 
-            *  :guilabel:`Does the mail relay <mailhost> need a username and password?`
+            *  |TAB| Section 4.6 (:external+lockss-manual:ref:`Preservation Network Settings`)
 
-            *  :guilabel:`E-mail address for administrator`
+            *  |TAB| Section 4.7 (:external+lockss-manual:ref:`Web User Interface Settings`)
 
-            *  :guilabel:`Configuration URL`
+            *  |TAB| Section 4.8 (:external+lockss-manual:ref:`Storage Area Settings`)
 
-            *  :guilabel:`Configuration proxy (host:port)`
+            *  |TAB| Section 4.9 (:external+lockss-manual:ref:`Database Settings`)
 
-            *  :guilabel:`Preservation group(s)`
+            *  |TAB| Section 4.10 (:external+lockss-manual:ref:`Stack Component Settings`)
 
-            corresponding to these sections from the :doc:`lockss-manual:index`:
+            *  |TAB| Section 4.11 (:external+lockss-manual:ref:`Web Replay Settings`)
 
-            *  Section 4.5 (:ref:`lockss-manual:Mail Settings`)
-
-            *  Section 4.6 (:ref:`lockss-manual:Preservation Network Settings`)
-
-5. Follow the instructions from the following sections of the :doc:`lockss-manual:index`:
-
-            *  Section 4.7 (:ref:`lockss-manual:Web User Interface Settings`)
-
-            *  Section 4.8 (:ref:`lockss-manual:Storage Areas`)
-
-            *  Section 4.9 (:ref:`lockss-manual:Database Settings`)
-
-            *  Section 4.10 (:ref:`lockss-manual:LOCKSS Services`)
-
-            *  Section 4.11 (:ref:`lockss-manual:Web Replay Settings`)
-
-            *  Section 4.12 (:ref:`lockss-manual:Final Steps`)
+            *  |TAB| Section 4.12 (:external+lockss-manual:ref:`Final Steps of configure-lockss`)
 
 ------------------
 Running LOCKSS 2.x
@@ -232,29 +204,29 @@ Running LOCKSS 2.x
 
 Now start the LOCKSS 2.x system. Follow these steps:
 
-1. Run the following command as ``lockss`` in the :ref:`lockss-manual:LOCKSS Installer Directory`:
+1. .. compound::
 
-   .. code-block:: shell
+      Run the following command on your LOCKSS .2x host [#fn-same-host]_ (still as the ``lockss``user, still in the :external+lockss-manual:ref:`LOCKSS Installer Directory`):
 
-      scripts/start-lockss -w
+      .. code-block:: shell
 
-   which is short for:
+         scripts/start-lockss --wait
 
-   .. code-block:: shell
+      If the startup process goes well, you will see:
 
-      scripts/start-lockss --wait
+      .. code-block:: text
 
-   If the startup process goes well, you will see:
+         LOCKSS services are ready; AUs may still be loading.
 
-   .. code-block:: text
-
-      LOCKSS services are ready; AUs may still be loading.
-
-   and control will be returned to the command line.
+      and control will be returned to the command line.
 
    .. tip::
 
       During this first startup, hundreds of megabytes of container images will be downloaded, which can take many minutes on a slow network.
+
+.. note::
+
+   This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
 
 2. This step depends on your :ref:`Migration Scenario`:
 
