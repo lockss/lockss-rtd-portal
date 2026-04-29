@@ -1,8 +1,18 @@
+.. include:: subst.rst
+
 ====================
 Running the Migrator
 ====================
 
+.. image:: laaws-migration-steps-running.png
+   :align: center
+   :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first five boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration" and "Configuring LOCKSS 1.x for Migration", are colored in light blue, indicating completed steps. The sixth box labeled "Running the Migrator" is highlighted in yellow, indicating the step in progress. The last box, labeled "Reconfiguring LOCKSS 2.x for Normal Operation", is not colored, indicating future steps.
+
 The next task is to run the migrator in the :guilabel:`Migration Settings` screen of your LOCKSS 1.x Web user interface.
+
+.. note::
+
+   This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
 
 Follow these steps:
 

@@ -206,7 +206,7 @@ Now start the LOCKSS 2.x system. Follow these steps:
 
 1. .. compound::
 
-      Run the following command on your LOCKSS .2x host [#fn-same-host]_ (still as the ``lockss``user, still in the :external+lockss-manual:ref:`LOCKSS Installer Directory`):
+      Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the :external+lockss-manual:ref:`LOCKSS Installer Directory`):
 
       .. code-block:: shell
 
@@ -224,10 +224,6 @@ Now start the LOCKSS 2.x system. Follow these steps:
 
       During this first startup, hundreds of megabytes of container images will be downloaded, which can take many minutes on a slow network.
 
-.. note::
-
-   This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
-
 2. This step depends on your :ref:`Migration Scenario`:
 
    .. tab-set::
@@ -235,9 +231,9 @@ Now start the LOCKSS 2.x system. Follow these steps:
       .. tab-item:: New-Host Migration
          :sync: newhost
 
-         If you are doing a **new-host migration**, follow these steps:
+         If you are doing a :ref:`New-Host Migration`, follow these steps:
 
-         a. In a browser, go to the URL :samp:`http://{<lockss2.myuniversity.edu>}:24621/DaemonStatus`, where :samp:`{<lockss2.myuniversity.edu>}` represents the host name of your LOCKSS 2.x host. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in.
+         a. In a browser, go to the URL :samp:`http://{<lockss2host>}:24602/DaemonStatus`, where :samp:`{<lockss2host>}` represents the host name of your LOCKSS 2.x host (for example ``lockss2.myuniversity.edu``). Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in.
 
          b. Click on :guilabel:`Admin Access Control` in the top-right menu.
 
@@ -248,13 +244,11 @@ Now start the LOCKSS 2.x system. Follow these steps:
       .. tab-item:: Same-Host Migration
          :sync: samehost
 
-         If you are doing a **same-host migration**, go to the URL :samp:`http://{<lockss.myuniversity.edu>}:24621/DaemonStatus` in a browser, where :samp:`{<lockss.myuniversity.edu>}` represents the host name of your LOCKSS host [#fn-same-host]_. Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next phase.
+         If you are doing a :ref:`Same-Host Migration`, go to the URL :samp:`http://{<lockss2host>}:24602/DaemonStatus`, where :samp:`{<lockss2host>}` represents the host name of your LOCKSS 2.x host [#fn-same-host]_ (for example ``lockss2.myuniversity.edu``). Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next phase.
 
 ----
 
-.. only:: html
-
-   .. rubric:: Footnotes
+.. rubric:: Footnotes
 
 .. [#fn-same-host]
 

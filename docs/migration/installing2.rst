@@ -40,9 +40,7 @@ The process depends on your :ref:`Migration Scenario`:
 
 ----
 
-.. only:: html
-
-   .. rubric:: Footnotes
+.. rubric:: Footnotes
 
 .. [#fn-same-host]
 
