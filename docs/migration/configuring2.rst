@@ -119,7 +119,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 
-         b. Follow the instructions in the following section in the |MANUAL|:
+         b. Follow the instructions in the following sections in the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
@@ -132,7 +132,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
                The following values were imported from your LOCKSS 1.0 configuration.
                  In normal circumstances they should be accepted as is.
 
-            Follow the instructions from the following section in the |MANUAL|:
+            Follow the instructions in the following sections in the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.3 (:external+lockss-manual:ref:`Initial UI Subnet`)
 
