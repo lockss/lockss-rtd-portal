@@ -135,11 +135,22 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 
-         b. Follow all instructions in |TAB| Section |CONFIGURE_CHAPTER|.4 (:external+lockss-manual:ref:`Network Settings`) of the |MANUAL|, namely:
+         b. Follow the instructions in the following section in the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.2 (:external+lockss-manual:ref:`IP Address`)
+
+         c. .. compound::
+
+               You will then receive the following message:
+
+               .. code-block:: text
+
+                  The following values were imported from your LOCKSS 1.0 configuration.
+                    In normal circumstances they should be accepted as is.
+
+            Follow the instructions from the following section in the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.3 (:external+lockss-manual:ref:`Initial UI Subnet`)
 
@@ -160,7 +171,16 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
                confirming that the LOCKSS 1.x configuration file was detected.
 
-         b. Follow the instructions in the following sections of the |MANUAL|:
+         b. .. compound::
+
+               You will then receive the following message:
+
+               .. code-block:: text
+
+                  The following values were imported from your LOCKSS 1.0 configuration.
+                    In normal circumstances they should be accepted as is.
+
+            Follow the instructions in the following sections of the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
