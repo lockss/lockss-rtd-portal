@@ -6,51 +6,51 @@ Migration Overview
 Basic Migration Overview
 ------------------------
 
-Conceptually, migration from LOCKSS |UPGRADE_FROM_MINOR| to LOCKSS |UPGRADE_TO_MINOR| follows this outline:
+Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
 
-1. A pre-existing LOCKSS |UPGRADE_FROM_MINOR| instance is preserving content in one or more content storage areas (key [#fn-key]_):
+1. A pre-existing LOCKSS 1.x instance is preserving content in one or more content storage areas (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-before.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_FROM_MINOR| instance.
+      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. This illustrates that all AUs are handled by the LOCKSS 1.x instance.
 
-2. An empty LOCKSS |UPGRADE_TO_MINOR| instance is configured with one or more content storage areas of its own (key [#fn-key]_):
+2. An empty LOCKSS 2.x instance is configured with one or more content storage areas of its own (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-start.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Nothing appears on the red disks. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_FROM_MINOR| instance and that the LOCKSS |UPGRADE_TO_MINOR| instance is empty.
+      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Nothing appears on the red disks. This illustrates that all AUs are handled by the LOCKSS 1.x instance and that the LOCKSS 2.x instance is empty.
 
-3. The LOCKSS migrator sets up and executes the migration, and the LOCKSS |UPGRADE_TO_MINOR| instance is gradually populated with the data from the LOCKSS |UPGRADE_FROM_MINOR| instance. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS |UPGRADE_FROM_MINOR| instance; then its contents are copied to the LOCKSS |UPGRADE_TO_MINOR| instance; finally the AU is reactivated in the LOCKSS |UPGRADE_TO_MINOR| instance (key [#fn-key]_):
+3. The LOCKSS migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-middle.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. A box with a non-bold label "AU #1" appears on the first blue disk, and a corresponding box with a bold label "AU #1" appears on the first red disk. A box with a non-bold label "AU #2" appears on the first blue disk, and a corresponding box with a bold label "AU #2" appears on the second red disk. A box with a non-bold label "AU #3" appears on the first blue disk, and a corresponding box with a bold label "AU #3" appears on the first red disk. A box with a non-bold label "AU #4" appears on the second blue disk, and another corresponding box with a non-bold label "AU #4" appears on the second red disk; additionally, an arrow with the text "AU #4 migration in progress" goes from the LOCKSS |UPGRADE_FROM_MINOR| box to the LOCKSS |UPGRADE_TO_MINOR| box. Boxes with bold labels "AU #5" and "AU #6" appear on the second blue disk, with no corresponding boxes appearing on the red disks. AU #1, AU #2 and AU #3 illustrate AUs that have been migrated; they are no longer handled by the LOCKSS |UPGRADE_FROM_MINOR| instance but still occupy disk space, and they are handled by the the LOCKSS |UPGRADE_TO_MINOR| instance. AU #4 illustrates a migration in progress; it is not handled by either instance. AU #5 and AU #6 illustrate AUs that have not yet been migrated; they are handled by the LOCKSS |UPGRADE_FROM_MINOR| instance, and do not yet occupy any disk space associated with the LOCKSS |UPGRADE_TO_MINOR| instance. The diagram also illustrates that corresponding AUs may not be distributed the same way on the blue disks and the red disks.
+      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. A box with a non-bold label "AU #1" appears on the first blue disk, and a corresponding box with a bold label "AU #1" appears on the first red disk. A box with a non-bold label "AU #2" appears on the first blue disk, and a corresponding box with a bold label "AU #2" appears on the second red disk. A box with a non-bold label "AU #3" appears on the first blue disk, and a corresponding box with a bold label "AU #3" appears on the first red disk. A box with a non-bold label "AU #4" appears on the second blue disk, and another corresponding box with a non-bold label "AU #4" appears on the second red disk; additionally, an arrow with the text "AU #4 migration in progress" goes from the LOCKSS 1.x box to the LOCKSS 2.x box. Boxes with bold labels "AU #5" and "AU #6" appear on the second blue disk, with no corresponding boxes appearing on the red disks. AU #1, AU #2 and AU #3 illustrate AUs that have been migrated; they are no longer handled by the LOCKSS 1.x instance but still occupy disk space, and they are handled by the the LOCKSS 2.x instance. AU #4 illustrates a migration in progress; it is not handled by either instance. AU #5 and AU #6 illustrate AUs that have not yet been migrated; they are handled by the LOCKSS 1.x instance, and do not yet occupy any disk space associated with the LOCKSS 2.x instance. The diagram also illustrates that corresponding AUs may not be distributed the same way on the blue disks and the red disks.
 
-4. At the end of the migration process, the LOCKSS |UPGRADE_TO_MINOR| instance is handling all AUs, and the LOCKSS |UPGRADE_FROM_MINOR| instance is no longer handling any AUs (key [#fn-key]_):
+4. At the end of the migration process, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-end.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS |UPGRADE_FROM_MINOR| box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. Boxes with non-bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with non-bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_TO_MINOR| instance and that the LOCKSS |UPGRADE_TO_MINOR| instance is no longer handling any AUs, although the disk space used by the AUs formerly is still occupied.
+      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. Boxes with non-bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with non-bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS 2.x instance and that the LOCKSS 2.x instance is no longer handling any AUs, although the disk space used by the AUs formerly is still occupied.
 
-5. Finally, the LOCKSS |UPGRADE_FROM_MINOR| instance is decommissioned (key [#fn-key]_):
+5. Finally, the LOCKSS 1.x instance is decommissioned (key [#fn-key]_):
 
    .. image:: laaws-migration-basic-after.png
       :align: center
-      :alt: Diagram showing a red LOCKSS |UPGRADE_TO_MINOR| box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS |UPGRADE_TO_MINOR| instance.
+      :alt: Diagram showing a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS 2.x instance.
 
-The different :ref:`Migration Scenarios <Migration Scenario>` differ only in two key ways: where the LOCKSS |UPGRADE_TO_MINOR| instance is located compared to the LOCKSS |UPGRADE_FROM_MINOR| instance, and when the storage space occupied by deactivated AUs from the LOCKSS |UPGRADE_FROM_MINOR| instance is reclaimed.
+The different :ref:`Migration Scenarios <Migration Scenario>` differ only in two key ways: where the LOCKSS 2.x instance is located compared to the LOCKSS 1.x instance, and when the storage space occupied by deactivated AUs from the LOCKSS 1.x instance is reclaimed.
 
 ------------------
 Migration Scenario
 ------------------
 
-.. |NEWHOSTMIGRATION| replace:: In this migration scenario, a newly-commissioned host with its own storage is used for the LOCKSS |UPGRADE_TO_MINOR| instance. After migration, the LOCKSS |UPGRADE_FROM_MINOR| instance, its storage, and its host are decommissioned.
+.. |NEWHOSTMIGRATION| replace:: In this migration scenario, a newly-commissioned host with its own storage is used for the LOCKSS 2.x instance. After migration, the LOCKSS 1.x instance, its storage, and its host are decommissioned.
 
-.. |SAMEHOSTMIGRATION| replace:: In this migration scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is run on the pre-existing host of the LOCKSS |UPGRADE_FROM_MINOR| instance. After migration, the LOCKSS |UPGRADE_FROM_MINOR| instance is decommissioned.
+.. |SAMEHOSTMIGRATION| replace:: In this migration scenario, the LOCKSS 2.x instance is run on the pre-existing host of the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance is decommissioned.
 
-.. |SAMEHOSTMIGRATIONFUTURE| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is configured to use different storage areas than the LOCKSS |UPGRADE_FROM_MINOR| instance. After migration, the LOCKSS |UPGRADE_FROM_MINOR| instance's storage areas are reclaimed all at once, and can then be devoted to the LOCKSS |UPGRADE_TO_MINOR| instance.
+.. |SAMEHOSTMIGRATIONFUTURE| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS 2.x instance is configured to use different storage areas than the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance's storage areas are reclaimed all at once, and can then be devoted to the LOCKSS 2.x instance.
 
-.. |SAMEHOSTMIGRATIONINCREMENTAL| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS |UPGRADE_TO_MINOR| instance is configured to use the same storage areas as the LOCKSS |UPGRADE_FROM_MINOR| instance. The LOCKSS Migrator is operated in a special mode in which the storage used by each AU in the LOCKSS |UPGRADE_FROM_MINOR| instance is reclaimed after the AU is done migrating to the LOCKSS |UPGRADE_TO_MINOR| instance.
+.. |SAMEHOSTMIGRATIONINCREMENTAL| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS 2.x instance is configured to use the same storage areas as the LOCKSS 1.x instance. The LOCKSS Migrator is operated in a special mode in which the storage used by each AU in the LOCKSS 1.x instance is reclaimed after the AU is done migrating to the LOCKSS 2.x instance.
 
 *  :ref:`New-Host Migration` (**recommended**). |NEWHOSTMIGRATION|
 
@@ -63,7 +63,7 @@ Migration Scenario
 New-Host Migration
 ==================
 
-FIXME
+|NEWHOSTMIGRATION|
 
 .. image:: laaws-migration-new-host-overview.png
    :align: center
@@ -71,12 +71,12 @@ FIXME
 Same-Host Migration
 ===================
 
-FIXME
+|SAMEHOSTMIGRATION|
 
 Same-Host Migration With Future Reclamation
 -------------------------------------------
 
-FIXME
+|SAMEHOSTMIGRATIONFUTURE|
 
 .. image:: laaws-migration-same-host-future-overview.png
    :align: center
@@ -84,7 +84,7 @@ FIXME
 Same-Host Migration With Incremental Reclamation
 ------------------------------------------------
 
-FIXME
+|SAMEHOSTMIGRATIONINCREMENTAL|
 
 .. image:: laaws-migration-same-host-incremental-overview.png
    :align: center
