@@ -10,27 +10,9 @@ Upgrading LOCKSS 1.x
 
 The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, the latest version of LOCKSS |UPGRADE_FROM_MINOR|.
 
-To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these steps on your LOCKSS 1.x host [#fn-same-host]_, as ``root``:
+To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these steps:
 
-1. :bdg-success:`new-host migration only`
-
-   If you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 1.x host, for example by typing:
-
-   .. code-block:: shell
-
-      hostname
-
-   and verifying that the output is the expected name of your LOCKSS 1.x host.
-
-2. Double-check that you are acting as ``root`` in the shell console for your LOCKSS 1.x host [#fn-same-host]_ by typing:
-
-   .. code-block:: shell
-
-      whoami
-
-   and verifying that the output is ``root``.
-
-3. Run this :program:`systemctl` command (as ``root``):
+1. |LOCKSS1ROOT| On your LOCKSS 1.x host [#fn-same-host]_, as ``root``, run this :program:`systemctl` command [#fn-familiar-upgrade]_:
 
    .. code-block:: shell
 
@@ -38,7 +20,7 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 
    This will stop the LOCKSS 1.x instance.
 
-4. Upgrade the ``lockss-daemon`` RPM package with a Dnf or Yum command, depending on your operating system:
+2. |LOCKSS1ROOT| Upgrade the ``lockss-daemon`` RPM package with a Dnf or Yum command, depending on your operating system:
 
    .. COMMENT OSTABS
 
@@ -119,7 +101,7 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 
          .. include:: upgrading1-yum.rst
 
-5. Run this :program:`systemctl` command:
+3. |LOCKSS1ROOT| Run this :program:`systemctl` command:
 
    .. code-block:: shell
 
@@ -134,3 +116,7 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 .. [#fn-same-host]
 
    |FN_SAME_HOST|
+
+.. [#fn-familiar-upgrade]
+
+   These steps are a typical version upgrade for LOCKSS 1.x, that you or your system administrator are likely familiar with.

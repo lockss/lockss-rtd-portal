@@ -137,7 +137,10 @@ The process is largely the same as that for a corresponding :ref:`New-Host Migra
 How To Use This Guide
 ---------------------
 
-This guide is organized in consecutive sections (:numref:`Upgrading LOCKSS 1.x` through :numref:`Reconfiguring LOCKSS 2.x for Normal Operation`) representing the steps of the migration:
+Chapters
+========
+
+This guide is organized in consecutive chapters (:numref:`Chapter %s <Upgrading LOCKSS 1.x>` through :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>`) representing the steps of the migration:
 
 .. image:: laaws-migration-steps-start.png
    :align: center
@@ -145,8 +148,10 @@ This guide is organized in consecutive sections (:numref:`Upgrading LOCKSS 1.x` 
 
 followed by some appendices.
 
-In a number of places, the instructions differ
-between a :ref:`New-Host Migration` and a :ref:`Same-Host Migration`, and you will find clearly marked sections for each, like in this example:
+Parallel Sections
+=================
+
+In a number of places, the instructions differ somewhat between a :ref:`New-Host Migration` and a :ref:`Same-Host Migration`, and you will find parallel sections for each, like in this example:
 
     .. tab-set::
 
@@ -160,21 +165,40 @@ between a :ref:`New-Host Migration` and a :ref:`Same-Host Migration`, and you wi
 
           Example of instructions specific to a :ref:`Same-Host Migration`.
 
-In a few places, a single instruction step will apply only to one :ref:`Migration Scenario` or to a :ref:`Dry Run Migration`; in addition to text to this effect, this situation will be denoted by a visual chip, as in these examples:
+Scenario-Specific Instruction
+=============================
 
-    1. |NEWHOSTONLY| This step applies only to a :ref:`New-Host Migration`.
+If a single instruction step applies only to one :ref:`Migration Scenario` or to a :ref:`Dry Run Migration`, the following visuals will augment the text to that effect:
 
-    2. |SAMEHOSTONLY| This step applies only to a :ref:`Same-Host Migration` (either a :ref:`Same-Host Migration With Future Reclamation` or a :ref:`Same-Host Migration With Incremental Reclamation`).
+    *  |NEWHOSTONLY| This step applies only to a :ref:`New-Host Migration`.
 
-    3. |SAMEHOSTFUTUREONLY| This step applies only to a :ref:`Same-Host Migration With Future Reclamation`.
+    *  |SAMEHOSTONLY| This step applies only to a :ref:`Same-Host Migration` (either a :ref:`Same-Host Migration With Future Reclamation` or a :ref:`Same-Host Migration With Incremental Reclamation`).
 
-    4. |SAMEHOSTINCREMENTALONLY| This step applies only to a :ref:`Same-Host Migration With Incremental Reclamation`.
+    *  |SAMEHOSTFUTUREONLY| This step applies only to a :ref:`Same-Host Migration With Future Reclamation`.
 
-    5. |DRYRUNONLY| This step applies only to a :ref:`Dry Run Migration`.
+    *  |SAMEHOSTINCREMENTALONLY| This step applies only to a :ref:`Same-Host Migration With Incremental Reclamation`.
 
-    6. |ALLOTHERSCENARIOS| If a step applies to only one :ref:`Migration Scenario`, a counterpart that applies to all other scenarios may be denoted with this visual chip.
+    *  |DRYRUNONLY| This step applies only to a :ref:`Dry Run Migration`.
 
-Many parts of this guide accompany you as you apply sections of the |MANUAL|. To help identify cross-references to this parallel source of instructions, the symbol |TAB| is used to denote |MANUAL| references, for example:
+    *  |ALLOTHERSCENARIOS| If a step applies to only one :ref:`Migration Scenario`, this counterpart applies to all other scenarios.
+
+Console Hint
+============
+
+The commands to be typed at the console at various points in the migration process will occur in several environments, in terms of host, user, and directory, and the following visuals will augment the text to that effect:
+
+    *  |LOCKSS1ROOT| This command occurs on your LOCKSS 1.x host [#fn-same-host]_, as the ``root`` user.
+
+    *  |LOCKSS2LOCKSS| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|.
+
+    *  |LOCKSS2ROOT| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``root`` user, in the |LOCKSS_INSTALLER_DIRECTORY|.
+
+The |LOCKSS_INSTALLER_DIRECTORY| is an important concept in LOCKSS 2.x. It is the directory from which many LOCKSS 2.x installation, configuration and operation commands are run -- usually as the ``lockss`` user, but in the case of installing LOCKSS 2.x for the first time, sometimes as the ``root`` user. The :external+lockss-manual:ref:`Default LOCKSS Installer Directory` is :file:`/{$HOME}/lockss-installer` relative to the ``lockss`` user, meaning :file:`/home/lockss/lockss-installer` on most Linux systems. In the |MANUAL|, this directory is symbolically represented as :samp:`{<LOCKSS_INSTALLER_DIR>}` (for example :samp:`cd {<LOCKSS_INSTALLER_DIR>}`).
+
+LOCKSS 2.x System Manual References
+===================================
+
+Many parts of this guide accompany you as you apply sections of the |MANUAL|. To help identify cross-references to this complementary source of instructions, the symbol |TAB| is used to denote such references, for example:
 
     See |TAB| Section 1.2.3 in the |MANUAL|.
 
@@ -219,3 +243,7 @@ If you have set any configuration parameters in the Expert Config screen, this f
 .. [#fn-au]
 
    An **archival unit**, or **AU**, is a unit of preserved content in LOCKSS. Consisting of any number of versioned objects, an AU might be a volume of a journal, a single book and its assets, a given digitized collection, etc.
+
+.. [#fn-same-host]
+
+   |FN_SAME_HOST|

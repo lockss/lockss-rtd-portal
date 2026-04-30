@@ -40,7 +40,7 @@ The necessary work depends on your :ref:`Migration Scenario`:
 
       *  `Scientific Linux <https://scientificlinux.org/>`_
 
-      then you must **upgrade your LOCKSS 1.x host** to a **supported** operating system in the RHEL family [#fn-same-host]_:
+      then you must **upgrade your LOCKSS host** to a **supported** operating system in the RHEL family [#fn-same-host]_:
 
       *  `AlmaLinux OS <https://almalinux.org/>`_ 8 or later
 

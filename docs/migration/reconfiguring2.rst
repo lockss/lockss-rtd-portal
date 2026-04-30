@@ -12,13 +12,13 @@ The next task, once all the content has been successfully migrated from LOCKSS 1
 
 Follow these steps:
 
-1. Stop your LOCKSS 1.x system. This occurs on your LOCKSS 1.x host [#fn-same-host]_, as ``root``:
+1. |LOCKSS1ROOT| Stop your LOCKSS 1.x system. This occurs on your LOCKSS 1.x host [#fn-same-host]_, as ``root``:
 
    .. code-block:: shell
 
       systemctl stop lockss
 
-2. Stop your LOCKSS 2.x system (currently configured for migration). This occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|:
+2. |LOCKSS2LOCKSS| Stop your LOCKSS 2.x system (currently configured for migration). This occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|:
 
    .. code-block:: shell
 
@@ -64,7 +64,7 @@ Follow these steps:
 
             (ii) Reconfigure your LOCKSS 2.x host so it uses the IP address, and ideally host name, previously associated with your LOCKSS 1.x host. Contact your system administrator for specifics.
 
-         b. On the LOCKSS 2.x host, run these two commands, as ``root``:
+         b. |LOCKSS2ROOT| On the LOCKSS 2.x host, run these two commands, as ``root``:
 
             (i) First: ``/usr/local/bin/k3s-killall.sh``
 
@@ -72,7 +72,7 @@ Follow these steps:
 
             This will restart :external+lockss-manual:term:`K3s`.
 
-         c. Then run this command, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|:
+         c. |LOCKSS2LOCKSS| Then run this command, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|:
 
             .. code-block:: shell
 
@@ -97,7 +97,7 @@ Follow these steps:
 
          If you are doing a :ref:`Same-Host Migration`, follow these steps:
 
-         a. On the LOCKSS 2.x host, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|, run this command:
+         a. |LOCKSS2LOCKSS| On the LOCKSS host, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|, run this command:
 
             .. code-block:: shell
 
@@ -109,7 +109,7 @@ Follow these steps:
 
             (ii) :guilabel:`OK to store this configuration?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-4. Finally, on the LOCKSS 2.x host, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|, run this command:
+4. |LOCKSS2LOCKSS| Finally, on the LOCKSS 2.x host, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|, run this command:
 
    .. code-block:: shell
 

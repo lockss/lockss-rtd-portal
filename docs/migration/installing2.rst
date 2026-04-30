@@ -17,26 +17,22 @@ The process depends on your :ref:`Migration Scenario`:
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      If you are doing a :ref:`New-Host Migration`, follow all instructions in |TAB| Chapter |INSTALL_CHAPTER| (:external+lockss-manual:doc:`installing/index`) of the |MANUAL| on your LOCKSS 2.x host, namely:
+      If you are doing a :ref:`New-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS 2.x host:
 
-      *  |TAB| Section |INSTALL_CHAPTER|.1 (:external+lockss-manual:doc:`installing/user`)
+      *  |LOCKSS2ROOT| |TAB| Section |INSTALL_CHAPTER|.1.2 (:external+lockss-manual:ref:`Invoking adduser`)
 
-      *  |TAB| Section |INSTALL_CHAPTER|.2 (:external+lockss-manual:doc:`installing/downloading`)
+      *  |LOCKSS2ROOT| |TAB| Section |INSTALL_CHAPTER|.2.3 (:external+lockss-manual:ref:`Running the LOCKSS Downloader`)
 
-      *  |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:doc:`installing/running`)
+      *  |LOCKSS2ROOT| All of |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:ref:`Running install-lockss`)
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      If you are doing a :ref:`Same-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS 2.x host [#fn-same-host]_:
+      If you are doing a :ref:`Same-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS host:
 
-      *  |TAB| Section |INSTALL_CHAPTER|.1.1 (:external+lockss-manual:ref:`Establishing a root Session`)
+      *  |LOCKSS2ROOT| |TAB| Section |INSTALL_CHAPTER|.2.3 (:external+lockss-manual:ref:`Running the LOCKSS Downloader`)
 
-      *  |TAB| Section |INSTALL_CHAPTER|.2 (:external+lockss-manual:doc:`installing/downloading`)
-
-      *  |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:doc:`installing/running`)
-
-      Note that Section |INSTALL_CHAPTER|.1.2 is not performed in this scenario.
+      *  |LOCKSS2ROOT| All of |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:ref:`Running install-lockss`)
 
 ----
 

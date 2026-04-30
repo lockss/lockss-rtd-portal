@@ -37,7 +37,7 @@ Follow these steps:
 
             If you are unable to copy the LOCKSS 1.x configuration file to your LOCKSS 2.x, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information, which you will have to enter accurately from the corresponding LOCKSS 1.x values.
 
-         b. Ensure that the LOCKSS 1.x configuration file :samp:`{/path/to/lockss1_config_file.dat}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
+         b. |LOCKSS2ROOT| Ensure that the LOCKSS 1.x configuration file :samp:`{/path/to/lockss1_config_file.dat}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
 
             :samp:`chmod +r {/path/to/lockss1_config_file.dat}`
 
@@ -62,17 +62,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
 2. Follow these steps (**modified** from Section |CONFIGURE_CHAPTER|.2 of the |MANUAL|):
 
-   a. |NEWHOSTONLY|
-
-      First, if you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 2.x host, for example by typing:
-
-      .. code-block:: shell
-
-         hostname
-
-      and verifying that the output is the expected name of your LOCKSS 2.x host.
-
-   b. Next, double-check that you are in a shell console acting as the ``lockss`` user by typing:
+   a. |LOCKSS2LOCKSS| Double-check that you are in a shell console acting as the ``lockss`` user by typing:
 
       .. code-block:: shell
 
@@ -80,11 +70,11 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
       and verifying that the output is ``lockss``.
 
-   c. Navigate to the |LOCKSS_INSTALLER_DIRECTORY|, symbolically:
+   b. |LOCKSS2LOCKSS| Navigate to the |LOCKSS_INSTALLER_DIRECTORY|, symbolically:
 
       :samp:`cd {<LOCKSS_INSTALLER_DIR>}`
 
-   d. Run this command:
+   c. |LOCKSS2LOCKSS| Run this command:
 
       *  |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`: ``scripts/configure-lockss``
 
@@ -200,7 +190,7 @@ Running LOCKSS 2.x
 
 Now start the LOCKSS 2.x system. Follow these steps:
 
-1. Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the |LOCKSS_INSTALLER_DIRECTORY|):
+1. |LOCKSS2LOCKSS| Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the |LOCKSS_INSTALLER_DIRECTORY|):
 
    .. code-block:: shell
 
