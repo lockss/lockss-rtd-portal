@@ -10,10 +10,6 @@ Running the Migrator
 
 The next task is to run the migrator in the :guilabel:`Migration Settings` screen of your LOCKSS 1.x Web user interface.
 
-.. note::
-
-   This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
-
 Follow these steps:
 
 1. To migrate all content, select :guilabel:`All plugins` from the :guilabel:`Select Plugins` dropdown menu. If you wish to migrate only a subset of the content, you may select a plugin and migrate just the archival units from that plugin.

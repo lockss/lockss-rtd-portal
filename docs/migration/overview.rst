@@ -89,6 +89,8 @@ FIXME
 .. image:: laaws-migration-same-host-incremental-overview.png
    :align: center
 
+.. _migration-new-host-recommended:
+
 .. admonition:: Why is a new host recommended?
 
    *  LOCKSS 2.x has higher system requirements.
