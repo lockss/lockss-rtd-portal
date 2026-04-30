@@ -18,7 +18,7 @@ Follow these steps:
 
       systemctl stop lockss
 
-2. Stop your LOCKSS 2.x system (currently configured for migration). This occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the :external+lockss-manual:ref:`LOCKSS Installer Directory`:
+2. Stop your LOCKSS 2.x system (currently configured for migration). This occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|:
 
    .. code-block:: shell
 
@@ -72,7 +72,7 @@ Follow these steps:
 
             This will restart :external+lockss-manual:term:`K3s`.
 
-         c. Then run this command, as the ``lockss`` user, in the :external+lockss-manual:ref:`LOCKSS Installer Directory`:
+         c. Then run this command, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|:
 
             .. code-block:: shell
 
@@ -97,7 +97,7 @@ Follow these steps:
 
          If you are doing a :ref:`Same-Host Migration`, follow these steps:
 
-         a. On the LOCKSS 2.x host, as the ``lockss`` user, in the :external+lockss-manual:ref:`LOCKSS Installer Directory`, run this command:
+         a. On the LOCKSS 2.x host, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|, run this command:
 
             .. code-block:: shell
 
@@ -109,25 +109,13 @@ Follow these steps:
 
             (ii) :guilabel:`OK to store this configuration?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-4. Finally, on the LOCKSS 2.x host, as the ``lockss`` user, in the :external+lockss-manual:ref:`LOCKSS Installer Directory`, run this command:
+4. Finally, on the LOCKSS 2.x host, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|, run this command:
 
    .. code-block:: shell
 
       scripts/start-lockss --wait
 
    This will start the LOCKSS 2.x stack (now configured for normal operation).
-
-.. note::
-
-   This is as far as the review to evolve from 1.78/2.0-beta1 to 1.79/2.0-beta2 has gone for now. Anything beyond this point is definitely from the 1.78/2.0-beta1 guide.
-
-FIXME
-
-         c. .. COMMENT FIXME This should not be in the "re-IP the machine" section.
-
-            If applicable, firewall rules on the LOCKSS 2.x host and elsewhere at your institution need to be updated, because LOCKSS 1.x and LOCKSS 2.x use different ports: **firewall rules to TCP ports 8081-8085 are no longer needed and need to be replaced with rules to TCP ports 24600-24699 instead**. Note that **firewall rules to TCP ports 22, 8080, and 9729 remain the same**.
-
-
 
 ----
 

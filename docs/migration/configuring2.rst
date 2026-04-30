@@ -62,7 +62,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
 2. Follow these steps (**modified** from Section |CONFIGURE_CHAPTER|.2 of the |MANUAL|):
 
-   a. :bdg-success:`new-host migration only`
+   a. |NEWHOSTONLY|
 
       First, if you are doing a :ref:`New-Host Migration`, double-check that you are in a shell console for your LOCKSS 2.x host, for example by typing:
 
@@ -86,9 +86,9 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
    d. Run this command:
 
-      *  :bdg-dark:`dry run migration only` If you are doing a :ref:`Dry Run Migration`: ``scripts/configure-lockss``
+      *  |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`: ``scripts/configure-lockss``
 
-      *  :bdg-muted:`all other migration scenarios` In all other cases: ``scripts/configure-lockss --migrate``
+      *  |ALLOTHERSCENARIOS| In all other cases: ``scripts/configure-lockss --migrate``
 
       .. tip::
 
@@ -200,7 +200,7 @@ Running LOCKSS 2.x
 
 Now start the LOCKSS 2.x system. Follow these steps:
 
-1. Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the :external+lockss-manual:ref:`LOCKSS Installer Directory`):
+1. Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the |LOCKSS_INSTALLER_DIRECTORY|):
 
    .. code-block:: shell
 

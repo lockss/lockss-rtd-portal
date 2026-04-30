@@ -148,33 +148,35 @@ followed by some appendices.
 In a number of places, the instructions differ
 between a :ref:`New-Host Migration` and a :ref:`Same-Host Migration`, and you will find clearly marked sections for each, like in this example:
 
-.. tab-set::
+    .. tab-set::
 
-   .. tab-item:: New-Host Migration
-      :sync: newhost
+       .. tab-item:: New-Host Migration
+          :sync: newhost
 
-      Example of instructions specific to a :ref:`New-Host Migration`.
+          Example of instructions specific to a :ref:`New-Host Migration`.
 
-   .. tab-item:: Same-Host Migration
-      :sync: samehost
+       .. tab-item:: Same-Host Migration
+          :sync: samehost
 
-      Example of instructions specific to a :ref:`Same-Host Migration`.
+          Example of instructions specific to a :ref:`Same-Host Migration`.
 
-In a few places, a particular instruction step will apply only to one :ref:`Migration Scenario` or to a :ref:`Dry Run Migration`; in addition to text to this effect, this situation will be denoted by a visual chip, as in these examples:
+In a few places, a single instruction step will apply only to one :ref:`Migration Scenario` or to a :ref:`Dry Run Migration`; in addition to text to this effect, this situation will be denoted by a visual chip, as in these examples:
 
-1.  :bdg-success:`new-host migration only` This step applies only to a :ref:`New-Host Migration`.
+    1. |NEWHOSTONLY| This step applies only to a :ref:`New-Host Migration`.
 
-2.  :bdg-info:`same-host migration only` This step applies only to a :ref:`Same-Host Migration` (either a :ref:`Same-Host Migration With Future Reclamation` or a :ref:`Same-Host Migration With Incremental Reclamation`).
+    2. |SAMEHOSTONLY| This step applies only to a :ref:`Same-Host Migration` (either a :ref:`Same-Host Migration With Future Reclamation` or a :ref:`Same-Host Migration With Incremental Reclamation`).
 
-3. :bdg-warning:`same-host migration with future reclamation only` This step applies only to a :ref:`Same-Host Migration With Future Reclamation`.
+    3. |SAMEHOSTFUTUREONLY| This step applies only to a :ref:`Same-Host Migration With Future Reclamation`.
 
-4. :bdg-danger:`same-host migration with incremental reclamation only` This step applies only to a :ref:`Same-Host Migration With Incremental Reclamation`.
+    4. |SAMEHOSTINCREMENTALONLY| This step applies only to a :ref:`Same-Host Migration With Incremental Reclamation`.
 
-5.  :bdg-dark:`dry run migration only` This step applies only to a :ref:`Dry Run Migration`.
+    5. |DRYRUNONLY| This step applies only to a :ref:`Dry Run Migration`.
 
-6.  :bdg-muted:`all other migration scenarios` If a step applies to only one :ref:`Migration Scenario`, a counterpart that applies to all other scenarios may be denoted with this visual chip.
+    6. |ALLOTHERSCENARIOS| If a step applies to only one :ref:`Migration Scenario`, a counterpart that applies to all other scenarios may be denoted with this visual chip.
 
-Many parts of this guide accompany you as you apply all or parts of section of the |MANUAL|.
+Many parts of this guide accompany you as you apply sections of the |MANUAL|. To help identify cross-references to this parallel source of instructions, the symbol |TAB| is used to denote |MANUAL| references, for example:
+
+    See |TAB| Section 1.2.3 in the |MANUAL|.
 
 ---------------------------
 Detailed Migration Overview

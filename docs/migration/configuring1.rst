@@ -28,9 +28,9 @@ Follow these steps:
 
    a. :guilabel:`Hostname`: Enter the hostname of your LOCKSS 2.x host:
 
-      *  :bdg-success:`new-host migration only` If you are doing a :ref:`New-Host Migration`, enter the LOCKSS 2.x hostname, for example :samp:`{lockss2.myuniversity.edu}`.
+      *  |NEWHOSTONLY| If you are doing a :ref:`New-Host Migration`, enter the LOCKSS 2.x hostname, for example :samp:`{lockss2.myuniversity.edu}`.
 
-      *  :bdg-info:`same-host migration only` If you are doing a :ref:`Same-Host Migration`, enter ``localhost``.
+      *  |SAMEHOSTONLY| If you are doing a :ref:`Same-Host Migration`, enter ``localhost``.
 
    b. :guilabel:`Configuration Service Web UI Port`: The default Web UI port for the :external+lockss-manual:ref:`LOCKSS Configuration Service`, ``24602``, should remain unchanged.
 
@@ -42,15 +42,13 @@ Follow these steps:
 
 4. In the :guilabel:`Database Password` field, enter the database password for the LOCKSS 2.x system.
 
-5. :bdg-dark:`dry run migration only` If you are doing a :ref:`Dry Run Migration`, select the :guilabel:`Perform dry run migration` checkbox in the :guilabel:`Migration Options` section.
+5. |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`, select the :guilabel:`Perform dry run migration` checkbox in the :guilabel:`Migration Options` section.
 
-6.  :bdg-danger:`same-host migration with incremental reclamation only`
+6.  |SAMEHOSTINCREMENTALONLY|
 
     **If, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, select the :guilabel:`Delete each AU after migration` checkbox.
 
    .. caution::
-
-      :bdg-danger:`same-host migration with incremental reclamation only`
 
       **Selecting this option will permanently delete content from your LOCKSS 1.x system, gradually during the migration as it progresses.** This option should be used **if, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, which is only applicable if **neither** a :ref:`New-Host Migration` **nor** a :ref:`Same-Host Migration With Future Reclamation` are feasible. You will receive a popup warning when you check this checkbox, which you need to acknowledge before you can continue.
 
