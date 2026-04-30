@@ -42,7 +42,7 @@ Follow these steps:
 
 4. In the :guilabel:`Database Password` field, enter the database password for the LOCKSS 2.x system.
 
-5. Optionally, if you want to **only test** migration from LOCKSS 1.x to LOCKSS 2.x without permanent changes to your LOCKSS 1.x system, select the :guilabel:`Perform dry run migration` checkbox in the :guilabel:`Migration Options` section.
+5. :bdg-dark:`dry run migration only` If you are doing a :ref:`Dry Run Migration`, select the :guilabel:`Perform dry run migration` checkbox in the :guilabel:`Migration Options` section.
 
 6.  :bdg-danger:`same-host migration with incremental reclamation only`
 

@@ -1,3 +1,5 @@
+.. include:: subst.rst
+
 ==================
 Migration Overview
 ==================
@@ -52,6 +54,8 @@ Migration Scenario
 
 .. |SAMEHOSTMIGRATIONINCREMENTAL| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS 2.x instance is configured to use the same storage areas as the LOCKSS 1.x instance. The LOCKSS Migrator is operated in a special mode in which the storage used by each AU in the LOCKSS 1.x instance is reclaimed after the AU is done migrating to the LOCKSS 2.x instance.
 
+There are two types of migrations:
+
 *  :ref:`New-Host Migration` (**recommended**). |NEWHOSTMIGRATION|
 
 *  :ref:`Same-Host Migration` (*if a new-host migration is not feasible*). |SAMEHOSTMIGRATION| This scenario has two subtypes:
@@ -63,20 +67,40 @@ Migration Scenario
 New-Host Migration
 ==================
 
+.. tip::
+
+   This :ref:`Migration Scenario` is **recommended**.
+
 |NEWHOSTMIGRATION|
 
 .. image:: laaws-migration-new-host-overview.png
    :align: center
+
+.. _migration-new-host-recommended:
+
+.. admonition:: Why is a new host recommended?
+
+   *  LOCKSS 2.x has higher system requirements.
+
+   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a greater variety of :external+lockss-manual:ref:`Compatible Operating Systems`. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
+
+   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will degrade performance, and also cause the migration process to take longer.
+
+   *  If your LOCKSS 1.x host is running an outdated operating system in the RHEL family such as CentOS Linux 7, you must first upgrade the OS to another operating system in the RHEL family before proceeding with a same-host migration.
 
 Same-Host Migration
 ===================
 
 |SAMEHOSTMIGRATION|
 
+This :ref:`Migration Scenario` is available if a :ref:`New-Host Migration` is not feasible. This scenario has two subtypes: a :ref:`Same-Host Migration With Future Reclamation` (preferable if a same-host migration is needed) or a :ref:`Same-Host Migration With Incremental Reclamation` (if a same-host migration is needed but a same-host migration with future reclamation is not feasible).
+
 Same-Host Migration With Future Reclamation
 -------------------------------------------
 
 |SAMEHOSTMIGRATIONFUTURE|
+
+This :ref:`Migration Scenario` is preferable if a :ref:`Same-Host Migration` is needed. The primary requirement is that there is enough spare storage space on the LOCKSS 1.x host to hold the pre-existing copy of the preserved data under LOCKSS 1.x and a copy of it under LOCKSS 2.x simultaneously.
 
 .. image:: laaws-migration-same-host-future-overview.png
    :align: center
@@ -86,20 +110,71 @@ Same-Host Migration With Incremental Reclamation
 
 |SAMEHOSTMIGRATIONINCREMENTAL|
 
+This :ref:`Migration Scenario` is available if a :ref:`Same-Host Migration` is needed, but a :ref:`Same-Host Migration With Future Reclamation` is not feasible. It may be necessary if there is not enough spare storage space on the LOCKSS 1.x host to hold the pre-existing copy of the preserved data under LOCKSS 1.x and a copy of it under LOCKSS 2.x simultaneously. The process is largely the same as that for a :ref:`Same-Host Migration With Future Reclamation`, except for a step in :numref:`Configuring LOCKSS 1.x for Migration` (:ref:`Configuring LOCKSS 1.x for Migration`).
+
 .. image:: laaws-migration-same-host-incremental-overview.png
    :align: center
 
-.. _migration-new-host-recommended:
+This migration scenario is not eligible for a :ref:`Dry Run Migration`.
 
-.. admonition:: Why is a new host recommended?
+-----------------
+Dry Run Migration
+-----------------
 
-   *  LOCKSS 2.x has higher system requirements.
+It is possible to try out a :ref:`New-Host Migration` or a :ref:`Same-Host Migration With Future Reclamation` in **dry run mode**, meaning only for testing purposes without permanent changes to your LOCKSS 1.x system. (This is not possible for a :ref:`Same-Host Migration With Incremental Reclamation`.)
 
-   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a great variety of operating systems. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
+The process is largely the same as that for a corresponding :ref:`New-Host Migration` or :ref:`Same-Host Migration With Future Reclamation`, with a few differences highlighted as such in this guide:
 
-   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will degrade performance and cause the migration process to take longer.
+*  A step in :numref:`Running configure-lockss --migrate` (:ref:`Running configure-lockss --migrate`) is slightly different for dry run migrations.
 
-   *  If your LOCKSS 1.x host is running an outdated operating system such as CentOS 7, you would have to upgrade the OS before proceeding with a same-host migration.
+*  A step in :numref:`Configuring LOCKSS 1.x for Migration` (:ref:`Configuring LOCKSS 1.x for Migration`) is specific to dry run migrations.
+
+*  At the end of experimentation, you will need to reset your LOCKSS 2.x instance to its initial state before performing a genuine migration.
+
+   .. COMMENT FIXME How: reference to manual
+
+---------------------
+How To Use This Guide
+---------------------
+
+This guide is organized in consecutive sections (:numref:`Upgrading LOCKSS 1.x` through :numref:`Reconfiguring LOCKSS 2.x for Normal Operation`) representing the steps of the migration:
+
+.. image:: laaws-migration-steps-start.png
+   :align: center
+   :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The seven boxes are successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", "Configuring LOCKSS 1.x for Migration", "Running the Migrator" and "Reconfiguring LOCKSS 2.x for Normal Operation".
+
+followed by some appendices.
+
+In a number of places, the instructions differ
+between a :ref:`New-Host Migration` and a :ref:`Same-Host Migration`, and you will find clearly marked sections for each, like in this example:
+
+.. tab-set::
+
+   .. tab-item:: New-Host Migration
+      :sync: newhost
+
+      Example of instructions specific to a :ref:`New-Host Migration`.
+
+   .. tab-item:: Same-Host Migration
+      :sync: samehost
+
+      Example of instructions specific to a :ref:`Same-Host Migration`.
+
+In a few places, a particular instruction step will apply only to one :ref:`Migration Scenario` or to a :ref:`Dry Run Migration`; in addition to text to this effect, this situation will be denoted by a visual chip, as in these examples:
+
+1.  :bdg-success:`new-host migration only` This step applies only to a :ref:`New-Host Migration`.
+
+2.  :bdg-info:`same-host migration only` This step applies only to a :ref:`Same-Host Migration` (either a :ref:`Same-Host Migration With Future Reclamation` or a :ref:`Same-Host Migration With Incremental Reclamation`).
+
+3. :bdg-warning:`same-host migration with future reclamation only` This step applies only to a :ref:`Same-Host Migration With Future Reclamation`.
+
+4. :bdg-danger:`same-host migration with incremental reclamation only` This step applies only to a :ref:`Same-Host Migration With Incremental Reclamation`.
+
+5.  :bdg-dark:`dry run migration only` This step applies only to a :ref:`Dry Run Migration`.
+
+6.  :bdg-muted:`all other migration scenarios` If a step applies to only one :ref:`Migration Scenario`, a counterpart that applies to all other scenarios may be denoted with this visual chip.
+
+Many parts of this guide accompany you as you apply all or parts of section of the |MANUAL|.
 
 ---------------------------
 Detailed Migration Overview

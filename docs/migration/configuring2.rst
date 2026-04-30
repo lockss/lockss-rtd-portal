@@ -86,9 +86,9 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
    d. Run this command:
 
-      .. code-block:: shell
+      *  :bdg-dark:`dry run migration only` If you are doing a :ref:`Dry Run Migration`: ``scripts/configure-lockss``
 
-         scripts/configure-lockss --migrate
+      *  :bdg-muted:`all other migration scenarios` In all other cases: ``scripts/configure-lockss --migrate``
 
       .. tip::
 

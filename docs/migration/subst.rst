@@ -1,4 +1,4 @@
-.. |MANUAL| replace:: :external+lockss-manual:doc:`index`
+.. |MANUAL| replace:: :external+lockss-manual:doc:`LOCKSS 2.x System Manual <index>`
 
 .. |LOCKSS_INSTALLER_DIRECTORY| replace:: :external+lockss-manual:ref:`LOCKSS Installer Directory`
 
