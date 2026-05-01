@@ -272,6 +272,12 @@ At a high level, when the appropriate time comes (see :numref:`Chapter %s <Recon
 
    This is necessary for :external+lockss-manual:term:`K3s` to adjust to the newly configured IP address.
 
+--------------
+Firewall Rules
+--------------
+
+FIXME
+
 ----
 
 .. rubric:: Footnotes
