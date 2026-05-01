@@ -33,52 +33,15 @@ Follow these steps:
 
          If you are doing a :ref:`New-Host Migration`, follow these steps to reconfigure your LOCKSS 2.x instance for normal operation:
 
-         a. .. rubric:: Adopting the LOCKSS 1.x IP Address and Hostname
-               :name: Adopting the LOCKSS 1.x IP Address and Hostname
+         a. If you are :ref:`Adopting the LOCKSS 1.x IP Address and Hostname`, which is **strongly recommended**, perform the necessary actions now, which includes shutting down the LOCKSS 1.x host (or at least reconfiguring it to yet another IP address), reconfiguring the LOCKSS 2.x host's IP address and hostname, and restarting :external+lockss-manual:term:`K3s`; see :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`).
 
-            First, in a :ref:`New-Host Migration`, **it is strongly recommended that you now allow your LOCKSS 2.x host to adopt the IP address, and ideally the host name, previously associated with your LOCKSS 1.x host**, and you should perform this action at this stage.
-
-            .. tip::
-
-               .. dropdown:: What if adopting the LOCKSS 1.x IP address is not possible
-                  :name: reconfiguring-implications-ip
-                  :icon: light-bulb
-                  :animate: fade-in-slide-down
-
-                  If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications to a change of IP address for your LOCKSS network and its participants:
-
-                  *  The administrator of your LOCKSS network will need to include the change of IP address of your node in the LOCKSS network's configuration file, and make other  adjustments to the props server (firewall rules, Web server access rules, etc.) and more.
-
-                  *  Other nodes in your LOCKSS network may have to adjust firewall rules and other access control lists (for example in the Content Access Options section of the Web user interface).
-
-               .. dropdown:: What if adopting the LOCKSS 1.x hostname is not possible
-                  :name: reconfiguring-implications-hostname
-                  :icon: light-bulb
-                  :animate: fade-in-slide-down
-
-                  Adopting the host name of your LOCKSS 1.x host is not strictly required for the node to function, but a change of host name may also have downstream implications. For example, users of the Web user interface, browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, and more, will need to be updated to use the new host name.
-
-            To allow your LOCKSS 2.x host to adopt the IP address, and ideally host name, of your LOCKSS 1.x host, follow these steps:
-
-            (i) Shut down your LOCKSS 1.x host (or at least reconfigure it to a different IP address and host name). Contact your system administrator for specifics.
-
-            (ii) Reconfigure your LOCKSS 2.x host so it uses the IP address, and ideally host name, previously associated with your LOCKSS 1.x host. Contact your system administrator for specifics.
-
-         b. |LOCKSS2ROOT| On the LOCKSS 2.x host, run these two commands, as ``root``:
-
-            (i) First: ``/usr/local/bin/k3s-killall.sh``
-
-            (ii) Then: ``systemctl restart k3s``
-
-            This will restart :external+lockss-manual:term:`K3s`.
-
-         c. |LOCKSS2LOCKSS| Then run this command, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
+         b. |LOCKSS2LOCKSS| Then run this command, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
 
             .. code-block:: shell
 
                scripts/configure-lockss
 
-         d. The LOCKSS 2.x configuration process will repeat; for most questions, you will simply hit :kbd:`Enter` to re-accept the previously entered value, **except for the following prompts**:
+         c. The LOCKSS 2.x configuration process will repeat; for most questions, you will simply hit :kbd:`Enter` to re-accept the previously entered value, **except for the following prompts**:
 
             (i) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
@@ -90,7 +53,7 @@ Follow these steps:
 
             (v) :guilabel:`OK to store this configuration?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-         e. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
+         d. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
       .. tab-item:: Same-Host Migration
          :sync: samehost

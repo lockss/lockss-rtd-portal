@@ -14,7 +14,7 @@ This document will guide you as you upgrade from LOCKSS |UPGRADE_FROM_MINOR| to 
    :maxdepth: 1
    :numbered:
 
-   overview
+   introduction
    upgrading1
    preparing2
    installing2
