@@ -70,7 +70,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
       and verifying that the output is ``lockss``.
 
-   b. |LOCKSS2LOCKSS| Navigate to the |LOCKSS_INSTALLER_DIRECTORY|, symbolically:
+   b. |LOCKSS2LOCKSS| Navigate to the :ref:`LOCKSS Installer Directory`, symbolically:
 
       :samp:`cd {<LOCKSS_INSTALLER_DIR>}`
 
@@ -190,7 +190,7 @@ Running LOCKSS 2.x
 
 Now start the LOCKSS 2.x system. Follow these steps:
 
-1. |LOCKSS2LOCKSS| Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the |LOCKSS_INSTALLER_DIRECTORY|):
+1. |LOCKSS2LOCKSS| Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the :ref:`LOCKSS Installer Directory`):
 
    .. code-block:: shell
 

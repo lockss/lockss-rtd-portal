@@ -189,11 +189,21 @@ The commands to be typed at the console at various points in the migration proce
 
     *  |LOCKSS1ROOT| This command occurs on your LOCKSS 1.x host [#fn-same-host]_, as the ``root`` user.
 
-    *  |LOCKSS2LOCKSS| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the |LOCKSS_INSTALLER_DIRECTORY|.
+    *  |LOCKSS2LOCKSS| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`.
 
-    *  |LOCKSS2ROOT| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``root`` user, in the |LOCKSS_INSTALLER_DIRECTORY|.
+    *  |LOCKSS2ROOT| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``root`` user, in the :ref:`LOCKSS Installer Directory`.
 
-The |LOCKSS_INSTALLER_DIRECTORY| is an important concept in LOCKSS 2.x. It is the directory from which many LOCKSS 2.x installation, configuration and operation commands are run -- usually as the ``lockss`` user, but in the case of installing LOCKSS 2.x for the first time, sometimes as the ``root`` user. The :external+lockss-manual:ref:`Default LOCKSS Installer Directory` is :file:`/{$HOME}/lockss-installer` relative to the ``lockss`` user, meaning :file:`/home/lockss/lockss-installer` on most Linux systems. In the |MANUAL|, this directory is symbolically represented as :samp:`{<LOCKSS_INSTALLER_DIR>}` (for example :samp:`cd {<LOCKSS_INSTALLER_DIR>}`).
+.. rubric:: LOCKSS Installer Directory
+   :name: LOCKSS Installer Directory
+   :heading-level: 4
+
+The **LOCKSS Installer Directory** is an important concept in LOCKSS 2.x. It is the directory from which many LOCKSS 2.x installation, configuration and operation commands are run -- usually as the ``lockss`` user, but in the case of installing LOCKSS 2.x for the first time, sometimes as the ``root`` user. The **default LOCKSS Installer Directory** is :file:`{$HOME}/lockss-installer` relative to the ``lockss`` user, meaning :file:`/home/lockss/lockss-installer` on most Linux systems. In the |MANUAL|, this directory is symbolically represented as :samp:`{<LOCKSS_INSTALLER_DIR>}` (for example :samp:`cd {<LOCKSS_INSTALLER_DIR>}`).
+
+References in the |MANUAL|:
+
+*  |TAB| :external+lockss-manual:ref:`LOCKSS Installer Directory`
+
+*  |TAB| :external+lockss-manual:ref:`Default LOCKSS Installer Directory`
 
 LOCKSS 2.x System Manual References
 ===================================

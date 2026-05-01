@@ -4,7 +4,7 @@ Frequently Asked Questions about the Migration
 
 .. rubric:: Is commissioning a new host required to install LOCKSS 2.x?
 
-No, but it is recommended. See :ref:`Why is a new host recommended? <migration-new-host-recommended>` in :numref:`Migration Overview` (:ref:`Migration OVerview`).
+No, but it is recommended. See :ref:`Why is a new host recommended? <migration-new-host-recommended>` in :numref:`Migration Overview` (:ref:`Migration Overview`).
 
 .. rubric:: Instead of migrating, could I install LOCKSS 2.x and let it recrawl all the content?
 
