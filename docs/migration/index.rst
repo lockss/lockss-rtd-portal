@@ -1,8 +1,10 @@
+.. include:: subst.rst
+
 =================================
 LOCKSS 1.x to 2.x Migration Guide
 =================================
 
-*Last updated: 2026-04-22*
+*Last updated: 2026-05-01*
 
 **Welcome, LOCKSS 1.x users!**
 
@@ -32,4 +34,4 @@ This document will guide you as you upgrade from LOCKSS |UPGRADE_FROM_MINOR| to 
 
 .. [#fn-first-time]
 
-   If you are installing LOCKSS for the first time, you should refer to the :doc:`lockss-manual:index`.
+   If you are installing LOCKSS for the first time, you should refer to the |MANUAL|.

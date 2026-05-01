@@ -27,7 +27,7 @@ Follow these steps:
 
          If you are doing a :ref:`New-Host Migration`:
 
-         a. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented as :samp:`{/path/to/lockss1_config_file.dat}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat`.
+         a. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented here as :samp:`{/path/to/lockss1_config_file.dat}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat`.
 
             For example, you might use :program:`scp` on your LOCKSS 1.x host:
 
@@ -54,7 +54,7 @@ Follow these steps:
 Running :program:`configure-lockss --migrate`
 ---------------------------------------------
 
-The second part of this task is to run the :program:`configure-lockss` tool with the special ``--migrate`` option on your LOCKSS 2.x host [#fn-same-host]_.
+The second part of this task is to run the :program:`configure-lockss` tool with the ``--migrate`` option on your LOCKSS 2.x host [#fn-same-host]_.
 
 This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:external+lockss-manual:doc:`configuring`) of the |MANUAL|, **but with some notable exceptions described below**:
 
@@ -62,19 +62,11 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
 2. Follow these steps (**modified** from Section |CONFIGURE_CHAPTER|.2 of the |MANUAL|):
 
-   a. |LOCKSS2LOCKSS| Double-check that you are in a shell console acting as the ``lockss`` user by typing:
-
-      .. code-block:: shell
-
-         whoami
-
-      and verifying that the output is ``lockss``.
-
-   b. |LOCKSS2LOCKSS| Navigate to the :ref:`LOCKSS Installer Directory`, symbolically:
+   a. |LOCKSS2LOCKSS| Navigate to the :ref:`LOCKSS Installer Directory`, symbolically:
 
       :samp:`cd {<LOCKSS_INSTALLER_DIR>}`
 
-   c. |LOCKSS2LOCKSS| Run this command:
+   b. |LOCKSS2LOCKSS| Run this command:
 
       *  |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`: ``scripts/configure-lockss``
 
@@ -105,7 +97,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
                :guilabel:`Location of copied LOCKSS 1.x config.dat file`
 
-               Enter the path of the copied LOCKSS 1.x configuration file, symbolically represented as :samp:`{/path/to/config.dat}` above, or hit :kbd:`Enter` to accept the default in square brackets (:file:`/tmp/v1config.dat`).
+               Enter the path of the copied LOCKSS 1.x configuration file, symbolically represented as :samp:`{/path/to/lockss1_config_file.dat}` above, or hit :kbd:`Enter` to accept the default in square brackets (:file:`/tmp/v1config.dat`).
 
             *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 

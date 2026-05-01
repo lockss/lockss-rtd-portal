@@ -51,7 +51,7 @@ Follow these steps:
 
             (iv) *Optional.* There may be other configuration values you need to change at this stage, but in most cases, everything else will be the same.
 
-            (v) :guilabel:`OK to store this configuration?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+            (v) :guilabel:`OK to proceed?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
          d. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
@@ -64,13 +64,13 @@ Follow these steps:
 
             .. code-block:: shell
 
-               scripts/configure-lockss --replay
+               scripts/configure-lockss
 
          b. The LOCKSS 2.x configuration process will auto-repeat, but you will receive a few prompts:
 
             (i) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-            (ii) :guilabel:`OK to store this configuration?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+            (ii) :guilabel:`OK to proceed?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
 4. |LOCKSS2LOCKSS| Finally, on the LOCKSS 2.x host, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`, run this command:
 

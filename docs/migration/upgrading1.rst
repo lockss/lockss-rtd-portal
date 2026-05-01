@@ -10,7 +10,7 @@ Upgrading LOCKSS 1.x
 
 The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, the latest version of LOCKSS |UPGRADE_FROM_MINOR|.
 
-To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these steps:
+If you have not done so already, upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH| by following these steps:
 
 1. |LOCKSS1ROOT| On your LOCKSS 1.x host [#fn-same-host]_, as ``root``, run this :program:`systemctl` command [#fn-familiar-upgrade]_:
 

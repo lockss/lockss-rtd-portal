@@ -17,22 +17,16 @@ The process depends on your :ref:`Migration Scenario`:
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      If you are doing a :ref:`New-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS 2.x host:
+      |LOCKSS2ROOT|
 
-      *  |LOCKSS2ROOT| |TAB| Section |INSTALL_CHAPTER|.1.2 (:external+lockss-manual:ref:`Invoking adduser`)
-
-      *  |LOCKSS2ROOT| |TAB| Section |INSTALL_CHAPTER|.2.3 (:external+lockss-manual:ref:`Running the LOCKSS Downloader`)
-
-      *  |LOCKSS2ROOT| All of |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:ref:`Running install-lockss`)
+      If you are doing a :ref:`New-Host Migration`, follow all instructions in |TAB| Chapter |INSTALL_CHAPTER| (:external+lockss-manual:ref:`Installing LOCKSS`) in the |MANUAL|, then return here.
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
 
-      If you are doing a :ref:`Same-Host Migration`, follow the instructions in the following sections of the |MANUAL| on your LOCKSS host:
+      |LOCKSS2ROOT|
 
-      *  |LOCKSS2ROOT| |TAB| Section |INSTALL_CHAPTER|.2.3 (:external+lockss-manual:ref:`Running the LOCKSS Downloader`)
-
-      *  |LOCKSS2ROOT| All of |TAB| Section |INSTALL_CHAPTER|.3 (:external+lockss-manual:ref:`Running install-lockss`)
+      If you are doing a :ref:`Same-Host Migration`, follow the instructions in |TAB| Chapter |INSTALL_CHAPTER| (:external+lockss-manual:ref:`Installing LOCKSS`) in the |MANUAL|, **except** |TAB| Section |INSTALL_CHAPTER|.1.2 (:external+lockss-manual:ref:`Invoking adduser`), then return here.
 
 ----
 
