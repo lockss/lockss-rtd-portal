@@ -6,7 +6,7 @@ Running the Migrator
 
 .. image:: laaws-migration-steps-running.png
    :align: center
-   :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first five boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration" and "Configuring LOCKSS 1.x for Migration", are colored in light blue, indicating completed steps. The sixth box labeled "Running the Migrator" is highlighted in yellow, indicating the step in progress. The last box, labeled "Reconfiguring LOCKSS 2.x for Normal Operation", is not colored, indicating future steps.
+   :alt: A diagram of eight consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first five boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", and "Configuring LOCKSS 1.x for Migration", are colored in light blue, indicating completed steps. The sixth box labeled "Running the Migrator" is highlighted in yellow, indicating the step in progress. The last two boxes, labeled "Reconfiguring LOCKSS 2.x for Normal Operation" and "Decommissioning LOCKSS 1.x", are not colored, indicating future steps.
 
 The next task is to run the migrator in the :guilabel:`Migration Control` screen of your LOCKSS 1.x Web user interface.
 

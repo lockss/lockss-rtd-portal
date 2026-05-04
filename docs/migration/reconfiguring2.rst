@@ -6,7 +6,7 @@ Reconfiguring LOCKSS 2.x for Normal Operation
 
 .. image:: laaws-migration-steps-reconfiguring2.png
    :align: center
-   :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first six boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", "Configuring LOCKSS 1.x for Migration" and "Running the Migrator", are colored in light blue, indicating completed steps. The seventh box labeled "Reconfiguring LOCKSS 2.x for Normal Operation" is highlighted in yellow, indicating the step in progress.
+   :alt: A diagram of eight consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first six boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", "Configuring LOCKSS 1.x for Migration", and "Running the Migrator", are colored in light blue, indicating completed steps. The seventh box labeled "Reconfiguring LOCKSS 2.x for Normal Operation" is highlighted in yellow, indicating the step in progress. The last box, labeled "Decommissioning LOCKSS 1.x", is not colored, indicating a future step.
 
 The next task, once all the content has been successfully migrated from LOCKSS 1.x to LOCKSS 2.x, is to reconfigure LOCKSS 2.x for normal operation.
 

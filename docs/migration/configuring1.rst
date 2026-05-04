@@ -6,7 +6,7 @@ Configuring LOCKSS 1.x for Migration
 
 .. image:: laaws-migration-steps-configuring1.png
    :align: center
-   :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first four boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", and "Configuring LOCKSS 2.x for Migration", are colored in light blue, indicating completed steps. The fifth box labeled "Configuring LOCKSS 1.x for Migration" is highlighted in yellow, indicating the step in progress. The last two boxes, successively labeled "Running the Migrator" and "Reconfiguring LOCKSS 2.x for Normal Operation", are not colored, indicating future steps.
+   :alt: A diagram of eight consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first four boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", and "Configuring LOCKSS 2.x for Migration", are colored in light blue, indicating completed steps. The fifth box labeled "Configuring LOCKSS 1.x for Migration" is highlighted in yellow, indicating the step in progress. The last three boxes, successively labeled "Running the Migrator", "Reconfiguring LOCKSS 2.x for Normal Operation", and "Decommissioning LOCKSS 1.x", are not colored, indicating future steps.
 
 The next task is to configure LOCKSS 1.x for migration in the :guilabel:`Migration Settings` screen of your LOCKSS 1.x Web user interface.
 

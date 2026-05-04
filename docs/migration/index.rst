@@ -24,6 +24,7 @@ This document will guide you as you upgrade from LOCKSS |UPGRADE_FROM_MINOR| to 
    configuring1
    running
    reconfiguring2
+   decommissioning1
    faq
    differences
    lcap-ssl

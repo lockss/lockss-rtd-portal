@@ -6,7 +6,7 @@ Upgrading LOCKSS 1.x
 
 .. image:: laaws-migration-steps-upgrading1.png
    :align: center
-   :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first box labeled "Upgrading LOCKSS 1.x" is highlighted in yellow, indicating the step in progress. The last six boxes, successively labeled "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", "Configuring LOCKSS 1.x for Migration", "Running the Migrator" and "Reconfiguring LOCKSS 2.x for Normal Operation", are not colored, indicating future steps.
+   :alt: A diagram of eight consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first box labeled "Upgrading LOCKSS 1.x" is highlighted in yellow, indicating the step in progress. The last seven boxes, successively labeled "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", "Configuring LOCKSS 1.x for Migration", "Running the Migrator", "Reconfiguring LOCKSS 2.x for Normal Operation", and "Decommissioning LOCKSS 1.x", are not colored, indicating future steps.
 
 The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, the latest version of LOCKSS |UPGRADE_FROM_MINOR|.
 
