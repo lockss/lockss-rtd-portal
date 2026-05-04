@@ -10,7 +10,7 @@ Configuring LOCKSS 1.x for Migration
 
 The next task is to configure LOCKSS 1.x for migration in the :guilabel:`Migration Settings` screen of your LOCKSS 1.x Web user interface.
 
-Your LOCKSS 2.x system will need to be running, and you will need to know the LOCKSS 2.x hostname [#fn-same-host]_, Web user interface username and password, and PostgreSQL database password, supplied when :ref:`Configuring LOCKSS 2.x for Migration`.
+Your LOCKSS 2.x system will need to be running, and you will need to know the LOCKSS 2.x hostname, Web user interface username and password, and PostgreSQL database password, supplied when :ref:`Configuring LOCKSS 2.x for Migration`.
 
 .. tip::
 
@@ -53,11 +53,3 @@ Follow these steps:
       **Selecting this option will permanently delete content from your LOCKSS 1.x system, gradually during the migration as it progresses.** This option should be used **if, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, which is only applicable if **neither** a :ref:`New-Host Migration` **nor** a :ref:`Same-Host Migration With Future Reclamation` are feasible. You will receive a popup warning when you check this checkbox, which you need to acknowledge before you can continue.
 
 7. Click on the :guilabel:`Next` button to navigate to the :guilabel:`Migration Control` screen.
-
-----
-
-.. rubric:: Footnotes
-
-.. [#fn-same-host]
-
-   |FN_SAME_HOST|

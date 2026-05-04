@@ -1,7 +1,5 @@
 .. |MANUAL| replace:: :external+lockss-manual:doc:`LOCKSS 2.x System Manual <index>`
 
-.. |FN_SAME_HOST| replace:: If your :ref:`Migration Scenario` is a :ref:`Same-Host Migration`, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
-
 .. |INSTALL_CHAPTER| replace:: 2
 .. |CONFIGURE_CHAPTER| replace:: 4
 

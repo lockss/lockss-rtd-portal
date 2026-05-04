@@ -12,7 +12,7 @@ The first task in the migration process is to upgrade your LOCKSS 1.x instance t
 
 If you have not done so already, upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH| by following these steps:
 
-1. |LOCKSS1ROOT| On your LOCKSS 1.x host [#fn-same-host]_, as ``root``, run this :program:`systemctl` command [#fn-familiar-upgrade]_:
+1. |LOCKSS1ROOT| On your LOCKSS 1.x host, as ``root``, run this :program:`systemctl` command [#fn-familiar-upgrade]_:
 
    .. code-block:: shell
 
@@ -112,10 +112,6 @@ If you have not done so already, upgrade your LOCKSS 1.x instance to LOCKSS |UPG
 ----
 
 .. rubric:: Footnotes
-
-.. [#fn-same-host]
-
-   |FN_SAME_HOST|
 
 .. [#fn-familiar-upgrade]
 

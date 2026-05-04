@@ -207,11 +207,11 @@ Console Hint
 
 The commands to be typed at the console at various points in the migration process will occur in several environments, in terms of host, user, and directory, and the following visuals will augment the text to that effect:
 
-    *  |LOCKSS1ROOT| This command occurs on your LOCKSS 1.x host [#fn-same-host]_, as the ``root`` user.
+    *  |LOCKSS1ROOT| This command occurs on your LOCKSS 1.x host, as the ``root`` user.
 
-    *  |LOCKSS2LOCKSS| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`.
+    *  |LOCKSS2LOCKSS| This command occurs on your LOCKSS 2.x host, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`.
 
-    *  |LOCKSS2ROOT| This command occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``root`` user, in the :ref:`LOCKSS Installer Directory`.
+    *  |LOCKSS2ROOT| This command occurs on your LOCKSS 2.x host, as the ``root`` user, in the :ref:`LOCKSS Installer Directory`.
 
 .. rubric:: LOCKSS Installer Directory
    :name: LOCKSS Installer Directory
@@ -228,27 +228,23 @@ Adopting the LOCKSS 1.x IP Address and Hostname
 
 |NEWHOSTONLY|
 
-In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, you allow your LOCKSS 2.x host to adopt the IP address, and ideally the hostname, previously associated with your LOCKSS 1.x host**. This is an important consideration because it may require coordinated action with your system administrator or IT department, which might take time. Changing the IP address and hostname of the LOCKSS 2.x host occurs after the principal part of the migration is finished, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`).
+In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, you allow your LOCKSS 2.x host to adopt the IP address, and ideally the hostname, previously associated with your LOCKSS 1.x host**. This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses and/or hostnames may be required and may cause an interruption of service.
 
-.. note::
+Changing the IP address and hostname of the LOCKSS 2.x host occurs after the principal part of the migration is finished, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting :external+lockss-manual:term:`K3s` to adjust to the newly configured IP address.
 
-   .. dropdown:: Implications if adopting the LOCKSS 1.x IP address is not possible
-      :name: Implications if adopting the LOCKSS 1.x IP address is not possible
-      :icon: info
-      :animate: fade-in-slide-down
+.. rubric:: Implications if adopting the LOCKSS 1.x IP address is not possible
+   :name: Implications if adopting the LOCKSS 1.x IP address is not possible
 
-      If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for your LOCKSS network and its participants to a permanent change of IP address for your node:
+If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for your LOCKSS network and its participants to a permanent change of IP address for your node:
 
-      *  The administrator of your LOCKSS network will need to include the permanent change of IP address of your node in the LOCKSS network's configuration file, and make other  adjustments to the props server (firewall rules, Web server access rules, etc.) and more.
+   *  The administrator of your LOCKSS network will need to include the permanent change of IP address of your node in the LOCKSS network's configuration file, and make other  adjustments to the props server (firewall rules, Web server access rules, etc.) and more.
 
-      *  Other nodes in your LOCKSS network may have to adjust firewall rules and other access control lists (for example in the Content Access Options section of the Web user interface).
+   *  Other nodes in your LOCKSS network may have to adjust firewall rules and other access control lists (for example in the Content Access Options section of the Web user interface).
 
-   .. dropdown:: Implications if adopting the LOCKSS 1.x hostname is not possible
-      :name: Implications if adopting the LOCKSS 1.x hostname is not possible
-      :icon: info
-      :animate: fade-in-slide-down
+.. rubric:: Implications if adopting the LOCKSS 1.x hostname is not possible
+   :name: Implications if adopting the LOCKSS 1.x hostname is not possible
 
-      Adopting the hostname of your LOCKSS 1.x host is not strictly required for the node to function, but a change of hostname may also have downstream implications. If you keep the new hostname permanently, it will need to be used when accessing the Web user interface, and browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, etc. will need to be updated.
+Adopting the hostname of your LOCKSS 1.x host is not strictly required for the node to function, but a change of hostname may also have downstream implications. If you keep the new hostname permanently, it will need to be used when accessing the Web user interface, and browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, etc. will need to be updated.
 
 At a high level, when the appropriate time comes (see :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>`), the process to allow your LOCKSS 2.x host to adopt the IP address, and ideally hostname, of your LOCKSS 1.x host, follows this outline:
 
@@ -284,7 +280,3 @@ FIXME
 .. [#fn-au]
 
    An **archival unit**, or **AU**, is a unit of preserved content in LOCKSS. Consisting of any number of versioned objects, an AU might be a volume of a journal, a single book and its assets, a given digitized collection, etc.
-
-.. [#fn-same-host]
-
-   |FN_SAME_HOST|

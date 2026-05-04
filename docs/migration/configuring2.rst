@@ -8,7 +8,7 @@ Configuring LOCKSS 2.x for Migration
    :align: center
    :alt: A diagram of seven consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first three boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host" and "Installing LOCKSS 2.x", are colored in light blue, indicating completed steps. The fourth box labeled "Configuring LOCKSS 2.x for Migration" is highlighted in yellow, indicating the step in progress. The last three boxes, successively labeled "Configuring LOCKSS 1.x for Migration", "Running the Migrator" and "Reconfiguring LOCKSS 2.x for Normal Operation", are not colored, indicating future steps.
 
-The next task in the migration process is to configure LOCKSS 2.x for migration on your LOCKSS 2.x host [#fn-same-host]_.
+The next task in the migration process is to configure LOCKSS 2.x for migration on your LOCKSS 2.x host.
 
 ---------------------------------------
 Importing Configuration From LOCKSS 1.x
@@ -54,7 +54,7 @@ Follow these steps:
 Running :program:`configure-lockss --migrate`
 ---------------------------------------------
 
-The second part of this task is to run the :program:`configure-lockss` tool with the ``--migrate`` option on your LOCKSS 2.x host [#fn-same-host]_.
+The second part of this task is to run the :program:`configure-lockss` tool with the ``--migrate`` option on your LOCKSS 2.x host.
 
 This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:external+lockss-manual:doc:`configuring`) of the |MANUAL|, **but with some notable exceptions described below**:
 
@@ -71,10 +71,6 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
       *  |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`: ``scripts/configure-lockss``
 
       *  |ALLOTHERSCENARIOS| In all other cases: ``scripts/configure-lockss --migrate``
-
-      .. tip::
-
-         Some of the questions asked by :program:`configure-lockss` will have a suggested or default value, displayed in square brackets; either type the desired value and then hit :kbd:`Enter`, or just hit :kbd:`Enter` to accept the value in square brackets.
 
 3. Follow the instructions in |TAB| Section |CONFIGURE_CHAPTER|.3 (:external+lockss-manual:ref:`Kubernetes Settings`) of the |MANUAL|.
 
@@ -182,7 +178,7 @@ Running LOCKSS 2.x
 
 Now start the LOCKSS 2.x system. Follow these steps:
 
-1. |LOCKSS2LOCKSS| Run the following command on your LOCKSS 2.x host [#fn-same-host]_ (still as the ``lockss`` user, still in the :ref:`LOCKSS Installer Directory`):
+1. |LOCKSS2LOCKSS| Run the following command on your LOCKSS 2.x host (still as the ``lockss`` user, still in the :ref:`LOCKSS Installer Directory`):
 
    .. code-block:: shell
 
@@ -220,12 +216,4 @@ Now start the LOCKSS 2.x system. Follow these steps:
       .. tab-item:: Same-Host Migration
          :sync: samehost
 
-         If you are doing a :ref:`Same-Host Migration`, go to the URL :samp:`http://{<lockss2host>}:24602/DaemonStatus`, where :samp:`{<lockss2host>}` represents the host name of your LOCKSS 2.x host [#fn-same-host]_ (for example ``lockss2.myuniversity.edu``). Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next phase.
-
-----
-
-.. rubric:: Footnotes
-
-.. [#fn-same-host]
-
-   |FN_SAME_HOST|
+         If you are doing a :ref:`Same-Host Migration`, go to the URL :samp:`http://{<lockss2host>}:24602/DaemonStatus`, where :samp:`{<lockss2host>}` represents the host name of your LOCKSS 2.x host (for example ``lockss2.myuniversity.edu``). Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next phase.

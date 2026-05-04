@@ -12,13 +12,13 @@ The next task, once all the content has been successfully migrated from LOCKSS 1
 
 Follow these steps:
 
-1. |LOCKSS1ROOT| Stop your LOCKSS 1.x system. This occurs on your LOCKSS 1.x host [#fn-same-host]_, as ``root``:
+1. |LOCKSS1ROOT| Stop your LOCKSS 1.x system. This occurs on your LOCKSS 1.x host, as ``root``:
 
    .. code-block:: shell
 
       systemctl stop lockss
 
-2. |LOCKSS2LOCKSS| Stop your LOCKSS 2.x system (currently configured for migration). This occurs on your LOCKSS 2.x host [#fn-same-host]_, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
+2. |LOCKSS2LOCKSS| Stop your LOCKSS 2.x system (currently configured for migration). This occurs on your LOCKSS 2.x host, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
 
    .. code-block:: shell
 
@@ -33,7 +33,24 @@ Follow these steps:
 
          If you are doing a :ref:`New-Host Migration`, follow these steps to reconfigure your LOCKSS 2.x instance for normal operation:
 
-         a. If you are :ref:`Adopting the LOCKSS 1.x IP Address and Hostname`, which is **strongly recommended**, perform the necessary actions now, which includes shutting down the LOCKSS 1.x host (or at least reconfiguring it to yet another IP address), reconfiguring the LOCKSS 2.x host's IP address and hostname, and restarting :external+lockss-manual:term:`K3s`; see :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`).
+         a. Allow your LOCKSS 2.x host to adopt the IP address, and ideally hostname, previously associated with your LOCKSS 1.x host. This step is **strongly recommended**; see :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`) for details, including a discussion of :ref:`Implications if adopting the LOCKSS 1.x IP address is not possible` and :ref:`Implications if adopting the LOCKSS 1.x hostname is not possible`. This action requires the following steps:
+
+            (i) |LOCKSS1ROOT| Shut down your LOCKSS 1.x host, or at least reconfigure it to yet another IP address.
+
+            (ii) |LOCKSS2ROOT| Reconfigure your LOCKSS 2.x host so it uses the IP address, and ideally hostname, previously associated with your LOCKSS 1.x host.
+
+            (iii) |LOCKSS2ROOT| On the LOCKSS 2.x host, run these two commands as ``root``:
+
+               .. code-block:: shell
+
+                  /usr/local/bin/k3s-killall.sh
+
+                  systemctl restart k3s
+
+               This is necessary for :external+lockss-manual:term:`K3s` to adjust to the newly configured IP address.
+
+
+
 
          b. |LOCKSS2LOCKSS| Then run this command, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
 
@@ -79,11 +96,3 @@ Follow these steps:
       scripts/start-lockss --wait
 
    This will start the LOCKSS 2.x stack (now configured for normal operation).
-
-----
-
-.. rubric:: Footnotes
-
-.. [#fn-same-host]
-
-   |FN_SAME_HOST|
