@@ -32,7 +32,7 @@ Follow these steps:
 
       *  |SAMEHOSTONLY| If you are doing a :ref:`Same-Host Migration`, enter ``localhost``.
 
-   b. :guilabel:`Configuration Service Web UI Port`: The default Web UI port for the :external+lockss-manual:ref:`LOCKSS Configuration Service`, ``24602``, should remain unchanged.
+   b. :guilabel:`Configuration Service Web UI Port`: The default Web UI port for the |CFGSVC|, ``24602``, should remain unchanged.
 
    c. :guilabel:`Web UI Username`: Enter the Web UI username for the LOCKSS 2.x instance.
 
@@ -40,7 +40,7 @@ Follow these steps:
 
 3. Click the :guilabel:`Load Configuration` button. The metadata database configuration will be queried from the LOCKSS 2.x instance and displayed in the :guilabel:`Metadata Database` section of the screen.
 
-4. In the :guilabel:`Database Password` field, enter the database password for the LOCKSS 2.x system.
+4. In the :guilabel:`Database Password` field, enter the password for the |POSTGRESQL|.
 
 5. |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`, select the :guilabel:`Perform dry run migration` checkbox in the :guilabel:`Migration Options` section.
 
@@ -50,6 +50,6 @@ Follow these steps:
 
    .. caution::
 
-      **Selecting this option will permanently delete content from your LOCKSS 1.x system, gradually during the migration as it progresses.** This option should be used **if, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, which is only applicable if **neither** a :ref:`New-Host Migration` **nor** a :ref:`Same-Host Migration With Future Reclamation` are feasible. You will receive a popup warning when you check this checkbox, which you need to acknowledge before you can continue.
+      **Selecting this option causes content to be permanently delete content from your LOCKSS 1.x instance, gradually as the migration progresses.** This option should be used **if, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, that is, a same-host migration with insufficient storage space to hold two copies of the content. You will receive a popup warning when you check this checkbox, which you need to acknowledge before you can continue.
 
-7. Click on the :guilabel:`Next` button to navigate to the :guilabel:`Migration Control` screen.
+7. Click on the :guilabel:`Next` button at the bottom of the :guilabel:`Migration Settings` screen to navigate to the :guilabel:`Migration Control` screen.

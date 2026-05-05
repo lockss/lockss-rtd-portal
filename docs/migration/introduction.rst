@@ -230,7 +230,7 @@ Adopting the LOCKSS 1.x IP Address and Hostname
 
 In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, you allow your LOCKSS 2.x host to adopt the IP address, and ideally the hostname, previously associated with your LOCKSS 1.x host**. This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses and/or hostnames may be required and may cause an interruption of service.
 
-Changing the IP address and hostname of the LOCKSS 2.x host occurs after the principal part of the migration is finished, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting :external+lockss-manual:term:`K3s` to adjust to the newly configured IP address.
+Changing the IP address and hostname of the LOCKSS 2.x host occurs after the principal part of the migration is finished, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting |K3S| to adjust to the newly configured IP address.
 
 .. rubric:: Implications if adopting the LOCKSS 1.x IP address is not possible
    :name: Implications if adopting the LOCKSS 1.x IP address is not possible
@@ -246,22 +246,6 @@ If adopting the IP address of your LOCKSS 1.x host is not possible, there are im
 
 Adopting the hostname of your LOCKSS 1.x host is not strictly required for the node to function, but a change of hostname may also have downstream implications. If you keep the new hostname permanently, it will need to be used when accessing the Web user interface, and browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, etc. will need to be updated.
 
-At a high level, when the appropriate time comes (see :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>`), the process to allow your LOCKSS 2.x host to adopt the IP address, and ideally hostname, of your LOCKSS 1.x host, follows this outline:
-
-1. |LOCKSS1ROOT| Shut down your LOCKSS 1.x host, or at least reconfigure it to yet another IP address.
-
-2. |LOCKSS2ROOT| Reconfigure your LOCKSS 2.x host so it uses the IP address, and ideally hostname, previously associated with your LOCKSS 1.x host.
-
-3. |LOCKSS2ROOT| On the LOCKSS 2.x host, run these two commands as ``root``:
-
-   .. code-block:: shell
-
-      /usr/local/bin/k3s-killall.sh
-
-      systemctl restart k3s
-
-   This is necessary for :external+lockss-manual:term:`K3s` to adjust to the newly configured IP address.
-
 Firewall Rules
 ==============
 
@@ -275,7 +259,8 @@ FIXME
 
    Legend for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`):
 
-   .. image:: laaws-migration-basic-key.png
+   .. image:: laaws-migration-basic-legend.png
+      :alt: A legend for the diagrams in the Migration Overview section. A box with a thick border labeled AU9 for "archival unit #9" is described as "Storage space occupied by an AU actively handled by the corresponding LOCKSS instance". A box with a regular border labeled AU9 for "archival unit #9" is described as "Storage space occupied by an AU not actively handled by the corresponding LOCKSS instance". A box with a dashed border labeled AU9 for "archival unit #9" is described as "Storage space reclaimed from an AU formerly hanlded by the corresponding LOCKSS instance".
 
 .. [#fn-au]
 

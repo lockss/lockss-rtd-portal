@@ -97,20 +97,11 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 
-         b. Follow the instructions in the following sections in the |MANUAL|:
+         b. Follow all instructions in |TAB| Section |CONFIGURE_CHAPTER| of the |MANUAL|. namely:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.2 (:external+lockss-manual:ref:`IP Address`)
-
-         c. You will then receive the following message:
-
-            .. code-block:: text
-
-               The following values were imported from your LOCKSS 1.0 configuration.
-                 In normal circumstances they should be accepted as is.
-
-            Follow the instructions in the following sections in the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.3 (:external+lockss-manual:ref:`Initial UI Subnet`)
 
@@ -129,14 +120,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             confirming that the LOCKSS 1.x configuration file was detected.
 
-         b. You will then receive the following message:
-
-            .. code-block:: text
-
-               The following values were imported from your LOCKSS 1.0 configuration.
-                 In normal circumstances they should be accepted as is.
-
-            Follow the instructions in the following sections of the |MANUAL|:
+         b. Follow the instructions in the following sections of the |MANUAL|:
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
 
@@ -154,23 +138,23 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
          d. Follow the instructions in |TAB| Section |CONFIGURE_CHAPTER|.4.5 (:external+lockss-manual:ref:`Network Address Translation`) of the |MANUAL|.
 
-5. Follow all instructions from the following sections of the |MANUAL|:
+5. Follow all instructions in the remainder of |TAB| Chapter |CONFIGURE_CHAPTER| of the |MANUAL|, namely:
 
-            *  |TAB| Section 4.5 (:external+lockss-manual:ref:`Mail Settings`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.5 (:external+lockss-manual:ref:`Mail Settings`)
 
-            *  |TAB| Section 4.6 (:external+lockss-manual:ref:`Preservation Network Settings`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.6 (:external+lockss-manual:ref:`Preservation Network Settings`)
 
-            *  |TAB| Section 4.7 (:external+lockss-manual:ref:`Web User Interface Settings`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.7 (:external+lockss-manual:ref:`Web User Interface Settings`)
 
-            *  |TAB| Section 4.8 (:external+lockss-manual:ref:`Storage Area Settings`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.8 (:external+lockss-manual:ref:`Storage Area Settings`)
 
-            *  |TAB| Section 4.9 (:external+lockss-manual:ref:`Database Settings`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.9 (:external+lockss-manual:ref:`Database Settings`)
 
-            *  |TAB| Section 4.10 (:external+lockss-manual:ref:`Stack Component Settings`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.10 (:external+lockss-manual:ref:`Stack Component Settings`)
 
-            *  |TAB| Section 4.11 (:external+lockss-manual:ref:`Web Replay Settings`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.11 (:external+lockss-manual:ref:`Web Replay Settings`)
 
-            *  |TAB| Section 4.12 (:external+lockss-manual:ref:`Final Steps of configure-lockss`)
+            *  |TAB| Section |CONFIGURE_CHAPTER|.12 (:external+lockss-manual:ref:`Final Steps of configure-lockss`)
 
 ------------------
 Running LOCKSS 2.x
@@ -205,15 +189,23 @@ Now start the LOCKSS 2.x system. Follow these steps:
 
          If you are doing a :ref:`New-Host Migration`, follow these steps:
 
-         a. In a browser, go to the URL :samp:`http://{<lockss2host>}:24602/DaemonStatus`, where :samp:`{<lockss2host>}` represents the host name of your LOCKSS 2.x host (for example ``lockss2.myuniversity.edu``). Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in.
+         a. Log into the |CFGSVC| Web user interface as a way to verify that the LOCKSS 2.x stack has come up successfully. To do this, in a browser, go to the URL :samp:`http://{<lockss2host>}:24602/DaemonStatus`, where :samp:`{<lockss2host>}` represents the hostname of your LOCKSS 2.x host (for example ``lockss2.myuniversity.edu``), and log in using the Web user interface username and password you specified during the LOCKSS 2.x configuration process.
 
-         b. Click on :guilabel:`Admin Access Control` in the top-right menu.
+            *  If your browser is unable to connect, wait a moment and hit refresh until a Web user interface page is displayed.
 
-         c. If needed, allow the IP address of your existing LOCKSS 1.x host by entering it or its subnet in :guilabel:`Allow Access`, then click the :guilabel:`Update` button.
+            *  If your login is successful but the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone.
+
+         b. Once successful, click on :guilabel:`Admin Access Control` in the top-right navigation menu.
+
+         c. If it is not covered by the entries in the :guilabel:`Allow Access` section, add the IP address of your LOCKSS 1.x host (so it will be allowed to connect to the LOCKSS 2.x Web user interface), then click the :guilabel:`Update` button to save.
 
          d. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
 
-         If you are doing a :ref:`Same-Host Migration`, go to the URL :samp:`http://{<lockss2host>}:24602/DaemonStatus`, where :samp:`{<lockss2host>}` represents the host name of your LOCKSS 2.x host (for example ``lockss2.myuniversity.edu``). Log in using the Web user interface username and password you specified during the configuration process. If the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone and you can log in. Your LOCKSS 2.x system is now ready for the next phase.
+         If you are doing a :ref:`Same-Host Migration`, log into the |CFGSVC| Web user interface as a way to verify that the LOCKSS 2.x stack has come up successfully. To do this, in a browser, go to the URL :samp:`http://{<locksshost>}:24602/DaemonStatus`, where :samp:`{<locksshost>}` represents the hostname of your LOCKSS host (for example ``lockss.myuniversity.edu``), and log in using the Web user interface username and password you specified during the LOCKSS 2.x configuration process.
+
+         *  If your browser is unable to connect, wait a moment and hit refresh until a Web user interface page is displayed.
+
+         *  If your login is successful but the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone.

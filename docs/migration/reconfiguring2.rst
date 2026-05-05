@@ -47,12 +47,9 @@ Follow these steps:
 
                   systemctl restart k3s
 
-               This is necessary for :external+lockss-manual:term:`K3s` to adjust to the newly configured IP address.
+               This is necessary for |K3s| to adjust to the newly configured IP address.
 
-
-
-
-         b. |LOCKSS2LOCKSS| Then run this command, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
+         b. |LOCKSS2LOCKSS| Run this command, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
 
             .. code-block:: shell
 

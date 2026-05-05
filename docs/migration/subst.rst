@@ -1,5 +1,10 @@
 .. |MANUAL| replace:: :external+lockss-manual:doc:`LOCKSS 2.x System Manual <index>`
 
+.. |CFGSVC| replace:: :external+lockss-manual:ref:`LOCKSS 2.x Configuration Service <LOCKSS Configuration Service>`
+.. |POSTGRESQL| replace:: :external+lockss-manual:ref:`LOCKSS 2.x PostgreSQL database <PostgreSQL>`
+
+.. |K3S| replace:: :external+lockss-manual:term:`K3s`
+
 .. |INSTALL_CHAPTER| replace:: 2
 .. |CONFIGURE_CHAPTER| replace:: 4
 

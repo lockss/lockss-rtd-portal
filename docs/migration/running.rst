@@ -10,27 +10,25 @@ Running the Migrator
 
 The next task is to run the migrator in the :guilabel:`Migration Control` screen of your LOCKSS 1.x Web user interface.
 
-Follow these steps:
+You should now be looking at the :guilabel:`Migration Control` screen, after you clicked the :guilabel:`Next` button at the bottom of the :guilabel:`Migration Settings` screen in :numref:`Chapter %s <Configuring LOCKSS 1.x for Migration>` (:ref:`Configuring LOCKSS 1.x for Migration`). Follow these steps:
 
-1. To migrate all content, select :guilabel:`All plugins` from the :guilabel:`Select Plugins` dropdown menu. If you wish to migrate only a subset of the content, you may select a plugin and migrate just the archival units from that plugin.
+1. Select the archival units (AUs) you wish to migrate at this time. You have multiple options:
 
-2. Select your desired migration mode:
+   *  Using the :guilabel:`Select Plugin` dropdown: Select "All Plugins" to migrate all AUs, or select a given plugin to migrate all its AUs.
 
-   *  To copy the selected plugin's AUs from LOCKSS 1.x to LOCKSS 2.x, select :guilabel:`Copy Content`.
+   *  Using the :guilabel:`Choose File` button: You can upload a text file containing a list of archival unit identifiers (AUIDs) corresponding to the AUs you would like to migrate at this time.
 
-   *  To copy the selected plugin's AUs from LOCKSS 1.x to LOCKSS 2.x and verify that each AU's URLs and state information were copied, select :guilabel:`Copy and Verify Content`.
+2. Select the desired migration mode:
 
-   .. tip::
+   *  To copy the each AU's URLs and state information and then apply a verification step to check that the copy was successful, select :guilabel:`Copy and Verify`. **This is the recommended mode.**
 
-      To verify that already copied AUs match after the fact, you can alternatively select the :guilabel:`Verify Content` mode.
+   *  To only copy each AU's URLs and state information, select :guilabel:`Copy Content`.
 
-      .. COMMENT doesn't make sense except in dry run mode
+   *  |DRYRUNONLY| In the case of a :ref:`Dry Run Migration`, to only verify that already copied AUs match after the fact, select the :guilabel:`Verify Only` mode.
 
-3. *Optional.* To cause the verification step of the :guilabel:`Copy and Verify Content` or :guilabel:`Verify Content` modes to additionally perform byte-for-byte comparison of content data, select the :guilabel:`Full content compare` checkbox.
+3. If you wish the verification step of the :guilabel:`Copy and Verify` or :guilabel:`Verify Only` modes to additionally perform byte-for-byte comparison of content data, select the :guilabel:`Full content compare` checkbox.
 
-4. The :guilabel:`Skip already-copied AUs` checkbox is only useful in testing situations; the checkbox should remain selected.
-
-5. Click the :guilabel:`Start Migration` button.
+4. Click the :guilabel:`Start Migration` button.
 
    .. tip::
 
@@ -69,3 +67,11 @@ Follow these steps:
          :animate: fade-in-slide-down
 
          To stop the migration in progress, click the :guilabel:`Abort` button. It may take a moment for the migration to stop.
+
+5. When the migration of the selected AUs ends, you will see FIXME.
+
+   If you would like to select additional AUs to migrate, go back to step (1) and repeat the process, until all AUs have been migrated.
+
+   .. attention::
+
+      FIXME
