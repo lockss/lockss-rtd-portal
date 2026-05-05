@@ -28,38 +28,23 @@ You should now be looking at the :guilabel:`Migration Control` screen, after you
 
 3. If you wish the verification step of the :guilabel:`Copy and Verify` or :guilabel:`Verify Only` modes to additionally perform byte-for-byte comparison of content data, select the :guilabel:`Full content compare` checkbox.
 
-4. Click the :guilabel:`Start Migration` button.
+4. Start the migration by clicking the :guilabel:`Start Migration` button at the bottom of the form. (If you are doing a :ref:`Dry Run Migration`, the button is labeled :guilabel:`Start Dry Run Migration`.)
 
    .. tip::
 
-      .. dropdown:: The migration takes a long time
+      .. dropdown:: The migration takes time
          :name: running-patience
          :icon: light-bulb
          :animate: fade-in-slide-down
 
-         The migration process takes a long time, proportional to the total content size, and impacted by system, network, and storage performance.
-
-      .. dropdown:: The migration makes slow progress
-         :name: running-progress
-         :icon: light-bulb
-         :animate: fade-in-slide-down
-
-         There may be no apparent progress for a while during migration, don't worry. The Migration Control screen will display:
-
-         1. Current activity.
-
-         2. The next few AUs that will start migrating.
-
-         3. The list of AUs that have finished migrating.
-
-         4. The list of errors.
+         The migration process takes a long time, proportional to the total content size, and impacted by system, network, and storage performance. There may be no apparent progress for a while during migration.
 
       .. dropdown:: Migration log files
          :name: running-logs
          :icon: light-bulb
          :animate: fade-in-slide-down
 
-         The migrator writes debugging information to two LOCKSS 1.x log files :file:`/var/log/lockss/v2migration.txt` and :file:`/var/log/lockss/v2migration.err`.
+         The migrator writes debugging information to two LOCKSS 1.x log files: :file:`/var/log/lockss/v2migration.txt` and :file:`/var/log/lockss/v2migration.err`.
 
       .. dropdown:: Stopping the migration in progress
          :name: running-aborting

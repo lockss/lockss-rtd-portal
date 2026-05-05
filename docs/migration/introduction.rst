@@ -4,6 +4,12 @@
 Introduction to the Migration
 =============================
 
+-------------------------
+Supported Migration Paths
+-------------------------
+
+As of the last update of this migration guide (|LASTUPDATED|), the only supported migration path is from LOCKSS |UPGRADE_FROM_PATCH| (the latest version of LOCKSS |UPGRADE_FROM_MINOR|) to LOCKSS |UPGRADE_TO_PATCH| (the latest version of LOCKSS |UPGRADE_TO_MINOR|). In particular, as of the twin release of LOCKSS |UPGRADE_FROM_MINOR| and LOCKSS |UPGRADE_TO_MINOR|, upgrades from earlier versions of LOCKSS 1.x and/or to earlier versions of LOCKSS 2.x are no longer supported.
+
 ------------------
 Migration Overview
 ------------------
