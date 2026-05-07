@@ -50,6 +50,6 @@ Follow these steps:
 
    .. caution::
 
-      **Selecting this option causes content to be permanently delete content from your LOCKSS 1.x instance, gradually as the migration progresses.** This option should be used **if, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, that is, a same-host migration with insufficient storage space to hold two copies of the content. You will receive a popup warning when you check this checkbox, which you need to acknowledge before you can continue.
+      **Selecting this option causes content to be permanently deleted from your LOCKSS 1.x instance, gradually as the migration progresses.** This option should be used **if, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, that is, a same-host migration with insufficient storage space to hold two copies of the content. You will receive a popup warning when you check this checkbox, which you need to acknowledge before you can continue. See :numref:`Same-Host Migration With Incremental Reclamation`.
 
 7. Click on the :guilabel:`Next` button at the bottom of the :guilabel:`Migration Settings` screen to navigate to the :guilabel:`Migration Control` screen.
