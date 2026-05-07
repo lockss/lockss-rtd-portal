@@ -16,35 +16,47 @@ Migration Overview
 
 Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
 
-1. A pre-existing LOCKSS 1.x instance is preserving content in one or more content storage areas (legend [#fn-legend]_):
+1. An existing LOCKSS 1.x instance is preserving content in one or more content storage areas (legend [#fn-legend]_):
 
-   .. image:: laaws-migration-basic-before.png
+   .. image:: laaws-migration-overview-start.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. This illustrates that all AUs are handled by the LOCKSS 1.x instance.
 
-2. An empty LOCKSS 2.x instance is configured with one or more content storage areas of its own (legend [#fn-legend]_):
+2. An empty LOCKSS 2.x instance is installed and configured (legend [#fn-legend]_):
 
-   .. image:: laaws-migration-basic-start.png
+   .. image:: laaws-migration-overview-before.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Nothing appears on the red disks. This illustrates that all AUs are handled by the LOCKSS 1.x instance and that the LOCKSS 2.x instance is empty.
 
-3. The LOCKSS migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
+3. The LOCKSS migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. This is referred to as the **principal migration phase**. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
 
-   .. image:: laaws-migration-basic-middle.png
+   .. image:: laaws-migration-overview-middle.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. A box with a non-bold label "AU #1" appears on the first blue disk, and a corresponding box with a bold label "AU #1" appears on the first red disk. A box with a non-bold label "AU #2" appears on the first blue disk, and a corresponding box with a bold label "AU #2" appears on the second red disk. A box with a non-bold label "AU #3" appears on the first blue disk, and a corresponding box with a bold label "AU #3" appears on the first red disk. A box with a non-bold label "AU #4" appears on the second blue disk, and another corresponding box with a non-bold label "AU #4" appears on the second red disk; additionally, an arrow with the text "AU #4 migration in progress" goes from the LOCKSS 1.x box to the LOCKSS 2.x box. Boxes with bold labels "AU #5" and "AU #6" appear on the second blue disk, with no corresponding boxes appearing on the red disks. AU #1, AU #2 and AU #3 illustrate AUs that have been migrated; they are no longer handled by the LOCKSS 1.x instance but still occupy disk space, and they are handled by the the LOCKSS 2.x instance. AU #4 illustrates a migration in progress; it is not handled by either instance. AU #5 and AU #6 illustrate AUs that have not yet been migrated; they are handled by the LOCKSS 1.x instance, and do not yet occupy any disk space associated with the LOCKSS 2.x instance. The diagram also illustrates that corresponding AUs may not be distributed the same way on the blue disks and the red disks.
 
-4. At the end of the migration process, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (legend [#fn-legend]_):
+   The LOCKSS 1.x instance continues to act as the recipient of incoming requests (for example poll requests):
 
-   .. image:: laaws-migration-basic-end.png
+   *  Requests pertaining to AUs that have not been migrated yet (for example AU4 here) are handled directly by the LOCKSS 1.x instance (legend [#fn-legend]_):
+
+      .. image:: laaws-migration-overview-middle4.png
+         :align: center
+
+   *  Requests pertaining to AUs that have been successfully migrated (for example AU2 here) are received by the LOCKSS 1.x instance and forwarded to the LOCKSS 2.x instance who handles it (legend [#fn-legend]_):
+
+      .. image:: laaws-migration-overview-middle2.png
+         :align: center
+
+   *  Requests pertaining to AUs that are in the process of being migrated (for example AU3 here) are received by the LOCKSS 1.x instance and turned down (legend [#fn-legend]_):
+
+      .. image:: laaws-migration-overview-middle3.png
+         :align: center
+
+4. At the end of the principal migration phase, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (legend [#fn-legend]_):
+
+   .. image:: laaws-migration-overview-after.png
       :align: center
-      :alt: Diagram showing a blue LOCKSS 1.x box with arrows pointing at two blue disks representing its content storage areas, side by side with a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. Boxes with non-bold labels "AU #1", "AU #2" and "AU #3" appear on the first blue disk, and boxes with non-bold labels "AU #4", "AU #5" and "AU #6" appear on the second blue disk. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS 2.x instance and that the LOCKSS 2.x instance is no longer handling any AUs, although the disk space used by the AUs formerly is still occupied.
 
 5. Finally, the LOCKSS 1.x instance is decommissioned (legend [#fn-legend]_):
 
-   .. image:: laaws-migration-basic-after.png
+   .. image:: laaws-migration-overview-end.png
       :align: center
-      :alt: Diagram showing a red LOCKSS 2.x box with arrows pointing at two red disks representing its content storage areas. Boxes with bold labels "AU #1", "AU #3" and "AU #5" appear on the first red disk, and boxes with bold labels "AU #2", "AU #4" and "AU #6" appear on the second red disk. This illustrates that all AUs are handled by the LOCKSS 2.x instance.
 
 The different :ref:`Migration Scenarios <Migration Scenario>` differ only in two key ways: where the LOCKSS 2.x instance is located compared to the LOCKSS 1.x instance, and when the storage space occupied by deactivated AUs from the LOCKSS 1.x instance is reclaimed.
 
@@ -87,8 +99,20 @@ New-Host Migration
 
 |NEWHOSTMIGRATION|
 
-.. image:: laaws-migration-new-host-overview.png
-   :align: center
+An illustration of this scenario before, during, and after the principal migration phase is shown below:
+
+1. .. image:: laaws-migration-new-host-before.png
+      :align: center
+
+2. .. image:: laaws-migration-new-host-middle3.png
+      :align: center
+
+3. .. image:: laaws-migration-new-host-after.png
+      :align: center
+
+.. note::
+
+   At the end of the migration process, letting your LOCKSS 2.x host adopt the IP address and hostname previously associated with your LOCKSS 1.x is **strongly recommended**. See :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`).
 
 .. _migration-new-host-recommended:
 
@@ -234,21 +258,29 @@ Adopting the LOCKSS 1.x IP Address and Hostname
 
 |NEWHOSTONLY|
 
-In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, you allow your LOCKSS 2.x host to adopt the IP address, and ideally the hostname, previously associated with your LOCKSS 1.x host**. This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses and/or hostnames may be required and may cause an interruption of service.
+In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, you allow your LOCKSS 2.x host to adopt the IP address, and ideally the hostname, previously associated with your LOCKSS 1.x host**:
 
-Changing the IP address and hostname of the LOCKSS 2.x host occurs after the principal part of the migration is finished, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting |K3S| to adjust to the newly configured IP address.
+.. image:: laaws-migration-new-host-end-adopted.png
+   :align: center
 
-.. rubric:: Implications if adopting the LOCKSS 1.x IP address is not possible
-   :name: Implications if adopting the LOCKSS 1.x IP address is not possible
+This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses and/or hostnames may be required and may cause an interruption of service. Changing the IP address and hostname of the LOCKSS 2.x host occurs after the principal migration phase, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting |K3S| to adjust to the newly configured IP address.
+
+Not adopting the LOCKSS 1.x hostname, and especially IP address, has implications:
+
+.. image:: laaws-migration-new-host-end-not-adopted.png
+   :align: center
+
+.. rubric:: Implications of not adopting the LOCKSS 1.x IP address
+   :name: Implications of not adopting the LOCKSS 1.x IP address
 
 If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for your LOCKSS network and its participants to a permanent change of IP address for your node:
 
    *  The administrator of your LOCKSS network will need to include the permanent change of IP address of your node in the LOCKSS network's configuration file, and make other  adjustments to the props server (firewall rules, Web server access rules, etc.) and more.
 
-   *  Other nodes in your LOCKSS network may have to adjust firewall rules and other access control lists (for example in the Content Access Options section of the Web user interface).
+   *  Other nodes in your LOCKSS network may have to adjust firewall rules and other access control lists (for example in the :guilabel:`Content Access Options` section of the Web user interface).
 
-.. rubric:: Implications if adopting the LOCKSS 1.x hostname is not possible
-   :name: Implications if adopting the LOCKSS 1.x hostname is not possible
+.. rubric:: Implications of not adopting the LOCKSS 1.x hostname
+   :name: Implications of not adopting the LOCKSS 1.x hostname
 
 Adopting the hostname of your LOCKSS 1.x host is not strictly required for the node to function, but a change of hostname may also have downstream implications. If you keep the new hostname permanently, it will need to be used when accessing the Web user interface, and browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, etc. will need to be updated.
 

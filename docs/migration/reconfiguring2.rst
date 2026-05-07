@@ -33,7 +33,7 @@ Follow these steps:
 
          If you are doing a :ref:`New-Host Migration`, follow these steps to reconfigure your LOCKSS 2.x instance for normal operation:
 
-         a. Allow your LOCKSS 2.x host to adopt the IP address, and ideally hostname, previously associated with your LOCKSS 1.x host. This step is **strongly recommended**; see :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`) for details, including a discussion of :ref:`Implications if adopting the LOCKSS 1.x IP address is not possible` and :ref:`Implications if adopting the LOCKSS 1.x hostname is not possible`. This action requires the following steps:
+         a. Allow your LOCKSS 2.x host to adopt the IP address, and ideally hostname, previously associated with your LOCKSS 1.x host. This step is **strongly recommended**; see :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`) for details, including a discussion of :ref:`Implications of not adopting the LOCKSS 1.x IP address` and :ref:`Implications of not adopting the LOCKSS 1.x hostname`. This action requires the following steps:
 
             (i) |LOCKSS1ROOT| Shut down your LOCKSS 1.x host, or at least reconfigure it to yet another IP address.
 
