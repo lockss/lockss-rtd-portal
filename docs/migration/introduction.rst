@@ -26,7 +26,9 @@ Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
    .. image:: laaws-migration-overview-before.png
       :align: center
 
-3. The LOCKSS migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. This is referred to as the **principal migration phase**. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
+3. .. _principal migration phase:
+
+   The LOCKSS Migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. This is referred to as the **principal migration phase**. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
 
    .. image:: laaws-migration-overview-middle.png
       :align: center
@@ -48,7 +50,7 @@ Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
       .. image:: laaws-migration-overview-middle3.png
          :align: center
 
-4. At the end of the principal migration phase, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (legend [#fn-legend]_):
+4. At the end of the |PRINCIPAL|, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (legend [#fn-legend]_):
 
    .. image:: laaws-migration-overview-after.png
       :align: center
@@ -64,9 +66,9 @@ The different :ref:`Migration Scenarios <Migration Scenario>` differ only in two
 Migration Scenario
 ------------------
 
-.. |NEWHOSTMIGRATION| replace:: In this migration scenario, a newly-commissioned host with its own storage is used for the LOCKSS 2.x instance. After migration, the LOCKSS 1.x instance, its storage, and its host are decommissioned.
+.. |NEWHOSTMIGRATION| replace:: In this :ref:`Migration Scenario`, a newly-commissioned host with its own storage is used for the LOCKSS 2.x instance. After migration, the LOCKSS 1.x instance, its storage, and its host are decommissioned.
 
-.. |SAMEHOSTMIGRATION| replace:: In this migration scenario, the LOCKSS 2.x instance is run on the existing host of the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance is decommissioned.
+.. |SAMEHOSTMIGRATION| replace:: In this :ref:`Migration Scenario`, the LOCKSS 2.x instance is run on the existing host of the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance is decommissioned. If chosen, this scenario has two subtypes: a :ref:`Same-Host Migration With Future reclamation` if there is sufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the preserved content simultaneously (preferable), or a :ref:`Same-Host Migration With Incremental reclamation` if there is not.
 
 .. |SAMEHOSTMIGRATIONQUALIFICATION| replace:: if a new-host migration is not feasible
 
@@ -84,12 +86,6 @@ You may choose one of two migration scenarios:
 
 *  :ref:`Same-Host Migration` (|SAMEHOSTMIGRATIONQUALIFICATION|). |SAMEHOSTMIGRATION|
 
-   If chosen, this scenario has two subtypes:
-
-   *  :ref:`Same-Host Migration With Future Reclamation` (|SAMEHOSTMIGRATIONFUTUREQUALIFICATION|). |SAMEHOSTMIGRATIONFUTURE|
-
-   *  :ref:`Same-Host Migration With Incremental Reclamation` (|SAMEHOSTMIGRATIONINCREMENTALQUALIFICATION|). |SAMEHOSTMIGRATIONINCREMENTAL|
-
 New-Host Migration
 ==================
 
@@ -99,15 +95,15 @@ New-Host Migration
 
 |NEWHOSTMIGRATION|
 
-An illustration of this scenario before, during, and after the principal migration phase is shown below:
+An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below:
 
-1. .. image:: laaws-migration-new-host-before.png
+a. .. image:: laaws-migration-new-host-before.png
       :align: center
 
-2. .. image:: laaws-migration-new-host-middle3.png
+b. .. image:: laaws-migration-new-host-middle3.png
       :align: center
 
-3. .. image:: laaws-migration-new-host-after.png
+c. .. image:: laaws-migration-new-host-after.png
       :align: center
 
 .. note::
@@ -130,13 +126,6 @@ Same-Host Migration
 ===================
 
 |SAMEHOSTMIGRATION|
-
-This migration scenario is used |SAMEHOSTMIGRATIONQUALIFICATION|. It has two subtypes:
-
-*  :ref:`Same-Host Migration With Future Reclamation`
-
-*  :ref:`Same-Host Migration With Incremental Reclamation`
-
 
 Same-Host Migration With Future Reclamation
 -------------------------------------------
@@ -263,7 +252,7 @@ In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, yo
 .. image:: laaws-migration-new-host-end-adopted.png
    :align: center
 
-This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses and/or hostnames may be required and may cause an interruption of service. Changing the IP address and hostname of the LOCKSS 2.x host occurs after the principal migration phase, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting |K3S| to adjust to the newly configured IP address.
+This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses and/or hostnames may be required and may cause an interruption of service. Changing the IP address and hostname of the LOCKSS 2.x host occurs after the |PRINCIPAL|, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting |K3S| to adjust to the newly configured IP address.
 
 Not adopting the LOCKSS 1.x hostname, and especially IP address, has implications:
 
@@ -289,6 +278,11 @@ Firewall Rules
 
 FIXME
 
+LCAP Over SSL
+=============
+
+FIXME
+
 ----
 
 .. rubric:: Footnotes
@@ -297,8 +291,8 @@ FIXME
 
    Legend for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`):
 
-   .. image:: laaws-migration-basic-legend.png
-      :alt: A legend for the diagrams in the Migration Overview section. A box with a thick border labeled AU9 for "archival unit #9" is described as "Storage space occupied by an AU actively handled by the corresponding LOCKSS instance". A box with a regular border labeled AU9 for "archival unit #9" is described as "Storage space occupied by an AU not actively handled by the corresponding LOCKSS instance". A box with a dashed border labeled AU9 for "archival unit #9" is described as "Storage space reclaimed from an AU formerly hanlded by the corresponding LOCKSS instance".
+   .. image:: laaws-migration-overview-legend.png
+      :alt: A legend for the diagrams in the Migration Overview section. A light blue chip and a vivid blue chip are described as "Related to LOCKSS 1.x". A light red chip and vivid red chip are described as "Related to LOCKSS 2.x". A box with a thick border labeled AU9 for "archival unit #9" is described as "Storage space currently occupied by an AU actively handled by the corresponding LOCKSS instance". A box with a thin border labeled AU9 for "archival unit #9" is described as "Storage space currently occupied by an AU formerly handled by the corresponding LOCKSS instance". A box with a dashed border labeled AU9 for "archival unit #9" is described as "Free storage space previously occupied by an AU formerly hanlded by the corresponding LOCKSS instance".
 
 .. [#fn-au]
 

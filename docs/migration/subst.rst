@@ -1,5 +1,7 @@
 .. |LASTUPDATED| replace:: 2026-05-05
 
+.. |PRINCIPAL| replace:: :ref:`principal migration phase <principal migration phase>`
+
 .. |MANUAL| replace:: :external+lockss-manual:doc:`LOCKSS 2.x System Manual <index>`
 
 .. |CFGSVC| replace:: :external+lockss-manual:ref:`LOCKSS 2.x Configuration Service <LOCKSS Configuration Service>`
