@@ -70,32 +70,26 @@ Migration Scenario
 
 .. |SAMEHOSTMIGRATION| replace:: In this :ref:`Migration Scenario`, the LOCKSS 2.x instance is run on the existing host of the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance is decommissioned. If chosen, this scenario has two subtypes: a :ref:`Same-Host Migration With Future reclamation` if there is sufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the preserved content simultaneously (preferable), or a :ref:`Same-Host Migration With Incremental reclamation` if there is not.
 
-.. |SAMEHOSTMIGRATIONQUALIFICATION| replace:: if a new-host migration is not feasible
+.. |SAMEHOSTMIGRATIONFUTURE| replace:: This :ref:`Same-Host Migration` scenario applies when there is sufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the preserved content simultaneously. After the entire migration is complete, the storage space formerly used by the LOCKSS 1.x instance is reclaimed.
 
-.. |SAMEHOSTMIGRATIONFUTURE| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS 2.x instance is configured to use different storage areas than the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance's storage areas are reclaimed all at once, and can then be devoted to the LOCKSS 2.x instance.
-
-.. |SAMEHOSTMIGRATIONFUTUREQUALIFICATION| replace:: if a same-host migration is needed, and there is sufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the content simultaneously
-
-.. |SAMEHOSTMIGRATIONINCREMENTAL| replace:: In this :ref:`Same-Host Migration` scenario, the LOCKSS 2.x instance is configured to use the same storage areas as the LOCKSS 1.x instance. The LOCKSS Migrator is operated in a mode in which the storage used by each AU in the LOCKSS 1.x instance is reclaimed after the AU is done migrating to the LOCKSS 2.x instance.
-
-.. |SAMEHOSTMIGRATIONINCREMENTALQUALIFICATION| replace:: only if a same-host migration is needed, but there is insufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the content simultaneously
+.. |SAMEHOSTMIGRATIONINCREMENTAL| replace:: This :ref:`Same-Host Migration` scenario applies only when there is *insufficient* storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the preserved content simultaneously. The LOCKSS Migrator is operated in a mode in which the storage used by each AU in the LOCKSS 1.x instance is reclaimed after the AU is done migrating to the LOCKSS 2.x instance.
 
 You may choose one of two migration scenarios:
 
 *  :ref:`New-Host Migration` (**recommended**). |NEWHOSTMIGRATION|
 
-*  :ref:`Same-Host Migration` (|SAMEHOSTMIGRATIONQUALIFICATION|). |SAMEHOSTMIGRATION|
+*  :ref:`Same-Host Migration`. |SAMEHOSTMIGRATION|
 
 New-Host Migration
 ==================
 
 .. tip::
 
-   This :ref:`Migration Scenario` is **recommended**.
+   **This migration scenario is recommended.**
 
 |NEWHOSTMIGRATION|
 
-An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below:
+An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
 
 a. .. image:: laaws-migration-new-host-before.png
       :align: center
@@ -127,27 +121,66 @@ Same-Host Migration
 
 |SAMEHOSTMIGRATION|
 
+This :ref:`Migration Scenario` is used when a :ref:`New-Host Migration` is not feasible.
+
 Same-Host Migration With Future Reclamation
 -------------------------------------------
 
+.. tip::
+
+   If a :ref:`Same-Host Migration` is needed, this scenario is preferable to a :ref:`Same-Host Migration With Incremental Reclamation`.
+
 |SAMEHOSTMIGRATIONFUTURE|
 
-This migration scenario is used |SAMEHOSTMIGRATIONFUTUREQUALIFICATION|.
-
-.. image:: laaws-migration-same-host-future-overview.png
+.. image:: laaws-migration-same-host-future-start.png
    :align: center
+
+An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
+
+a. .. image:: laaws-migration-same-host-future-before.png
+      :align: center
+
+b. .. image:: laaws-migration-same-host-future-middle3.png
+      :align: center
+
+c. .. image:: laaws-migration-same-host-future-after.png
+      :align: center
+
+d. .. image:: laaws-migration-same-host-future-end.png
+      :align: center
 
 Same-Host Migration With Incremental Reclamation
 ------------------------------------------------
 
 |SAMEHOSTMIGRATIONINCREMENTAL|
 
-This migration scenario is used |SAMEHOSTMIGRATIONINCREMENTALQUALIFICATION|.
-
-The process is largely the same as that for a :ref:`Same-Host Migration With Future Reclamation`, except for a step in :numref:`Configuring LOCKSS 1.x for Migration` (:ref:`Configuring LOCKSS 1.x for Migration`).
-
-.. image:: laaws-migration-same-host-incremental-overview.png
+.. image:: laaws-migration-same-host-incremental-start.png
    :align: center
+
+Procedurally, the process is the same as that for a :ref:`Same-Host Migration With Future Reclamation`, except for one particular step in :numref:`Configuring LOCKSS 1.x for Migration` (:ref:`Configuring LOCKSS 1.x for Migration`).
+
+An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
+
+a. .. image:: laaws-migration-same-host-incremental-before.png
+      :align: center
+
+b. .. image:: laaws-migration-same-host-incremental-middle1.png
+      :align: center
+
+c. .. image:: laaws-migration-same-host-incremental-middle2.png
+      :align: center
+
+d. .. image:: laaws-migration-same-host-incremental-middle3.png
+      :align: center
+
+e. .. image:: laaws-migration-same-host-incremental-middle4.png
+      :align: center
+
+f. .. image:: laaws-migration-same-host-incremental-after.png
+      :align: center
+
+g. .. image:: laaws-migration-same-host-incremental-end.png
+      :align: center
 
 -----------------
 Dry Run Migration
