@@ -27,7 +27,6 @@ This document will guide you as you upgrade from LOCKSS 1.x to LOCKSS 2.x, by po
    decommissioning1
    faq
    differences
-   lcap-ssl
 
 ----
 

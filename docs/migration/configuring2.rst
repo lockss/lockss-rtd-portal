@@ -14,39 +14,35 @@ The next task in the migration process is to configure LOCKSS 2.x for migration 
 Importing Configuration From LOCKSS 1.x
 ---------------------------------------
 
-The first part of this task is to make your LOCKSS 1.x configuration file (and if applicable, the LCAP SSL keystores of your LOCKSS 1.x instance) available to your LOCKSS 2.x instance.
+The first part of this task is to make your LOCKSS 1.x configuration file available to your LOCKSS 2.x instance.
 
-Follow these steps:
+This depends on your :ref:`Migration Scenario`:
 
-1. This step depends on your :ref:`Migration Scenario`:
+.. tab-set::
 
-   .. tab-set::
+   .. tab-item:: New-Host Migration
+      :sync: newhost
 
-      .. tab-item:: New-Host Migration
-         :sync: newhost
+      If you are doing a :ref:`New-Host Migration`:
 
-         If you are doing a :ref:`New-Host Migration`:
+      1. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented here as :samp:`{/path/to/lockss1_config_file.dat}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat`.
 
-         a. Copy the LOCKSS 1.x configuration file from :file:`/etc/lockss/config.dat` on your LOCKSS 1.x host to some file path on your LOCKSS 2.x host, symbolically represented here as :samp:`{/path/to/lockss1_config_file.dat}`. Although you can use any path on your LOCKSS 2.x host, we recommend :file:`/tmp/v1config.dat`.
+         For example, you might use :program:`scp` on your LOCKSS 1.x host:
 
-            For example, you might use :program:`scp` on your LOCKSS 1.x host:
+         :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{/path/to/lockss1_config_file.dat}`
 
-            :samp:`scp /etc/lockss/config.dat {<username>}@{<lockss2host>}:{/path/to/lockss1_config_file.dat}`
+         or something similar.
 
-            or something similar.
+         If you are unable to copy the LOCKSS 1.x configuration file to your LOCKSS 2.x, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information, which you will have to enter accurately from the corresponding LOCKSS 1.x values.
 
-            If you are unable to copy the LOCKSS 1.x configuration file to your LOCKSS 2.x, you can still configure LOCKSS 2.x for migration, but you will be prompted to supply more information, which you will have to enter accurately from the corresponding LOCKSS 1.x values.
+      2. |LOCKSS2ROOT| Ensure that the LOCKSS 1.x configuration file :samp:`{/path/to/lockss1_config_file.dat}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
 
-         b. |LOCKSS2ROOT| Ensure that the LOCKSS 1.x configuration file :samp:`{/path/to/lockss1_config_file.dat}` is readable by all on the LOCKSS 2.x host. For example, you can do this as ``root`` on the LOCKSS 2.x host with:
+         :samp:`chmod +r {/path/to/lockss1_config_file.dat}`
 
-            :samp:`chmod +r {/path/to/lockss1_config_file.dat}`
+   .. tab-item:: Same-Host Migration
+      :sync: samehost
 
-      .. tab-item:: Same-Host Migration
-         :sync: samehost
-
-         If you are doing a :ref:`Same-Host Migration`, the LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file directly at :file:`/etc/lockss/config.dat`, so you do not need to do anything in this step.
-
-2. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` appendix for additional instructions in this spot.
+      If you are doing a :ref:`Same-Host Migration`, the LOCKSS 2.x configuration script will find the LOCKSS 1.x configuration file directly at :file:`/etc/lockss/config.dat`, so you do not need to do anything in this step.
 
 .. _Running configure-lockss --migrate:
 
@@ -97,17 +93,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  If you enter :kbd:`N` for "no", you will have to manually and accurately enter a number of values reflecting your LOCKSS 1.x configuration (instead of the values being imported directly from your copied LOCKSS 1.x configuration file).
 
-         b. Follow all instructions in |TAB| Section |CONFIGURE_CHAPTER| of the |MANUAL|. namely:
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.4.1 (:external+lockss-manual:ref:`Hostname`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.4.2 (:external+lockss-manual:ref:`IP Address`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.4.3 (:external+lockss-manual:ref:`Initial UI Subnet`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.4.4 (:external+lockss-manual:ref:`LCAP Port`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.4.5 (:external+lockss-manual:ref:`Network Address Translation`)
+         b. Follow all instructions in |TAB| Section |CONFIGURE_CHAPTER|.4 (:external+lockss-manual:ref:`Network Settings`) of the |MANUAL|.
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
@@ -138,23 +124,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
          d. Follow the instructions in |TAB| Section |CONFIGURE_CHAPTER|.4.5 (:external+lockss-manual:ref:`Network Address Translation`) of the |MANUAL|.
 
-5. Follow all instructions in the remainder of |TAB| Chapter |CONFIGURE_CHAPTER| of the |MANUAL|, namely:
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.5 (:external+lockss-manual:ref:`Mail Settings`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.6 (:external+lockss-manual:ref:`Preservation Network Settings`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.7 (:external+lockss-manual:ref:`Web User Interface Settings`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.8 (:external+lockss-manual:ref:`Storage Area Settings`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.9 (:external+lockss-manual:ref:`Database Settings`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.10 (:external+lockss-manual:ref:`Stack Component Settings`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.11 (:external+lockss-manual:ref:`Web Replay Settings`)
-
-            *  |TAB| Section |CONFIGURE_CHAPTER|.12 (:external+lockss-manual:ref:`Final Steps of configure-lockss`)
+5. Follow all instructions in the remainder of |TAB| Chapter |CONFIGURE_CHAPTER| of the |MANUAL|, namely |TAB| Section |CONFIGURE_CHAPTER|.5 (:external+lockss-manual:ref:`Mail Settings`) through |TAB| Section |CONFIGURE_CHAPTER|.12 (:external+lockss-manual:ref:`Final Steps of configure-lockss`).
 
 ------------------
 Running LOCKSS 2.x
@@ -198,8 +168,6 @@ Now start the LOCKSS 2.x system. Follow these steps:
          b. Once successful, click on :guilabel:`Admin Access Control` in the top-right navigation menu.
 
          c. If it is not covered by the entries in the :guilabel:`Allow Access` section, add the IP address of your LOCKSS 1.x host (so it will be allowed to connect to the LOCKSS 2.x Web user interface), then click the :guilabel:`Update` button to save.
-
-         d. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
 
       .. tab-item:: Same-Host Migration
          :sync: samehost

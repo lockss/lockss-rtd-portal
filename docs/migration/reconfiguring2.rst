@@ -67,8 +67,6 @@ Follow these steps:
 
             (v) :guilabel:`OK to proceed?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-         d. If your LOCKSS network uses LCAP SSL keystores for encrypted communication between nodes, see the :doc:`lcap-ssl` chapter.
-
       .. tab-item:: Same-Host Migration
          :sync: samehost
 

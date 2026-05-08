@@ -10,6 +10,8 @@ Supported Migration Paths
 
 As of the last update of this migration guide (|LASTUPDATED|), the only supported migration path is from LOCKSS |UPGRADE_FROM_PATCH| (the latest version of LOCKSS |UPGRADE_FROM_MINOR|) to LOCKSS |UPGRADE_TO_PATCH| (the latest version of LOCKSS |UPGRADE_TO_MINOR|). In particular, as of the twin release of LOCKSS |UPGRADE_FROM_MINOR| and LOCKSS |UPGRADE_TO_MINOR|, upgrades from earlier versions of LOCKSS 1.x and/or to earlier versions of LOCKSS 2.x are no longer supported.
 
+Additionally, migrating multiple LOCKSS 1.x instances into a single LOCKSS 2.x instance is not supported out of the box. If this is a situation you are considering (for example, if you have a LOCKSS 1.x instance for the Global LOCKSS Network and another for the USDocs project), please contact us for advice.
+
 ------------------
 Migration Overview
 ------------------
@@ -278,8 +280,6 @@ Important Considerations
 Adopting the LOCKSS 1.x IP Address and Hostname
 ===============================================
 
-|NEWHOSTONLY|
-
 In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, you allow your LOCKSS 2.x host to adopt the IP address, and ideally the hostname, previously associated with your LOCKSS 1.x host**:
 
 .. image:: laaws-migration-new-host-end-adopted.png
@@ -309,12 +309,28 @@ Adopting the hostname of your LOCKSS 1.x host is not strictly required for the n
 Firewall Rules
 ==============
 
-FIXME
+If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections from your LOCKSS 1.x host, specifically:
+
+.. list-table::
+   :header-rows: 1
+
+   *  *  Port
+      *  Description
+   *  *  9739
+      *  Temporary :external+lockss-manual:term:`LCAP` port
+   *  *  24602
+      *  |CFGSVC| Web user interface
+   *  *  24611
+      *  :external+lockss-manual:ref:`LOCKSS 2.x Repository Service <LOCKSS Configuration Service>` REST API
+   *  *  24612
+      *  |CFGSVC| REST API
+   *  *  24620
+      *  :external+lockss-manual:ref:`PostgreSQL`
 
 LCAP Over SSL
 =============
 
-FIXME
+If your LOCKSS network uses SSL keystores for encrypted :external+lockss-portal:term:`LCAP` communication between nodes, you will need to perform a few additional steps related to your LCAP SSL keystore during the migration of your node. Ask your LOCKSS network administrator if this situation applies to you, and contact us for further advice if applicable.
 
 ----
 
