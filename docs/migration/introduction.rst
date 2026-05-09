@@ -201,9 +201,7 @@ The process is largely the same as that for a corresponding :ref:`New-Host Migra
 
 *  A step in :numref:`Configuring LOCKSS 1.x for Migration` (:ref:`Configuring LOCKSS 1.x for Migration`) is specific to dry run migrations.
 
-*  At the end of experimentation, you will need to reset your LOCKSS 2.x instance to its initial state before performing a genuine migration.
-
-   .. COMMENT FIXME How: reference to manual
+*  At the end of experimentation, you will need to reset your LOCKSS 2.x instance to its initial state before performing a genuine migration. See |TAB| :external+lockss-manual:ref:`Resetting the System to a Blank State` in the |MANUAL|.
 
 ---------------------
 How To Use This Guide
@@ -329,7 +327,7 @@ If you are doing a :ref:`New-Host Migration`, you will need to make sure that fi
       *  :external+lockss-manual:ref:`LOCKSS 2.x Repository Service <LOCKSS Configuration Service>` REST API
    *  *  24612
       *  |CFGSVC| REST API
-   *  *  24620
+   *  *  24620 [#fn-postgresql]_
       *  :external+lockss-manual:ref:`PostgreSQL`
 
 See also |TAB| :external+lockss-manual:ref:`Network Ports` in the |MANUAL|.
@@ -353,3 +351,7 @@ If your LOCKSS network uses SSL keystores for encrypted |LCAP| communication bet
 .. [#fn-au]
 
    An **archival unit**, or **AU**, is a unit of preserved content in LOCKSS. Consisting of any number of versioned objects, an AU might be a volume of a journal, a single book and its assets, a given digitized collection, etc.
+
+.. [#fn-postgresql]
+
+   If you choose to configure LOCKSS 2.x with an *external PostgreSQL database* instead of the default *embedded PostgreSQL database*, you will instead need to ensure that firewalls allow TCP connections from your LOCKSS 1.x host to the appropriate PostgreSQL host and port for the duration of the migration. See |TAB| :external+lockss-manual:ref:`PostgreSQL` and :external+lockss-manual:ref:`External PostgreSQL Database` in the |MANUAL|.
