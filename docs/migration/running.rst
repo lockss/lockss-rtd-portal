@@ -24,39 +24,35 @@ You should now be looking at the :guilabel:`Migration Control` screen, after you
 
    *  To only copy each AU's URLs and state information, select :guilabel:`Copy Content`.
 
-   *  |DRYRUNONLY| In the case of a :ref:`Dry Run Migration`, to only verify that already copied AUs match after the fact, select the :guilabel:`Verify Only` mode.
+   *  |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`, you will also have the option to select :guilabel:`Verify Only`, to only verify that already copied AUs match after the fact.
 
 3. If you wish the verification step of the :guilabel:`Copy and Verify` or :guilabel:`Verify Only` modes to additionally perform byte-for-byte comparison of content data, select the :guilabel:`Full content compare` checkbox.
 
-4. Start the migration by clicking the :guilabel:`Start Migration` button at the bottom of the form. (If you are doing a :ref:`Dry Run Migration`, the button is labeled :guilabel:`Start Dry Run Migration`.)
+4. Start the migration by clicking the :guilabel:`Start Migration` button at the bottom of the form. (If you are doing a :ref:`Dry Run Migration`, the button is labeled :guilabel:`Start Dry Run Migration` instead.)
 
    .. tip::
 
       .. dropdown:: The migration takes time
-         :name: running-patience
+         :name: The migration takes time
          :icon: light-bulb
          :animate: fade-in-slide-down
 
          The migration process takes a long time, proportional to the total content size, and impacted by system, network, and storage performance. There may be no apparent progress for a while during migration.
 
       .. dropdown:: Migration log files
-         :name: running-logs
+         :name: Migration log files
          :icon: light-bulb
          :animate: fade-in-slide-down
 
          The migrator writes debugging information to two LOCKSS 1.x log files: :file:`/var/log/lockss/v2migration.txt` and :file:`/var/log/lockss/v2migration.err`.
 
       .. dropdown:: Stopping the migration in progress
-         :name: running-aborting
+         :name: Stopping the migration in progress
          :icon: light-bulb
          :animate: fade-in-slide-down
 
          To stop the migration in progress, click the :guilabel:`Abort` button. It may take a moment for the migration to stop.
 
-5. When the migration of the selected AUs ends, you will see FIXME.
+5. When the migration of the selected AUs ends, you will see ``Status: Done``, possibly followed by the number of AUs that encountered errors during migration, on the first line of the status display. Take time to review the migration results in the status display and the :ref:`Migration log files`.
 
-   If you would like to select additional AUs to migrate, go back to step (1) and repeat the process, until all AUs have been migrated.
-
-   .. attention::
-
-      FIXME
+6. Refresh the page in your browser to reset the counters of active AUs shown in the :guilabel:`Select Plugin` dropdown. Go back to step (1) and repeat the process for additional batches of AUs, until all AUs have been migrated.
