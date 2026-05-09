@@ -92,9 +92,19 @@ You may choose one of two migration scenarios:
 New-Host Migration
 ==================
 
+.. _migration-new-host-recommended:
+
 .. tip::
 
    **This migration scenario is recommended.**
+
+   *  LOCKSS 2.x has higher system requirements.
+
+   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a greater variety of :external+lockss-manual:ref:`Compatible Operating Systems`. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
+
+   *  If your LOCKSS 1.x host is running an outdated operating system in the RHEL family such as CentOS Linux 7, you must first upgrade the OS to another operating system in the RHEL family before proceeding with a same-host migration.
+
+   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will degrade performance, and may cause the migration process to take longer.
 
 |NEWHOSTMIGRATION|
 
@@ -112,18 +122,6 @@ c. .. image:: laaws-migration-new-host-after.png
 .. note::
 
    At the end of the migration process, letting your LOCKSS 2.x host adopt the IP address and hostname previously associated with your LOCKSS 1.x is **strongly recommended**. See :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`).
-
-.. _migration-new-host-recommended:
-
-.. admonition:: Why is a new host recommended?
-
-   *  LOCKSS 2.x has higher system requirements.
-
-   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a greater variety of :external+lockss-manual:ref:`Compatible Operating Systems`. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
-
-   *  If your LOCKSS 1.x host is running an outdated operating system in the RHEL family such as CentOS Linux 7, you must first upgrade the OS to another operating system in the RHEL family before proceeding with a same-host migration.
-
-   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will degrade performance, and may cause the migration process to take longer.
 
 Same-Host Migration
 ===================
@@ -316,7 +314,7 @@ Adopting the hostname of your LOCKSS 1.x host is not strictly required for the n
 Firewall Rules
 ==============
 
-If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections **from your LOCKSS 1.x host**, specifically:
+If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections **from your LOCKSS 1.x host** for the duration of the migration, specifically:
 
 .. list-table::
    :header-rows: 1
@@ -334,10 +332,12 @@ If you are doing a :ref:`New-Host Migration`, you will need to make sure that fi
    *  *  24620
       *  :external+lockss-manual:ref:`PostgreSQL`
 
+See also |TAB| :external+lockss-manual:ref:`Network Ports` in the |MANUAL|.
+
 LCAP Over SSL
 =============
 
-If your LOCKSS network uses SSL keystores for encrypted :external+lockss-portal:term:`LCAP` communication between nodes, you will need to perform a few additional steps related to your LCAP SSL keystore during the migration of your node. Ask your LOCKSS network administrator if this situation applies to you, and if so, contact us for further advice.
+If your LOCKSS network uses SSL keystores for encrypted |LCAP| communication between nodes, you will need to perform a few additional steps related to your LCAP SSL keystore during the migration of your node. Ask your LOCKSS network administrator if this situation applies to you, and if so, contact us for further advice.
 
 ----
 
