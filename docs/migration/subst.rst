@@ -8,6 +8,7 @@
 .. |POSTGRESQL| replace:: :external+lockss-manual:ref:`LOCKSS 2.x PostgreSQL database <PostgreSQL>`
 
 .. |K3S| replace:: :external+lockss-manual:term:`K3s`
+.. |LCAP| replace:: :external+lockss-manual:term:`LCAP`
 
 .. |INSTALL_CHAPTER| replace:: 2
 .. |CONFIGURE_CHAPTER| replace:: 4

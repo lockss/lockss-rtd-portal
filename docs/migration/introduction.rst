@@ -8,7 +8,7 @@ Introduction to the Migration
 Supported Migration Paths
 -------------------------
 
-As of the last update of this migration guide (|LASTUPDATED|), the only supported migration path is from LOCKSS |UPGRADE_FROM_PATCH| (the latest version of LOCKSS |UPGRADE_FROM_MINOR|) to LOCKSS |UPGRADE_TO_PATCH| (the latest version of LOCKSS |UPGRADE_TO_MINOR|). In particular, as of the twin release of LOCKSS |UPGRADE_FROM_MINOR| and LOCKSS |UPGRADE_TO_MINOR|, upgrades from earlier versions of LOCKSS 1.x and/or to earlier versions of LOCKSS 2.x are no longer supported.
+As of the latest update of this migration guide (|LASTUPDATED|), the only supported migration path is from LOCKSS |UPGRADE_FROM_PATCH| (the latest version of LOCKSS |UPGRADE_FROM_MINOR|) to LOCKSS |UPGRADE_TO_PATCH| (the latest version of LOCKSS |UPGRADE_TO_MINOR|). In particular, as of the twin release of LOCKSS |UPGRADE_FROM_MINOR| and LOCKSS |UPGRADE_TO_MINOR|, upgrades from earlier versions of LOCKSS 1.x and/or to earlier versions of LOCKSS 2.x are no longer supported.
 
 Additionally, migrating multiple LOCKSS 1.x instances into a single LOCKSS 2.x instance is not supported out of the box. If this is a situation you are considering (for example, if you have a LOCKSS 1.x instance for the Global LOCKSS Network and another for the USDocs project), please contact us for advice.
 
@@ -18,7 +18,7 @@ Migration Overview
 
 Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
 
-1. An existing LOCKSS 1.x instance is preserving content in one or more content storage areas (legend [#fn-legend]_):
+1. An existing LOCKSS 1.x instance is preserving content (legend [#fn-legend]_):
 
    .. image:: laaws-migration-overview-start.png
       :align: center
@@ -30,26 +30,33 @@ Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
 
 3. .. _principal migration phase:
 
-   The LOCKSS Migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. This is referred to as the **principal migration phase**. Each archival unit (AU) [#fn-au]_ becomes deactivated in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
+   The LOCKSS Migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. This is referred to as the **principal migration phase**.
+
+   Each archival unit (AU) [#fn-au]_ becomes "frozen" in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
 
    .. image:: laaws-migration-overview-middle.png
       :align: center
 
-   The LOCKSS 1.x instance continues to act as the recipient of incoming requests (for example poll requests):
+   Until it is decommissioned and the LOCKSS 2.x instance takes over, the LOCKSS 1.x instance continues to act as the recipient of client requests (for example ServeContent requests) and |LCAP| traffic for all your preserved content, sometimes routing those requests to the LOCKSS 2.x instance as necessary:
 
-   *  Requests pertaining to AUs that have not been migrated yet (for example AU4 here) are handled directly by the LOCKSS 1.x instance (legend [#fn-legend]_):
+   *  Client requests and |LCAP| traffic pertaining to AUs that have not been migrated yet (for example AU4 here) are handled directly by the LOCKSS 1.x instance (legend [#fn-legend]_):
 
       .. image:: laaws-migration-overview-middle4.png
          :align: center
 
-   *  Requests pertaining to AUs that have been successfully migrated (for example AU2 here) are received by the LOCKSS 1.x instance and forwarded to the LOCKSS 2.x instance who handles it (legend [#fn-legend]_):
+   *  Client requests and |LCAP| traffic pertaining to AUs that have been successfully migrated (for example AU2 here) are received by the LOCKSS 1.x instance and forwarded to the LOCKSS 2.x instance who handles it (legend [#fn-legend]_):
 
       .. image:: laaws-migration-overview-middle2.png
          :align: center
 
-   *  Requests pertaining to AUs that are in the process of being migrated (for example AU3 here) are received by the LOCKSS 1.x instance and turned down (legend [#fn-legend]_):
+   *  Client requests pertaining to AUs in the process of being migrated (for example AU3 here) are handled directly by the LOCKSS 1.x instance even while the AU is "frozen" (legend [#fn-legend]_):
 
-      .. image:: laaws-migration-overview-middle3.png
+      .. image:: laaws-migration-overview-middle3-yes.png
+         :align: center
+
+   *  |LCAP| traffic pertaining to AUs in the process of being migrated (for example AU3 here) is part of some of the functions that are unavailable while the AU is "frozen", and the LOCKSS 1.x instance who receives the request does not honor it (legend [#fn-legend]_):
+
+      .. image:: laaws-migration-overview-middle3-no.png
          :align: center
 
 4. At the end of the |PRINCIPAL|, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (legend [#fn-legend]_):
@@ -70,7 +77,7 @@ Migration Scenario
 
 .. |NEWHOSTMIGRATION| replace:: In this :ref:`Migration Scenario`, a newly-commissioned host with its own storage is used for the LOCKSS 2.x instance. After migration, the LOCKSS 1.x instance, its storage, and its host are decommissioned.
 
-.. |SAMEHOSTMIGRATION| replace:: In this :ref:`Migration Scenario`, the LOCKSS 2.x instance is run on the existing host of the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance is decommissioned. If chosen, this scenario has two subtypes: a :ref:`Same-Host Migration With Future reclamation` if there is sufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the preserved content simultaneously (preferable), or a :ref:`Same-Host Migration With Incremental reclamation` if there is not.
+.. |SAMEHOSTMIGRATION| replace:: In this :ref:`Migration Scenario`, the LOCKSS 2.x instance is run on the existing host along with the LOCKSS 1.x instance. After migration, the LOCKSS 1.x instance is decommissioned. If chosen, this scenario has two subtypes: a :ref:`Same-Host Migration With Future reclamation` if there is sufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the preserved content simultaneously (preferable), or a :ref:`Same-Host Migration With Incremental reclamation` if there is not.
 
 .. |SAMEHOSTMIGRATIONFUTURE| replace:: This :ref:`Same-Host Migration` scenario applies when there is sufficient storage space to hold an entire LOCKSS 1.x and LOCKSS 2.x copy of the preserved content simultaneously. After the entire migration is complete, the storage space formerly used by the LOCKSS 1.x instance is reclaimed.
 
@@ -309,7 +316,7 @@ Adopting the hostname of your LOCKSS 1.x host is not strictly required for the n
 Firewall Rules
 ==============
 
-If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections from your LOCKSS 1.x host, specifically:
+If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections **from your LOCKSS 1.x host**, specifically:
 
 .. list-table::
    :header-rows: 1
@@ -330,7 +337,7 @@ If you are doing a :ref:`New-Host Migration`, you will need to make sure that fi
 LCAP Over SSL
 =============
 
-If your LOCKSS network uses SSL keystores for encrypted :external+lockss-portal:term:`LCAP` communication between nodes, you will need to perform a few additional steps related to your LCAP SSL keystore during the migration of your node. Ask your LOCKSS network administrator if this situation applies to you, and contact us for further advice if applicable.
+If your LOCKSS network uses SSL keystores for encrypted :external+lockss-portal:term:`LCAP` communication between nodes, you will need to perform a few additional steps related to your LCAP SSL keystore during the migration of your node. Ask your LOCKSS network administrator if this situation applies to you, and if so, contact us for further advice.
 
 ----
 
@@ -338,7 +345,7 @@ If your LOCKSS network uses SSL keystores for encrypted :external+lockss-portal:
 
 .. [#fn-legend]
 
-   Legend for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`):
+   Legend for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`), :numref:`Migration Scenario` (:ref:`Migration Scenario`), and :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`):
 
    .. image:: laaws-migration-overview-legend.png
       :alt: A legend for the diagrams in the Migration Overview section. A light blue chip and a vivid blue chip are described as "Related to LOCKSS 1.x". A light red chip and vivid red chip are described as "Related to LOCKSS 2.x". A box with a thick border labeled AU9 for "archival unit #9" is described as "Storage space currently occupied by an AU actively handled by the corresponding LOCKSS instance". A box with a thin border labeled AU9 for "archival unit #9" is described as "Storage space currently occupied by an AU formerly handled by the corresponding LOCKSS instance". A box with a dashed border labeled AU9 for "archival unit #9" is described as "Free storage space previously occupied by an AU formerly hanlded by the corresponding LOCKSS instance".
