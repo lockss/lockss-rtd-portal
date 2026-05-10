@@ -10,9 +10,9 @@ Decommissioning LOCKSS 1.x
 
 The last task is to decommission your LOCKSS 1.x instance.
 
-If you are doing a :ref:`New-Host Migration`, simply decommission the LOCKSS 1.x storage and host.
+|NEWHOSTONLY| If you are doing a :ref:`New-Host Migration`, simply decommission the LOCKSS 1.x storage and host.
 
-In the case of a :ref:`Same-Host Migration`, follow these cleanup steps:
+|SAMEHOSTONLY| In the case of a :ref:`Same-Host Migration`, follow these cleanup steps:
 
 1. Uninstall the LOCKSS 1.x software package and the LOCKSS Yum repository, with the following steps:
 
@@ -68,7 +68,7 @@ In the case of a :ref:`Same-Host Migration`, follow these cleanup steps:
 
       :samp:`cd {<contentdir>}`
 
-   b. Delete its :file:`cache` subdirectory as ``root``:
+   b. |LOCKSS2ROOT| Delete its :file:`cache` subdirectory as ``root``:
 
       .. code-block:: shell
 
