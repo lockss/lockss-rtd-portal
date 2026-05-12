@@ -12,11 +12,11 @@ The next task, once all the content has been successfully migrated from LOCKSS 1
 
 Follow these steps:
 
-1. |LOCKSS1ROOT| Stop your LOCKSS 1.x system. This occurs on your LOCKSS 1.x host, as ``root``:
+1. |LOCKSS1ROOT| Stop and disable your LOCKSS 1.x system. This occurs on your LOCKSS 1.x host, as ``root``:
 
    .. code-block:: shell
 
-      systemctl stop lockss
+      systemctl disable --now lockss
 
 2. |LOCKSS2LOCKSS| Stop your LOCKSS 2.x system (currently configured for migration). This occurs on your LOCKSS 2.x host, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
 

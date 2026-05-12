@@ -16,7 +16,7 @@ The last task is to decommission your LOCKSS 1.x instance.
 
 1. Uninstall the LOCKSS 1.x software package and the LOCKSS Yum repository, with the following steps:
 
-   a. |LOCKSS2ROOT| Run this Dnf command as ``root``:
+   a. |LOCKSS1ROOT| Run this Dnf command as ``root``:
 
       .. code-block:: shell
 
@@ -24,15 +24,21 @@ The last task is to decommission your LOCKSS 1.x instance.
 
       This will uninstall the ``lockss-daemon`` (LOCKSS 1.x) software package.
 
-   b. |LOCKSS2ROOT| Run this Dnf command as ``root``:
+   b. |LOCKSS1ROOT| Run this Dnf command as ``root``:
 
       .. code-block:: shell
 
-         dnf config-manager --disablerepo lockss-repo
+         dnf config-manager --disable lockss
+
+      or:
+
+      .. code-block:: shell
+
+         dnf config-manager --set-disabled lockss
 
       This will disable the LOCKSS Yum repository.
 
-   c. |LOCKSS2ROOT| As ``root``, run this command:
+   c. |LOCKSS1ROOT| As ``root``, run this command:
 
       .. code-block:: shell
 
@@ -40,35 +46,51 @@ The last task is to decommission your LOCKSS 1.x instance.
 
       This will delete the configuration file that defines the LOCKSS Yum repository. (LOCKSS 2.x is not distributed via a Yum repository, so you will no longer need it, and it is being phased out.)
 
+   d. |LOCKSS1ROOT| As ``root``, optionally run this command:
+
+      .. code-block:: shell
+
+         dnf clean all
+
+      This will reclaim some storage space used by Dnf, some of which was used by the LOCKSS Yum repository.
+
 2. Reclaim the storage space used by LOCKSS 1.x log files, with the following steps:
 
-   a. |LOCKSS2ROOT| Navigate to the LOCKSS 1.x log directory :file:`var/log/lockss` as ``root``:
+   a. |LOCKSS1ROOT| Navigate to the LOCKSS 1.x log directory :file:`var/log/lockss` as ``root``:
 
       .. code-block:: shell
 
          cd /var/log/lockss
 
-   b. |LOCKSS2ROOT| We recommend you save the LOCKSS 1.x to 2.x :ref:`Migration log files` into the ``lockss`` user's home directory for a little while, in case you need to refer to them soon after migration. Run this command as ``root``:
+   b. |LOCKSS1ROOT| We recommend you save the LOCKSS 1.x to 2.x :ref:`Migration log files` into the ``lockss`` user's home directory for a little while, in case you need to refer to them soon after migration. Run this command as ``root``:
 
       .. code-block:: shell
 
-         install -o lockss -g lockss v2migration.* ~lockss/
+         install -o lockss -g lockss v2migration* ~lockss/
 
-   b. |LOCKSS2ROOT| Run this command as ``root``:
+   b. |LOCKSS1ROOT| Run this command as ``root``:
 
       .. code-block:: shell
 
-         rm daemon* stdout* v2migration.*
+         rm daemon* stdout* v2migration*
 
       This will free up the storage space used by LOCKSS 1.x log files.
 
-3. |SAMEHOSTFUTUREONLY| If you are doing a :ref:`Same-Host Migration With Future Reclamation`, you can now free up the storage space formerly used by LOCKSS 1.x for preserved content. (If you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, this was done gradually for you as the migration progressed and you do not need to do anything in this step.) For each content storage directory :file:`{<contentdir>}` your LOCKSS 1.x instance was configured to use, follow these steps:
+3. |SAMEHOSTFUTUREONLY| If you are doing a :ref:`Same-Host Migration With Future Reclamation`, you can now free up the storage space formerly used by LOCKSS 1.x for preserved content. (If you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, this was done gradually for you as the migration progressed and you do not need to do anything in this step.)
 
-   a. |LOCKSS2ROOT| Navigate to the :file:`{<contentdir>}` directory as ``root``:
+   You will have to perform the following steps for each content storage directory your LOCKSS 1.x instance was configured to use. These are listed in your LOCKSS configuration file :file:`/etc/lockss/config.dat` as the semicolon-separated list ``LOCKSS_DISK_PATHS``. One way to output the list of LOCKSS 1.x content storage directories is this command:
+
+   .. code-block:: shell
+
+      ( . /etc/lockss/config.dat && echo $LOCKSS_DISK_PATHS | tr ';' '\n' )
+
+   For each LOCKSS 1.x content storage directory :file:`{<contentdir>}`, follow these steps:
+
+   a. |LOCKSS1ROOT| Navigate to the :file:`{<contentdir>}` directory as ``root``:
 
       :samp:`cd {<contentdir>}`
 
-   b. |LOCKSS2ROOT| Delete its :file:`cache` subdirectory as ``root``:
+   b. |LOCKSS1ROOT| Delete its :file:`cache` subdirectory as ``root``:
 
       .. code-block:: shell
 
@@ -76,4 +98,20 @@ The last task is to decommission your LOCKSS 1.x instance.
 
       This may take some time depending on the content size.
 
-   Repeat for the next LOCKSS 1.x content storage directory until all :file:`cache` subdirectories of LOCKSS 1.x :file:`gamma` directories have been reclaimed.
+4. Of the content storage directories your LOCKSS 1.x instance was configured to use, the first one in the list is the primary content storage directory and is used to store state data and temporary data which can now be deleted in addition to preserved content. One way to output the primary LOCKSS 1.x content storage directory is this command:
+
+   .. code-block:: shell
+
+      ( . /etc/lockss/config.dat && echo $LOCKSS_DISK_PATHS | sed -e 's/;.*//' )
+
+   Follow these steps:
+
+   a. |LOCKSS1ROOT| Navigate to the primary LOCKSS 1.x content storage directory, symbolically :file:`{<primarydir>}`, as ``root``:
+
+      :samp:`cd {<primarydir>}`
+
+   b. |LOCKSS1ROOT| Run this command as ``root``:
+
+      .. code-block:: shell
+
+         rm -rf config/ db/ iddb/ plugins/ tfile/ tmp/ v3state/
