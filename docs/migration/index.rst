@@ -8,7 +8,11 @@ LOCKSS 1.x to 2.x Migration Guide
 
 **Welcome, LOCKSS 1.x users!**
 
-This document will guide you as you upgrade from LOCKSS 1.x to LOCKSS 2.x, by populating an initially empty LOCKSS |UPGRADE_TO_MINOR| instance with the data preserved in an existing LOCKSS |UPGRADE_FROM_MINOR| instance [#fn-first-time]_.
+This document will guide you as you upgrade your LOCKSS node from LOCKSS 1.x to LOCKSS 2.x, by populating an initially empty LOCKSS |UPGRADE_TO_MINOR| instance with the data preserved in your existing LOCKSS |UPGRADE_FROM_MINOR| instance.
+
+*  If you are installing LOCKSS for the first time, you install LOCKSS 2.x. See the |MANUAL|.
+
+*  If you are the administrator of a LOCKSS network, you will also need to perform a few actions before the first migration and after the last migration of nodes in your network. See :ref:`Appendix: Considerations for Administrators of LOCKSS Networks`.
 
 .. rubric:: Table of Contents
 
@@ -26,6 +30,7 @@ This document will guide you as you upgrade from LOCKSS 1.x to LOCKSS 2.x, by po
    reconfiguring2
    decommissioning1
    faq
+   network
    differences
 
 ----
@@ -34,4 +39,4 @@ This document will guide you as you upgrade from LOCKSS 1.x to LOCKSS 2.x, by po
 
 .. [#fn-first-time]
 
-   If you are installing LOCKSS for the first time, you should refer to the |MANUAL|.
+   

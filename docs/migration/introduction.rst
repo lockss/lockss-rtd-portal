@@ -280,29 +280,21 @@ The **LOCKSS Installer Directory** is an important concept in LOCKSS 2.x. It is 
 Important Considerations
 ------------------------
 
-Adopting the LOCKSS 1.x IP Address and Hostname
-===============================================
+Adopting the LOCKSS 1.x IP Address
+==================================
 
-In a :ref:`New-Host Migration`, **it is strongly recommended that at the end, you allow your LOCKSS 2.x host to adopt the IP address, and ideally the hostname, previously associated with your LOCKSS 1.x host**:
+|NEWHOSTONLY|
+
+The |LCAP| identity of a LOCKSS node in a LOCKSS network is predicated in part on the node's IP address. A :ref:`New-Host Migration` automatically involves a new IP address for the LOCKSS 2.x host during the migration, which you might be tempted to keep at the end.
+
+At the end of the |PRINCIPAL|, **it is strongly recommended that you allow your LOCKSS 2.x host to adopt the IP address of previously associated with your LOCKSS 1.x host**:
 
 .. image:: laaws-migration-new-host-end-adopted.png
    :align: center
 
-This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses and/or hostnames may be required and may cause an interruption of service. Changing the IP address and hostname of the LOCKSS 2.x host occurs after the |PRINCIPAL|, at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`). At a high level, it consists of shutting down your LOCKSS 1.x host (or at least reconfiguring it to yet another IP address and hostname), reconfiguring your LOCKSS 2.x host so it uses the IP address (and ideally hostname) previously associated with your LOCKSS 1.x host, and restarting |K3S| to adjust to the newly configured IP address.
+This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses may be required and may cause an interruption of service. Changing the IP address and hostname of the LOCKSS 2.x host occurs at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`).
 
-Not adopting the LOCKSS 1.x hostname, and especially IP address, has implications:
-
-.. image:: laaws-migration-new-host-end-not-adopted.png
-   :align: center
-
-.. rubric:: Implications of not adopting the LOCKSS 1.x IP address
-   :name: Implications of not adopting the LOCKSS 1.x IP address
-
-If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for your LOCKSS network and its participants to a permanent change of IP address for your node:
-
-   *  The administrator of your LOCKSS network will need to include the permanent change of IP address of your node in the LOCKSS network's configuration file, and make other  adjustments to the props server (firewall rules, Web server access rules, etc.) and more.
-
-   *  Other nodes in your LOCKSS network may have to adjust firewall rules and other access control lists (for example in the :guilabel:`Content Access Options` section of the Web user interface).
+If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for the administrator of your LOCKSS network and the other nodes in your network. See :numref:`After Each Migration` (:ref:`After Each Migration`) in :ref:`Appendix: Considerations for Administrators of LOCKSS Networks`.
 
 .. rubric:: Implications of not adopting the LOCKSS 1.x hostname
    :name: Implications of not adopting the LOCKSS 1.x hostname
