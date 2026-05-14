@@ -20,10 +20,6 @@ Follow these steps:
 
 1. Log in to your LOCKSS 1.x Web user interface, and click on :guilabel:`Migration Settings` in the top-right navigation menu.
 
-   .. image:: laaws-migration-settings-navigation.png
-      :align: center
-      :alt: Screenshot of the LOCKSS 1.x Web user interface top-right navigation menu (in debug user mode), with a vertical succession of menu items: "AU Configuration", "Admin Access Control", "Content Access Control", "Content Access Options", "Proxy Info", "Daemon Status", "Migration Settings", "Migration Control", "Debug Panel", "Expert Config", "Title List", "Logs", "Thread Dump", "Contact Us", "My Account", "User Accounts", and "Help". A mouse cursor is hovering over the "Migration Settings" menu item.
-
 2. Complete the four fields in the :guilabel:`LOCKSS 2.x Target` section of the screen using the appropriate LOCKSS 2.x values:
 
    a. :guilabel:`Hostname`: Enter the hostname of your LOCKSS 2.x host:
@@ -48,9 +44,7 @@ Follow these steps:
 
 5. |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`, select the :guilabel:`Perform dry run migration` checkbox in the :guilabel:`Migration Options` section.
 
-6.  |SAMEHOSTINCREMENTALONLY|
-
-    **If, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, select the :guilabel:`Delete each AU after migration` checkbox.
+6.  |SAMEHOSTINCREMENTALONLY| **If, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, select the :guilabel:`Delete each AU after migration` checkbox.
 
    .. caution::
 
