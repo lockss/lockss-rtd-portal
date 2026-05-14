@@ -1,8 +1,8 @@
 .. include:: subst.rst
 
-==============================
-Preparing Your LOCKSS 2.x Host
-==============================
+=============================
+Preparing the LOCKSS 2.x Host
+=============================
 
 .. image:: laaws-migration-steps-preparing2.png
    :align: center
@@ -18,6 +18,10 @@ The necessary work depends on your :ref:`Migration Scenario`:
       :sync: newhost
 
       If you are doing a :ref:`New-Host Migration`, you will need to **commission a new host for your LOCKSS 2.x instance**, for example setting up a new physical machine and installing Linux, or spinning up a new Linux virtual machine. See the |TAB| :external+lockss-manual:doc:`introduction/prerequisites` section and |TAB| :external+lockss-manual:ref:`Operating Systems` appendix of the |MANUAL| for details.
+
+      .. admonition:: Special instructions for administrators of LOCKSS networks
+
+         You have to incorporate the IP address of this new host to firewall rules and Web server access control on the network configuration server. See :ref:`Access control before migration` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
 
    .. tab-item:: Same-Host Migration
       :sync: samehost

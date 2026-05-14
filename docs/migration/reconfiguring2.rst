@@ -33,7 +33,7 @@ Follow these steps:
 
          If you are doing a :ref:`New-Host Migration`, follow these steps to reconfigure your LOCKSS 2.x instance for normal operation:
 
-         a. Allow your LOCKSS 2.x host to adopt the IP address, and ideally hostname, previously associated with your LOCKSS 1.x host. This step is **strongly recommended**; see :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`) for details, including a discussion of :ref:`Implications of not adopting the LOCKSS 1.x IP address` and :ref:`Implications of not adopting the LOCKSS 1.x hostname`. This action requires the following steps:
+         a. **Allow your LOCKSS 2.x host to adopt the IP address, and ideally hostname, previously associated with your LOCKSS 1.x host.** This step is **strongly recommended**; see :numref:`Adopting the LOCKSS 1.x IP Address` (:ref:`Adopting the LOCKSS 1.x IP Address`) and :numref:`Adopting the LOCKSS 1.x Hostname` (:ref:`Adopting the LOCKSS 1.x Hostname`). This action requires the following steps:
 
             (i) |LOCKSS1ROOT| Shut down your LOCKSS 1.x host, or at least reconfigure it to yet another IP address.
 
@@ -49,23 +49,31 @@ Follow these steps:
 
                This is necessary for |K3s| to adjust to the newly configured IP address.
 
+            .. admonition:: Special instructions for administrators of LOCKSS networks
+
+               You have to adjust the firewall rules and Web server access control on the network configuration server, regardless of whether or not the node adopts its LOCKSS 1.x IP address. See :ref:`Access control after migration` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
+
          b. |LOCKSS2LOCKSS| Run this command, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`:
 
             .. code-block:: shell
 
                scripts/configure-lockss
 
-         c. The LOCKSS 2.x configuration process will repeat; for most questions, you will simply hit :kbd:`Enter` to re-accept the previously entered value, **except for the following prompts**:
+         c. The LOCKSS 2.x configuration process will repeat. For the most part, you are only confirming existing values by simply hitting :kbd:`Enter`, but you will receive additional prompts and there are a few prompts to pay attention to:
 
-            (i) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+            (i) (*additional prompt*) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-            (ii) :guilabel:`Fully qualified hostname (FQDN) of this machine`: If you are adopting the LOCKSS 1.x hostname, enter it here (see :ref:`Adopting the LOCKSS 1.x IP Address and Hostname`).
+            (ii) :guilabel:`Fully qualified hostname (FQDN) of this machine`: If you are adopting the LOCKSS 1.x hostname (which is recommended), enter it here. See :numref:`Adopting the LOCKSS 1.x Hostname` (:ref:`Adopting the LOCKSS 1.x Hostname`).
 
-            (iii) :guilabel:`IP address of this machine`: Likewise, if you are adopting the LOCKSS 1.x IP address, enter it here (see :ref:`Adopting the LOCKSS 1.x IP Address and Hostname`).
+            (iii) :guilabel:`IP address of this machine`: Likewise, if you are adopting the LOCKSS 1.x IP address (which is strongly recommended), enter it here. See :numref:`Adopting the LOCKSS 1.x IP Address` (:ref:`Adopting the LOCKSS 1.x IP Address`).
 
-            (iv) *Optional.* There may be other configuration values you need to change at this stage, but in most cases, everything else will be the same.
+            (iv) :guilabel:`LCAP port`: It is strongly recommended that you adopt the LCAP port previously associated with your LOCKSS 1.x instance. See :numref:`Adopting the LOCKSS 1.x LCAP Port` (:ref:`Adopting the LOCKSS 1.x LCAP Port`).
 
             (v) :guilabel:`OK to proceed?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+
+            .. admonition:: Special instructions for administrators of LOCKSS networks
+
+               If the node does not adopt its LOCKSS 1.x IP address and/or LCAP port, see :ref:`Change of LCAP identity` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
 
       .. tab-item:: Same-Host Migration
          :sync: samehost
@@ -78,11 +86,17 @@ Follow these steps:
 
                scripts/configure-lockss
 
-         b. The LOCKSS 2.x configuration process will auto-repeat, but you will receive a few prompts:
+         b. The LOCKSS 2.x configuration process will repeat. For the most part, you are only confirming existing values by simply hitting :kbd:`Enter`, but you will receive additional prompts and there are a few prompts to pay attention to:
 
-            (i) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+            (i) (*additional prompt*) :guilabel:`Do you want to reconfigure LOCKSS 2.x to no longer be in migration mode?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
-            (ii) :guilabel:`OK to proceed?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
+            (ii) :guilabel:`LCAP port`: It is strongly recommended that you adopt the LCAP port previously associated with your LOCKSS 1.x instance. See :numref:`Adopting the LOCKSS 1.x LCAP Port` (:ref:`Adopting the LOCKSS 1.x LCAP Port`).
+
+               .. admonition:: Special instructions for administrators of LOCKSS networks
+
+                  If the node does not adopt its LOCKSS 1.x LCAP port, see :ref:`Change of LCAP identity` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
+
+            (iii) :guilabel:`OK to proceed?`: Enter :kbd:`Y` for "yes", or simply hit :kbd:`Enter`.
 
 4. |LOCKSS2LOCKSS| Finally, on the LOCKSS 2.x host, as the ``lockss`` user, in the :ref:`LOCKSS Installer Directory`, run this command:
 

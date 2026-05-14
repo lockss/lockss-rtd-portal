@@ -116,7 +116,7 @@ This will proceed largely as described in |TAB| Chapter |CONFIGURE_CHAPTER| (:ex
 
             *  |TAB| Section |CONFIGURE_CHAPTER|.4.4 (:external+lockss-manual:ref:`LCAP Port`)
 
-         c. After the :guilabel:`LCAP protocol port` prompt, you will receive the following prompt:
+         c. After the :guilabel:`LCAP port` prompt, you will receive the following prompt:
 
             :guilabel:`Temporary LOCKSS 2.x LCAP port`
 

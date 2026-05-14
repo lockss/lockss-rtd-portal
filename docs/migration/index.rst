@@ -12,7 +12,7 @@ This document will guide you as you upgrade your LOCKSS node from LOCKSS 1.x to 
 
 *  If you are installing LOCKSS for the first time, you install LOCKSS 2.x. See the |MANUAL|.
 
-*  If you are the administrator of a LOCKSS network, you will also need to perform a few actions before the first migration and after the last migration of nodes in your network. See :ref:`Appendix: Considerations for Administrators of LOCKSS Networks`.
+*  If you are the administrator of a LOCKSS network, see :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`), and read :numref:`Chapter %s <Introduction to the Migration>` (:ref:`Introduction to the Migration`) for background.
 
 .. rubric:: Table of Contents
 
@@ -32,11 +32,3 @@ This document will guide you as you upgrade your LOCKSS node from LOCKSS 1.x to 
    faq
    network
    differences
-
-----
-
-.. rubric:: Footnotes
-
-.. [#fn-first-time]
-
-   

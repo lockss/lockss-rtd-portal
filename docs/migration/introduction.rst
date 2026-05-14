@@ -23,51 +23,62 @@ Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
    .. image:: laaws-migration-overview-start.png
       :align: center
 
+   A prerequisite is to bring the LOCKSS 1.x instance up to date first, which is covered in :numref:`Chapter %s <Upgrading LOCKSS 1.x>` (:ref:`Upgrading LOCKSS 1.x`).
+
 2. An empty LOCKSS 2.x instance is installed and configured (legend [#fn-legend]_):
 
    .. image:: laaws-migration-overview-before.png
       :align: center
 
+   This is covered in :numref:`Chapter %s <Preparing the LOCKSS 2.x Host>` (:ref:`Preparing the LOCKSS 2.x Host`), :numref:`Chapter %s <Installing LOCKSS 2.x>` (:ref:`Installing LOCKSS 2.x`), and :numref:`Chapter %s <Configuring LOCKSS 2.x for Migration>` (:ref:`Configuring LOCKSS 2.x for Migration`).
+
 3. .. _principal migration phase:
 
-   The LOCKSS Migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. This is referred to as the **principal migration phase**.
+   The LOCKSS Migrator sets up and executes the migration, and the LOCKSS 2.x instance is gradually populated with the data from the LOCKSS 1.x instance. This is referred to as the **principal migration phase**. This is covered in :numref:`Chapter %s <Configuring LOCKSS 1.x for Migration>` (:ref:`Configuring LOCKSS 1.x for Migration`) and :numref:`Chapter %s <Running the Migrator>` (:ref:`Running the Migrator`).
 
-   Each archival unit (AU) [#fn-au]_ becomes "frozen" in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
+   At a high level, each archival unit (AU) [#fn-au]_ becomes "frozen" in the LOCKSS 1.x instance; then its contents are copied to the LOCKSS 2.x instance; finally the AU is reactivated in the LOCKSS 2.x instance (legend [#fn-legend]_):
 
    .. image:: laaws-migration-overview-middle.png
       :align: center
 
-   Until it is decommissioned and the LOCKSS 2.x instance takes over, the LOCKSS 1.x instance continues to act as the recipient of client requests (for example ServeContent requests) and |LCAP| traffic for all your preserved content, sometimes routing those requests to the LOCKSS 2.x instance as necessary:
-
-   *  Client requests and |LCAP| traffic pertaining to AUs that have not been migrated yet (for example AU4 here) are handled directly by the LOCKSS 1.x instance (legend [#fn-legend]_):
-
-      .. image:: laaws-migration-overview-middle4.png
-         :align: center
-
-   *  Client requests and |LCAP| traffic pertaining to AUs that have been successfully migrated (for example AU2 here) are received by the LOCKSS 1.x instance and forwarded to the LOCKSS 2.x instance who handles it (legend [#fn-legend]_):
-
-      .. image:: laaws-migration-overview-middle2.png
-         :align: center
-
-   *  Client requests pertaining to AUs in the process of being migrated (for example AU3 here) are handled directly by the LOCKSS 1.x instance even while the AU is "frozen" (legend [#fn-legend]_):
-
-      .. image:: laaws-migration-overview-middle3-yes.png
-         :align: center
-
-   *  |LCAP| traffic pertaining to AUs in the process of being migrated (for example AU3 here) is part of some of the functions that are unavailable while the AU is "frozen", and the LOCKSS 1.x instance who receives the request does not honor it (legend [#fn-legend]_):
-
-      .. image:: laaws-migration-overview-middle3-no.png
-         :align: center
-
-4. At the end of the |PRINCIPAL|, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (legend [#fn-legend]_):
+   At the end of the |PRINCIPAL|, the LOCKSS 2.x instance is handling all AUs, and the LOCKSS 1.x instance is no longer handling any AUs (legend [#fn-legend]_):
 
    .. image:: laaws-migration-overview-after.png
       :align: center
 
-5. Finally, the LOCKSS 1.x instance is decommissioned (legend [#fn-legend]_):
+   .. dropdown:: Delegated AU handling during migration
+      :name: Delegated AU handling during migration
+      :icon: info
+      :animate: fade-in-slide-down
+
+      Until it is decommissioned and the LOCKSS 2.x instance takes over, the LOCKSS 1.x instance continues to act as the recipient of client requests (for example ServeContent requests) and |LCAP| traffic for all your preserved content, sometimes routing those requests to the LOCKSS 2.x instance as necessary:
+
+      *  Client requests and |LCAP| traffic pertaining to AUs that have not been migrated yet (for example AU4 here) are handled directly by the LOCKSS 1.x instance (legend [#fn-legend]_):
+
+         .. image:: laaws-migration-overview-middle4.png
+            :align: center
+
+      *  Client requests and |LCAP| traffic pertaining to AUs that have been successfully migrated (for example AU2 here) are received by the LOCKSS 1.x instance and forwarded to the LOCKSS 2.x instance who handles it (legend [#fn-legend]_):
+
+         .. image:: laaws-migration-overview-middle2.png
+            :align: center
+
+      *  Client requests pertaining to AUs in the process of being migrated (for example AU3 here) are handled directly by the LOCKSS 1.x instance even while the AU is "frozen" (legend [#fn-legend]_):
+
+         .. image:: laaws-migration-overview-middle3-yes.png
+            :align: center
+
+      *  |LCAP| traffic pertaining to AUs in the process of being migrated (for example AU3 here) is part of some of the functions that are unavailable while the AU is "frozen", and the LOCKSS 1.x instance who receives the request does not honor it (legend [#fn-legend]_):
+
+         .. image:: laaws-migration-overview-middle3-no.png
+            :align: center
+
+4. Finally, the LOCKSS 1.x instance is decommissioned (legend [#fn-legend]_) and the LOCKSS 2.x instance takes over:
 
    .. image:: laaws-migration-overview-end.png
       :align: center
+
+   This is covered in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`) and :numref:`Chapter %s <Decommissioning LOCKSS 1.x>` (:ref:`Decommissioning LOCKSS 1.x`).
 
 The different :ref:`Migration Scenarios <Migration Scenario>` differ only in two key ways: where the LOCKSS 2.x instance is located compared to the LOCKSS 1.x instance, and when the storage space occupied by deactivated AUs from the LOCKSS 1.x instance is reclaimed.
 
@@ -108,20 +119,21 @@ New-Host Migration
 
 |NEWHOSTMIGRATION|
 
-An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
+.. dropdown:: Step by step illustration of a new-host migration
+   :name: Step by step illustration of a new-host migration
+   :icon: info
+   :animate: fade-in-slide-down
 
-a. .. image:: laaws-migration-new-host-before.png
-      :align: center
+   An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
 
-b. .. image:: laaws-migration-new-host-middle3.png
-      :align: center
+   a. .. image:: laaws-migration-new-host-before.png
+         :align: center
 
-c. .. image:: laaws-migration-new-host-after.png
-      :align: center
+   b. .. image:: laaws-migration-new-host-middle3.png
+         :align: center
 
-.. note::
-
-   At the end of the migration process, letting your LOCKSS 2.x host adopt the IP address and hostname previously associated with your LOCKSS 1.x is **strongly recommended**. See :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`).
+   c. .. image:: laaws-migration-new-host-after.png
+         :align: center
 
 Same-Host Migration
 ===================
@@ -142,19 +154,24 @@ Same-Host Migration With Future Reclamation
 .. image:: laaws-migration-same-host-future-start.png
    :align: center
 
-An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
+.. dropdown:: Step by step illustration of a same-host migration with future reclamation
+   :name: Step by step illustration of a same-host migration with future reclamation
+   :icon: info
+   :animate: fade-in-slide-down
 
-a. .. image:: laaws-migration-same-host-future-before.png
-      :align: center
+   An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
 
-b. .. image:: laaws-migration-same-host-future-middle3.png
-      :align: center
+   a. .. image:: laaws-migration-same-host-future-before.png
+         :align: center
 
-c. .. image:: laaws-migration-same-host-future-after.png
-      :align: center
+   b. .. image:: laaws-migration-same-host-future-middle3.png
+         :align: center
 
-d. .. image:: laaws-migration-same-host-future-end.png
-      :align: center
+   c. .. image:: laaws-migration-same-host-future-after.png
+         :align: center
+
+   d. .. image:: laaws-migration-same-host-future-end.png
+         :align: center
 
 Same-Host Migration With Incremental Reclamation
 ------------------------------------------------
@@ -166,28 +183,33 @@ Same-Host Migration With Incremental Reclamation
 
 Procedurally, the process is the same as that for a :ref:`Same-Host Migration With Future Reclamation`, except for one particular step in :numref:`Configuring LOCKSS 1.x for Migration` (:ref:`Configuring LOCKSS 1.x for Migration`).
 
-An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
+.. dropdown:: Step by step illustration of a same-host migration with incremental reclamation
+   :name: Step by step illustration of a same-host migration with incremental reclamation
+   :icon: info
+   :animate: fade-in-slide-down
 
-a. .. image:: laaws-migration-same-host-incremental-before.png
-      :align: center
+   An illustration of this scenario before, during, and after the |PRINCIPAL| is shown below (legend [#fn-legend]_):
 
-b. .. image:: laaws-migration-same-host-incremental-middle1.png
-      :align: center
+   a. .. image:: laaws-migration-same-host-incremental-before.png
+         :align: center
 
-c. .. image:: laaws-migration-same-host-incremental-middle2.png
-      :align: center
+   b. .. image:: laaws-migration-same-host-incremental-middle1.png
+         :align: center
 
-d. .. image:: laaws-migration-same-host-incremental-middle3.png
-      :align: center
+   c. .. image:: laaws-migration-same-host-incremental-middle2.png
+         :align: center
 
-e. .. image:: laaws-migration-same-host-incremental-middle4.png
-      :align: center
+   d. .. image:: laaws-migration-same-host-incremental-middle3.png
+         :align: center
 
-f. .. image:: laaws-migration-same-host-incremental-after.png
-      :align: center
+   e. .. image:: laaws-migration-same-host-incremental-middle4.png
+         :align: center
 
-g. .. image:: laaws-migration-same-host-incremental-end.png
-      :align: center
+   f. .. image:: laaws-migration-same-host-incremental-after.png
+         :align: center
+
+   g. .. image:: laaws-migration-same-host-incremental-end.png
+         :align: center
 
 -----------------
 Dry Run Migration
@@ -285,33 +307,55 @@ Adopting the LOCKSS 1.x IP Address
 
 |NEWHOSTONLY|
 
-The |LCAP| identity of a LOCKSS node in a LOCKSS network is predicated in part on the node's IP address. A :ref:`New-Host Migration` automatically involves a new IP address for the LOCKSS 2.x host during the migration, which you might be tempted to keep at the end.
+The |LCAP| identity of a LOCKSS node in a LOCKSS network is predicated in part on the node's IP address. A :ref:`New-Host Migration` automatically involves a new IP address for the LOCKSS 2.x host during the migration, which you might be tempted to keep long term.
 
-At the end of the |PRINCIPAL|, **it is strongly recommended that you allow your LOCKSS 2.x host to adopt the IP address of previously associated with your LOCKSS 1.x host**:
+Near the end of the migration, in the designated :ref:`New-Host Migration` step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`), **it is strongly recommended that you allow your LOCKSS 2.x host to adopt the IP address previously associated with your LOCKSS 1.x host**.
 
-.. image:: laaws-migration-new-host-end-adopted.png
-   :align: center
+.. note::
 
-This is an important consideration for planning purposes, because coordinated action with your system administrator or IT department to effect the change of IP addresses may be required and may cause an interruption of service. Changing the IP address and hostname of the LOCKSS 2.x host occurs at a designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`).
+   If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for the administrator of your LOCKSS network and the other nodes in your network. See :ref:`Change of LCAP Identity` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
 
-If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for the administrator of your LOCKSS network and the other nodes in your network. See :numref:`After Each Migration` (:ref:`After Each Migration`) in :ref:`Appendix: Considerations for Administrators of LOCKSS Networks`.
+   .. COMMENT FIXME and also props server access control?
 
-.. rubric:: Implications of not adopting the LOCKSS 1.x hostname
-   :name: Implications of not adopting the LOCKSS 1.x hostname
+Adopting the LOCKSS 1.x LCAP Port
+=================================
 
-Adopting the hostname of your LOCKSS 1.x host is not strictly required for the node to function, but a change of hostname may also have downstream implications. If you keep the new hostname permanently, it will need to be used when accessing the Web user interface, and browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, etc. will need to be updated.
+Likewise, the |LCAP| identity of a LOCKSS node in a LOCKSS network is predicated in part on the node's |LCAP| (LOCKSS audit and repair protocol) port. A :ref:`Same-Host Migration` automatically involves a secondary |LCAP| port for the LOCKSS 2.x during the migration which you might be tempted to keep long term. Additionally, all migrations involve :ref:`Configuring LOCKSS 2.x for Migration` and :ref:`Reconfiguring LOCKSS 2.x for Normal Operation`, where you might be tempted to choose a different primary |LCAP| port than your LOCKSS 1.x instance.
 
-Firewall Rules
-==============
+Near the end of the migration, in the designated step in :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`), **it is strongly recommended that you allow your LOCKSS 2.x host to adopt the LCAP port previously associated with your LOCKSS 1.x host**.
 
-If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections **from your LOCKSS 1.x host** for the duration of the migration, specifically:
+.. note::
+
+   If adopting the |LCAP| port of your LOCKSS 1.x host is not possible, there are implications for the administrator of your LOCKSS network. See :ref:`Change of LCAP Identity` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`). Additionally, there are implications for your firewall infrastructure.
+
+   .. COMMENT FIXME what implications for firewalls?
+
+Adopting the LOCKSS 1.x Hostname
+================================
+
+|NEWHOSTONLY|
+
+Similarly to the IP address, a :ref:`New-Host Migration` automatically involves a new hostname for the LOCKSS 2.x host during the migration, which you might be tempted to keep long term. Adopting the hostname of your LOCKSS 1.x host at the end of the migration is not strictly required for the LOCKSS 2.x to function, but it is **recommended**.
+
+.. note::
+
+   If adopting the hostname of your LOCKSS 1.x host is not possible, there are implications for accessing the Web user interface, and browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, etc. will need to be updated.
+
+   .. COMMENT FIXME point to something specific in reconfiguring2? decommissioning1?
+
+Firewall Rules During Migration
+===============================
+
+|NEWHOSTONLY|
+
+If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections **from the LOCKSS 1.x host to the LOCKSS 2.x host** for the duration of the migration, specifically:
 
 .. list-table::
    :header-rows: 1
 
    *  *  Port
       *  Description
-   *  *  9739
+   *  *  9739 [#fn-temporary-lcap]_
       *  Temporary :external+lockss-manual:term:`LCAP` port
    *  *  24602
       *  |CFGSVC| Web user interface
@@ -322,12 +366,23 @@ If you are doing a :ref:`New-Host Migration`, you will need to make sure that fi
    *  *  24620 [#fn-postgresql]_
       *  :external+lockss-manual:ref:`PostgreSQL`
 
-See also |TAB| :external+lockss-manual:ref:`Network Ports` in the |MANUAL|.
-
 LCAP Over SSL
 =============
 
 If your LOCKSS network uses SSL keystores for encrypted |LCAP| communication between nodes, you will need to perform a few additional steps related to your LCAP SSL keystore during the migration of your node. Ask your LOCKSS network administrator if this situation applies to you, and if so, contact us for further advice.
+
+Considerations for Administrators of LOCKSS Networks
+====================================================
+
+.. admonition:: Special instructions for administrators of LOCKSS networks
+
+   This section is aimed at administrators of LOCKSS networks.
+
+Although this guide is primarily aimed at operators of individual LOCKSS nodes, **a few actions must be performed by administrators of LOCKSS networks through the transitional period of migration of the nodes from LOCKSS 1.x to 2.x**, detailed in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`):
+
+*  There are network-wide tasks to perform :ref:`Before the First Migration` and :ref:`After the Last Migration`.
+
+*  Additionally, there are node-specific tasks to perform :ref:`Before Each Migration` and :ref:`After Each Migration`.
 
 ----
 
@@ -335,7 +390,7 @@ If your LOCKSS network uses SSL keystores for encrypted |LCAP| communication bet
 
 .. [#fn-legend]
 
-   Legend for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`), :numref:`Migration Scenario` (:ref:`Migration Scenario`), and :numref:`Adopting the LOCKSS 1.x IP Address and Hostname` (:ref:`Adopting the LOCKSS 1.x IP Address and Hostname`):
+   Legend for the diagrams in :numref:`Migration Overview` (:ref:`Migration Overview`) and :numref:`Migration Scenario` (:ref:`Migration Scenario`):
 
    .. image:: laaws-migration-overview-legend.png
       :alt: A legend for the diagrams in the Migration Overview section. A light blue chip and a vivid blue chip are described as "Related to LOCKSS 1.x". A light red chip and vivid red chip are described as "Related to LOCKSS 2.x". A box with a thick border labeled AU9 for "archival unit #9" is described as "Storage space currently occupied by an AU actively handled by the corresponding LOCKSS instance". A box with a thin border labeled AU9 for "archival unit #9" is described as "Storage space currently occupied by an AU formerly handled by the corresponding LOCKSS instance". A box with a dashed border labeled AU9 for "archival unit #9" is described as "Free storage space previously occupied by an AU formerly hanlded by the corresponding LOCKSS instance".
@@ -343,6 +398,10 @@ If your LOCKSS network uses SSL keystores for encrypted |LCAP| communication bet
 .. [#fn-au]
 
    An **archival unit**, or **AU**, is a unit of preserved content in LOCKSS. Consisting of any number of versioned objects, an AU might be a volume of a journal, a single book and its assets, a given digitized collection, etc.
+
+.. [#fn-temporary-lcap]
+
+   This port is configurable, so if you choose a different temporary LCAP port in :numref:`Chapter %s <Configuring LOCKSS 2.x for Migration>` (:ref:`Configuring LOCKSS 2.x for Migration`) than the default port, you will instead need to ensure that firewalls allow TCP connections from your LOCKSS 1.x host to that port on your LOCKSS 2.x host.
 
 .. [#fn-postgresql]
 
