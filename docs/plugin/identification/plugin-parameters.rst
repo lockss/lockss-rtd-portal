@@ -69,11 +69,11 @@ Structure
 
    Each ``<org.lockss.daemon.ConfigParamDescr>`` stanza contains the following important elements:
 
-   *  ``<key>``: the **parameter key**, an identifier for the configuration parameter, standing in as a placeholder for the AU-specific value in rules and code. Example: ``base_url`` for a base URL (URL prefix common to all or most URLs in an AU).
+   *  ``<key>``: the **plugin configuration parameter key**, an identifier for the configuration parameter, standing in as a placeholder for the AU-specific value in rules and code. Example: ``base_url`` for a base URL (URL prefix common to all or most URLs in an AU).
 
-   *  ``<type>``: the **parameter type**, an integer describing the type of value the configuration parameter represents (string, integer, etc.). See :ref:`Parameter Types` below for details.
+   *  ``<type>``: the **plugin configuration Plugin Configuration Parameter Type**, an integer describing the type of value the configuration parameter represents (string, integer, etc.). See :ref:`Plugin Configuration Parameter Types` below for details.
 
-   *  ``<definitional>``: whether the parameter is a **definitional parameter** or **non-definitional parameter**, expressed as the booleans ``true`` or ``false``. Most parameters are definitional (``true``), meaning the parameter is part of the set of parameters that together form the unique identity of the AU.
+   *  ``<definitional>``: whether the plugin parameter is a **definitional parameter** or **non-definitional parameter**, expressed as the booleans ``true`` or ``false``. Most parameters are definitional (``true``), meaning the parameter is part of the set of parameters that together form the unique identity of the AU.
 
    *  ``<defaultOnly>``: set to ``false`` in almost all cases.
 
@@ -85,35 +85,118 @@ Structure
 
    *  ``<size>``: the parameter display size in characters in the *Manual Add/Edit* screen.
 
----------------
-Parameter Types
----------------
+------------------------------------
+Plugin Configuration Parameter Types
+------------------------------------
 
 The following plugin configuration parameter types are defined in the LOCKSS software:
 
-=================== ==============
-Parameter Type Code Parameter Type
-=================== ==============
-``1``               :ref:`string-type`
-``2``               :ref:`integer-type`
-``3``               :ref:`URL`
-``4``               :ref:`year-type`
-``5``               :ref:`Boolean`
-``6``               :ref:`Non-Negative Integer`
-``7``               :ref:`String Range`
-``8``               :ref:`Numeric Range`
-``9``               :ref:`Set`
-``10``              :ref:`User Credentials`
-``11``              :ref:`long-type`
-``12``              :ref:`Time Interval`
-=================== ==============
+.. list-table::
+   :header-rows: 1
 
-.. _string-type:
+   *  *  Configuration Parameter Type Code
+      *  Configuration Parameter Type
+   *  *  ``1``
+      *  :ref:`String Type`
+   *  *  ``2``
+      *  :ref:`Integer Type`
+   *  *  ``3``
+      *  :ref:`URL Type`
+   *  *  ``4``
+      *  :ref:`Year Type`
+   *  *  ``5``
+      *  :ref:`Boolean Type`
+   *  *  ``6``
+      *  :ref:`Non-Negative Integer Type`
+   *  *  ``7``
+      *  :ref:`String Range Type`
+   *  *  ``8``
+      *  :ref:`Numeric Range Type`
+   *  *  ``9``
+      *  :ref:`Set Type`
+   *  *  ``10``
+      *  :ref:`User Credentials Type`
+   *  *  ``11``
+      *  :ref:`Long Integer Type`
+   *  *  ``12``
+      *  :ref:`Time Interval Type`
 
-String
-======
+Boolean Type
+============
 
-Parameter Type Code
+Configuration Parameter Type Code
+   ``5``
+
+Description
+   The canonical values are ``true`` or ``false``, although ``yes``, ``on`` and ``1`` are recognized as ``true``, and ``no``, ``off`` and ``0`` are recognized as ``false``. All these value strings are case-insensitive.
+
+Built-In Examples
+   :ref:`AU Down`, :ref:`AU Off-Limits`, :ref:`AU Closed`
+
+Integer Type
+============
+
+Configuration Parameter Type Code
+   ``2``
+
+Description
+   The integer can be negative. Represented internally as a 32-bit integer.
+
+Long Integer Type
+=================
+
+Configuration Parameter Type Code
+   ``11``
+
+Description
+   The value can be negative. Represented internally as a 64-bit integer.
+
+.. _year-type:
+
+Non-Negative Integer Type
+=========================
+
+Configuration Parameter Type Code
+   ``6``
+
+Description
+   The integer can be zero but cannot be negative. Represented internally as a 32-bit integer.
+
+Built-In Examples
+   :ref:`Volume Number`
+
+.. _long-type:
+
+Numeric Range Type
+==================
+
+Configuration Parameter Type Code
+   ``8``
+
+Description
+   The range is specified with two integers separated by a dash (``-``). If there is a single integer, the range is interpreted to contain only that integer.
+
+Built-In Examples
+   :ref:`Numeric Issue Range`
+
+Set Type
+========
+
+Configuration Parameter Type Code
+   ``9``
+
+Description
+   Specified as a comma-separated list of strings, with whitespace surrounding strings ignored, and empty strings discarded.
+
+   The string :samp:`\{{n},{m}\}`, where :samp:`{n}` and :samp:`{m}` are integers, will be replaced by all the integers in the range from :samp:`{n}` to :samp:`{m}` inclusive.  For instance, the set ``{2002-2005}, 2003Supp, 2004Supp`` is equivalent to ``2002, 2003, 2003Supp, 2004, 2004Supp, 2005``.
+
+Built-In Examples
+   :ref:`Issue Set`
+
+String Type
+===========
+
+Configuration Parameter Type Code
    ``1``
 
 Description
@@ -122,10 +205,38 @@ Description
 Built-In Examples
    :ref:`Volume Name`, :ref:`Journal Directory`, :ref:`Journal Abbreviation`, :ref:`Journal Identifier`, :ref:`Journal ISSN`, :ref:`Publisher Name`, :ref:`OAI Spec`, :ref:`Crawl Proxy`, :ref:`Crawl Test Substance Threshold`
 
-URL
-===
+String Range Type
+=================
 
-Parameter Type Code
+Configuration Parameter Type Code
+   ``7``
+
+Description
+   The range is specified with two strings separated by a dash (``-``) and is inclusive. If there is a single string with no dash, the range is interpreted to contain only that string.
+
+.. COMMENT TODO comment about how this might not be what people expect
+
+Built-In Examples
+   :ref:`Issue Range`
+
+Time Interval Type
+==================
+
+Configuration Parameter Type Code
+   ``12``
+
+Description
+   Specified as a long integer followed by a suffix indicating a time unit: ``ms`` for milliseconds, ``s`` for seconds, ``m`` for minutes, ``h`` for hours, ``d`` for days, ``w`` for weeks (7 days), ``y`` for years (365 days). If there is no suffix, the default interpretation is milliseconds. The time unit suffixes are case-insensitive.
+
+.. COMMENT TODO pointer to Javadoc
+
+Built-In Examples
+   :ref:`New Content Crawl Interval`
+
+URL Type
+========
+
+Configuration Parameter Type Code
    ``3``
 
 Description
@@ -137,10 +248,10 @@ Built-In Examples
 See Also
    :ref:`Derivative URL Parameters`
 
-User Credentials
-================
+User Credentials Type
+=====================
 
-Parameter Type Code
+Configuration Parameter Type Code
    ``10``
 
 Description
@@ -151,44 +262,10 @@ Built-In Examples
 
 .. _integer-type:
 
-Integer
-=======
+Year Type
+=========
 
-Parameter Type Code
-   ``2``
-
-Description
-   The integer can be negative. Represented internally as a 32-bit integer.
-
-Non-Negative Integer
-====================
-
-Parameter Type Code
-   ``6``
-
-Description
-   The integer can be zero but cannot be negative. Represented internally as a 32-bit integer.
-
-Built-In Examples
-   :ref:`Volume Number`
-
-.. _long-type:
-
-Long Integer
-============
-
-Parameter Type Code
-   ``11``
-
-Description
-   The value can be negative. Represented internally as a 64-bit integer.
-
-.. _year-type:
-
-Year
-====
-
-Parameter Type Code
+Configuration Parameter Type Code
    ``4``
 
 Description
@@ -199,72 +276,6 @@ Built-In Examples
 
 See Also
    :ref:`Derivative Year Parameters`
-
-Time Interval
-=============
-
-Parameter Type Code
-   ``12``
-
-Description
-   Specified as a long integer followed by a suffix indicating a time unit: ``ms`` for milliseconds, ``s`` for seconds, ``m`` for minutes, ``h`` for hours, ``d`` for days, ``w`` for weeks (7 days), ``y`` for years (365 days). If there is no suffix, the default interpretation is milliseconds. The time unit suffixes are case-insensitive.
-
-.. COMMENT TODO pointer to Javadoc
-
-Built-In Examples
-   :ref:`New Content Crawl Interval`
-
-String Range
-============
-
-Parameter Type Code
-   ``7``
-
-Description
-   The range is specified with two strings separated by a dash (``-``) and is inclusive. If there is a single string with no dash, the range is interpreted to contain only that string.
-
-.. COMMENT TODO comment about how this might not be what people expect
-
-Built-In Examples
-   :ref:`Issue Range`
-
-Numeric Range
-=============
-
-Parameter Type Code
-   ``8``
-
-Description
-   The range is specified with two integers separated by a dash (``-``). If there is a single integer, the range is interpreted to contain only that integer.
-
-Built-In Examples
-   :ref:`Numeric Issue Range`
-
-Set
-===
-
-Parameter Type Code
-   ``9``
-
-Description
-   Specified as a comma-separated list of strings, with whitespace surrounding strings ignored, and empty strings discarded.
-
-   The string :samp:`\{{n},{m}\}`, where :samp:`{n}` and :samp:`{m}` are integers, will be replaced by all the integers in the range from :samp:`{n}` to :samp:`{m}` inclusive.  For instance, the set ``{2002-2005}, 2003Supp, 2004Supp`` is equivalent to ``2002, 2003, 2003Supp, 2004, 2004Supp, 2005``.
-
-Built-In Examples
-   :ref:`Issue Set`
-
-Boolean
-=======
-
-Parameter Type Code
-   ``5``
-
-Description
-   The canonical values are ``true`` or ``false``, although ``yes``, ``on`` and ``1`` are recognized as ``true``, and ``no``, ``off`` and ``0`` are recognized as ``false``. All these value strings are case-insensitive.
-
-Built-In Examples
-   :ref:`AU Down`, :ref:`AU Off-Limits`, :ref:`AU Closed`
 
 --------------------------------
 Built-In Definitional Parameters
@@ -277,11 +288,11 @@ Definitional parameters give an AU its identity -- change the value for a defini
 Base URL
 ========
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``base_url``
 
-Parameter Type
-   :ref:`URL`
+Plugin Configuration Parameter Type
+   :ref:`URL Type`
 
 Canonical Form
    .. code-block:: xml
@@ -299,11 +310,11 @@ Canonical Form
 Second Base URL
 ===============
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``base_url2``
 
-Parameter Type
-   :ref:`URL`
+Plugin Configuration Parameter Type
+   :ref:`URL Type`
 
 Canonical Form
    .. code-block:: xml
@@ -323,11 +334,11 @@ Canonical Form
 Year
 ====
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``year``
 
-Parameter Type
-   :ref:`year-type`
+Plugin Configuration Parameter Type
+   :ref:`Year Type`
 
 Canonical Form
    .. code-block:: xml
@@ -348,8 +359,8 @@ Volume Number
 Parameter key
    ``volume``
 
-Parameter Type
-   :ref:`Non-Negative Integer`
+Plugin Configuration Parameter Type
+   :ref:`Non-Negative Integer Type`
 
 Canonical Form
    .. code-block:: xml
@@ -367,11 +378,11 @@ Canonical Form
 Volume Name
 ===========
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``volume_name``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 Canonical Form
    .. code-block:: xml
@@ -389,11 +400,11 @@ Canonical Form
 Issue Range
 ===========
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``issue_range``
 
-Parameter Type
-   :ref:`String Range`
+Plugin Configuration Parameter Type
+   :ref:`String Range Type`
 
 Canonical Form
    .. code-block:: xml
@@ -411,11 +422,11 @@ Canonical Form
 Numeric Issue Range
 ===================
 
-Parameter Key:
+Plugin Configuration Parameter Key:
    ``num_issue_range``
 
-Parameter Type
-   :ref:`Numeric Range`
+Plugin Configuration Parameter Type
+   :ref:`Numeric Range Type`
 
 Canonical Form
    .. code-block:: xml
@@ -433,11 +444,11 @@ Canonical Form
 Issue Set
 =========
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``issue_set``
 
-Parameter Type
-   :ref:`Set`
+Plugin Configuration Parameter Type
+   :ref:`Set Type`
 
 Canonical Form
    .. code-block:: xml
@@ -455,11 +466,11 @@ Canonical Form
 Journal Directory
 =================
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``journal_dir``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 Canonical Form
    .. code-block:: xml
@@ -477,11 +488,11 @@ Canonical Form
 Journal Abbreviation
 ====================
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``journal_abbr``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 Canonical Form
    .. code-block:: xml
@@ -499,11 +510,11 @@ Canonical Form
 Journal Identifier
 ==================
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``journal_id``
 
-Parameter type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 Canonical Form
    .. code-block:: xml
@@ -521,11 +532,11 @@ Canonical Form
 Journal ISSN
 ============
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``journal_issn``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 Canonical Form
    .. code-block:: xml
@@ -547,11 +558,11 @@ Publisher Name
 
    Use of this parameter is not recommended. It is unlikely the publisher name will appear in URLs, as opposed to a publisher abbreviation or code.
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``publisher_name``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 Canonical Form
    .. code-block:: xml
@@ -569,11 +580,11 @@ Canonical Form
 OAI Request URL
 ===============
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``oai_request_url``
 
-Parameter Type
-   :ref:`URL`
+Plugin Configuration Parameter Type
+   :ref:`URL Type`
 
 Canonical Form
    .. code-block:: xml
@@ -591,11 +602,11 @@ Canonical Form
 OAI Spec
 ========
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``oai_spec``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 Canonical Form
    .. code-block:: xml
@@ -623,11 +634,11 @@ Some non-definitional parameters might be listed in the plugin itself, like the 
 Username and Password
 =====================
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``user_pass``
 
-Parameter Type
-   :ref:`User Credentials`
+Plugin Configuration Parameter Type
+   :ref:`User Credentials Type`
 
 Canonical Form
    .. code-block:: xml
@@ -648,11 +659,11 @@ Description
 AU Down
 =======
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``pub_down``
 
-Parameter Type
-   :ref:`Boolean`
+Plugin Configuration Parameter Type
+   :ref:`Boolean Type`
 
 .. COMMENT defaultOnly
 
@@ -679,11 +690,11 @@ Description
 AU Off-Limits
 =============
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``pub_never``
 
-Parameter Type
-   :ref:`Boolean`
+Plugin Configuration Parameter Type
+   :ref:`Boolean Type`
 
 .. COMMENT defaultOnly
 
@@ -710,11 +721,11 @@ Description
 AU Closed
 =========
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``au_closed``
 
-Parameter Type
-   :ref:`Boolean`
+Plugin Configuration Parameter Type
+   :ref:`Boolean Type`
 
 .. COMMENT defaultOnly
 
@@ -741,11 +752,11 @@ Description
 Crawl Proxy
 ===========
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``crawl_proxy``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 .. COMMENT defaultOnly
 
@@ -770,11 +781,11 @@ Description
 New Content Crawl Interval
 ==========================
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``nc_interval``
 
-Parameter Type
-   :ref:`Time Interval`
+Plugin Configuration Parameter Type
+   :ref:`Time Interval Type`
 
 .. COMMENT defaultOnly
 
@@ -799,11 +810,11 @@ Description
 Crawl Test Substance Threshold
 ==============================
 
-Parameter Key
+Plugin Configuration Parameter Key
    ``crawl_test_substance_threshold``
 
-Parameter Type
-   :ref:`string-type`
+Plugin Configuration Parameter Type
+   :ref:`String Type`
 
 .. COMMENT defaultOnly
 
@@ -827,7 +838,7 @@ Description
 Derivative Parameters
 ---------------------
 
-For parameters of type :ref:`URL` and :ref:`year-type`, the system automatically brings into existence **derivative parameters** with special names, as if those parameters had also been defined by the plugin.
+For parameters of :ref:`URL Type` and :ref:`Year Type`, the system automatically brings into existence **derivative parameters** with special names, as if those parameters had also been defined by the plugin.
 
 .. tip::
 
@@ -836,18 +847,18 @@ For parameters of type :ref:`URL` and :ref:`year-type`, the system automatically
 Derivative URL Parameters
 =========================
 
-For any parameter of type :ref:`URL` with key :samp:`{urlkey}`, the following derivative parameters are automatically defined:
+For any parameter of :ref:`URL Type` with key :samp:`{urlkey}`, the following derivative parameters are automatically defined:
 
-*  :samp:`{urlkey}_host` of type :ref:`string-type`, whose value is just the host portion of the corresponding URL value. For example, if ``base_url`` has a value of ``https://www.publisher.com/jabc/``, ``base_url_host`` has a value of ``www.publisher.com``.
+*  :samp:`{urlkey}_host` of :ref:`String Type`, whose value is just the host portion of the corresponding URL value. For example, if ``base_url`` has a value of ``https://www.publisher.com/jabc/``, ``base_url_host`` has a value of ``www.publisher.com``.
 
-*  :samp:`{urlkey}_path` of type :ref:`string-type`, whose value is just the path portion of the corresponding URL value. For example, if ``base_url`` has a value of ``https://www.publisher.com/jabc/``, ``base_url_path`` has a value of ``/jabc/``.
+*  :samp:`{urlkey}_path` of :ref:`String Type`, whose value is just the path portion of the corresponding URL value. For example, if ``base_url`` has a value of ``https://www.publisher.com/jabc/``, ``base_url_path`` has a value of ``/jabc/``.
 
 Derivative Year Parameters
 ==========================
 
-For any parameter of type :ref:`year-type` with key :samp:`{yearkey}`, the following derivative parameter is automatically defined:
+For any parameter of :ref:`Year Type` with key :samp:`{yearkey}`, the following derivative parameter is automatically defined:
 
-*  :samp:`au_short_{yearkey}` of type :ref:`integer-type`, whose value is the corresponding year value modulo 100. For example, if ``year`` has a value of ``1998``, ``au_short_year`` has a value of ``98``; if ``year`` has a value of ``2002``, ``au_short_year`` has a value of ``2`` (the integer ``2``, not the string ``02``.
+*  :samp:`au_short_{yearkey}` of :ref:`Integer Type`, whose value is the corresponding year value modulo 100. For example, if ``year`` has a value of ``1998``, ``au_short_year`` has a value of ``98``; if ``year`` has a value of ``2002``, ``au_short_year`` has a value of ``2`` (the integer ``2``, not the string ``02``.
 
    .. tip::
 

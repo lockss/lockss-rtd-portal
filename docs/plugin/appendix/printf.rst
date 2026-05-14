@@ -38,8 +38,8 @@ Format specifiers begin with a **percent sign** (``%``) and end with a **type fi
 
 .. _string-printf:
 
-String
-======
+String Specifier
+================
 
 The most common format specifier is ``%s`` for string-valued expressions. Example:
 
@@ -53,8 +53,8 @@ The most common format specifier is ``%s`` for string-valued expressions. Exampl
 
 .. _integer-printf:
 
-Integer
-=======
+Integer Specifier
+==================
 
 The format specifier ``%d`` is used for an integer-valued expression. Example:
 
@@ -66,8 +66,8 @@ The format specifier ``%d`` is used for an integer-valued expression. Example:
 
    ``The year is 2022``
 
-Percent Sign
-============
+Percent Sign Specifier
+======================
 
 Because the percent sign is used to introduce format specifiers, there is type field to indicate that a placeholder is for a literal percent sign, and that type field is also the percent sign. Examples:
 

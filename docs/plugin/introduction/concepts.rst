@@ -18,11 +18,11 @@ In almost all cases, the preservation target is preserved in plugin-defined chun
 
 What these chunks are depends on the situation, but generally the goal is to split the preservation target into chunks of manageable size that are expected to become unchanging eventually, for instance time-bound chunks. For example, in a LOCKSS plugin for a preservation target that consists of serial publications, an AU could be equated with one volume or one year of one publication.
 
--------------------------------
-Plugin Configuration Parameters
--------------------------------
+------------------------------
+Plugin Configuration Parameter
+------------------------------
 
-A LOCKSS plugin leaves placeholders in rules and code called :doc:`../identification/plugin-parameters`. An AU is identified by a plugin and values for each of the plugin's configuration parameters. When the parameter values for an AU are substituted for the placeholders in the plugin's rules and code, the result is rules and code suited for that specific AU.
+A LOCKSS plugin leaves placeholders in rules and code called :ref:`Plugin Configuration Parameters`. An AU is identified by a plugin and values for each of the plugin's configuration parameters. When the parameter values for an AU are substituted for the placeholders in the plugin's rules and code, the result is rules and code suited for that specific AU.
 
 Typical plugin parameters include a URL prefix or URL fragment (e.g. base URL, directory name...), an identifier (e.g. ISSN of a journal, ISBN of a book, publication code, database identifier of an object...), a year or a date range, a part number (e.g. volume number, numbered subdivision...), and more.
 
