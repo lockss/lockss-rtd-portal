@@ -2,6 +2,10 @@
 REST APIs
 =========
 
+.. attention::
+
+   These APIs correspond to LOCKSS 2.0-beta1, the latest beta version of LOCKSS 2.0 currently available. LOCKSS 2.0-beta2 will be released soon, and will ahve updated APIs compared to those below.
+
 The API of each LOCKSS REST service is described in OpenAPI 3 specification, which can be found relative to the root of the component's Git repository in the file :file:`src/main/resources/swagger/swagger.yaml`. The specification can be used as input into another tool, to produce clients and server stubs in a variety of languages and frameworks, and documentation. This guide contains HTML renderings of each specification generated with `Swagger Codegen <https://github.com/swagger-api/swagger-codegen>`_.
 
 *  `LOCKSS Repository Service REST API <https://assets.lockss.org/api/lockss-repository-service.html>`_

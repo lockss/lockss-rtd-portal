@@ -8,7 +8,7 @@ Installing Debugpanel
 Debugpanel Prerequisites
 ------------------------
 
-|DEBUGPANEL| |RELEASE| requires Python 3.10 or greater [#fn-python-version]_.
+|DEBUGPANEL| |RELEASE| requires Python 3.10 or greater.
 
 :ref:`Debugpanel Installation` is typically done with |PIPX|, which you may need to install [#fn-pipx-version]_:
 
@@ -39,10 +39,6 @@ The installation process adds a :command:`debugpanel` :doc:`command line tool <u
 ----
 
 .. rubric:: Footnotes
-
-.. [#fn-python-version]
-
-   Type ``python --version`` (or ``python -V``) to see if Python is installed, and if so, which version.
 
 .. [#fn-pipx-version]
 

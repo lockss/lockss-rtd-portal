@@ -6,4 +6,4 @@
 
 *  Arch Linux: ``python-pipx`` OS package
 
-*  OpenSUSE, SUSE Linux Enterprise Server (SLES): ``python313-pipx``, ``python312-pipx`` or ``python311-pipx`` OS package (depending on the system version of Python [#fn-python-version]_)
+*  OpenSUSE, SUSE Linux Enterprise Server (SLES): ``python313-pipx``, ``python312-pipx`` or ``python311-pipx`` OS package (depending on the system version of Python)
