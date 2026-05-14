@@ -8,7 +8,7 @@ Preparing the LOCKSS 2.x Host
    :align: center
    :alt: A diagram of eight consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first box labeled "Upgrading LOCKSS 1.x" is colored in light blue, indicating a completed step. The second box labeled "Preparing the LOCKSS 2.x Host" is highlighted in yellow, indicating the step in progress. The last six boxes, successively labeled "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", "Configuring LOCKSS 1.x for Migration", "Running the Migrator", "Reconfiguring LOCKSS 2.x for Normal Operation", and "Decommissioning LOCKSS 1.x", are not colored, indicating future steps.
 
-The next task in the migration process is to prepare your LOCKSS 2.x host [#fn-same-host]_ for LOCKSS |UPGRADE_TO_PATCH|, the latest version of LOCKSS |UPGRADE_TO_MINOR|.
+The next task in the migration process is to prepare your LOCKSS 2.x host for LOCKSS |UPGRADE_TO_PATCH|, the latest version of LOCKSS |UPGRADE_TO_MINOR|.
 
 The necessary work depends on your :ref:`Migration Scenario`:
 
@@ -17,11 +17,31 @@ The necessary work depends on your :ref:`Migration Scenario`:
    .. tab-item:: New-Host Migration
       :sync: newhost
 
-      If you are doing a :ref:`New-Host Migration`, you will need to **commission a new host for your LOCKSS 2.x instance**, for example setting up a new physical machine and installing Linux, or spinning up a new Linux virtual machine. See the |TAB| :external+lockss-manual:doc:`introduction/prerequisites` section and |TAB| :external+lockss-manual:ref:`Operating Systems` appendix of the |MANUAL| for details.
+      If you are doing a :ref:`New-Host Migration`, follow these steps:
 
-      .. admonition:: Special instructions for administrators of LOCKSS networks
+      a. **Commission a new host for your LOCKSS 2.x instance**, for example by setting up a new physical machine and installing Linux, or spinning up a new Linux virtual machine. See the |TAB| :external+lockss-manual:doc:`introduction/prerequisites` section and |TAB| :external+lockss-manual:ref:`Operating Systems` appendix of the |MANUAL| for details.
 
-         You have to incorporate the IP address of this new host to firewall rules and Web server access control on the network configuration server. See :ref:`Access control before migration` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
+         .. admonition:: Coordinating with Administrators of LOCKSS Networks
+
+            The administrator of your LOCKSS network has to incorporate the IP address of this new host to firewall rules and Web server access control on the network configuration server. See :ref:`Access control before migration` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
+
+      b. If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections **from the LOCKSS 1.x host to the LOCKSS 2.x host** for the duration of the migration, specifically:
+
+      .. list-table::
+         :header-rows: 1
+
+         *  *  Port
+            *  Description
+         *  *  9739 [#fn-temporary-lcap]_
+            *  Temporary :external+lockss-manual:term:`LCAP` port
+         *  *  24602
+            *  |CFGSVC| Web user interface
+         *  *  24611
+            *  :external+lockss-manual:ref:`LOCKSS 2.x Repository Service <LOCKSS Configuration Service>` REST API
+         *  *  24612
+            *  |CFGSVC| REST API
+         *  *  24620 [#fn-postgresql]_
+            *  :external+lockss-manual:ref:`PostgreSQL`
 
    .. tab-item:: Same-Host Migration
       :sync: samehost
@@ -40,7 +60,7 @@ The necessary work depends on your :ref:`Migration Scenario`:
 
       *  `Scientific Linux <https://scientificlinux.org/>`_
 
-      then you must **upgrade your LOCKSS host** to a **supported** operating system in the RHEL family [#fn-same-host]_:
+      then you must **upgrade your LOCKSS host** to a **supported** operating system in the RHEL family:
 
       *  `AlmaLinux OS <https://almalinux.org/>`_ 8 or later
 
@@ -60,6 +80,10 @@ The necessary work depends on your :ref:`Migration Scenario`:
 
 .. rubric:: Footnotes
 
-.. [#fn-same-host]
+.. [#fn-temporary-lcap]
 
-   If your :ref:`Migration Scenario` is a :ref:`Same-Host Migration`, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
+   This port is configurable, so if you choose a different temporary LCAP port in :numref:`Chapter %s <Configuring LOCKSS 2.x for Migration>` (:ref:`Configuring LOCKSS 2.x for Migration`) than the default port, you will instead need to ensure that firewalls allow TCP connections from your LOCKSS 1.x host to that port on your LOCKSS 2.x host.
+
+.. [#fn-postgresql]
+
+   If you choose to configure LOCKSS 2.x with an *external PostgreSQL database* instead of the default *embedded PostgreSQL database*, you will instead need to ensure that firewalls allow TCP connections from your LOCKSS 1.x host to the appropriate PostgreSQL host and port for the duration of the migration. See |TAB| :external+lockss-manual:ref:`PostgreSQL` and :external+lockss-manual:ref:`External PostgreSQL Database` in the |MANUAL|.

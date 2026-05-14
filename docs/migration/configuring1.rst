@@ -32,6 +32,10 @@ Follow these steps:
 
       *  |SAMEHOSTONLY| If you are doing a :ref:`Same-Host Migration`, enter ``localhost``.
 
+         .. important::
+
+            However, in the unlikely event that your LOCKSS 1.x instance is a Docker container, you will have to enter the full LOCKSS 2.x hostname, for example :samp:`{lockss.myuniversity.edu}`, not ``localhost``.
+
    b. :guilabel:`Configuration Service Web UI Port`: The default Web UI port for the |CFGSVC|, ``24602``, should remain unchanged.
 
    c. :guilabel:`Web UI Username`: Enter the Web UI username for the LOCKSS 2.x instance.

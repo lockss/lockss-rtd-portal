@@ -177,3 +177,11 @@ Now start the LOCKSS 2.x system. Follow these steps:
          *  If your browser is unable to connect, wait a moment and hit refresh until a Web user interface page is displayed.
 
          *  If your login is successful but the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone.
+
+         .. important::
+
+            In the unlikely event that your LOCKSS 1.x instance is a Docker container, you will have to perform an additional action:
+
+            (a) Click on :guilabel:`Admin Access Control` in the top-right navigation menu.
+
+            (b) Add the IP address of your LOCKSS 1.x Docker container (so it will be allowed to connect to the LOCKSS 2.x Web user interface), then click the :guilabel:`Update` button to save.

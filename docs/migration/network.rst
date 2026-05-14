@@ -4,11 +4,7 @@
 Appendix: Instructions for Administrators of LOCKSS Networks
 ============================================================
 
-.. admonition:: Special instructions for administrators of LOCKSS networks
-
-   This chapter is aimed at administrators of LOCKSS networks.
-
-This appendix describes a few actions that must be performed by administrators of LOCKSS networks through the transitional period of migration of the nodes from LOCKSS 1.x to 2.x:
+This guide is primarily aimed at operators of individual LOCKSS nodes; this appendix describes **actions that must be performed by administrators of LOCKSS networks through the transitional period of migration of the nodes from LOCKSS 1.x to 2.x**:
 
 *  There are network-wide tasks to perform :ref:`Before the First Migration` and :ref:`After the Last Migration`.
 
@@ -60,7 +56,12 @@ After Each Migration
 
    See the :ref:`New-Host Migration` portion of :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`) for context.
 
-2. .. rubric:: Change of LCAP identity
+2. .. rubric:: Change of Hostname
+      :name: Change of Hostname
+
+   |NEWHOSTONLY| If the node finishing a :ref:`New-Host Migration` does not retain the hostname previously used by its LOCKSS 1.x instance, you may need to update the hostname in monitoring tools you utilize in the network. See the :ref:`New-Host Migration` portion of :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`) for context.
+
+3. .. rubric:: Change of LCAP identity
       :name: Change of LCAP identity
 
    If the node finishing a migration does not retain both the IP address and |LCAP| port previously used by its LOCKSS 1.x instance, its |LCAP| (LOCKSS audit and repair) identity in the network has changed and action is needed. See :numref:`Chapter %s <Reconfiguring LOCKSS 2.x for Normal Operation>` (:ref:`Reconfiguring LOCKSS 2.x for Normal Operation`) for context. Follow these steps:

@@ -109,13 +109,17 @@ New-Host Migration
 
    **This migration scenario is recommended.**
 
-   *  LOCKSS 2.x has higher system requirements.
+   .. _Why is a new-host migration recommended?:
 
-   *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a greater variety of :external+lockss-manual:ref:`Compatible Operating Systems`. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
+   .. admonition:: Why is a new-host migration recommended?
 
-   *  If your LOCKSS 1.x host is running an outdated operating system in the RHEL family such as CentOS Linux 7, you must first upgrade the OS to another operating system in the RHEL family before proceeding with a same-host migration.
+      *  LOCKSS 2.x has higher system requirements.
 
-   *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will degrade performance, and may cause the migration process to take longer.
+      *  Unlike LOCKSS 1.x, LOCKSS 2.x can be installed on a greater variety of :external+lockss-manual:ref:`Compatible Operating Systems`. This is an opportunity to move to a new host better fitting your institution's IT infrastructure preferences.
+
+      *  If your LOCKSS 1.x host is running an outdated operating system in the RHEL family such as CentOS Linux 7, you must first upgrade the OS to another operating system in the RHEL family before proceeding with a same-host migration.
+
+      *  Running LOCKSS 1.x and LOCKSS 2.x together on the same host will degrade performance, and may cause the migration process to take longer.
 
 |NEWHOSTMIGRATION|
 
@@ -298,6 +302,15 @@ The commands to be typed at the console at various points in the migration proce
 
 The **LOCKSS Installer Directory** is an important concept in LOCKSS 2.x. It is the directory from which many LOCKSS 2.x installation, configuration and operation commands are run -- usually as the ``lockss`` user, but in the case of installing LOCKSS 2.x for the first time, sometimes as the ``root`` user. The **default LOCKSS Installer Directory** is :file:`{$HOME}/lockss-installer` relative to the ``lockss`` user, meaning :file:`/home/lockss/lockss-installer` on most Linux systems. For complete details, see |TAB| :external+lockss-manual:ref:`LOCKSS Installer Directory` and |TAB| :external+lockss-manual:ref:`Default LOCKSS Installer Directory` in the |MANUAL|.
 
+Coordinating with Administrators of LOCKSS Networks
+===================================================
+
+This guide is primarily aimed at operators of individual LOCKSS nodes, but **some actions must be performed by administrators of LOCKSS networks through the transitional period of migration of the nodes from LOCKSS 1.x to 2.x** (before any node migrates, before and after each node migrates, and after all nodes migrate). Information for administrators of LOCKSS networks can be found in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`), but throughout this guide, hints to coordinate with them are highlighted in the appropriate places like this:
+
+    .. admonition:: Coordinating with Administrators of LOCKSS Networks
+
+      Example of a hint to coordinate with the administrator of your LOCKSS network. See :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
+
 ------------------------
 Important Considerations
 ------------------------
@@ -314,8 +327,6 @@ Near the end of the migration, in the designated :ref:`New-Host Migration` step 
 .. note::
 
    If adopting the IP address of your LOCKSS 1.x host is not possible, there are implications for the administrator of your LOCKSS network and the other nodes in your network. See :ref:`Change of LCAP Identity` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
-
-   .. COMMENT FIXME and also props server access control?
 
 Adopting the LOCKSS 1.x LCAP Port
 =================================
@@ -343,46 +354,10 @@ Similarly to the IP address, a :ref:`New-Host Migration` automatically involves 
 
    .. COMMENT FIXME point to something specific in reconfiguring2? decommissioning1?
 
-Firewall Rules During Migration
-===============================
-
-|NEWHOSTONLY|
-
-If you are doing a :ref:`New-Host Migration`, you will need to make sure that firewalls at your institution and on your LOCKSS 2.x host allow some TCP connections **from the LOCKSS 1.x host to the LOCKSS 2.x host** for the duration of the migration, specifically:
-
-.. list-table::
-   :header-rows: 1
-
-   *  *  Port
-      *  Description
-   *  *  9739 [#fn-temporary-lcap]_
-      *  Temporary :external+lockss-manual:term:`LCAP` port
-   *  *  24602
-      *  |CFGSVC| Web user interface
-   *  *  24611
-      *  :external+lockss-manual:ref:`LOCKSS 2.x Repository Service <LOCKSS Configuration Service>` REST API
-   *  *  24612
-      *  |CFGSVC| REST API
-   *  *  24620 [#fn-postgresql]_
-      *  :external+lockss-manual:ref:`PostgreSQL`
-
 LCAP Over SSL
 =============
 
 If your LOCKSS network uses SSL keystores for encrypted |LCAP| communication between nodes, you will need to perform a few additional steps related to your LCAP SSL keystore during the migration of your node. Ask your LOCKSS network administrator if this situation applies to you, and if so, contact us for further advice.
-
-Considerations for Administrators of LOCKSS Networks
-====================================================
-
-.. admonition:: Special instructions for administrators of LOCKSS networks
-
-   This section is aimed at administrators of LOCKSS networks.
-
-Although this guide is primarily aimed at operators of individual LOCKSS nodes, **a few actions must be performed by administrators of LOCKSS networks through the transitional period of migration of the nodes from LOCKSS 1.x to 2.x**, detailed in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`):
-
-*  There are network-wide tasks to perform :ref:`Before the First Migration` and :ref:`After the Last Migration`.
-
-*  Additionally, there are node-specific tasks to perform :ref:`Before Each Migration` and :ref:`After Each Migration`.
 
 ----
 
@@ -398,11 +373,3 @@ Although this guide is primarily aimed at operators of individual LOCKSS nodes, 
 .. [#fn-au]
 
    An **archival unit**, or **AU**, is a unit of preserved content in LOCKSS. Consisting of any number of versioned objects, an AU might be a volume of a journal, a single book and its assets, a given digitized collection, etc.
-
-.. [#fn-temporary-lcap]
-
-   This port is configurable, so if you choose a different temporary LCAP port in :numref:`Chapter %s <Configuring LOCKSS 2.x for Migration>` (:ref:`Configuring LOCKSS 2.x for Migration`) than the default port, you will instead need to ensure that firewalls allow TCP connections from your LOCKSS 1.x host to that port on your LOCKSS 2.x host.
-
-.. [#fn-postgresql]
-
-   If you choose to configure LOCKSS 2.x with an *external PostgreSQL database* instead of the default *embedded PostgreSQL database*, you will instead need to ensure that firewalls allow TCP connections from your LOCKSS 1.x host to the appropriate PostgreSQL host and port for the duration of the migration. See |TAB| :external+lockss-manual:ref:`PostgreSQL` and :external+lockss-manual:ref:`External PostgreSQL Database` in the |MANUAL|.

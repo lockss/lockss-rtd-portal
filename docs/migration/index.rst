@@ -29,6 +29,6 @@ This document will guide you as you upgrade your LOCKSS node from LOCKSS 1.x to 
    running
    reconfiguring2
    decommissioning1
-   faq
    network
+   faq
    differences
