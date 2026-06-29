@@ -17,11 +17,15 @@ Before the First Migration
 .. rubric:: LOCKSS 2.x poll compatibility mode before migration
    :name: LOCKSS 2.x poll compatibility mode before migration
 
-Before any LOCKSS 1.x node in your network migrates to LOCKSS 2.x, you will need to set ``org.lockss.poll.2.0Compatible`` to ``true`` in the network configuration file [#fn-props-file]_. For example in a typical XML network configuration file where the prefix ``org.lockss`` is enclosed in a file-wide ``<property name="org.lockss">`` block, this would look like this:
+Before any LOCKSS 1.x node in your network migrates to LOCKSS 2.x, you will need to set ``org.lockss.poll.2.0Compatible`` to ``true`` in LOCKSS 1.79.1 or later in the network configuration file [#fn-props-file]_. For example in a typical XML network configuration file where the prefix ``org.lockss`` is enclosed in a file-wide ``<property name="org.lockss">`` block, this would look like this:
 
 .. code-block:: xml
 
-   <property name="poll.2.0Compatible" value="true" />
+   <if daemonVersionMin="1.79.1">
+     <then>
+       <property name="poll.2.0Compatible" value="true" />
+     </then>
+   </if>
 
 ---------------------
 Before Each Migration
@@ -30,16 +34,12 @@ Before Each Migration
 1. .. rubric:: Access control before migration
       :name: Access control before migration
 
-   |NEWHOSTONLY| When a node in the network is slated to begin a :ref:`New-Host Migration`, add the mew IP address of the LOCKSS 2.x host to your network configuration server [#fn-props-server]_ firewall rule and Web server access control, so it can access resources like the network configuration file [#fn-props-file]_ and plugin registries. See the :ref:`New-Host Migration` portion of :numref:`Chapter %s <Preparing the LOCKSS 2.x Host>` (:ref:`Preparing the LOCKSS 2.x Host`).
+   |NEWHOSTONLY| When a node in the network is slated to begin a :ref:`New-Host Migration`, add the new IP address of the LOCKSS 2.x host to your network configuration server [#fn-props-server]_ firewall rules and Web server access control, so it can access resources like the network configuration file [#fn-props-file]_ and plugin registries. See the :ref:`New-Host Migration` portion of :numref:`Chapter %s <Preparing the LOCKSS 2.x Host>` (:ref:`Preparing the LOCKSS 2.x Host`).
 
 2. .. rubric:: Initial peer list before migration
       :name: Initial peer list before migration
 
-   When a node in the network is slated to begin migration, **do not add** an |LCAP| identity to the initial peer list (``org.lockss.id.initialV3PeerList``); simply leave the existing LCAP identity of the migrating node alone during its migration. Specifically:
-
-   *  |NEWHOSTONLY| For a :ref:`New-Host Migration`, **do not add** an |LCAP| identity constructed from the IP address of the LOCKSS 2.x host to the initial peer list.
-
-   *  |SAMEHOSTONLY| For a :ref:`Same-Host Migration`, **do not add** an |LCAP| identity constructed from the LOCKSS 2.x instance's temporary LCAP port to the initial peer list.
+   When a node in the network is slated to begin migration (in any :ref:`Migration Scenario`), **do not add** an |LCAP| identity to the initial peer list (``org.lockss.id.initialV3PeerList``); simply leave the existing LCAP identity of the migrating node alone during its migration.
 
 --------------------
 After Each Migration
@@ -48,9 +48,9 @@ After Each Migration
 1. .. rubric:: Access control after migration
       :name: Access control after migration
 
-   |NEWHOSTONLY| When a node in the network finishes a :ref:`New-Host Migration`, you need to adjust your network configuration server [#fn-props-server]_ firewall rule and Web server access control accordingly:
+   |NEWHOSTONLY| When a node in the network finishes a :ref:`New-Host Migration`, you need to adjust your network configuration server [#fn-props-server]_ firewall rules and Web server access control accordingly:
 
-   *  If the LOCKSS 2.x host adopts the IP address previously associated with the corresponding LOCKSS 1.x host, which is recommended, you can remove the new IP address of the LOCKSS 2.x host which had been added in :numref:`Before Each Migration` (:ref:`Before Each Migration`).
+   *  If the LOCKSS 2.x host adopts the IP address previously associated with the corresponding LOCKSS 1.x host, which is recommended, you can remove the new IP address of the LOCKSS 2.x host which had been added in :ref:`Access control before migration` in :numref:`Before Each Migration` (:ref:`Before Each Migration`).
 
    *  If adopting the IP address previously associated with the corresponding LOCKSS 1.x host is not possible, instead you will need to remove the old IP address of the LOCKSS 1.x host which had been present prior to the migration.
 

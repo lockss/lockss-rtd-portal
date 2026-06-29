@@ -14,7 +14,7 @@ The last task is to decommission your LOCKSS 1.x instance.
 
 |SAMEHOSTONLY| In the case of a :ref:`Same-Host Migration`, follow these cleanup steps:
 
-1. Uninstall the LOCKSS 1.x software package and the LOCKSS Yum repository, with the following steps:
+1. Uninstall the LOCKSS 1.x software package and the LOCKSS Yum repository, with the following steps [#fn-container]_:
 
    a. |LOCKSS1ROOT| Run this Dnf command as ``root``:
 
@@ -115,3 +115,11 @@ The last task is to decommission your LOCKSS 1.x instance.
       .. code-block:: shell
 
          rm -rf config/ db/ iddb/ plugins/ tfile/ tmp/ v3state/
+
+----
+
+.. rubric:: Footnotes
+
+.. [#fn-container]
+
+   |LOCKSS1CONTAINER| If you were running LOCKSS 1.x as a Docker container, this step is replaced with decommissioning the LOCKSS container and probably the Docker appartus on this host. Contact us for advice.

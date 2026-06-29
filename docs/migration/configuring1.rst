@@ -26,11 +26,11 @@ Follow these steps:
 
       *  |NEWHOSTONLY| If you are doing a :ref:`New-Host Migration`, enter the LOCKSS 2.x hostname, for example :samp:`{lockss2.myuniversity.edu}`.
 
-      *  |SAMEHOSTONLY| If you are doing a :ref:`Same-Host Migration`, enter ``localhost``.
+      *  |SAMEHOSTONLY| If you are doing a :ref:`Same-Host Migration`, enter the LOCKSS 2.x hostname:
 
-         .. important::
+         *  |LOCKSS1CONTAINER| In the unlikely event you are running LOCKSS 1.x as a Docker container, enter the fully qualified hostname, for example :samp:`{lockss.myuniversity.edu}`.
 
-            However, in the unlikely event that your LOCKSS 1.x instance is a Docker container, you will have to enter the full LOCKSS 2.x hostname, for example :samp:`{lockss.myuniversity.edu}`, not ``localhost``.
+         *  |ALLOTHERSCENARIOS| Otherwise, simply enter ``localhost``.
 
    b. :guilabel:`Configuration Service Web UI Port`: The default Web UI port for the |CFGSVC|, ``24602``, should remain unchanged.
 

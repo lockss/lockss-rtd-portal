@@ -172,16 +172,39 @@ Now start the LOCKSS 2.x system. Follow these steps:
       .. tab-item:: Same-Host Migration
          :sync: samehost
 
-         If you are doing a :ref:`Same-Host Migration`, log into the |CFGSVC| Web user interface as a way to verify that the LOCKSS 2.x stack has come up successfully. To do this, in a browser, go to the URL :samp:`http://{<locksshost>}:24602/DaemonStatus`, where :samp:`{<locksshost>}` represents the hostname of your LOCKSS host (for example ``lockss.myuniversity.edu``), and log in using the Web user interface username and password you specified during the LOCKSS 2.x configuration process.
+         If you are doing a :ref:`Same-Host Migration`, follow these steps:
 
-         *  If your browser is unable to connect, wait a moment and hit refresh until a Web user interface page is displayed.
+         a. Log into the |CFGSVC| Web user interface as a way to verify that the LOCKSS 2.x stack has come up successfully. To do this, in a browser, go to the URL :samp:`http://{<locksshost>}:24602/DaemonStatus`, where :samp:`{<locksshost>}` represents the hostname of your LOCKSS host (for example ``lockss.myuniversity.edu``), and log in using the Web user interface username and password you specified during the LOCKSS 2.x configuration process.
 
-         *  If your login is successful but the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone.
+            *  If your browser is unable to connect, wait a moment and hit refresh until a Web user interface page is displayed.
 
-         .. important::
+            *  If your login is successful but the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone.
 
-            In the unlikely event that your LOCKSS 1.x instance is a Docker container, you will have to perform an additional action:
+         b. |LOCKSS1CONTAINER| In the unlikely event that your LOCKSS 1.x instance is a Docker container, you will have to perform an additional action:
 
-            (a) Click on :guilabel:`Admin Access Control` in the top-right navigation menu.
+            (i) |LOCKSS1ROOT| On your LOCKSS 1.x host, run this command as ``root``:
 
-            (b) Add the IP address of your LOCKSS 1.x Docker container (so it will be allowed to connect to the LOCKSS 2.x Web user interface), then click the :guilabel:`Update` button to save.
+               .. code-block:: shell
+
+                  docker exec lockss ip addr
+
+               The output will look similar to this:
+
+               .. code-block:: text
+
+                  1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+                      link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+                      inet 127.0.0.1/8 scope host lo
+                         valid_lft forever preferred_lft forever
+                      inet6 ::1/128 scope host proto kernel_lo
+                         valid_lft forever preferred_lft forever
+                  2: eth0@if731: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+                      link/ether d6:18:ba:cf:05:26 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+                      inet 172.18.0.3/16 brd 172.18.255.255 scope global eth0
+                         valid_lft forever preferred_lft forever
+
+               Find the interface that is not a loopback (``lo``) interface, probably one with the prefix ``eth`` (``eth0`` in this example). You will want to make a note of the IP address (``inet``) of the LOCKSS 1.x container (``172.18.0.3`` in this example).
+
+            (ii) In the Web user interface of the LOCKSS 2.x Configuration Service from the previous step, click on :guilabel:`Admin Access Control` in the top-right navigation menu.
+
+            (iii) Add the IP address of your LOCKSS 1.x container to the :guilabel:`Allow Access` screen list so it will be allowed to connect to the LOCKSS 2.x Web user interface, then click the :guilabel:`Update` button to save.

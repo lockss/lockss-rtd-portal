@@ -30,6 +30,13 @@ You should now be looking at the :guilabel:`Migration Control` screen, after you
 
 4. Start the migration by clicking the :guilabel:`Start Migration` button at the bottom of the form. (If you are doing a :ref:`Dry Run Migration`, the button is labeled :guilabel:`Start Dry Run Migration` instead.)
 
+
+   .. admonition:: Operational considerations during migration
+
+      *  Information about the status of the migration in progress will scroll in the pane below the :guilabel:`Start Migration` button. After any database copies, the first line of information, which begins with :guilabel:`Status:`, will say either :guilabel:`Copying` or :guilabel:`Copying and verifying`, as well as a count of AUs that have been processed. Once this copying status and process count appear, adding AUs, deleting AUs, and using the subscription manager may be done in the manner described in the :ref:`Delegated AU handling during migration` section of :numref:`Chapter %s <Introduction to the Migration>` (:ref:`Introduction to the Migration`).
+
+      *  If either LOCKSS 1.x or 2.x restarts while the migration is in progress, the migration will no longer appear active. Once LOCKSS 1.x and 2.x are back up, re-select the AUs (either with :guilabel:`Select Plugin` or :guilabel:`Choose File`), then click :guilabel:`Start Migration` (or :guilabel:`Start Dry Run Migration`) again to resume the interrupted migration.
+
    .. tip::
 
       .. dropdown:: The migration takes time

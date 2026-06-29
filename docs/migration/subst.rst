@@ -22,5 +22,6 @@
 .. |LOCKSS1ROOT| replace:: :bdg-ref-primary-line:`LOCKSS 1.x host as root <Console Hint>`
 .. |LOCKSS2LOCKSS| replace:: :bdg-ref-secondary-line:`LOCKSS 2.x host as lockss <Console Hint>`
 .. |LOCKSS2ROOT| replace:: :bdg-ref-dark-line:`LOCKSS 2.x host as root <Console Hint>`
+.. |LOCKSS1CONTAINER| replace:: :bdg-ref-black:`containerized LOCKSS 1.x <Containerized LOCKSS 1.x>`
 
 .. |TAB| replace:: :octicon:`tab-external`

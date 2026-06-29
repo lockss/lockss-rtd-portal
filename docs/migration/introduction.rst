@@ -51,7 +51,15 @@ Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
       :icon: info
       :animate: fade-in-slide-down
 
-      Until it is decommissioned and the LOCKSS 2.x instance takes over, the LOCKSS 1.x instance continues to act as the recipient of client requests (for example ServeContent requests) and |LCAP| traffic for all your preserved content, sometimes routing those requests to the LOCKSS 2.x instance as necessary:
+      Until it is decommissioned and the LOCKSS 2.x instance takes over, the LOCKSS 1.x instance continues to act as the recipient of client requests and |LCAP| traffic for all your preserved content -- except for a small number of specific operations:
+
+      *  **Adding AUs.** During the migration, do not add AUs to LOCKSS 1.x, add AUs to LOCKSS 2.x (via the |CFGSVC|).
+
+      *  **Deleting AUs.** During the migration, should the need to delete AUs that are being or have been migrated to LOCKSS 2.x arise, wait until after the migration is complete before deleting such AUs.
+
+      *  **Using the subscription manager.** During migration, do not use the subscription manager in LOCKSS 1.x, use the subscription manager in LOCKSS 2.x. However, changes to subscriptions will not take effect until the migration is complete.
+
+      All other operations, including client requests and |LCAP| traffic, are handled by the LOCKSS 1.x instance during migration, sometimes routing those requests to the LOCKSS 2.x instance as necessary:
 
       *  Client requests and |LCAP| traffic pertaining to AUs that have not been migrated yet (for example AU4 here) are handled directly by the LOCKSS 1.x instance (legend [#fn-legend]_):
 
@@ -145,6 +153,8 @@ Same-Host Migration
 |SAMEHOSTMIGRATION|
 
 This :ref:`Migration Scenario` is used when a :ref:`New-Host Migration` is not feasible.
+
+If unsure about how much spare storage space is needed to choose the right :ref:`Same-Host Migration` or if you are close to not having quite enough spare space for two copies, contact us for adivce.
 
 Same-Host Migration With Future Reclamation
 -------------------------------------------
@@ -311,6 +321,13 @@ This guide is primarily aimed at operators of individual LOCKSS nodes, but **som
 
       Example of a hint to coordinate with the administrator of your LOCKSS network. See :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`).
 
+Containerized LOCKSS 1.x
+========================
+
+A few additional instructions apply only in the unlikely event you are running LOCKSS 1.x as a Docker container. These additional instructions are marked with this special visual:
+
+    |LOCKSS1CONTAINER| This step applies only if you are running LOCKSS 1.x as a Docker container.
+
 ------------------------
 Important Considerations
 ------------------------
@@ -339,8 +356,6 @@ Near the end of the migration, in the designated step in :numref:`Chapter %s <Re
 
    If adopting the |LCAP| port of your LOCKSS 1.x host is not possible, there are implications for the administrator of your LOCKSS network. See :ref:`Change of LCAP Identity` in :numref:`Chapter %s <Appendix: Instructions for Administrators of LOCKSS Networks>` (:ref:`Appendix: Instructions for Administrators of LOCKSS Networks`). Additionally, there are implications for your firewall infrastructure.
 
-   .. COMMENT FIXME what implications for firewalls?
-
 Adopting the LOCKSS 1.x Hostname
 ================================
 
@@ -351,8 +366,6 @@ Similarly to the IP address, a :ref:`New-Host Migration` automatically involves 
 .. note::
 
    If adopting the hostname of your LOCKSS 1.x host is not possible, there are implications for accessing the Web user interface, and browser bookmarks, monitoring tools and dashboards, link resolvers (e.g. OpenURL resolvers), proxy configuration, etc. will need to be updated.
-
-   .. COMMENT FIXME point to something specific in reconfiguring2? decommissioning1?
 
 LCAP Over SSL
 =============
