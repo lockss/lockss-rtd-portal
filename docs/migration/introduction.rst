@@ -51,15 +51,9 @@ Conceptually, migration from LOCKSS 1.x to LOCKSS 2.x follows this outline:
       :icon: info
       :animate: fade-in-slide-down
 
-      Until it is decommissioned and the LOCKSS 2.x instance takes over, the LOCKSS 1.x instance continues to act as the recipient of client requests and |LCAP| traffic for all your preserved content -- except for a small number of specific operations:
+      Until it is decommissioned and the LOCKSS 2.x instance takes over, the LOCKSS 1.x instance continues to act as the recipient of most client requests and |LCAP| traffic for all your preserved content -- except for a number of exceptions; see :numref:`Using LOCKSS During the Migration` (:ref:`Using LOCKSS During the Migration`) in :numref:`Chapter %s <Appendix: Instructions for Users of LOCKSS Nodes>` (:ref:`Appendix: Instructions for Users of LOCKSS Nodes`).
 
-      *  **Adding AUs.** During the migration, do not add AUs to LOCKSS 1.x, add AUs to LOCKSS 2.x (via the |CFGSVC|).
-
-      *  **Deleting AUs.** During the migration, should the need to delete AUs that are being or have been migrated to LOCKSS 2.x arise, wait until after the migration is complete before deleting such AUs.
-
-      *  **Using the subscription manager.** During migration, do not use the subscription manager in LOCKSS 1.x, use the subscription manager in LOCKSS 2.x. However, changes to subscriptions will not take effect until the migration is complete.
-
-      All other operations, including client requests and |LCAP| traffic, are handled by the LOCKSS 1.x instance during migration, sometimes routing those requests to the LOCKSS 2.x instance as necessary:
+      Some operations, including |LCAP| traffic, are handled by the LOCKSS 1.x instance during migration, sometimes routing those requests to the LOCKSS 2.x instance as necessary:
 
       *  Client requests and |LCAP| traffic pertaining to AUs that have not been migrated yet (for example AU4 here) are handled directly by the LOCKSS 1.x instance (legend [#fn-legend]_):
 

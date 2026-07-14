@@ -4,7 +4,7 @@
 Appendix: Instructions for Administrators of LOCKSS Networks
 ============================================================
 
-This guide is primarily aimed at operators of individual LOCKSS nodes; this appendix describes **actions that must be performed by administrators of LOCKSS networks through the transitional period of migration of the nodes from LOCKSS 1.x to 2.x**:
+This guide is primarily aimed at operators of individual LOCKSS nodes; this appendix is aimed at **administrators of LOCKSS networks**, describing actions taken through the transitional period of migration of the network's nodes from LOCKSS 1.x to 2.x:
 
 *  There are network-wide tasks to perform :ref:`Before the First Migration` and :ref:`After the Last Migration`.
 

@@ -12,7 +12,7 @@ The next task, once all the content has been successfully migrated from LOCKSS 1
 
 .. important::
 
-   This chapter represents the cutover from LOCKSS 1.x to LOCKSS 2.x and induces an interruption of service as the LOCKSS 1.x instance is taken out of service and the LOCKSS 2.x instance takes over as the sole system. Plan the steps of this chapter carefully to minimize downtime and disruption. Some steps may require coordination with an IT department or communication with users of the system.
+   This chapter marks the end of the |PRINCIPAL| and the cutover from LOCKSS 1.x to LOCKSS 2.x. It induces an interruption of service as the LOCKSS 1.x instance is taken out of service and the LOCKSS 2.x instance takes over as the sole system. Plan the steps of this chapter carefully to minimize downtime and disruption. Some steps may require coordination with a central IT department or communication with users of the system.
 
 Follow these steps:
 
@@ -120,7 +120,9 @@ Follow these steps:
 
    This will start the LOCKSS 2.x stack (now configured for normal operation).
 
-5. Ports used in LOCKSS 2.x are largely different than in LOCKSS 1.x, so you need to update institutional and local firewall rules (and direct users of the system to the new ports). The full list of ports used in LOCKSS 2.x can be found in :external+lockss-manual:ref:`Network Ports` in the |MANUAL|, but here are the highlights:
+5. .. COMMENT FIXME This should probably be in the manual's Ports appendix.
+
+   Ports used in LOCKSS 2.x are largely different than in LOCKSS 1.x, so you need to update institutional and local firewall rules (and direct users of the system to the new ports). The full list of ports used in LOCKSS 2.x can be found in :external+lockss-manual:ref:`Network Ports` in the |MANUAL|, but here are the highlights:
 
    .. list-table::
       :header-rows: 1
