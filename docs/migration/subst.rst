@@ -1,4 +1,11 @@
-.. |LASTUPDATED| replace:: 2026-05-05
+.. COMMENT Substitutions for the migration guide
+
+.. |LASTUPDATED| replace:: 2026-07-13
+
+.. |MIGRATE_FROM_MINOR| replace:: 1.79
+.. |MIGRATE_FROM_PATCH| replace:: 1.79.14
+.. |MIGRATE_TO_MINOR| replace:: 2.0-beta2
+.. |MIGRATE_TO_PATCH| replace:: 2.0.91-beta2
 
 .. |PRINCIPAL| replace:: :ref:`principal migration phase <principal migration phase>`
 

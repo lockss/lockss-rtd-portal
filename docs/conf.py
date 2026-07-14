@@ -172,11 +172,7 @@ global_substitutions = {
     'K3S_MINOR': '1.31',
     'K3S_PATCH': '1.31.5+k3s1',
     'CLASSIC_MINOR': '1.79',
-    'CLASSIC_PATCH': '1.79.5',
-    'UPGRADE_FROM_MINOR': '1.79',
-    'UPGRADE_FROM_PATCH': '1.79.5',
-    'UPGRADE_TO_MINOR': '2.0-beta2',
-    'UPGRADE_TO_PATCH': '2.0.91-beta2',
+    'CLASSIC_PATCH': '1.79.14',
 }
 
 # See https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html#confval-autodoc_default_options

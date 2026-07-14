@@ -1,1 +1,1 @@
-*  `LOCKSS 1.79.5 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-79-b5>`_ (NOT YET RELEASED) :bdg-info:`latest`
+*  `LOCKSS 1.79.14 <https://github.com/lockss/lockss-daemon/releases/tag/release-candidate_1-79-b14>`_ (2026-07-13) :bdg-info:`latest`

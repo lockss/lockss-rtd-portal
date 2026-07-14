@@ -8,7 +8,7 @@ Introduction to the Migration
 Supported Migration Paths
 -------------------------
 
-As of the latest update of this migration guide (|LASTUPDATED|), the only supported migration path is from LOCKSS |UPGRADE_FROM_PATCH| (the latest version of LOCKSS |UPGRADE_FROM_MINOR|) to LOCKSS |UPGRADE_TO_PATCH| (the latest version of LOCKSS |UPGRADE_TO_MINOR|). In particular, as of the twin release of LOCKSS |UPGRADE_FROM_MINOR| and LOCKSS |UPGRADE_TO_MINOR|, upgrades from earlier versions of LOCKSS 1.x and/or to earlier versions of LOCKSS 2.x are no longer supported.
+As of the latest update of this migration guide (|LASTUPDATED|), the only supported migration path is from LOCKSS |MIGRATE_FROM_PATCH| (the latest version of LOCKSS |MIGRATE_FROM_MINOR|) to LOCKSS |MIGRATE_TO_PATCH| (the latest version of LOCKSS |MIGRATE_TO_MINOR|). In particular, as of the twin release of LOCKSS |MIGRATE_FROM_MINOR| and LOCKSS |MIGRATE_TO_MINOR|, upgrades from earlier versions of LOCKSS 1.x and/or to earlier versions of LOCKSS 2.x are no longer supported.
 
 Additionally, migrating multiple LOCKSS 1.x instances into a single LOCKSS 2.x instance is not supported out of the box. If this is a situation you are considering (for example, if you have a LOCKSS 1.x instance for the Global LOCKSS Network and another for the USDocs project), please contact us for advice.
 
