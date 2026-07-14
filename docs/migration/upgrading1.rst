@@ -1,37 +1,40 @@
-========================================
-Upgrading to LOCKSS |UPGRADE_FROM_PATCH|
-========================================
+.. include:: subst.rst
 
-The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, the latest version of LOCKSS |UPGRADE_FROM_MINOR|.
+====================
+Upgrading LOCKSS 1.x
+====================
 
-To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these steps as ``root`` on your LOCKSS 1.x host [#fnsamehost]_:
+.. image:: laaws-migration-steps-upgrading1.png
+   :align: center
+   :alt: A diagram of eight consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first box labeled "Upgrading LOCKSS 1.x" is highlighted in yellow, indicating the step in progress. The last seven boxes, successively labeled "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", "Configuring LOCKSS 2.x for Migration", "Configuring LOCKSS 1.x for Migration", "Running the Migrator", "Reconfiguring LOCKSS 2.x for Normal Operation", and "Decommissioning LOCKSS 1.x", are not colored, indicating future steps.
 
-1. Run this :program:`systemctl` command as ``root`` to stop the LOCKSS 1.x instance:
+The first task in the migration process is to upgrade your LOCKSS 1.x instance to LOCKSS |MIGRATE_FROM_PATCH|, the latest version of LOCKSS |MIGRATE_FROM_MINOR|.
+
+If you have not done so already, upgrade your LOCKSS 1.x instance to LOCKSS |MIGRATE_FROM_PATCH| by following these steps [#fn-container]_:
+
+1. |LOCKSS1ROOT| On your LOCKSS 1.x host, as ``root``, run this :program:`systemctl` command:
 
    .. code-block:: shell
 
       systemctl stop lockss
 
-2. Run this Dnf or Yum command as ``root`` to upgrade the ``lockss`` RPM package, depending on your operating system:
+   This will stop the LOCKSS 1.x instance.
+
+2. |LOCKSS1ROOT| Upgrade the ``lockss-daemon`` RPM package with a Dnf or Yum command, depending on your operating system:
 
    .. COMMENT OSTABS
 
    .. tab-set::
 
       .. tab-item:: AlmaLinux OS
-         :sync: alma
+         :sync: almalinux-os
 
          .. include:: upgrading1-dnf.rst
 
-      .. tab-item:: CentOS
-         :sync: centos
+      .. tab-item:: CentOS Linux
+         :sync: centos-linux
 
          .. tab-set::
-
-            .. tab-item:: CentOS Stream
-               :sync: centosstream
-
-               .. include:: upgrading1-dnf.rst
 
             .. tab-item:: CentOS Linux 8
                :sync: centos8
@@ -49,7 +52,7 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
          .. tab-set::
 
             .. tab-item:: EuroLinux 8-9
-               :sync: eurolinux9
+               :sync: eurolinux8
 
                .. include:: upgrading1-dnf.rst
 
@@ -59,12 +62,12 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
                .. include:: upgrading1-yum.rst
 
       .. tab-item:: Oracle Linux
-         :sync: oracle
+         :sync: oracle-linux
 
          .. tab-set::
 
-            .. tab-item:: Oracle Linux 8-9
-               :sync: oracle9
+            .. tab-item:: Oracle Linux 8-10
+               :sync: oracle8
 
                .. include:: upgrading1-dnf.rst
 
@@ -73,13 +76,13 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
 
                .. include:: upgrading1-yum.rst
 
-      .. tab-item:: RHEL
+      .. tab-item:: Red Hat Enterprise Linux (RHEL)
          :sync: rhel
 
          .. tab-set::
 
-            .. tab-item:: RHEL 8-9
-               :sync: rhel9
+            .. tab-item:: RHEL 8-10
+               :sync: rhel8
 
                .. include:: upgrading1-dnf.rst
 
@@ -89,27 +92,27 @@ To upgrade your LOCKSS 1.x instance to LOCKSS |UPGRADE_FROM_PATCH|, follow these
                .. include:: upgrading1-yum.rst
 
       .. tab-item:: Rocky Linux
-         :sync: rocky
+         :sync: rocky-linux
 
          .. include:: upgrading1-dnf.rst
 
       .. tab-item:: Scientific Linux
-         :sync: scientific
+         :sync: scientific-linux
 
          .. include:: upgrading1-yum.rst
 
-3. Run this :program:`systemctl` command to start the LOCKSS 1.x instance:
+3. |LOCKSS1ROOT| Run this :program:`systemctl` command:
 
    .. code-block:: shell
 
       systemctl start lockss
 
+   This will start the LOCKSS 1.x instance.
+
 ----
 
-.. only:: html
+.. rubric:: Footnotes
 
-   .. rubric:: Footnotes
+.. [#fn-container]
 
-.. [#fnsamehost]
-
-   If your :ref:`Migration Scenario` is a **same-host migration**, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
+   |LOCKSS1CONTAINER| If you are running LOCKSS 1.x as a Docker container, this step is replaced with the container upgrade process. Contact us for advice.

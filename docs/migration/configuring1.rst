@@ -1,49 +1,53 @@
+.. include:: subst.rst
+
 ====================================
 Configuring LOCKSS 1.x for Migration
 ====================================
 
+.. image:: laaws-migration-steps-configuring1.png
+   :align: center
+   :alt: A diagram of eight consecutive arrow-shaped boxes, representing from left to right the steps of the migration workflow from LOCKSS 1.x to LOCKSS 2.x. The first four boxes, successively labeled "Upgrading LOCKSS 1.x", "Preparing the LOCKSS 2.x Host", "Installing LOCKSS 2.x", and "Configuring LOCKSS 2.x for Migration", are colored in light blue, indicating completed steps. The fifth box labeled "Configuring LOCKSS 1.x for Migration" is highlighted in yellow, indicating the step in progress. The last three boxes, successively labeled "Running the Migrator", "Reconfiguring LOCKSS 2.x for Normal Operation", and "Decommissioning LOCKSS 1.x", are not colored, indicating future steps.
+
 The next task is to configure LOCKSS 1.x for migration in the :guilabel:`Migration Settings` screen of your LOCKSS 1.x Web user interface.
 
-Your LOCKSS 2.x system will need to be running, and you will need to know the LOCKSS 2.x hostname [#fnsamehost]_, Web user interface username and password, and PostgreSQL database password, supplied when configuring the LOCKSS 2.x system.
+Your LOCKSS 2.x system will need to be running, and you will need to know the LOCKSS 2.x hostname, Web user interface username and password, and PostgreSQL database password, supplied when :ref:`Configuring LOCKSS 2.x for Migration`.
 
-.. important::
+.. tip::
 
    This phase occurs in the :guilabel:`Migration Settings` screen of your LOCKSS 1.x Web user interface. Some of the fields in this screen are passwords related to your newly installed LOCKSS 2.x instance. Web browsers pop up dialogs offering to save these LOCKSS 2.x passwords, but you should decline, as they would overwrite the password you may have saved for the LOCKSS 1.x Web UI.
 
 Follow these steps:
 
-1. In your LOCKSS 1.x Web user interface, click on :guilabel:`Migration Settings` in the navigation side panel.
+1. Log in to your LOCKSS 1.x Web user interface, and click on :guilabel:`Migration Settings` in the top-right navigation menu.
 
-2. Complete the first four fields in the :guilabel:`Migration Target` section of the form and enter the LOCKSS 2.x values gathered earlier:
+2. Complete the four fields in the :guilabel:`LOCKSS 2.x Target` section of the screen using the appropriate LOCKSS 2.x values:
 
-   a. :guilabel:`Target Hostname`: Enter the hostname of your LOCKSS 2.x host (``localhost`` for a **same-host migration**, a host name like ``lockss2.myuniversity.edu`` for a **new-host migration**).
+   a. :guilabel:`Hostname`: Enter the hostname of your LOCKSS 2.x host:
 
-   b. :guilabel:`Target Configuration Service Port`: The default port ``24621`` should remain unchanged.
+      *  |NEWHOSTONLY| If you are doing a :ref:`New-Host Migration`, enter the LOCKSS 2.x hostname, for example :samp:`{lockss2.myuniversity.edu}`.
 
-   c. :guilabel:`Username`: Enter the Web UI username supplied to the LOCKSS 2.x system.
+      *  |SAMEHOSTONLY| If you are doing a :ref:`Same-Host Migration`, enter the LOCKSS 2.x hostname:
 
-   d. :guilabel:`Password`: Enter the Web UI password supplied to the LOCKSS 2.x system.
+         *  |LOCKSS1CONTAINER| In the unlikely event you are running LOCKSS 1.x as a Docker container, enter the fully qualified hostname, for example :samp:`{lockss.myuniversity.edu}`.
 
-3. Click the :guilabel:`Load Configuration` button. The Metadata Database configuration will be queried from the LOCKSS 2.x system and displayed.
+         *  |ALLOTHERSCENARIOS| Otherwise, simply enter ``localhost``.
 
-4. :guilabel:`Database Password`: Enter the PostgreSQL database password supplied to the LOCKSS 2.x system.
+   b. :guilabel:`Configuration Service Web UI Port`: The default Web UI port for the |CFGSVC|, ``24602``, should remain unchanged.
 
-5. `Optional.` In the :guilabel:`Migration Options` section, select the :guilabel:`Perform dry run migration` checkbox if you want to **only test** migration from LOCKSS 1.x to LOCKSS 2.x without permanent changes to your LOCKSS 1.x system.
+   c. :guilabel:`Web UI Username`: Enter the Web UI username for the LOCKSS 2.x instance.
 
-6. `Optional.` If you are performing a **same-host migration with insufficient total storage space** on the host for two copies of the preserved content, select the :guilabel:`Delete AUs after migration` checkbox.
+   d. :guilabel:`Web UI Password`: Enter the Web UI password for the LOCKSS 2.x instance.
+
+3. Click the :guilabel:`Load Configuration` button. The metadata database configuration will be queried from the LOCKSS 2.x instance and displayed in the :guilabel:`Metadata Database` section of the screen.
+
+4. In the :guilabel:`Database Password` field, enter the password for the |POSTGRESQL|.
+
+5. |DRYRUNONLY| If you are doing a :ref:`Dry Run Migration`, select the :guilabel:`Perform dry run migration` checkbox in the :guilabel:`Migration Options` section.
+
+6.  |SAMEHOSTINCREMENTALONLY| **If, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, select the :guilabel:`Delete each AU after migration` checkbox.
 
    .. caution::
 
-      **Selecting this option will permanently delete content from your LOCKSS 1.x system, gradually during the migration as it progresses.** This should only be used if you are doing a **same-host migration with insufficient total disk space**, meaning there is not enough total disk space for two copies of the preserved content -- one copy in your LOCKSS 1.x instance and one copy in your LOCKSS 2.x instance. It is not recommended if you are doing a **new-host migration**, or a **same-host migration with sufficient total disk space**.
+      **Selecting this option causes content to be permanently deleted from your LOCKSS 1.x instance, gradually as the migration progresses.** This option should be used **if, and only if,** you are doing a :ref:`Same-Host Migration With Incremental Reclamation`, that is, a same-host migration with insufficient storage space to hold two copies of the content. You will receive a popup warning when you check this checkbox, which you need to acknowledge before you can continue. See :numref:`Same-Host Migration With Incremental Reclamation`.
 
-7. Click on the :guilabel:`Next` button to navigate to the Migration Control screen.
-
-----
-
-.. only:: html
-
-   .. rubric:: Footnotes
-
-.. [#fnsamehost]
-
-   If your :ref:`Migration Scenario` is a **same-host migration**, your LOCKSS 1.x host and your LOCKSS 2.x host are the same host.
+7. Click on the :guilabel:`Next` button at the bottom of the :guilabel:`Migration Settings` screen to navigate to the :guilabel:`Migration Control` screen.
