@@ -180,7 +180,9 @@ Now start the LOCKSS 2.x system. Follow these steps:
 
             *  If your login is successful but the red warning "This LOCKSS box is still starting" is shown, wait a moment and hit refresh until it is gone.
 
-         b. |LOCKSS1CONTAINER| In the unlikely event that your LOCKSS 1.x instance is a Docker container, you will have to perform an additional action:
+         b. .. COMMENT This is the target of a FAQ question
+
+            |LOCKSS1CONTAINER| In the unlikely event that your LOCKSS 1.x instance is a Docker container, you will have to perform an additional action:
 
             (i) |LOCKSS1ROOT| On your LOCKSS 1.x host, run this command as ``root``:
 
@@ -203,8 +205,8 @@ Now start the LOCKSS 2.x system. Follow these steps:
                       inet 172.18.0.3/16 brd 172.18.255.255 scope global eth0
                          valid_lft forever preferred_lft forever
 
-               Find the interface that is not a loopback (``lo``) interface, probably one with the prefix ``eth`` (``eth0`` in this example). You will want to make a note of the IP address (``inet``) of the LOCKSS 1.x container (``172.18.0.3`` in this example).
-
+               Find the interface that is not a loopback (``lo``) interface, probably one with the prefix ``eth``. In the example above, this is ``eth0``. You will want to make a note of the IP address (``inet``) of the LOCKSS 1.x container. In the example above, this is ``172.18.0.3`` (not ``172.18.0.3/16`` -- the suffix after the slash is not part of the IP address).
+    
             (ii) In the Web user interface of the LOCKSS 2.x Configuration Service from the previous step, click on :guilabel:`Admin Access Control` in the top-right navigation menu.
 
             (iii) Add the IP address of your LOCKSS 1.x container to the :guilabel:`Allow Access` screen list so it will be allowed to connect to the LOCKSS 2.x Web user interface, then click the :guilabel:`Update` button to save.

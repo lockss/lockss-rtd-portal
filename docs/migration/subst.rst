@@ -1,6 +1,6 @@
 .. COMMENT Substitutions for the migration guide
 
-.. |LASTUPDATED| replace:: 2026-07-13
+.. |LASTUPDATED| replace:: 2026-11-16
 
 .. |MIGRATE_FROM_MINOR| replace:: 1.79
 .. |MIGRATE_FROM_PATCH| replace:: 1.79.14
