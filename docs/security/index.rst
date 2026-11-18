@@ -2,7 +2,7 @@
 Security
 ========
 
-:Last updated: 2023-09-08
+:Last updated: 2026-11-18
 
 This section discusses security issues related to the LOCKSS system.
 
@@ -12,6 +12,13 @@ This section discusses security issues related to the LOCKSS system.
    *  *  Date
       *  Reference
       *  Summary
+   *  *  2026-11-18
+      *  CVE-2026-114938
+      *  Affects LOCKSS 2.x up to and including LOCKSS 2.0.91-beta2. Resolved in LOCKSS 2.0.92-beta2.
+
+         Also affects LOCKSS 1.x hosts that use Oracle Java SE 8 Enterprise Performance Pack version 8u511b33-perf or earlier.
+
+         :doc:`Read more... <cve-2026-114938>`
    *  *  2023-09-08
       *  CVE-2022-39135
       *  Does not affect LOCKSS 2.x to date.
